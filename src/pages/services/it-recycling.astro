@@ -1,0 +1,48 @@
+---
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import SEOBreadcrumbs from '../../components/SEOBreadcrumbs.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "WEEE Compliant IT Recycling",
+  "description": "Eco-friendly IT recycling in London with zero-landfill policy and full WEEE compliance.",
+  "provider": { "@type": "LocalBusiness", "name": "Antares Systems" }
+};
+---
+
+<BaseLayout 
+  title="IT Recycling & WEEE Disposal London" 
+  description="GDPR compliant IT recycling and disposal services in London. Zero-landfill policy, WEEE compliance, and full sustainability reporting for businesses."
+  schema={schema}
+>
+  <Header />
+  <main class="py-12">
+    <div class="container mx-auto px-6">
+      <SEOBreadcrumbs items={[{ name: 'Services', href: '/services' }, { name: 'IT Recycling', href: '/services/it-recycling' }]} />
+      
+      <div class="max-w-4xl mx-auto py-12">
+        <h1 class="text-5xl font-bold text-slate-900 mb-6">Sustainable IT Recycling</h1>
+        <p class="text-xl text-slate-600 mb-12 leading-relaxed">
+          Our zero-landfill policy ensures that your legacy hardware is either refurbished for its second life or responsibly recycled at the component level.
+        </p>
+        
+        <div class="grid md:grid-cols-2 gap-12 mb-16">
+          <img src="/F2.jpg" alt="Eco-friendly recycling" class="rounded-2xl shadow-lg" />
+          <div class="space-y-6">
+            <h3 class="text-2xl font-bold">Environmental Commitment</h3>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3"><span class="text-success-eco">✔</span> 100% WEEE Directive Compliance</li>
+              <li class="flex items-center gap-3"><span class="text-success-eco">✔</span> Absolute zero-landfill guarantee</li>
+              <li class="flex items-center gap-3"><span class="text-success-eco">✔</span> Waste Carrier License provided</li>
+              <li class="flex items-center gap-3"><span class="text-success-eco">✔</span> Sustainability & Carbon reports</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

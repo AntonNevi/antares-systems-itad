@@ -1,0 +1,74 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import SEOBreadcrumbs from '../components/SEOBreadcrumbs.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Antares Systems",
+  "description": "Antares Systems is a London-based ITAD provider specialized in secure data disposal and sustainable IT recycling.",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Antares Systems Ltd",
+    "foundingDate": "2010",
+    "description": "Leading UK provider of secure IT asset disposition services."
+  }
+};
+---
+
+<BaseLayout 
+  title="About Us | Secure ITAD History" 
+  description="Learn about Antares Systems, our mission for zero-landfill IT disposal, and our commitment to data security standards in London."
+  schema={schema}
+>
+  <Header />
+  <main class="py-12">
+    <div class="container mx-auto px-6">
+      <SEOBreadcrumbs items={[{ name: 'About', href: '/about' }]} />
+      
+      <div class="max-w-4xl mx-auto py-12">
+        <h1 class="text-5xl font-bold text-slate-900 mb-8">Secure. Sustainable. Certified.</h1>
+        <p class="text-xl text-slate-600 mb-12 leading-relaxed">
+          Founded in London, Antares Systems was built on a simple premise: corporate data security and environmental responsibility should go hand in hand. Today, we are one of the UK's most trusted partners for secure IT Asset Disposition (ITAD).
+        </p>
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+          <div class="space-y-6">
+            <h2 class="text-3xl font-bold text-slate-800">Our Mission</h2>
+            <p class="text-slate-600">
+              To provide military-grade data destruction services while ensuring 100% of processed hardware is diverted from landfills. We aim to extend the lifecycle of technology through expert refurbishment and responsible redistribution.
+            </p>
+          </div>
+          <div class="bg-slate-100 h-64 rounded-2xl flex items-center justify-center">
+             <!-- Placeholder for About Team/Office Image -->
+             <img src="/F5.jpg" alt="Antares Team" class="h-full w-full object-cover rounded-2xl shadow-lg opacity-90" />
+          </div>
+        </div>
+
+        <div class="border-t border-slate-200 pt-16">
+          <h2 class="text-3xl font-bold text-slate-800 mb-8 text-center">Core Values</h2>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-6 bg-slate-50 rounded-xl">
+              <span class="text-4xl mb-4 block">🔒</span>
+              <h3 class="text-xl font-bold mb-2">Security First</h3>
+              <p class="text-slate-600">We treat every data-bearing device as high-risk until certified sanitized.</p>
+            </div>
+            <div class="p-6 bg-slate-50 rounded-xl">
+              <span class="text-4xl mb-4 block">♻️</span>
+              <h3 class="text-xl font-bold mb-2">Circular Economy</h3>
+              <p class="text-slate-600">Repair and reuse is our priority. Recycling is the last resort.</p>
+            </div>
+            <div class="p-6 bg-slate-50 rounded-xl">
+              <span class="text-4xl mb-4 block">📜</span>
+              <h3 class="text-xl font-bold mb-2">Total Compliance</h3>
+              <p class="text-slate-600">GDPR, WEEE, NIST, HMG. We handle the bureaucracy so you don't have to.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

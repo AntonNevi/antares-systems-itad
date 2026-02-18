@@ -1,0 +1,66 @@
+---
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import SEOBreadcrumbs from '../../components/SEOBreadcrumbs.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Global IT Export Sales",
+  "description": "Wholesale export of refurbished IT equipment to Africa and Asia. Tested, graded, and warrantied hardware bulk supply.",
+  "provider": { "@type": "LocalBusiness", "name": "Antares Systems" }
+};
+---
+
+<BaseLayout 
+  title="Bulk IT Export & Wholesale Computers" 
+  description="Exporting high-quality refurbished laptops and desktops to Africa, Asia, and global markets. Bulk wholesale pricing for resellers."
+  schema={schema}
+>
+  <Header />
+  <main class="py-12">
+    <div class="container mx-auto px-6">
+      <SEOBreadcrumbs items={[{ name: 'Services', href: '/services' }, { name: 'Export Sales', href: '/services/export' }]} />
+      
+      <div class="max-w-4xl mx-auto py-12">
+        <h1 class="text-5xl font-bold text-slate-900 mb-6">Global IT Export</h1>
+        <p class="text-xl text-slate-600 mb-12 leading-relaxed">
+          Connecting UK corporate surplus with global demand. We supply bulk refurbished IT equipment to education, business, and reseller partners in Africa, Asia, and Europe.
+        </p>
+        
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
+          <div class="p-8 bg-slate-900 text-white rounded-2xl">
+            <h3 class="text-2xl font-bold mb-4">Our Markets</h3>
+            <p class="text-slate-300 mb-6">
+              We handle all logistics and customs documentation for seamless export.
+            </p>
+            <ul class="space-y-3 text-slate-300">
+              <li class="flex items-center gap-3"><span class="text-success-eco">🌍</span> West & East Africa</li>
+              <li class="flex items-center gap-3"><span class="text-success-eco">🌏</span> Southeast Asia</li>
+              <li class="flex items-center gap-3"><span class="text-success-eco">🏙️</span> Middle East UAE</li>
+            </ul>
+          </div>
+          
+          <div class="p-8 bg-white border border-slate-200 rounded-2xl">
+            <h3 class="text-2xl font-bold mb-4 text-slate-900">Quality Assurance</h3>
+            <ul class="space-y-3 text-slate-600">
+              <li>• Strict visual and functional grading</li>
+              <li>• Professional packaging for sea/air freight</li>
+              <li>• Full component testing reports</li>
+              <li>• Warranties available for bulk lots</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="/contact" class="btn-primary inline-flex items-center gap-2 px-8 py-4 text-lg">
+            Request Export Price List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

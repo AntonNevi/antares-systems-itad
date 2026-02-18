@@ -1,0 +1,53 @@
+---
+import ContactForm from '../../components/ContactForm.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import SEOBreadcrumbs from '../../components/SEOBreadcrumbs.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const category = {
+  title: "AI & GPU Servers",
+  description: "High-performance computing infrastructure for Machine Learning, AI training, and rendering farms.",
+  items: [
+    { title: "NVIDIA DGX Systems", spec: "Specialized AI appliances" },
+    { title: "GPU-Dense Rack Servers", spec: "Supports 4x/8x Dual-Width GPUs" },
+    { title: "Supermicro GPU Systems", spec: "Flexible architectures" },
+    { title: "Tesla & A-Series GPU Nodes", spec: "Certified pre-owned accelerators" }
+  ]
+};
+---
+
+<BaseLayout 
+  title="Refurbished AI Servers & GPU Nodes" 
+  description="Affordable high-performance computing for AI/ML. Refurbished GPU servers and NVIDIA accelerator nodes."
+>
+  <Header />
+  <main class="py-12">
+    <div class="container mx-auto px-6">
+      <SEOBreadcrumbs items={[{ name: 'Products', href: '/products' }, { name: 'AI Servers', href: '/products/ai-servers' }]} />
+      
+      <div class="grid lg:grid-cols-2 gap-16 py-12">
+        <div>
+          <h1 class="text-5xl font-bold text-slate-900 mb-6">{category.title}</h1>
+          <p class="text-xl text-slate-600 mb-8">{category.description}</p>
+          
+          <div class="grid sm:grid-cols-2 gap-4 mb-12">
+            {category.items.map(item => (
+              <div class="p-4 border border-slate-200 rounded-lg hover:border-primary transition-colors bg-white shadow-sm">
+                <h3 class="font-bold text-lg text-slate-800">{item.title}</h3>
+                <p class="text-sm text-slate-500">{item.spec}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-100">
+          <h3 class="text-2xl font-bold mb-2">HPC Sourcing</h3>
+          <p class="text-slate-500 mb-6">Describe your workload and compute requirements.</p>
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
