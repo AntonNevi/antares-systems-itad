@@ -1,0 +1,107 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import SEOBreadcrumbs from '../components/SEOBreadcrumbs.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const serviceSections = [
+  {
+    id: "data-destruction",
+    title: "Data Erasure",
+    subtitle: "Certified destruction using ShredOS and NCSC-recognised methodologies.",
+    content: "NIST 800-88 Rev 1 and HMG IS5 compliant. Every device receives Certificate of Data Destruction with complete chain-of-custody documentation. On-site and facility-based options available.",
+    icon: "🛡️",
+    features: ["ShredOS Certified", "NCSC Methodologies", "Audit Trails", "On-site Options"]
+  },
+  {
+    id: "it-buyback",
+    title: "IT Asset Buyback",
+    subtitle: "Corporate hardware valuation and acquisition.",
+    content: "Desktops, laptops, servers, workstations, GPU accelerators. Secure collection nationwide. Data sanitisation included. Same-day payment processing.",
+    icon: "💰",
+    features: ["Fair Market Valuation", "Secure Collection", "Same-Day Payment", "Data Sanitisation"]
+  },
+  {
+    id: "recycling",
+    title: "Sustainable Recycling",
+    subtitle: "WEEE Directive-compliant material recovery.",
+    content: "Precious metal extraction, rare earth element reclamation, plastics processing. Zero landfill certification. Environmental reporting for ESG compliance.",
+    icon: "♻️",
+    features: ["WEEE Compliant", "Zero Landfill", "Precious Metal Recovery", "ESG Reporting"]
+  },
+  {
+    id: "export",
+    title: "Export & Remarketing",
+    subtitle: "Enterprise-grade refurbished equipment for international resale.",
+    content: "Full customs documentation, containerised logistics, market-specific compliance. Primary markets: West Africa, East Africa, UAE, South Asia.",
+    icon: "🌍",
+    features: ["International Resale", "Customs Docs", "Logistics", "Emerging Markets"]
+  },
+  {
+    id: "on-site",
+    title: "On-Site Services",
+    subtitle: "Secure destruction at client premises.",
+    content: "Tamper-evident transport, witnessed wiping, immediate certification. Emergency response available.",
+    icon: "🚚",
+    features: ["Witnessed Wiping", "Immediate Certification", "Tamper-Evident", "Emergency Response"]
+  }
+];
+---
+
+<BaseLayout 
+  title="Our Services | Antares Systems" 
+  description="Data Erasure, IT Asset Buyback, Recycling, and Export services. NCSC-approved methodologies."
+>
+  <Header />
+  <main class="bg-slate-50">
+    <div class="bg-slate-900 py-20 text-center text-white border-b border-slate-800">
+      <div class="container mx-auto px-6">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Core Services</h1>
+        <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+          Comprehensive IT asset disposition solutions for security-conscious organizations.
+        </p>
+      </div>
+    </div>
+
+    <div class="container mx-auto px-6 py-12">
+      <SEOBreadcrumbs items={[{ name: 'Services', href: '/services' }]} />
+      
+      <div class="space-y-24 py-12">
+        {serviceSections.map((service, index) => (
+          <section id={service.id} class={`flex flex-col md:flex-row gap-12 items-start ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+            <div class="flex-1 bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+              <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-3xl mb-6 text-primary">
+                {service.icon}
+              </div>
+              <h2 class="text-3xl font-bold text-slate-900 mb-2">{service.title}</h2>
+              <h3 class="text-lg font-semibold text-primary mb-4">{service.subtitle}</h3>
+              <p class="text-slate-600 leading-relaxed mb-8">
+                {service.content}
+              </p>
+              
+              <div class="grid grid-cols-2 gap-4">
+                {service.features.map(feature => (
+                  <div class="flex items-center gap-2 text-sm font-medium text-slate-700">
+                    <span class="w-1.5 h-1.5 bg-success-eco rounded-full"></span>
+                    {feature}
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <!-- Infographic / Visual Block Placeholder -->
+            <div class="flex-1 w-full min-h-[300px] bg-slate-100 rounded-2xl border border-slate-200 flex items-center justify-center relative overflow-hidden group">
+               <div class="absolute inset-0 bg-slate-200/50 pattern-grid-lg opacity-20"></div>
+               <!-- Placeholder for specific service infographic -->
+               <div class="text-center p-8 z-10 transition-transform duration-500 group-hover:scale-105">
+                  <span class="text-6xl opacity-20 mb-4 block grayscale">{service.icon}</span>
+                  <span class="text-slate-400 font-bold uppercase tracking-widest text-xs">Service Infographic</span>
+               </div>
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

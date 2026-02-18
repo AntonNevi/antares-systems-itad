@@ -1,0 +1,108 @@
+---
+import ContactForm from '../components/ContactForm.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import SEOBreadcrumbs from '../components/SEOBreadcrumbs.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Contact Us | Antares Systems" 
+  description="Get a quote for IT asset disposal, data destruction, or buyback services. London-based team."
+>
+  <Header />
+  <main class="bg-slate-50 min-h-screen">
+    <div class="bg-slate-900 py-24 text-center text-white border-b border-slate-800">
+      <div class="container mx-auto px-6 max-w-4xl">
+         <span class="inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-4">Start Your Project</span>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Ready to Secure Your Data?</h1>
+        <p class="text-xl text-slate-400">
+           Professional. Precise. Ready for implementation.
+        </p>
+      </div>
+    </div>
+
+    <div class="container mx-auto px-6 py-12 -mt-16 relative z-10">
+      <SEOBreadcrumbs items={[{ name: 'Contacts', href: '/contacts' }]} />
+      
+      <div class="grid lg:grid-cols-2 gap-12 mt-8">
+        <!-- Contact Info & Commitments -->
+        <div class="space-y-8">
+           <!-- Operating Base -->
+           <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+              <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                 <span class="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center text-lg">📍</span>
+                 Operating Base
+              </h2>
+              <p class="text-slate-600 leading-relaxed">
+                 London, United Kingdom.<br/>
+                 Serving domestic and international clients.
+              </p>
+           </div>
+
+           <!-- Direct Contact -->
+           <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+              <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                 <span class="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center text-lg">📞</span>
+                 Direct Contact
+              </h2>
+              <ul class="space-y-4">
+                 <li class="flex items-center gap-4">
+                    <span class="text-slate-400 w-6">✉️</span>
+                    <a href="mailto:info@antaressystems.net" class="text-lg font-medium text-primary hover:underline">info@antaressystems.net</a>
+                 </li>
+                 <li class="flex items-center gap-4">
+                    <span class="text-slate-400 w-6">📱</span>
+                    <span class="text-lg font-medium text-slate-700">+44 20 7123 4567</span>
+                 </li>
+                 <li class="flex items-center gap-4">
+                    <span class="text-slate-400 w-6">💼</span>
+                    <a href="#" class="text-slate-600 hover:text-primary transition-colors">Connect on LinkedIn</a>
+                 </li>
+              </ul>
+           </div>
+
+           <!-- Service Commitments -->
+           <div class="bg-slate-900 text-white p-8 rounded-2xl shadow-md border border-slate-800">
+              <h2 class="text-xl font-bold mb-6 text-white border-b border-slate-800 pb-4">Service Commitments</h2>
+              <ul class="space-y-4">
+                 <li class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold">24h</div>
+                    <div>
+                       <strong class="block text-white">Standard Inquiries</strong>
+                       <span class="text-sm text-slate-400">Response guarantee within 24 hours.</span>
+                    </div>
+                 </li>
+                 <li class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-red-500/20 text-red-500 flex items-center justify-center font-bold">4h</div>
+                    <div>
+                       <strong class="block text-white">Critical Requirements</strong>
+                       <span class="text-sm text-slate-400">4-hour on-site deployment available for urgent destruction.</span>
+                    </div>
+                 </li>
+                 <li class="flex items-start gap-4 pt-2">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-success-eco/20 text-success-eco flex items-center justify-center font-bold">🔒</div>
+                    <div>
+                       <strong class="block text-white">Confidentiality Assured</strong>
+                       <span class="text-sm text-slate-400">No third-party information sharing. Strict NDAs.</span>
+                    </div>
+                 </li>
+              </ul>
+           </div>
+        </div>
+
+        <!-- Inquiry Form -->
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
+           <div class="p-8 border-b border-slate-50 bg-slate-50/50">
+              <h2 class="text-2xl font-bold text-slate-900">Inquiry Form</h2>
+              <p class="text-slate-500 text-sm mt-1">Tell us about your project requirements.</p>
+           </div>
+           <div class="p-8">
+             <ContactForm />
+           </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

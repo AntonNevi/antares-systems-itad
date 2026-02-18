@@ -1,149 +1,171 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const services = [
   {
     title: "Data Destruction",
-    description: "Military-grade data erasure with certificates. NIST 800-88 and HMG IS5 compliant.",
-    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>`,
-    link: "/services/data-destruction"
+    description: "Certified erasure with audit trails and certificates.",
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>`,
+    link: "/services#data-destruction"
   },
   {
-    title: "IT Asset Buyback",
-    description: "Turn your obsolete equipment into revenue. Fair valuation, free collection, fast payment.",
+    title: "IT Buyback",
+    description: "Fair-market valuation with free UK-wide collection.",
     icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`,
-    link: "/services/buyback"
+    link: "/services#it-buyback"
   },
   {
     title: "Sustainable Recycling",
-    description: "Zero landfill guarantee. WEEE compliant, environmental certificates provided.",
+    description: "Zero-landfill WEEE-compliant processing.",
     icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>`,
-    link: "/services/it-recycling"
+    link: "/services#recycling"
   }
 ];
 ---
 
 <BaseLayout 
-  title="Secure IT Asset Disposal & Data Erasure London" 
-  description="NCSC-approved data destruction, certified recycling, and sustainable IT buyback for businesses across the UK."
+  title="Secure IT Asset Disposal & Data Erasure | Antares Systems" 
+  description="NCSC-approved data wiping, certified IT recycling, and sustainable hardware buyback for UK businesses."
 >
   <Header />
   <main>
     <!-- Hero Section -->
-    <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-slate-900 border-b border-slate-800">
-      <div class="absolute inset-0 z-0">
-        <div class="absolute -top-40 -left-40 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] mix-blend-screen opacity-50 animate-pulse"></div>
-        <div class="absolute -bottom-40 -right-40 w-[600px] h-[600px] bg-success-eco/10 rounded-full blur-[100px] mix-blend-screen opacity-50 animate-pulse" style="animation-delay: 2s"></div>
-        <div class="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
-      </div>
-
-      <div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
-        <div class="text-left space-y-8 max-w-2xl">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700 backdrop-blur-sm shadow-lg mb-4 animate-fade-in-up">
-            <span class="relative flex h-3 w-3">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-3 w-3 bg-success-eco"></span>
-            </span>
-            <span class="text-xs font-semibold text-slate-300 uppercase tracking-widest pl-2">NCSC Approved ITAD</span>
+    <section class="relative py-24 lg:py-32 bg-slate-900 border-b border-slate-800 overflow-hidden">
+      <!-- Background Grid -->
+      <div class="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5 pointer-events-none"></div>
+      
+      <div class="container mx-auto px-6 relative z-10 text-center max-w-5xl">
+         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 backdrop-blur-sm shadow-sm mb-8 animate-fade-in-up">
+            <span class="w-2 h-2 bg-success-eco rounded-full animate-ping"></span>
+            <span class="text-xs font-bold text-slate-300 uppercase tracking-widest">London's Trusted ITAD Partner</span>
           </div>
 
-          
-          <h1 class="text-5xl lg:text-7xl font-bold text-white leading-[1.1] animate-fade-in-up delay-100">
-            Secure IT Asset <br />
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Disposal</span> & 
-            <span class="italic font-light text-slate-400">Erasure</span>
-          </h1>
-          
-          <p class="text-xl text-slate-400 leading-relaxed font-light animate-fade-in-up delay-200">
-            NCSC-approved data destruction, certified recycling, and sustainable IT buyback for businesses across the UK. We give your old technology a second life — securely.
-          </p>
-          
-          <div class="flex flex-col sm:flex-row gap-4 pt-4 animate-fade-in-up delay-300">
-            <a href="/contact" class="btn-primary flex items-center justify-center gap-2 px-8 py-4 text-lg">
-              Get a Free Quote
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-            </a>
-            <a href="/services" class="px-8 py-4 rounded-lg border border-primary text-primary hover:bg-primary/10 font-semibold transition-all flex items-center justify-center gap-2">
-              Explore Our Services
-            </a>
-          </div>
-        </div>
+        <h1 class="text-5xl lg:text-7xl font-bold text-white leading-tight mb-8 animate-fade-in-up delay-100">
+          Secure IT Asset Disposal & <br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Data Erasure</span> in London
+        </h1>
         
-        <!-- Hero Visual -->
-        <div class="hidden lg:block relative animate-fade-in delay-500">
-          <div class="absolute -inset-1 bg-gradient-to-r from-primary to-success-eco rounded-2xl blur opacity-20"></div>
-          <div class="relative bg-slate-900/90 backdrop-blur-xl border border-slate-700 p-2 rounded-2xl shadow-2xl">
-             <img src="/F3.png" alt="Secure Data Destruction" class="rounded-xl w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity" />
+        <p class="text-xl text-slate-400 leading-relaxed font-light mb-12 max-w-3xl mx-auto animate-fade-in-up delay-200">
+          NCSC-approved data wiping, certified IT recycling, and sustainable hardware buyback for UK businesses. Enterprise-grade security meets circular economy.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
+          <a href="/contacts" class="btn-primary flex items-center justify-center gap-2 px-8 py-4 text-lg">
+            Get a Quote
+          </a>
+          <a href="/services" class="px-8 py-4 rounded-lg border border-slate-600 text-slate-300 hover:text-white hover:border-slate-500 hover:bg-white/5 font-semibold transition-all flex items-center justify-center gap-2">
+            Our Services
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="border-b border-slate-100 bg-white py-10 shadow-sm relative z-20">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-slate-100">
+          <div class="px-4">
+             <span class="block text-2xl mb-2">🛡️</span>
+             <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-1">ICO Registered</h3>
+             <p class="text-slate-500 text-sm">C18880232</p>
+          </div>
+          <div class="px-4 pt-8 md:pt-0">
+             <span class="block text-2xl mb-2">📜</span>
+             <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-1">Fully Insured</h3>
+             <p class="text-slate-500 text-sm">Professional Indemnity & Public Liability</p>
+          </div>
+          <div class="px-4 pt-8 md:pt-0">
+             <span class="block text-2xl mb-2">✅</span>
+             <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-1">Certified Standards</h3>
+             <p class="text-slate-500 text-sm">NIST 800-88, HMG IS5, NCSC Approved</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Trust Bar -->
-    <section class="border-b border-slate-100 bg-slate-50 py-8">
-      <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-        <div class="flex items-center gap-4">
-          <span class="text-2xl">🛡️</span>
-          <div class="text-sm text-slate-600">
-            <span class="font-bold block text-slate-900">ICO Registration C18880232</span>
-            Professional Indemnity & Public Liability Insured
-          </div>
-        </div>
-        <div class="hidden md:block w-px h-10 bg-slate-200"></div>
-        <div class="text-sm font-medium text-slate-500">
-          NIST 800-88 / HMG IS5 / NCSC Approved
-        </div>
-        <div class="flex gap-4 text-xs font-bold text-slate-400 uppercase tracking-widest">
-          <span>500+ Tons Recycled</span>
-          <span>•</span>
-          <span>50,000+ Devices Wiped</span>
-        </div>
+    <!-- Company Overview -->
+    <section class="py-20 bg-slate-50">
+      <div class="container mx-auto px-6 max-w-4xl text-center">
+        <h2 class="text-3xl font-bold text-slate-900 mb-6">Company Overview</h2>
+        <p class="text-xl text-slate-600 leading-relaxed">
+          London-based ITAD provider delivering compliant asset disposal, secure data destruction, and international remarketing. We extend hardware lifecycle value while eliminating data risk.
+        </p>
       </div>
     </section>
     
-    <!-- Services Section -->
-    <section class="py-24 bg-white">
+    <!-- Core Services -->
+    <section class="py-20 bg-white">
       <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-slate-900">Core Services</h2>
+        </div>
         <div class="grid md:grid-cols-3 gap-8">
           {services.map(service => (
-            <ServiceCard {...service} linkText="Learn More" />
+            <ServiceCard {...service} linkText="View Details" />
           ))}
         </div>
       </div>
     </section>
 
-    <!-- Export Teaser -->
+    <!-- International Operations -->
     <section class="py-20 bg-slate-900 text-white relative overflow-hidden">
-      <div class="absolute inset-0 bg-primary/10 pattern-grid-lg opacity-10"></div>
+      <!-- Decorator -->
+      <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-white/5 skew-x-12 transform translate-x-20"></div>
+
       <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
         <div class="max-w-2xl">
-          <h2 class="text-3xl font-bold mb-4">Bulk Refurbished Equipment for Africa & Asia</h2>
-          <p class="text-slate-300 text-lg mb-8">
-            High-quality, tested, and graded laptops and servers ready for export. We handle full documentation and logistics for wholesale buyers.
+          <div class="flex items-center gap-3 mb-4 text-primary font-bold tracking-wide uppercase text-sm">
+             <span class="w-8 h-0.5 bg-primary"></span>
+             International Operations
+          </div>
+          <h2 class="text-4xl font-bold mb-6">Bulk Refurbished Equipment for Global Markets</h2>
+          <p class="text-slate-300 text-lg mb-8 leading-relaxed">
+            We supply bulk refurbished IT equipment to African and Asian markets. Upholding UK-quality standards with full export documentation and logistics coordination.
           </p>
-          <a href="/services/export" class="inline-flex items-center text-primary font-semibold hover:text-white transition-colors">
-            View Export Opportunities <span class="ml-2">→</span>
+          <a href="/services#export" class="btn-primary inline-flex items-center gap-2">
+            Export Capabilities <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
-        <div class="bg-white/5 p-8 rounded-2xl border border-white/10 backdrop-blur-sm max-w-sm w-full">
-          <h3 class="font-bold text-xl mb-2">Download ITAD Checklist</h3>
-          <p class="text-sm text-slate-400 mb-4">Ensure your disposal process is compliant.</p>
-          <form class="flex gap-2" action="https://formspree.io/f/xbjnqyjv" method="POST">
-            <input type="email" name="email" placeholder="Email Address" class="bg-slate-800 border border-slate-700 text-white px-4 py-2 rounded-lg w-full focus:outline-none focus:border-primary" required />
-            <button type="submit" class="btn-primary px-4 py-2 text-sm">Get</button>
-          </form>
+        <!-- Visual Block / Infographic style -->
+        <div class="w-full max-w-md bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-2xl">
+           <div class="flex items-center gap-4 mb-6 border-b border-slate-700 pb-4">
+              <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary">
+                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+              <div>
+                 <h3 class="font-bold text-white">Global Reach</h3>
+                 <p class="text-xs text-slate-400">Export & Logistics</p>
+              </div>
+           </div>
+           <ul class="space-y-4 text-sm text-slate-300">
+              <li class="flex items-start gap-3">
+                 <span class="text-primary mt-0.5">✓</span>
+                 <div>
+                    <strong class="text-white block">West & East Africa</strong>
+                    <span class="text-xs text-slate-500">Nigeria, Ghana, Kenya</span>
+                 </div>
+              </li>
+              <li class="flex items-start gap-3">
+                 <span class="text-primary mt-0.5">✓</span>
+                 <div>
+                    <strong class="text-white block">UAE & South Asia</strong>
+                    <span class="text-xs text-slate-500">Dubai, India, Pakistan</span>
+                 </div>
+              </li>
+              <li class="flex items-start gap-3">
+                 <span class="text-primary mt-0.5">✓</span>
+                 <div>
+                    <strong class="text-white block">Full Compliance</strong>
+                    <span class="text-xs text-slate-500">Customs documentation handled</span>
+                 </div>
+              </li>
+           </ul>
         </div>
       </div>
     </section>
   </main>
   <Footer />
 </BaseLayout>
-
-<style>
-  /* Page specific overrides or additional animations if needed 
-     Global animations are in global.css
-  */
-</style>
