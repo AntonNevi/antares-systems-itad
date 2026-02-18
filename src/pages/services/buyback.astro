@@ -4,55 +4,56 @@ import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import SEOBreadcrumbs from '../../components/SEOBreadcrumbs.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Corporate IT Asset Buyback",
-  "description": "Maximize the residual value of your IT hardware. We buy laptops, servers, and workstations with secure data erasure included.",
-  "provider": { "@type": "LocalBusiness", "name": "Antares Systems" }
-};
 ---
 
 <BaseLayout 
-  title="IT Asset Buyback & Valuation UK" 
-  description="Sell your used IT equipment to Antares Systems. Competitive buyback rates for corporate laptops, servers, and desktops with free valuation."
-  schema={schema}
+  title="IT Asset Buyback & Valuation" 
+  description="Turn your used IT assets into revenue. Buyback services for corporate laptops, servers, and desktops."
 >
   <Header />
-  <main class="py-12">
-    <div class="container mx-auto px-6">
+  <main>
+    <div class="container mx-auto px-6 py-12">
       <SEOBreadcrumbs items={[{ name: 'Services', href: '/services' }, { name: 'IT Buyback', href: '/services/buyback' }]} />
       
       <div class="grid lg:grid-cols-2 gap-16 py-12">
         <div class="space-y-8">
           <div>
-            <h1 class="text-5xl font-bold text-slate-900 mb-6">IT Asset Buyback</h1>
+            <h1 class="text-5xl font-bold text-slate-900 mb-6">Turn IT Assets Into Revenue</h1>
             <p class="text-xl text-slate-600 mb-8 leading-relaxed">
-              Unlock the hidden value in your redundant hardware. We provide fast, fair valuations for bulk IT equipment including laptops, servers, and datacenter infrastructure.
+              Unlock the residual value in your redundant hardware. We offer fair market valuation within 24 hours and free secure collection anywhere in the UK.
             </p>
           </div>
 
           <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100">
-            <h3 class="text-2xl font-bold mb-4">What We Buy</h3>
-            <ul class="space-y-3">
-              <li class="flex items-center gap-3"><span class="text-primary">➡</span> Enterprise Laptops (Dell, Lenovo, HP, Apple)</li>
-              <li class="flex items-center gap-3"><span class="text-primary">➡</span> Rack & Blade Servers (HPE, Dell, Cisco)</li>
-              <li class="flex items-center gap-3"><span class="text-primary">➡</span> Networking Gear (Switches, Firewalls)</li>
-              <li class="flex items-center gap-3"><span class="text-primary">➡</span> Workstations & High-End GPUs</li>
+            <h3 class="text-2xl font-bold mb-4">Our Offer</h3>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3">
+                <span class="w-8 h-8 bg-white border border-slate-200 rounded-full flex items-center justify-center text-primary font-bold">1</span>
+                <span>Fair market valuation within 24 hours</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-8 h-8 bg-white border border-slate-200 rounded-full flex items-center justify-center text-primary font-bold">2</span>
+                <span>Free secure collection anywhere in UK</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-8 h-8 bg-white border border-slate-200 rounded-full flex items-center justify-center text-primary font-bold">3</span>
+                <span>Data destruction included in buyback price</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-8 h-8 bg-white border border-slate-200 rounded-full flex items-center justify-center text-primary font-bold">4</span>
+                <span>Fast payment (BACS same day on agreement)</span>
+              </li>
             </ul>
           </div>
-
-          <div class="p-6 bg-blue-50 border border-blue-100 rounded-xl">
-            <p class="text-blue-900 font-medium">
-              <span class="font-bold">Security Note:</span> All buyback devices undergo NIST 800-88 data erasure before resale. Comprehensive reporting is included.
-            </p>
+          
+          <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-100">
+             <img src="/F4.jpg" alt="Refurbished IT Hardware Valuation" class="w-full h-auto object-cover" />
           </div>
         </div>
 
-        <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-100">
-          <h3 class="text-2xl font-bold mb-2">Request Valuation</h3>
-          <p class="text-slate-500 mb-6">Upload your asset list or describe your inventory below.</p>
+        <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-100 h-fit">
+          <h3 class="text-2xl font-bold mb-2">Get A Valuation</h3>
+          <p class="text-slate-500 mb-6">Fast, no-obligation quote for your equipment.</p>
           <ContactForm />
         </div>
       </div>

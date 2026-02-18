@@ -3,42 +3,37 @@ import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import SEOBreadcrumbs from '../../components/SEOBreadcrumbs.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "WEEE Compliant IT Recycling",
-  "description": "Eco-friendly IT recycling in London with zero-landfill policy and full WEEE compliance.",
-  "provider": { "@type": "LocalBusiness", "name": "Antares Systems" }
-};
 ---
 
 <BaseLayout 
-  title="IT Recycling & WEEE Disposal London" 
-  description="GDPR compliant IT recycling and disposal services in London. Zero-landfill policy, WEEE compliance, and full sustainability reporting for businesses."
-  schema={schema}
+  title="Zero Landfill IT Recycling London" 
+  description="WEEE compliant IT recycling services with zero-landfill guarantee. Sustainable disposal for London businesses."
 >
   <Header />
-  <main class="py-12">
-    <div class="container mx-auto px-6">
+  <main>
+    <div class="container mx-auto px-6 py-12">
       <SEOBreadcrumbs items={[{ name: 'Services', href: '/services' }, { name: 'IT Recycling', href: '/services/it-recycling' }]} />
       
       <div class="max-w-4xl mx-auto py-12">
-        <h1 class="text-5xl font-bold text-slate-900 mb-6">Sustainable IT Recycling</h1>
+        <h1 class="text-5xl font-bold text-slate-900 mb-6">Zero Landfill, Full Compliance</h1>
         <p class="text-xl text-slate-600 mb-12 leading-relaxed">
-          Our zero-landfill policy ensures that your legacy hardware is either refurbished for its second life or responsibly recycled at the component level.
+          Our specialized recycling process recovers precious metals, rare earth elements, and plastics from your obsolete hardware, ensuring complete WEEE Directive compliance.
         </p>
         
-        <div class="grid md:grid-cols-2 gap-12 mb-16">
-          <img src="/F2.jpg" alt="Eco-friendly recycling" class="rounded-2xl shadow-lg" />
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+          <img src="/F2.jpg" alt="Sustainable IT Recycling" class="rounded-2xl shadow-xl hover:scale-[1.01] transition-transform duration-300" />
           <div class="space-y-6">
-            <h3 class="text-2xl font-bold">Environmental Commitment</h3>
-            <ul class="space-y-4">
-              <li class="flex items-center gap-3"><span class="text-success-eco">✔</span> 100% WEEE Directive Compliance</li>
-              <li class="flex items-center gap-3"><span class="text-success-eco">✔</span> Absolute zero-landfill guarantee</li>
-              <li class="flex items-center gap-3"><span class="text-success-eco">✔</span> Waste Carrier License provided</li>
-              <li class="flex items-center gap-3"><span class="text-success-eco">✔</span> Sustainability & Carbon reports</li>
-            </ul>
+            <div class="bg-success-eco/5 p-6 rounded-xl border border-success-eco/20">
+              <h3 class="text-xl font-bold text-success-eco mb-3">Sustainability Reporting</h3>
+              <p class="text-slate-700 mb-4">
+                We provide detailed environmental certificates for your sustainability reports, tracking carbon offset and materials recovered.
+              </p>
+              <ul class="space-y-2 text-sm text-slate-600">
+                <li class="flex items-center gap-2"><span class="text-success-eco">✓</span> Waste Transfer Notes</li>
+                <li class="flex items-center gap-2"><span class="text-success-eco">✓</span> Hazardous Waste Consignment</li>
+                <li class="flex items-center gap-2"><span class="text-success-eco">✓</span> ESG Impact Data</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

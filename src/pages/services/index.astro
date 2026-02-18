@@ -8,39 +8,61 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const services = [
   {
     title: "Data Destruction",
-    description: "Certified hardware shredding and NCSC-approved data erasure.",
-    icon: "🔒",
+    description: "Military-grade data erasure with certificates. NIST 800-88 and HMG IS5 compliant.",
+    icon: "🛡️",
     link: "/services/data-destruction"
   },
   {
     title: "IT Recycling",
-    description: "WEEE compliant recycling with zero-landfill guarantee.",
+    description: "Zero landfill guarantee. WEEE compliant, environmental certificates provided.",
     icon: "♻️",
     link: "/services/it-recycling"
   },
   {
-    title: "IT Asset Buyback",
-    description: "Corporate asset recovery and equipment valuation.",
+    title: "Buyback & Valuation",
+    description: "Turn your obsolete equipment into revenue. Fair valuation, free collection, fast payment.",
     icon: "💰",
     link: "/services/buyback"
   },
   {
-    title: "Export & Resale",
-    description: "Global distribution of refurbished business-grade hardware.",
+    title: "Export & Remarketing",
+    description: "Global distribution of refurbished business-grade hardware to emerging markets.",
     icon: "🌍",
     link: "/services/export"
+  },
+  {
+    title: "On-Site Services",
+    description: "Secure mobile shredding and data wiping at your premises for maximum security.",
+    icon: "🚛",
+    link: "/contact"
+  },
+  {
+    title: "Compliance Consulting",
+    description: "Expert advice on GDPR, WEEE, and data protection policies for your organization.",
+    icon: "📋",
+    link: "/compliance"
   }
 ];
 ---
 
-<BaseLayout title="ITAD Services London" description="Explore our full range of IT Asset Disposition services, including data destruction, recycling, and asset buyback in London.">
+<BaseLayout 
+  title="ITAD Services London | Antares Systems" 
+  description="Complete IT Asset Disposition services for London businesses. From secure destruction to global remarketing."
+>
   <Header />
-  <main class="py-24">
+  <main class="py-12 bg-slate-50">
     <div class="container mx-auto px-6">
       <SEOBreadcrumbs items={[{ name: 'Services', href: '/services' }]} />
-      <h1 class="text-5xl font-bold mb-12">Our Services</h1>
-      <div class="grid md:grid-cols-2 gap-8">
-        {services.map(s => <ServiceCard {...s} />)}
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h1 class="text-4xl font-bold text-slate-900 mb-6">Complete IT Asset Disposition Services</h1>
+        <p class="text-xl text-slate-600">
+          Complete IT Asset Disposition services for London businesses. From secure destruction to global remarketing.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map(s => <ServiceCard {...s} linkText="Learn More" />)}
       </div>
     </div>
   </main>
