@@ -1,0 +1,26 @@
+---
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import ProductGrid from '../../components/ProductGrid.astro';
+import SEOBreadcrumbs from '../../components/SEOBreadcrumbs.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const categories = [
+  { title: "Laptops", desc: "Refurbished business grade laptops.", slug: "laptops", icon: "💻" },
+  { title: "Servers", desc: "Enterprise rack and blade servers.", slug: "servers", icon: "🖥️" },
+  { title: "AI & GPU Servers", desc: "High-density GPU infrastructure.", slug: "ai-servers", icon: "🧠" },
+  { title: "Workstations", desc: "Professional CAD and rendering units.", slug: "workstations", icon: "🏗️" }
+];
+---
+
+<BaseLayout title="Refurbished Enterprise Hardware" description="Browse high-quality refurbished business laptops, servers, and AI infrastructure from Antares Systems.">
+  <Header />
+  <main class="py-24">
+    <div class="container mx-auto px-6">
+      <SEOBreadcrumbs items={[{ name: 'Products', href: '/products' }]} />
+      <h1 class="text-5xl font-bold mb-12">Product Inventory</h1>
+      <ProductGrid products={categories} />
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

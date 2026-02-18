@@ -1,0 +1,48 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import SEOBreadcrumbs from '../components/SEOBreadcrumbs.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const services = [
+  {
+    title: "Data Destruction",
+    description: "Certified hardware shredding and NCSC-approved data erasure.",
+    icon: "🔒",
+    link: "/services/data-destruction"
+  },
+  {
+    title: "IT Recycling",
+    description: "WEEE compliant recycling with zero-landfill guarantee.",
+    icon: "♻️",
+    link: "/services/it-recycling"
+  },
+  {
+    title: "IT Asset Buyback",
+    description: "Corporate asset recovery and equipment valuation.",
+    icon: "💰",
+    link: "/services/buyback"
+  },
+  {
+    title: "Export & Resale",
+    description: "Global distribution of refurbished business-grade hardware.",
+    icon: "🌍",
+    link: "/services/export"
+  }
+];
+---
+
+<BaseLayout title="ITAD Services London" description="Explore our full range of IT Asset Disposition services, including data destruction, recycling, and asset buyback in London.">
+  <Header />
+  <main class="py-24">
+    <div class="container mx-auto px-6">
+      <SEOBreadcrumbs items={[{ name: 'Services', href: '/services' }]} />
+      <h1 class="text-5xl font-bold mb-12">Our Services</h1>
+      <div class="grid md:grid-cols-2 gap-8">
+        {services.map(s => <ServiceCard {...s} />)}
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
