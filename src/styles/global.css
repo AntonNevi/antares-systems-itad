@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0081CC;
+  --color-success-eco: #10bb82;
+  --color-neutral-gray: #9E9E9E;
+  --color-dark-surface: #121212;
+  --color-glass: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  body {
+    @apply bg-white text-slate-900 antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .dark body {
+    @apply bg-[var(--color-dark-surface)] text-slate-100;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-blue-500/20;
+  }
+
+  .btn-eco {
+    @apply bg-success-eco hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-green-500/20;
+  }
+
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-xl;
+  }
+
+  .trusted-badge {
+    @apply border border-neutral-gray/30 rounded-full px-4 py-1 text-sm font-medium text-neutral-gray flex items-center gap-2;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}

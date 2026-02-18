@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Secure IT Asset Disposal & Data Erasure in London. NCSC-approved data wiping and recycling." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | Antares Systems</title>
+		<meta name="description" content={description} />
+		
+		<!-- HTMX -->
+		<script src="https://unpkg.com/htmx.org@2.0.0" integrity="sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHc6qp6WJ6u96zGzo6J" crossorigin="anonymous"></script>
+		
+		<!-- Google Fonts: Inter -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body class="min-h-screen flex flex-col">
+		<slot />
+		
+		<footer class="bg-slate-900 text-white py-12 px-6 mt-auto">
+			<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+				<div>
+					<img src="/logo_antares.png" alt="Antares Systems" class="h-10 mb-4 brightness-0 invert" />
+					<p class="text-slate-400">Secure IT Asset Disposal & Data Erasure Specialists.</p>
+				</div>
+				<div>
+					<h4 class="font-bold mb-4 uppercase tracking-wider text-slate-200">Compliance</h4>
+					<p class="text-slate-400 mb-2">ICO Registration: C18880232</p>
+					<p class="text-slate-400">NIST 800-88 & HMG IS5 Compliant</p>
+				</div>
+				<div>
+					<h4 class="font-bold mb-4 uppercase tracking-wider text-slate-200">Location</h4>
+					<p class="text-slate-400">London, United Kingdom</p>
+					<p class="text-slate-400">Serving Enterprise & Public Sector</p>
+				</div>
+			</div>
+			<div class="max-w-7xl mx-auto border-t border-slate-800 mt-12 pt-8 text-center text-slate-500">
+				&copy; {new Date().getFullYear()} Antares Systems Ltd. All rights reserved.
+			</div>
+		</footer>
+	</body>
+</html>

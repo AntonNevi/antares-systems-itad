@@ -1,0 +1,90 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import TrustBar from '../components/TrustBar.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const services = [
+  {
+    title: "Data Destruction",
+    description: "NCSC-approved data wiping and physical shredding. Certified compliance with NIST 800-88 and HMG IS5 standards.",
+    icon: "🔒",
+    link: "/services/data-destruction"
+  },
+  {
+    title: "IT Recycling",
+    description: "Eco-friendly WEEE compliant recycling with a zero-landfill policy. Full sustainability reporting included.",
+    icon: "♻️",
+    link: "/services/it-recycling"
+  },
+  {
+    title: "IT Asset Buyback",
+    description: "Get maximum value for your redundant IT assets. We buy business-grade laptops, servers, and networking gear.",
+    icon: "💰",
+    link: "/services/buyback"
+  }
+];
+---
+
+<BaseLayout 
+  title="Secure IT Asset Disposal & Data Erasure London" 
+  description="Antares Systems provides NCSC-approved data destruction, IT recycling, and corporate ITAD services in London. NIST 800-88 & HMG IS5 compliant."
+>
+  <Header />
+  <main>
+    <HeroSection />
+    <TrustBar />
+    
+    <section class="py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-4xl font-bold text-slate-900 mb-4">Our Core ITAD Services</h2>
+          <p class="text-lg text-slate-500">Professional solutions for secure data retirement and sustainable hardware management.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          {services.map(service => (
+            <ServiceCard {...service} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-slate-50">
+      <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-4xl font-bold text-slate-900 mb-6">Giving Old Technology a Second Life</h2>
+          <p class="text-slate-600 mb-8 leading-relaxed">
+            Sustainability is at the heart of Antares Systems. Beyond security, we ensure that every asset is either refurbished for reuse or recycled to recover precious materials, minimizing environmental impact.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="bg-primary/10 text-primary p-2 rounded-lg">✓</div>
+              <div>
+                <h4 class="font-bold text-slate-900">Certified Compliance</h4>
+                <p class="text-sm text-slate-500">Fully insured and ICO registered (C18880232).</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="bg-primary/10 text-primary p-2 rounded-lg">✓</div>
+              <div>
+                <h4 class="font-bold text-slate-900">National Coverage</h4>
+                <p class="text-sm text-slate-500">London-based with secure logistics operating UK-wide.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <img src="/F4.jpg" alt="Refurbished Equipment" class="rounded-2xl shadow-2xl" />
+          <div class="absolute -bottom-10 -right-10 bg-primary text-white p-8 rounded-2xl hidden md:block">
+            <p class="text-3xl font-bold border-b border-white/20 pb-2">15k+</p>
+            <p class="text-xs uppercase tracking-widest pt-2">Assets Processed Yearly</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

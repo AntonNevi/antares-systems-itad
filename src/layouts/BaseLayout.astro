@@ -1,0 +1,149 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonical?: string;
+  type?: 'website' | 'article' | 'product';
+  schema?: object;
+}
+
+const { 
+  title, 
+  description, 
+  image = '/logo_antares.png', 
+  canonical, 
+  type = 'website',
+  schema
+} = Astro.props;
+
+const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).href;
+const socialImageURL = new URL(image, Astro.site).href;
+
+// Default LocalBusiness Schema
+const defaultSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Antares Systems",
+  "image": "https://antaressystems.net/logo_antares.png",
+  "telephone": "+44 20 7123 4567", // Placeholder
+  "email": "info@antaressystems.net",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Technology Park", // Placeholder
+    "addressLocality": "London",
+    "postalCode": "SW1A 1AA", // Placeholder
+    "addressCountry": "UK"
+  },
+  "url": "https://antaressystems.net",
+  "priceRange": "££",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "09:00",
+    "closes": "17:30"
+  },
+  "sameAs": [
+    "https://linkedin.com/company/antares-systems"
+  ]
+};
+
+const pageSchema = schema || defaultSchema;
+---
+
+<!doctype html>
+<html lang="en-GB" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO -->
+    <title>{title} | Antares Systems ITAD</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Antares Systems Ltd" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:site_name" content="Antares Systems" />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageURL} />
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <!-- HTMX -->
+    <script src="https://unpkg.com/htmx.org@2.0.0"></script>
+
+    <!-- Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-white text-slate-800 antialiased flex flex-col min-h-screen font-sans">
+    <slot />
+    
+    <!-- Cookie Consent -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-slate-900 border-t border-slate-800 p-4 transform translate-y-full transition-transform duration-300 z-50 text-sm hidden">
+      <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-slate-300">
+          We use cookies to ensure GDPR compliance and analyze traffic. By continuing, you agree to our use of cookies.
+        </p>
+        <div class="flex gap-2">
+          <button id="accept-cookies" class="px-4 py-2 bg-success-eco text-white rounded hover:bg-green-600 transition-colors">Accept</button>
+          <button id="reject-cookies" class="px-4 py-2 bg-slate-700 text-white rounded hover:bg-slate-600 transition-colors">Necessary Only</button>
+        </div>
+      </div>
+    </div>
+
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        const banner = document.getElementById('cookie-banner');
+        const accepted = localStorage.getItem('cookieconfig');
+        
+        if (!accepted) {
+          banner.classList.remove('hidden');
+          setTimeout(() => banner.classList.remove('translate-y-full'), 100);
+        }
+
+        document.getElementById('accept-cookies').addEventListener('click', () => {
+          localStorage.setItem('cookieconfig', 'accepted');
+          banner.classList.add('translate-y-full');
+        });
+
+        document.getElementById('reject-cookies').addEventListener('click', () => {
+          localStorage.setItem('cookieconfig', 'rejected');
+          banner.classList.add('translate-y-full');
+        });
+      });
+    </script>
+  </body>
+</html>

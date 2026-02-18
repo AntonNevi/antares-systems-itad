@@ -1,0 +1,13 @@
+# Cline Rules - Antares Systems
+
+- Always use the current directory `/Users/antonnevi/Desktop/AI_Factory/Antares Systems` as the project root.
+- Use **Stitch MCP** for UI components and design system generation.
+- Use **Brave Search** for market research and compliance standard updates (NIST, HMG).
+- Use **context7** to query documentation for Astro 5, HTMX, and Tailwind CSS.
+- Use **GitHub MCP** to manage issues and pull requests for the `antaressystems.net` repository.
+- Use **filesystem MCP** for local file operations.
+
+## Brand Colors
+- Blue: #0081CC
+- Green: #10bb82
+- Gray: #9E9E9E

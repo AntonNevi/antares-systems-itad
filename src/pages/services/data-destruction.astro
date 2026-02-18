@@ -1,0 +1,69 @@
+---
+import FAQSection from '../../components/FAQSection.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import SEOBreadcrumbs from '../../components/SEOBreadcrumbs.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    question: "What is NIST 800-88 compliance?",
+    answer: "NIST 800-88 is a U.S. government standard for media sanitization. It specifies the methods for clear, purge, and destroy to ensure data is unrecoverable even through laboratory techniques."
+  },
+  {
+    question: "Do you provide a Certificate of Destruction?",
+    answer: "Yes, every data destruction project is followed by a full forensic report and a Certificate of Data Destruction (CDD) linked to the serial number of each device."
+  },
+  {
+    question: "Is your data wiping NCSC-approved?",
+    answer: "Yes, we use NCSC-approved software tools and methods for high-security data erasure, ensuring compliance for government and enterprise clients."
+  }
+];
+---
+
+<BaseLayout 
+  title="Secure Data Destruction & Erasure London" 
+  description="Professional NIST 800-88 and HMG IS5 compliant data destruction services. On-site shredding and certified data wiping in London."
+>
+  <Header />
+  <main class="py-12">
+    <div class="container mx-auto px-6">
+      <SEOBreadcrumbs items={[{ name: 'Services', href: '/services' }, { name: 'Data Destruction', href: '/services/data-destruction' }]} />
+      
+      <div class="grid lg:grid-cols-2 gap-16 items-center py-12">
+        <div>
+          <h1 class="text-5xl font-bold text-slate-900 mb-6">Certified Data Destruction</h1>
+          <p class="text-xl text-slate-600 mb-8 leading-relaxed">
+            Protecting your corporate intelligence with audited, transparent, and legally compliant data sanitization methods.
+          </p>
+          <div class="space-y-6">
+            <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-primary">
+              <h3 class="font-bold text-lg mb-2">Technical Standards</h3>
+              <p class="text-slate-500 text-sm italic">NIST 800-88 Rev. 1, HMG InfoSec Standard No. 5, NCSC Audit standards.</p>
+            </div>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3 text-slate-700 font-medium">
+                <span class="text-success-eco">✔</span> On-site hard drive shredding
+              </li>
+              <li class="flex items-center gap-3 text-slate-700 font-medium">
+                <span class="text-success-eco">✔</span> ShredOS and certified software wiping
+              </li>
+              <li class="flex items-center gap-3 text-slate-700 font-medium">
+                <span class="text-success-eco">✔</span> Detailed asset audit reports
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="rounded-3xl overflow-hidden shadow-2xl">
+          <img src="/F1.jpg" alt="Secure Data Wiping" class="w-full h-auto" />
+        </div>
+      </div>
+
+      <section class="py-24">
+        <h2 class="text-3xl font-bold text-center mb-16">Frequently Asked Questions</h2>
+        <FAQSection faqs={faqs} />
+      </section>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

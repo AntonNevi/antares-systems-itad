@@ -1,0 +1,87 @@
+---
+// Formspree endpoint specific to Antares Systems
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbjnqyjv"; // Using placeholder ID, user should replace
+---
+
+<div class="w-full max-w-lg mx-auto bg-white p-8 rounded-2xl shadow-xl border border-slate-100">
+  <h3 class="text-2xl font-bold text-slate-900 mb-2">Get a Quote</h3>
+  <p class="text-slate-500 mb-6 text-sm">Fast, secure, and compliant. We typically respond within 1 hour during business hours.</p>
+  
+  <form
+    action={FORMSPREE_ENDPOINT}
+    method="POST"
+    id="contact-form"
+    hx-post={FORMSPREE_ENDPOINT}
+    hx-trigger="submit"
+    hx-target="#form-response"
+    hx-swap="innerHTML"
+    class="space-y-4"
+  >
+    <div class="grid md:grid-cols-2 gap-4">
+      <div>
+        <label for="name" class="block text-xs font-semibold text-slate-700 uppercase mb-1">Name *</label>
+        <input type="text" id="name" name="name" required class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" />
+      </div>
+      <div>
+        <label for="company" class="block text-xs font-semibold text-slate-700 uppercase mb-1">Company *</label>
+        <input type="text" id="company" name="company" required class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" />
+      </div>
+    </div>
+
+    <div>
+      <label for="email" class="block text-xs font-semibold text-slate-700 uppercase mb-1">Email Address *</label>
+      <input type="email" id="email" name="email" required class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" />
+    </div>
+
+    <div>
+      <label for="service" class="block text-xs font-semibold text-slate-700 uppercase mb-1">Service Interest *</label>
+      <select id="service" name="service" required class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all appearance-none">
+        <option value="" disabled selected>Select a Service...</option>
+        <option value="Data Destruction">Data Destruction (On-site/Off-site)</option>
+        <option value="IT Recycling">IT Recycling / Disposal</option>
+        <option value="Asset Buyback">Sell IT Equipment</option>
+        <option value="Refurbished Sales">Buy Refurbished Hardware</option>
+        <option value="Export">Export Inquiry</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="assets" class="block text-xs font-semibold text-slate-700 uppercase mb-1">Asset Details</label>
+      <textarea id="assets" name="assets" rows="3" placeholder="E.g. 50x Laptops, 10x Servers..." class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all resize-none"></textarea>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <div class="flex-1">
+        <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Urgency</label>
+        <div class="flex gap-4 text-sm">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="urgency" value="Standard" checked class="text-primary focus:ring-primary" />
+            Standard
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="urgency" value="Urgent" class="text-primary focus:ring-primary" />
+            Urgent (24h)
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="w-full btn-primary mt-4 flex justify-center items-center gap-2 group">
+      <span>Request Quote</span>
+      <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+      <div class="htmx-indicator hidden ml-2 animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
+    </button>
+  </form>
+
+  <div id="form-response" class="mt-4 text-center"></div>
+</div>
+
+<style>
+  .htmx-request .htmx-indicator {
+    display: block;
+  }
+  .htmx-request.btn-primary span, 
+  .htmx-request.btn-primary svg {
+    display: none;
+  }
+</style>

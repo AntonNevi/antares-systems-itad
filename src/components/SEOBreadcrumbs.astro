@@ -1,0 +1,37 @@
+---
+const { items = [] } = Astro.props;
+
+// Schema.org BreadcrumbList
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": items.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    "item": `https://antaressystems.net${item.href}`
+  }))
+};
+---
+
+<nav aria-label="Breadcrumb" class="py-4 text-sm text-neutral-500">
+  <ol class="list-none p-0 inline-flex">
+    <li class="flex items-center">
+      <a href="/" class="hover:text-primary transition-colors">Home</a>
+      {items.length > 0 && <span class="mx-2">/</span>}
+    </li>
+    {items.map((item, index) => (
+      <li class="flex items-center">
+        {index === items.length - 1 ? (
+          <span class="text-neutral-700 font-medium" aria-current="page">{item.name}</span>
+        ) : (
+          <>
+            <a href={item.href} class="hover:text-primary transition-colors">{item.name}</a>
+            <span class="mx-2">/</span>
+          </>
+        )}
+      </li>
+    ))}
+  </ol>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+</nav>

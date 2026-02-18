@@ -1,0 +1,24 @@
+---
+const partners = [
+  { name: "NCSC", label: "Approved" },
+  { name: "ICO", label: "Registered" },
+  { name: "NIST", label: "Compliant" },
+  { name: "HMG IS5", label: "Standard" },
+  { name: "WEEE", label: "Authorized" },
+  { name: "GDPR", label: "Certified" }
+];
+---
+
+<section class="border-b border-slate-100 bg-slate-50 py-10">
+  <div class="container mx-auto px-6 text-center">
+    <p class="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-6">Audited & Certified Security Standards</p>
+    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+      {partners.map(partner => (
+        <div class="flex flex-col items-center gap-1 group">
+          <span class="text-2xl font-bold text-slate-800 group-hover:text-primary transition-colors">{partner.name}</span>
+          <span class="text-[10px] bg-slate-200 text-slate-600 px-2 py-0.5 rounded-full uppercase font-bold tracking-wide">{partner.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

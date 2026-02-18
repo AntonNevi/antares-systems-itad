@@ -1,0 +1,29 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  link: string;
+  linkText?: string;
+}
+
+const { icon, title, description, link, linkText = "Learn More" } = Astro.props;
+---
+
+<div class="group p-8 bg-white rounded-2xl border border-slate-100 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-150 duration-500"></div>
+  
+  <div class="w-14 h-14 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+    <span set:html={icon}></span>
+  </div>
+  
+  <h3 class="text-xl font-bold text-slate-900 mb-3">{title}</h3>
+  <p class="text-slate-500 mb-6 leading-relaxed">
+    {description}
+  </p>
+  
+  <a href={link} class="inline-flex items-center text-primary font-semibold hover:text-blue-700 transition-colors">
+    {linkText}
+    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+  </a>
+</div>

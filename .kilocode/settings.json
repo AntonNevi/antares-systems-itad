@@ -1,0 +1,24 @@
+{
+  "project.name": "Antares Systems ITAD",
+  "project.techLeadPersona": true,
+  "mcp.servers": {
+    "stitch": {
+      "active": true,
+      "priority": 1
+    },
+    "context7": {
+      "active": true
+    },
+    "github": {
+      "active": true
+    },
+    "brave-search": {
+      "active": true
+    },
+    "filesystem": {
+      "active": true
+    }
+  },
+  "development.mode": "production-quality",
+  "ai.context.persistence": true
+}

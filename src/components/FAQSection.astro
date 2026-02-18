@@ -1,0 +1,34 @@
+---
+const { faqs } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<section class="max-w-3xl mx-auto space-y-6">
+  {faqs.map((faq, index) => (
+    <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm open:shadow-md transition-shadow">
+      <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-slate-800 hover:text-primary transition-colors">
+        {faq.question}
+        <span class="transform transition-transform group-open:rotate-180 text-slate-400">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </span>
+      </summary>
+      <div class="px-6 pb-6 text-slate-600 leading-relaxed bg-slate-50/50 border-t border-slate-50">
+        <div class="prose prose-sm max-w-none text-slate-500" set:html={faq.answer} />
+      </div>
+    </details>
+  ))}
+  
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+</section>

@@ -1,0 +1,40 @@
+# Antares Systems - Project Rules
+
+## Tech Stack
+- **Framework**: Astro 5 (Static Site Generation)
+- **Styling**: Tailwind CSS
+- **Interactivity**: HTMX (for forms and dynamic blocks)
+- **Hosting**: Cloudflare Pages
+- **Forms**: Formspree (B2B Leads)
+
+## Brand Colors
+- **Primary**: Bright Blue #0081CC
+- **Eco/Success**: Mountain Meadow #10bb82
+- **Neutral**: Gray #9E9E9E
+
+## Architectural Principles
+- **Aesthetics First**: Premium, B2B, industrial, and eco-friendly design.
+- **Performance**: 100 lighthouse scores. Minimize JS. Use Astro components for static content.
+- **Compliance**: Adhere to NIST 800-88 and HMG IS5 standards in content and UX.
+- **Copy**: Professional, trust-focused, corporate yet accessible.
+
+## Directory Structure
+- `/src/pages`: Astro pages.
+- `/src/layouts`: Main templates.
+- `/src/components`: Reusable UI components.
+- `/src/styles`: Global CSS (Tailwind imports).
+- `/public`: Static assets (logos, icons).
+
+## Coding Standards
+- Use semantic HTML5.
+- Follow Tailwind's utility-first approach.
+- HTMX should be used for lead form submissions to avoid heavy JS frameworks.
+- Optimize images using Astro's built-in `<Image />` component.
+
+## Business Context
+- **Niche**: B2B ITAD (IT Asset Disposition).
+- **Core Values**: Security, Sustainability, Compliance.
+- **Location**: London-based, serving UK and global markets.
+- **Compliance Info**:
+  - ICO: C18880232
+  - Standards: NIST 800-88, HMG IS5, NCSC-approved.
