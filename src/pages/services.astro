@@ -46,7 +46,7 @@ const serviceSections = [
     features: ["Witnessed Wiping", "Immediate Certification", "Tamper-Evident", "Emergency Response"]
   }
 ];
-const serviceVisuals = {
+const serviceVisuals: Record<string, string> = {
   "data-destruction": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
     <rect x="150" y="50" width="100" height="120" rx="8" class="text-slate-300 fill-slate-50" />
     <path d="M170 80h60M170 110h60M170 140h40" class="text-slate-200" />
@@ -57,14 +57,27 @@ const serviceVisuals = {
     <path d="M185 165l30 30m0-30l-30 30" class="text-red-500" stroke-width="3" />
   </svg>`,
   "it-buyback": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="80" y="80" width="100" height="140" rx="4" class="text-slate-400 fill-slate-100" />
-    <path d="M90 100h80M90 140h80M90 180h80" class="text-slate-300" />
-    <circle cx="300" cy="150" r="60" class="text-emerald-500/20 fill-emerald-500/5" />
-    <path d="M280 150h40M300 130v40" class="text-emerald-600" />
-    <path d="M190 130l50-20m-50 60l50 20" class="text-primary" marker-end="url(#arrow)" />
+    <!-- Devices Pile -->
+    <rect x="60" y="100" width="60" height="40" rx="2" class="text-slate-600 fill-slate-100" />
+    <path d="M60 140l-10 10h80l-10-10" class="text-slate-400 fill-slate-50" />
+    <rect x="90" y="70" width="40" height="50" rx="2" class="text-slate-500 fill-slate-50" />
+    <rect x="40" y="150" width="80" height="10" rx="1" class="text-slate-700 fill-slate-200" />
+    
+    <!-- Assessment / Valuation -->
+    <circle cx="200" cy="150" r="40" class="text-blue-200 fill-blue-50/50" stroke-dasharray="4 4" />
+    <path d="M185 150l10 10l20-20" class="text-blue-600" stroke-width="2.5" />
+    <path d="M140 150h20" class="text-slate-300" marker-end="url(#arrow-buyback)" />
+    
+    <!-- Value / Graph -->
+    <path d="M240 150h20" class="text-slate-300" marker-end="url(#arrow-buyback)" />
+    <rect x="280" y="80" width="80" height="100" rx="4" class="text-emerald-200 fill-emerald-50" />
+    <path d="M290 150l15-15l15 10l20-30" class="text-emerald-500" stroke-width="2" />
+    <circle cx="340" cy="115" r="3" class="text-emerald-600 fill-emerald-600" />
+    <text x="320" y="170" class="text-xs font-sans fill-emerald-700 font-bold" stroke="none">VALUE</text>
+
     <defs>
-      <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-        <path d="M0,0 L0,6 L9,3 z" fill="currentColor" class="text-primary" />
+      <marker id="arrow-buyback" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L9,3 z" fill="currentColor" class="text-slate-300" />
       </marker>
     </defs>
   </svg>`,
@@ -84,16 +97,28 @@ const serviceVisuals = {
     <path d="M220 120l10-10l10 10" class="text-primary" />
   </svg>`,
   "on-site": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="250" y="50" width="80" height="200" class="text-slate-300 fill-slate-50" />
-    <rect x="260" y="70" width="20" height="20" class="text-blue-200 fill-blue-100" />
-    <rect x="290" y="70" width="20" height="20" class="text-blue-200 fill-blue-100" />
-    <rect x="260" y="110" width="20" height="20" class="text-blue-200 fill-blue-100" />
-    <rect x="290" y="110" width="20" height="20" class="text-blue-200 fill-blue-100" />
+    <!-- Client Building -->
+    <path d="M260 220V80l-60-20l-60 20v140" class="text-slate-300 fill-slate-50" />
+    <rect x="160" y="100" width="20" height="20" class="text-slate-200" />
+    <rect x="220" y="100" width="20" height="20" class="text-slate-200" />
+    <rect x="160" y="140" width="20" height="20" class="text-slate-200" />
+    <rect x="220" y="140" width="20" height="20" class="text-slate-200" />
     
-    <path d="M50 200h120v40h-120z" class="text-slate-700 fill-slate-800" />
-    <circle cx="80" cy="240" r="15" class="text-slate-900 fill-slate-500" />
-    <circle cx="140" cy="240" r="15" class="text-slate-900 fill-slate-500" />
-    <path d="M170 200h30v-60h-30l-20 20v40" class="text-slate-600" />
+    <!-- Security Layer -->
+    <path d="M200 50v180" class="text-blue-500/20" stroke-width="100" stroke-linecap="butt" />
+    <path d="M130 230h140" class="text-slate-400" />
+    
+    <!-- Truck -->
+    <path d="M80 200h60v30h-60z" class="text-slate-700 fill-slate-800" />
+    <path d="M140 210h20l10 20h-30z" class="text-slate-700 fill-slate-800" />
+    <circle cx="95" cy="230" r="8" class="text-slate-500 fill-slate-400" />
+    <circle cx="150" cy="230" r="8" class="text-slate-500 fill-slate-400" />
+    
+    <!-- Shield Icon overlay -->
+    <circle cx="200" cy="150" r="30" class="text-primary fill-white" />
+    <path d="M200 135v10m0 10v20" class="text-primary" stroke-width="2" />
+    <path d="M185 150h30" class="text-primary" stroke-width="2" />
+    <path d="M180 140l20 20l20-20" class="text-blue-300" stroke-opacity="0.5" />
   </svg>`
 };
 ---
