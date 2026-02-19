@@ -88,37 +88,63 @@ const serviceVisuals: Record<string, string> = {
     <path d="M190 180h20v20h-20zM180 190h10M210 190h10M200 170v10M200 210v-10" class="text-slate-400" />
     <path d="M140 240c0 0 20 20 60 20s60-20 60-20" class="text-green-500" stroke-width="3" />
     </svg>`,
-  "export": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="200" cy="150" r="100" class="text-blue-200 fill-blue-50" />
-    <path d="M100 150h200M200 50v200" class="text-blue-100" />
-    <path d="M160 100q40-40 80 0t60 80" class="text-primary/50" stroke-dasharray="4 4" />
-    <circle cx="160" cy="100" r="4" class="text-primary fill-primary" />
-    <circle cx="300" cy="180" r="4" class="text-primary fill-primary" />
-    <path d="M220 120l10-10l10 10" class="text-primary" />
+  "export": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Wireframe Globe -->
+    <path d="M200 50 A 100 100 0 1 1 200 250 A 100 100 0 1 1 200 50" class="text-slate-300 fill-slate-50/50" />
+    <ellipse cx="200" cy="150" rx="100" ry="20" class="text-slate-200" stroke-dasharray="4 4" />
+    <path d="M200 50 Q 80 150 200 250" class="text-slate-200" />
+    <path d="M200 50 Q 320 150 200 250" class="text-slate-200" />
+    <path d="M105 120 Q 200 180 295 120" class="text-slate-200" stroke-dasharray="2 2" />
+    
+    <!-- Origin Point (UK approx) -->
+    <circle cx="190" cy="100" r="3" class="text-slate-700 fill-slate-700" />
+    
+    <!-- Trajectory Paths -->
+    <path d="M190 100 Q 250 80 320 130" class="text-blue-500" stroke-width="2" marker-end="url(#arrow-export)" stroke-dasharray="6 4" />
+    <path d="M190 100 Q 220 200 250 220" class="text-blue-400" stroke-width="1.5" marker-end="url(#arrow-export)" stroke-dasharray="4 4" />
+    
+    <!-- Destination Markers -->
+    <circle cx="320" cy="130" r="4" class="text-blue-600 fill-white" stroke-width="2" />
+    <circle cx="250" cy="220" r="4" class="text-blue-600 fill-white" stroke-width="2" />
+    
+    <!-- Motion/Transport Icons -->
+    <rect x="240" y="70" width="16" height="10" rx="1" class="text-blue-600 fill-blue-100" transform="rotate(15 248 75)" />
+    
+    <defs>
+      <marker id="arrow-export" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="currentColor" class="text-blue-500" />
+      </marker>
+    </defs>
   </svg>`,
-  "on-site": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Client Building -->
-    <path d="M260 220V80l-60-20l-60 20v140" class="text-slate-300 fill-slate-50" />
-    <rect x="160" y="100" width="20" height="20" class="text-slate-200" />
-    <rect x="220" y="100" width="20" height="20" class="text-slate-200" />
-    <rect x="160" y="140" width="20" height="20" class="text-slate-200" />
-    <rect x="220" y="140" width="20" height="20" class="text-slate-200" />
+  "on-site": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Secure Perimeter / Zone -->
+    <path d="M50 220 L 350 220 L 320 80 L 80 80 Z" class="text-slate-200 fill-slate-50/30" stroke-dasharray="8 8" />
+    <text x="60" y="240" class="text-xs font-mono text-slate-400 fill-slate-400" stroke="none">SECURE PERIMETER</text>
     
-    <!-- Security Layer -->
-    <path d="M200 50v180" class="text-blue-500/20" stroke-width="100" stroke-linecap="butt" />
-    <path d="M130 230h140" class="text-slate-400" />
+    <!-- Client Site Schematic -->
+    <path d="M100 180 V 100 h 60 v 80 M120 100 v -20 h 20 v 20" class="text-slate-400 fill-white" stroke-width="1.5" />
+    <path d="M110 120 h 10 v 10 h -10 z M140 120 h 10 v 10 h -10 z" class="text-slate-300" />
     
-    <!-- Truck -->
-    <path d="M80 200h60v30h-60z" class="text-slate-700 fill-slate-800" />
-    <path d="M140 210h20l10 20h-30z" class="text-slate-700 fill-slate-800" />
-    <circle cx="95" cy="230" r="8" class="text-slate-500 fill-slate-400" />
-    <circle cx="150" cy="230" r="8" class="text-slate-500 fill-slate-400" />
+    <!-- Mobile Vehicle Unit -->
+    <path d="M220 170 h 80 v -50 h -80 z" class="text-slate-800 fill-slate-100" stroke-width="2" />
+    <path d="M300 170 h 20 l 10 -20 v -30 h -30 z" class="text-slate-800 fill-slate-200" stroke-width="2" />
+    <circle cx="240" cy="170" r="12" class="text-slate-800 fill-white" stroke-width="2" />
+    <circle cx="280" cy="170" r="12" class="text-slate-800 fill-white" stroke-width="2" />
+    <circle cx="320" cy="170" r="12" class="text-slate-800 fill-white" stroke-width="2" />
     
-    <!-- Shield Icon overlay -->
-    <circle cx="200" cy="150" r="30" class="text-primary fill-white" />
-    <path d="M200 135v10m0 10v20" class="text-primary" stroke-width="2" />
-    <path d="M185 150h30" class="text-primary" stroke-width="2" />
-    <path d="M180 140l20 20l20-20" class="text-blue-300" stroke-opacity="0.5" />
+    <!-- Data Transfer / Destruction Path -->
+    <path d="M160 140 h 60" class="text-red-500" stroke-dasharray="4 2" marker-end="url(#arrow-red)" />
+    
+    <!-- Certification / Lock -->
+    <rect x="180" y="240" width="40" height="30" rx="2" class="text-emerald-600 fill-white" stroke-width="1.5" />
+    <path d="M190 240 v -10 a 10 10 0 0 1 20 0 v 10" class="text-emerald-600" />
+    <circle cx="200" cy="255" r="4" class="text-emerald-600 fill-emerald-100" />
+    
+    <defs>
+      <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L7,3 z" fill="currentColor" class="text-red-500" />
+      </marker>
+    </defs>
   </svg>`
 };
 ---
