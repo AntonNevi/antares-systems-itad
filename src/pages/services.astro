@@ -46,6 +46,56 @@ const serviceSections = [
     features: ["Witnessed Wiping", "Immediate Certification", "Tamper-Evident", "Emergency Response"]
   }
 ];
+const serviceVisuals = {
+  "data-destruction": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="150" y="50" width="100" height="120" rx="8" class="text-slate-300 fill-slate-50" />
+    <path d="M170 80h60M170 110h60M170 140h40" class="text-slate-200" />
+    <path d="M200 170v80" class="text-primary" stroke-dasharray="8 8" stroke-width="2" />
+    <rect x="120" y="250" width="160" height="40" rx="4" class="text-slate-800 fill-slate-900" />
+    <path d="M140 250v-20a20 20 0 0 1 20-20h80a20 20 0 0 1 20 20v20" class="text-slate-400" />
+    <circle cx="200" cy="180" r="30" class="text-red-500/20 fill-red-500/5" />
+    <path d="M185 165l30 30m0-30l-30 30" class="text-red-500" stroke-width="3" />
+  </svg>`,
+  "it-buyback": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="80" y="80" width="100" height="140" rx="4" class="text-slate-400 fill-slate-100" />
+    <path d="M90 100h80M90 140h80M90 180h80" class="text-slate-300" />
+    <circle cx="300" cy="150" r="60" class="text-emerald-500/20 fill-emerald-500/5" />
+    <path d="M280 150h40M300 130v40" class="text-emerald-600" />
+    <path d="M190 130l50-20m-50 60l50 20" class="text-primary" marker-end="url(#arrow)" />
+    <defs>
+      <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L9,3 z" fill="currentColor" class="text-primary" />
+      </marker>
+    </defs>
+  </svg>`,
+  "recycling": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M200 50l-80 140h160z" class="text-green-500/10 fill-green-500/5" />
+    <path d="M200 60l-70 120h140z" class="text-green-600" stroke-dasharray="10 5" />
+    <circle cx="200" cy="190" r="40" class="text-slate-800 fill-white" />
+    <path d="M190 180h20v20h-20zM180 190h10M210 190h10M200 170v10M200 210v-10" class="text-slate-400" />
+    <path d="M140 240c0 0 20 20 60 20s60-20 60-20" class="text-green-500" stroke-width="3" />
+    </svg>`,
+  "export": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="200" cy="150" r="100" class="text-blue-200 fill-blue-50" />
+    <path d="M100 150h200M200 50v200" class="text-blue-100" />
+    <path d="M160 100q40-40 80 0t60 80" class="text-primary/50" stroke-dasharray="4 4" />
+    <circle cx="160" cy="100" r="4" class="text-primary fill-primary" />
+    <circle cx="300" cy="180" r="4" class="text-primary fill-primary" />
+    <path d="M220 120l10-10l10 10" class="text-primary" />
+  </svg>`,
+  "on-site": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="250" y="50" width="80" height="200" class="text-slate-300 fill-slate-50" />
+    <rect x="260" y="70" width="20" height="20" class="text-blue-200 fill-blue-100" />
+    <rect x="290" y="70" width="20" height="20" class="text-blue-200 fill-blue-100" />
+    <rect x="260" y="110" width="20" height="20" class="text-blue-200 fill-blue-100" />
+    <rect x="290" y="110" width="20" height="20" class="text-blue-200 fill-blue-100" />
+    
+    <path d="M50 200h120v40h-120z" class="text-slate-700 fill-slate-800" />
+    <circle cx="80" cy="240" r="15" class="text-slate-900 fill-slate-500" />
+    <circle cx="140" cy="240" r="15" class="text-slate-900 fill-slate-500" />
+    <path d="M170 200h30v-60h-30l-20 20v40" class="text-slate-600" />
+  </svg>`
+};
 ---
 
 <BaseLayout 
@@ -68,7 +118,7 @@ const serviceSections = [
       
       <div class="space-y-24 py-12">
         {serviceSections.map((service, index) => (
-          <section id={service.id} class={`flex flex-col md:flex-row gap-12 items-start ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+          <section id={service.id} class={`flex flex-col md:flex-row gap-12 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
             <div class="flex-1 bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
               <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-3xl mb-6 text-primary">
                 {service.icon}
@@ -89,14 +139,10 @@ const serviceSections = [
               </div>
             </div>
             
-            <!-- Infographic / Visual Block Placeholder -->
-            <div class="flex-1 w-full min-h-[300px] bg-slate-100 rounded-2xl border border-slate-200 flex items-center justify-center relative overflow-hidden group">
-               <div class="absolute inset-0 bg-slate-200/50 pattern-grid-lg opacity-20"></div>
-               <!-- Placeholder for specific service infographic -->
-               <div class="text-center p-8 z-10 transition-transform duration-500 group-hover:scale-105">
-                  <span class="text-6xl opacity-20 mb-4 block grayscale">{service.icon}</span>
-                  <span class="text-slate-400 font-bold uppercase tracking-widest text-xs">Service Infographic</span>
-               </div>
+            <!-- Infographic / Visual Block -->
+            <div class="flex-1 w-full min-h-[350px] bg-white rounded-3xl border border-slate-100 flex items-center justify-center relative overflow-hidden group p-8 shadow-inner">
+               <div class="absolute inset-0 bg-slate-50/50 bg-[url('/grid-pattern.svg')] opacity-50"></div>
+               <div class="w-full h-full flex items-center justify-center transform transition-transform duration-700 group-hover:scale-105" set:html={serviceVisuals[service.id]} />
             </div>
           </section>
         ))}
