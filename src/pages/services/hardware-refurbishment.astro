@@ -249,8 +249,8 @@ const warrantyTiers = [
     <section class="py-12 bg-slate-50">
       <div class="container mx-auto px-6 max-w-6xl">
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {processSteps.map(step => (
-            <div class="bg-gradient-to-br from-blue-500/90 to-emerald-500/90 rounded-xl p-0.5" key={step.name}>
+          {processSteps.map((step, index) => (
+            <div class="bg-gradient-to-br from-blue-500/90 to-emerald-500/90 rounded-xl p-0.5">
               <div class="bg-white rounded-xl p-6 h-full">
                 <h3 class="font-bold text-lg text-slate-900 mb-3">{step.name}</h3>
 
@@ -312,7 +312,11 @@ const warrantyTiers = [
           ))}
         </div>
 
-        <ProductGrid title="Enterprise Workstations" subtitle="Refurbished Desktop PCs for Business Use" />
+        <ProductGrid
+          products={[]}
+          title="Enterprise Workstations"
+          subtitle="Refurbished Desktop PCs for Business Use"
+        />
 
         <div class="mt-12 text-center">
           <a href="/services/itad-asset-recovery" class="text-blue-600 hover:text-blue-700 inline-flex items-center gap-2">
@@ -447,8 +451,8 @@ const warrantyTiers = [
           </p>
 
           <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2 text-xs mb-4">
-            {["DCB 0160 L1", "HPE DISA ASI 2022", "ICFR UK SOX", "DW Government Pack 8B", "CIO Government Cloud Strategy", "DWP Privacy Shield Review 2021", "MoJ Justice Digital 3-C", "CCTA Cloud Computing Regulation"].map(item => (
-              <div class="bg-white border border-slate-200 rounded-lg p-2 text-center" key={item}>
+            {["DCB 0160 L1", "HPE DISA ASI 2022", "ICFR UK SOX", "DW Government Pack 8B", "CIO Government Cloud Strategy", "DWP Privacy Shield Review 2021", "MoJ Justice Digital 3-C", "CCTA Cloud Computing Regulation"].map((item, index) => (
+              <div class="bg-white border border-slate-200 rounded-lg p-2 text-center">
                 {item}
               </div>
             ))}

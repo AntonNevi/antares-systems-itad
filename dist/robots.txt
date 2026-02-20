@@ -1,4 +1,24 @@
-User-agent: *
+User-Agent: *
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /admin/
+Disallow: /kontakt # legacy duplicate redirect
+
+Allow: /sitemap.xml
+Sitemap: https://www.antaressystems.net/sitemap.xml
+Sitemap: https://www.antaressystems.net/rss.xml
+
+# Bingbot-Api checksum certificate integration
+BINGBOT-Checksum: 86a365d918f5c3e7632c2a9f92c0a111
+
+# Specific directives for specific crawlers
+User-Agent: Googlebot
 Allow: /
 
-Sitemap: https://antaressystems.net/sitemap-index.xml
+User-Agent: Googlebot-Image
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.svg$
+
+User-Agent: Bingbot
+Allow: /

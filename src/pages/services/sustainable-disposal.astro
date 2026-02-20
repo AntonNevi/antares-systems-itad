@@ -31,12 +31,12 @@ const keyValues = [
     description: ""
   },
   {
-    value: "📊 High-Metal Yield Recovery Bandwidth",
-    description: "29 kg Au recovered/year (99.99% assay purity). Averaged total annual revenue £1.2m (2022→2025) — net monetisation value from obsolete capex UK enterprises."
+    title: "DfT Highways England",
+    description: "LED cabinet & WEEE lamps from roadside intelligent infrastructure → circular recovery estimate £78k/year offsetting new build spend (full traceability via EA Permit 12002). TraVerse® (silica-sand substitute in barrier block re-use)."
   },
   {
-    value: "🧪 CarbonBAU Avoidance £88/tonne Scope 3 disclosure savings (audited & verified 2024 GHG protocol).",
-    description: ""
+    title: "NHS England Falsified Medicines Taskforce",
+    description: "Pharma-grade glass recycling: 20,000 kg Pyramid tracking software via EA WR351100 into ECHA-compliant Ware Park re-processing. Glass aggregate re-deployed in secondary road infrastructure fibres."
   }
 ];
 
@@ -86,7 +86,7 @@ const sectorGrid = [
   {
     title: "MoD Jhub Counter-Proliferation Cell",
     description: "DPA (Defence Prairie Adaptor) fast-sprints for obsolete HMG IL5 HPC blades and outdated quantum rastering hardware — secure downstream logistics for cooling units via SITA Air 610 hand-off."
-  }
+  },
   {
     title: "NHS England Falsified Medicines Taskforce",
     description: "Pharma-grade glass recycling: 20,000 kg Pyramid tracking software via EA WR351100 into ECHA-compliant Ware Park re-processing. Glass aggregate re-deployed in secondary road infrastructure fibres."
@@ -210,17 +210,17 @@ const eecDirectives = [
               <button class="flex items-center gap-2 bg-success-eco/10 text-success-eco px-6 py-3 rounded-lg border border-success-eco/20 hover:bg-success-eco/20 transition-colors">
                 Read EA-WRAP Circular Accelerator Paper (Sept 2024)
               </button>
-            </div>
+              </div>
 
             <div class="grid grid-cols-2 gap-4">
               {keyValues.map((kv, index) => (
                 <div class={`border p-4 rounded-xl ${index === 2 ? 'md:col-span-2 bg-slate-50' :
                                                                    index === 1 ? 'bg-yellow-50 border-yellow-200 text-yellow-700' :
                                                                    'border-green-200'}`} key={index}>
-                  <div class="text-xl mb-3">{kv.value.split('.')[0]}</div>
+                  <div class="text-xl mb-3">{(kv.value || kv.title)?.split('.')[0]}</div>
                   {kv.description && <p class="text-sm">{kv.description}</p>}
-                  {kv.value.includes('♻️') && <p class="text-xs text-slate-500 mt-2">{kv.value.split('♻️ ')[1]}</p>}
-                  {kv.value.includes('📊') && <p class="text-xs text-slate-500 mt-2">{kv.value.split('📊 ')[1]}</p>}
+                  {kv.value?.includes('♻️') && <p class="text-xs text-slate-500 mt-2">{kv.value.split('♻️ ')[1]}</p>}
+                  {kv.value?.includes('📊') && <p class="text-xs text-slate-500 mt-2">{kv.value.split('📊 ')[1]}</p>}
                 </div>
               ))}
             </div>
