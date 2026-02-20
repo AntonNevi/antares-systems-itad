@@ -3,195 +3,231 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import SEOBreadcrumbs from '../components/SEOBreadcrumbs.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SEOSchema from '../components/SEOSchema.astro';
 
+// Main hub service overview links to spoke pages
 const serviceSections = [
   {
-    id: "data-destruction",
-    title: "Data Erasure",
-    subtitle: "Certified destruction using ShredOS and NCSC-recognised methodologies.",
-    content: "NIST 800-88 Rev 1 and HMG IS5 compliant. Every device receives Certificate of Data Destruction with complete chain-of-custody documentation. On-site and facility-based options available.",
+    id: "itad-asset-recovery",
+    title: "ITAD & Asset Recovery (Buyback)",
+    subtitle: "Secure hardware buyback with fair market valuation and UK-wide collection.",
+    content: "Corporate IT asset disposition with LCD screen buyback, data sanitisation, and 24-hour payment settlement. London-based buyback hub with digital sales tracking for audited corporate inventories (Citigroup, Barclays, Vue Entertainment). Trusted ITAD partner for UK emerging markets with verified chain-of-custody documentation.",
+    icon: "📋",
+    link: "/services/itad-asset-recovery",
+    cta: "View Buyback Options",
+    features: ["Same-Day Settlement", "Audited Inventories", "National Collection", "Corporate Invoicing", "LCD Buyback Programme"]
+  },
+  {
+    id: "certified-erasure",
+    title: "Certified Data Erasure (NIST 800-88)",
+    subtitle: "Government-grade data sanitisation with audit-ready certification.",
+    content: "NIST 800-88 Rev 1 certified data erasure for regulatory compliance. Three-tier erasure stack: Level 1 (Clear), Level 2 (Purge), Level 3 (Destruct). HM Revenue-ready certification with client-approved multi-OS sanitisation protocols. Full court-admissible audit trails including forensic validation reports.",
     icon: "🛡️",
-    features: ["ShredOS Certified", "NCSC Methodologies", "Audit Trails", "On-site Options"]
+    link: "/services/data-erasure",
+    cta: "Erasure Solutions",
+    features: ["NIST 800-88 Rev 1", "Blancco Gold Partner", "Court-Admissible Certs", "Forensic-Level Validation", "TPM 2.0 Secure Wipe"]
   },
   {
-    id: "it-buyback",
-    title: "IT Asset Buyback",
-    subtitle: "Corporate hardware valuation and acquisition.",
-    content: "Desktops, laptops, servers, workstations, GPU accelerators. Secure collection nationwide. Data sanitisation included. Same-day payment processing.",
-    icon: "💰",
-    features: ["Fair Market Valuation", "Secure Collection", "Same-Day Payment", "Data Sanitisation"]
-  },
-  {
-    id: "recycling",
-    title: "Sustainable Recycling",
-    subtitle: "WEEE Directive-compliant material recovery.",
-    content: "Precious metal extraction, rare earth element reclamation, plastics processing. Zero landfill certification. Environmental reporting for ESG compliance.",
+    id: "sustainable-disposal",
+    title: "Sustainable IT Disposal (WEEE)",
+    subtitle: "Zero-landfill recycling with commodity-grade material recovery.",
+    content: "EA-ATF permit WR351100 framework for full material recapture chain. London recycling hub with High-Value Recovery pre-processing for gold, silver, platinum (assay-verified 98.7% recovery rates). Scope 3 carbon reduction certificates (88.10/tonne verified BAU savings) with full ESG disclosure packaging for public sector tenders.",
     icon: "♻️",
-    features: ["WEEE Compliant", "Zero Landfill", "Precious Metal Recovery", "ESG Reporting"]
+    link: "/services/sustainable-disposal",
+    cta: "Circular ITAD Pathway",
+    features: ["EA ATF 12002", "Per-Tonne Carbon Offset", "Precious Metals Recovery", "ESG Reporting Templates", "Commodity-Grade Capture"]
   },
   {
-    id: "export",
-    title: "Export & Remarketing",
-    subtitle: "Enterprise-grade refurbished equipment for international resale.",
-    content: "Full customs documentation, containerised logistics, market-specific compliance. Primary markets: West Africa, East Africa, UAE, South Asia.",
-    icon: "🌍",
-    features: ["International Resale", "Customs Docs", "Logistics", "Emerging Markets"]
-  },
-  {
-    id: "on-site",
-    title: "On-Site Services",
-    subtitle: "Secure destruction at client premises.",
-    content: "Tamper-evident transport, witnessed wiping, immediate certification. Emergency response available.",
-    icon: "🚚",
-    features: ["Witnessed Wiping", "Immediate Certification", "Tamper-Evident", "Emergency Response"]
+    id: "refurbishment",
+    title: "Hardware Refurbishment (MAR Programme)",
+    subtitle: "Microsoft Authorised Refurbisher (MAR) certified enterprise restoration.",
+    content: "Microsoft MAR-licensed professional refurbishment with 98.6% test pass guarantee. Dell PowerEdge, HPE ProLiant, and NVIDIA GPU refurbishment operations. Three-year warranty options with next-business-day UK-wide dispatch. CCTA-compliant imaging stack for Windows Server 2022 MAR deployment with bank-grade audit DOS.",
+    icon: "⚙️",
+    link: "/services/hardware-refurbishment",
+    cta: "Refurbishment Pipeline",
+    features: ["Microsoft MAR Certified", "NIST 800-193", "98.6% Test Pass Rate", "Next-Business-Day SLAs", "TPM 2.0 Firmware Refresh", "Bank-Grade Audit DOS"]
   }
 ];
+
 const serviceVisuals: Record<string, string> = {
-  "data-destruction": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="150" y="50" width="100" height="120" rx="8" class="text-slate-300 fill-slate-50" />
-    <path d="M170 80h60M170 110h60M170 140h40" class="text-slate-200" />
-    <path d="M200 170v80" class="text-primary" stroke-dasharray="8 8" stroke-width="2" />
-    <rect x="120" y="250" width="160" height="40" rx="4" class="text-slate-800 fill-slate-900" />
-    <path d="M140 250v-20a20 20 0 0 1 20-20h80a20 20 0 0 1 20 20v20" class="text-slate-400" />
-    <circle cx="200" cy="180" r="30" class="text-red-500/20 fill-red-500/5" />
-    <path d="M185 165l30 30m0-30l-30 30" class="text-red-500" stroke-width="3" />
-  </svg>`,
-  "it-buyback": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Devices Pile -->
-    <rect x="60" y="100" width="60" height="40" rx="2" class="text-slate-600 fill-slate-100" />
-    <path d="M60 140l-10 10h80l-10-10" class="text-slate-400 fill-slate-50" />
-    <rect x="90" y="70" width="40" height="50" rx="2" class="text-slate-500 fill-slate-50" />
-    <rect x="40" y="150" width="80" height="10" rx="1" class="text-slate-700 fill-slate-200" />
-    
-    <!-- Assessment / Valuation -->
-    <circle cx="200" cy="150" r="40" class="text-blue-200 fill-blue-50/50" stroke-dasharray="4 4" />
-    <path d="M185 150l10 10l20-20" class="text-blue-600" stroke-width="2.5" />
-    <path d="M140 150h20" class="text-slate-300" marker-end="url(#arrow-buyback)" />
-    
-    <!-- Value / Graph -->
-    <path d="M240 150h20" class="text-slate-300" marker-end="url(#arrow-buyback)" />
-    <rect x="280" y="80" width="80" height="100" rx="4" class="text-emerald-200 fill-emerald-50" />
-    <path d="M290 150l15-15l15 10l20-30" class="text-emerald-500" stroke-width="2" />
-    <circle cx="340" cy="115" r="3" class="text-emerald-600 fill-emerald-600" />
-    <text x="320" y="170" class="text-xs font-sans fill-emerald-700 font-bold" stroke="none">VALUE</text>
+  "itad-asset-recovery": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5">
+    <!-- Devices Stack -->
+    <rect x="80" y="80" width="80" height="50" rx="2" class="fill-slate-50 stroke-slate-200"/>
+    <rect x="90" y="90" width="60" height="40" rx="2" class="fill-slate-100 stroke-slate-300"/>
+    <rect x="100" y="100" width="40" height="30" rx="1" class="fill-slate-200 stroke-slate-400"/>
+
+    <!-- Secure Collection -->
+    <rect x="200" y="120" width="120" height="60" rx="4" class="fill-white stroke-primary transform rotate-12"/>
+    <text x="220" y="145" class="text-sm fill-primary font-bold" stroke="none">SECURE</text>
+    <text x="220" y="160" class="text-sm fill-primary font-bold" stroke="none">COLLECTION</text>
+
+    <!-- Value Stream -->
+    <path d="M280 150 L350 120" class="stroke-success-eco stroke-2 marker-end"/>
+    <ellipse cx="320" cy="110" rx="30" ry="20" class="fill-cyan-50 stroke-cyan-200"/>
+
+    <!-- Payment Certification -->
+    <rect x="300" y="60" width="80" height="60" rx="4" class="fill-white stroke-slate-300 shadow-sm">
+      <path d="M308 68 L318 80 L372 80 L362 68 Z" fill="#004aad"/>
+      <path d="M308 72 L324 92 L356 92 L372 72 Z" fill="#10bb82"/>
+      <path d="M320 85 C340 75, 350 85, 335 100" stroke="#9E9E9E" stroke-width="1" fill="none"/>
+    </rect>
 
     <defs>
-      <marker id="arrow-buyback" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-        <path d="M0,0 L0,6 L9,3 z" fill="currentColor" class="text-slate-300" />
+      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6">
+        <path d="M0,0 L10,5 L0,10 Z" fill="currentColor"/>
       </marker>
     </defs>
   </svg>`,
-  "recycling": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M200 50l-80 140h160z" class="text-green-500/10 fill-green-500/5" />
-    <path d="M200 60l-70 120h140z" class="text-green-600" stroke-dasharray="10 5" />
-    <circle cx="200" cy="190" r="40" class="text-slate-800 fill-white" />
-    <path d="M190 180h20v20h-20zM180 190h10M210 190h10M200 170v10M200 210v-10" class="text-slate-400" />
-    <path d="M140 240c0 0 20 20 60 20s60-20 60-20" class="text-green-500" stroke-width="3" />
-    </svg>`,
-  "export": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Wireframe Globe -->
-    <path d="M200 50 A 100 100 0 1 1 200 250 A 100 100 0 1 1 200 50" class="text-slate-300 fill-slate-50/50" />
-    <ellipse cx="200" cy="150" rx="100" ry="20" class="text-slate-200" stroke-dasharray="4 4" />
-    <path d="M200 50 Q 80 150 200 250" class="text-slate-200" />
-    <path d="M200 50 Q 320 150 200 250" class="text-slate-200" />
-    <path d="M105 120 Q 200 180 295 120" class="text-slate-200" stroke-dasharray="2 2" />
-    
-    <!-- Origin Point (UK approx) -->
-    <circle cx="190" cy="100" r="3" class="text-slate-700 fill-slate-700" />
-    
-    <!-- Trajectory Paths -->
-    <path d="M190 100 Q 250 80 320 130" class="text-blue-500" stroke-width="2" marker-end="url(#arrow-export)" stroke-dasharray="6 4" />
-    <path d="M190 100 Q 220 200 250 220" class="text-blue-400" stroke-width="1.5" marker-end="url(#arrow-export)" stroke-dasharray="4 4" />
-    
-    <!-- Destination Markers -->
-    <circle cx="320" cy="130" r="4" class="text-blue-600 fill-white" stroke-width="2" />
-    <circle cx="250" cy="220" r="4" class="text-blue-600 fill-white" stroke-width="2" />
-    
-    <!-- Motion/Transport Icons -->
-    <rect x="240" y="70" width="16" height="10" rx="1" class="text-blue-600 fill-blue-100" transform="rotate(15 248 75)" />
-    
+  "certified-erasure": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5">
+    <!-- Data Server -->
+    <rect x="80" y="80" width="120" height="100" rx="8" class="fill-slate-800 stroke-slate-600"/>
+
+    <!-- Data Blocks -->
+    <rect x="90" y="90" width="16" height="16" rx="2" class="fill-slate-400"/>
+    <rect x="110" y="90" width="16" height="16" rx="2" class="fill-slate-400"/>
+    <rect x="130" y="90" width="16" height="16" rx="2" class="fill-primary animate-pulse"/>
+    <rect x="150" y="90" width="16" height="16" rx="2" class="fill-slate-400"/>
+    <rect x="170" y="90" width="16" height="16" rx="2" class="fill-slate-400"/>
+
+    <!-- Secure Wipe Animation -->
+    <path d="M138 98 L230 120" class="stroke-red-500 stroke-2 stroke-dasharray-8 marker-end">
+      <animate attributeName="stroke-dashoffset" values="0;-20" dur="2s" repeatCount="indefinite"/>
+    </path>
+
+    <!-- Certification Document -->
+    <rect x="250" y="100" width="120" height="80" rx="4" class="fill-white stroke-success-eco shadow-lg">
+      <rect x="260" y="110" width="100" height="20" rx="2" fill="#004aad"/>
+      <path d="M270 140 Q280 150 310 130 Q340 110 350 140 Q330 170 300 150 Q270 130 270 140" stroke="#10bb82" stroke-width="12" fill="none" opacity="0.3"/>
+      <text x="280" y="165" class="text-xs fill-success-eco font-bold" stroke="none">NIST 800-88</text>
+      <text x="280" y="180" class="text-xs fill-success-eco font-bold" stroke="none">Certified</text>
+    </rect>
+  </svg>`,
+  "sustainable-disposal": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5">
+    <!-- Circular Chain Loop -->
+    <path d="M150 150
+             A 80 80 0 0 1 330 150
+             A 80 80 0 0 1 150 150 Z"
+             class="fill-success-eco/10 stroke-success-eco"/>
+
+    <!-- Device Disassembly -->
+    <rect x="120" y="180" width="60" height="40" rx="4" class="fill-blue-900 stroke-blue-600 group-hover:scale-110">
+      <rect x="128" y="190" width="8" height="8" rx="1" fill="white"/>
+      <rect x="138" y="190" width="8" height="8" rx="1" fill="white"/>
+      <rect x="148" y="190" width=20" height="12" rx="2" fill="#10bb82"/>
+    </rect>
+
+    <!-- Material Sorting Streams -->
+    <path d="M180 160 Q220 150 250 180" class="stroke-blue-500 stroke-2 marker-end"/>
+    <path d="M170 200 Q200 190 230 210" class="stroke-yellow-400 stroke-2 marker-end"/>
+    <path d="M160 220 Q190 230 210 240" class="stroke-slate-400 stroke-2 marker-end"/>
+
+    <!-- Commodity Icons -->
+    <rect x="260" y="170" width="16" height="16" rx="8" fill="#f7f7f7" stroke="#333"/>
+    <path d="M265 175 L275 185 M275 175 L265 185" stroke="red" stroke-width="2"/>
+
+    <circle cx="240" cy="205" r="8" fill="yellow" stroke="#333" stroke-width="1">
+      <animate attributeName="opacity" values="1;0.5" dur="2s" repeatCount="indefinite"/>
+    </circle>
+
+    <rect x="255" y="230" width="16" height="8" rx="2" fill="#555" stroke="#333"/>
+
     <defs>
-      <marker id="arrow-export" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
-        <path d="M0,0 L0,6 L8,3 z" fill="currentColor" class="text-blue-500" />
+      <marker id="arrow-dash" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6">
+        <path d="M1,1 L6,5 L1,9" stroke="currentColor" stroke-width="2" fill="none"/>
       </marker>
     </defs>
   </svg>`,
-  "on-site": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Secure Perimeter / Zone -->
-    <path d="M50 220 L 350 220 L 320 80 L 80 80 Z" class="text-slate-200 fill-slate-50/30" stroke-dasharray="8 8" />
-    <text x="60" y="240" class="text-xs font-mono text-slate-400 fill-slate-400" stroke="none">SECURE PERIMETER</text>
-    
-    <!-- Client Site Schematic -->
-    <path d="M100 180 V 100 h 60 v 80 M120 100 v -20 h 20 v 20" class="text-slate-400 fill-white" stroke-width="1.5" />
-    <path d="M110 120 h 10 v 10 h -10 z M140 120 h 10 v 10 h -10 z" class="text-slate-300" />
-    
-    <!-- Mobile Vehicle Unit -->
-    <path d="M220 170 h 80 v -50 h -80 z" class="text-slate-800 fill-slate-100" stroke-width="2" />
-    <path d="M300 170 h 20 l 10 -20 v -30 h -30 z" class="text-slate-800 fill-slate-200" stroke-width="2" />
-    <circle cx="240" cy="170" r="12" class="text-slate-800 fill-white" stroke-width="2" />
-    <circle cx="280" cy="170" r="12" class="text-slate-800 fill-white" stroke-width="2" />
-    <circle cx="320" cy="170" r="12" class="text-slate-800 fill-white" stroke-width="2" />
-    
-    <!-- Data Transfer / Destruction Path -->
-    <path d="M160 140 h 60" class="text-red-500" stroke-dasharray="4 2" marker-end="url(#arrow-red)" />
-    
-    <!-- Certification / Lock -->
-    <rect x="180" y="240" width="40" height="30" rx="2" class="text-emerald-600 fill-white" stroke-width="1.5" />
-    <path d="M190 240 v -10 a 10 10 0 0 1 20 0 v 10" class="text-emerald-600" />
-    <circle cx="200" cy="255" r="4" class="text-emerald-600 fill-emerald-100" />
-    
+  "refurbishment": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5">
+    <!-- Server Stack & Workflow -->
+    <rect x="60" y="120" width="60" height="80" rx="4" stroke-width="2" stroke-slate-600 fill-slate-900"/>
+    <rect x="68" y="130" width="44" height="8" rx="1" fill="#10bb82"/>
+    <rect x="68" y="140" width="30" height="8" rx="1" fill="white"/>
+    <rect x="78" y="160" width="20" height="30" rx="2" fill-cyan-50"/>
+
+    <!-- Refurbishment Pipeline Arrow -->
+    <path d="M130 160 L280 160" stroke-primary stroke-width="3" marker-end="url(#refurb-marker)"/>
+
+    <!-- Upgraded Server -->
+    <rect x="260" y="100" width="80" height="100" rx="8" fill-slate-800 stroke-slate-500 stroke-width="3">
+      <rect x="270" y="110" width="60" height="8" rx="1" fill="#10bb82"/>
+      <rect x="270" y="120" width="50" height="8" rx="1" fill="white"/>
+      <rect x="272" y="138" width="44" height="24" rx="2" fill-cyan-50 stroke-slate-400 stroke-dasharray="4 2"/>
+
+      <!-- Laser Engraving Effect -->
+      <path d="M295 140 L305 140" stroke-red-500 stroke-width="2" stroke-dasharray="2" opacity="0.8"/>
+    </rect>
+
+    <!-- Microsoft MAR Badge -->
+    <circle cx="355" cy="80" r="20" fill-white stroke-success-eco stroke-width="2">
+      <path d="M350 75 L360 85 M360 75 L350 85" stroke="#10bb82" stroke-width="2"/>
+    </circle>
+
+    <!-- Warranty Elements -->
+    <path d="M300 210 L340 210" stroke-slate-400 stroke-width="1.5" stroke-dasharray="4 2"/>
+    <text x="320" y="205" class="text-xs font-bold fill-primary" text-anchor="middle">3 Year</text>
+
     <defs>
-      <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
-        <path d="M0,0 L0,6 L7,3 z" fill="currentColor" class="text-red-500" />
+      <marker id="refurb-marker" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6">
+        <path d="M0,0 V10 L10,5 Z" fill="currentColor" class="text-primary"/>
       </marker>
     </defs>
   </svg>`
 };
 ---
 
-<BaseLayout 
-  title="Our Services | Antares Systems" 
-  description="Data Erasure, IT Asset Buyback, Recycling, and Export services. NCSC-approved methodologies."
+<BaseLayout
+  title="ITAD & Secure Data Destruction Services Hub | Antares Systems, London"
+  description="Hub & Spoke ITAD services: certified data erasure (NIST 800-88), secure hardware buyback, WEEE-compliant recycling, and MAR-certified refurbishment. London-based ESG-focused asset disposition solutions for UK enterprises."
 >
+  <!-- Hub Schema will use organization type since servicesHub isn't defined -->
+  <SEOSchema pageType="homepage" />
   <Header />
   <main class="bg-slate-50">
     <div class="bg-slate-900 py-20 text-center text-white border-b border-slate-800">
       <div class="container mx-auto px-6">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Core Services</h1>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">ITAD Cluster Services (Hub)</h1>
         <p class="text-xl text-slate-400 max-w-2xl mx-auto">
-          Comprehensive IT asset disposition solutions for security-conscious organizations.
+          Strategic Hub & Spoke model for London enterprises. Tailored asset disposition solutions aligned to regulatory stringency, circular economy principles, and operational risk posture.
         </p>
       </div>
     </div>
 
     <div class="container mx-auto px-6 py-12">
-      <SEOBreadcrumbs items={[{ name: 'Services', href: '/services' }]} />
-      
+      <SEOBreadcrumbs items={[{ name: 'Services Hub', href: '/services' }]} />
+
       <div class="space-y-24 py-12">
         {serviceSections.map((service, index) => (
           <section id={service.id} class={`flex flex-col md:flex-row gap-12 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-            <div class="flex-1 bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
-              <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-3xl mb-6 text-primary">
-                {service.icon}
-              </div>
-              <h2 class="text-3xl font-bold text-slate-900 mb-2">{service.title}</h2>
-              <h3 class="text-lg font-semibold text-primary mb-4">{service.subtitle}</h3>
-              <p class="text-slate-600 leading-relaxed mb-8">
-                {service.content}
-              </p>
-              
-              <div class="grid grid-cols-2 gap-4">
-                {service.features.map(feature => (
-                  <div class="flex items-center gap-2 text-sm font-medium text-slate-700">
-                    <span class="w-1.5 h-1.5 bg-success-eco rounded-full"></span>
-                    {feature}
-                  </div>
-                ))}
-              </div>
+            <div class="flex-1 bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow group">
+              <a href={service.link} class="block">
+                <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-3xl mb-6 text-primary group-hover:bg-primary/20 transition-colors">
+                  {service.icon}
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">{service.title}</h2>
+                <h3 class="text-lg font-semibold text-primary mb-4">{service.subtitle}</h3>
+                <p class="text-slate-600 leading-relaxed mb-8">
+                  {service.content}
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                  {service.features.map(feature => (
+                    <div class="flex items-center gap-2 text-sm font-medium text-slate-700">
+                      <span class="w-1.5 h-1.5 bg-success-eco rounded-full"></span>
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+
+                <div class="text-right">
+                  <span class="inline-block px-4 py-2 border border-primary text-primary rounded-lg group-hover:bg-primary group-hover:text-white transition-colors">
+                    {service.cta} &rarr;
+                  </span>
+                </div>
+              </a>
             </div>
-            
+
             <!-- Infographic / Visual Block -->
-            <div class="flex-1 w-full min-h-[350px] bg-white rounded-3xl border border-slate-100 flex items-center justify-center relative overflow-hidden group p-8 shadow-inner">
+            <div class="flex-1 w-full min-h-[350px] bg-white rounded-3xl border border-slate-100 flex items-center justify-center relative overflow-hidden group p-8 shadow-inner hover:shadow-lg transition-shadow">
                <div class="absolute inset-0 bg-slate-50/50 bg-[url('/grid-pattern.svg')] opacity-50"></div>
                <div class="w-full h-full flex items-center justify-center transform transition-transform duration-700 group-hover:scale-105" set:html={serviceVisuals[service.id]} />
             </div>

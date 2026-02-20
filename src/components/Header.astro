@@ -16,18 +16,11 @@ const links = [
     <!-- Desktop Navigation -->
     <nav class="hidden md:flex items-center gap-8">
       {links.map(link => (
-        <a href={link.href} class="text-sm font-medium text-slate-600 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+        <a href={link.href} class="text-base font-medium text-slate-600 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
           {link.text}
         </a>
       ))}
     </nav>
-
-    <!-- CTAs -->
-    <div class="hidden md:flex items-center gap-4">
-      <a href="/contacts" class="btn-primary">
-        Get a Quote
-      </a>
-    </div>
 
     <!-- Mobile Menu Button -->
     <button id="mobile-menu-btn" class="md:hidden text-slate-600 focus:outline-none p-2" aria-label="Toggle Menu">
@@ -44,9 +37,6 @@ const links = [
         {link.text}
       </a>
     ))}
-    <a href="/contacts" class="btn-primary w-full text-center mt-4">
-      Get a Quote
-    </a>
   </div>
 </header>
 

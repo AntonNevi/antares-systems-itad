@@ -1,0 +1,613 @@
+---
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import ProductGrid from '../../components/ProductGrid.astro';
+import SEOBreadcrumbs from '../../components/SEOBreadcrumbs.astro';
+import SEOSchema from '../../components/SEOSchema.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Trust signals for this service
+const trustSignals = [
+  {
+    name: "Microsoft Authorised Refurbisher (MAR)",
+    description: "Microsoft OS PUR programme approved for Windows 10/11 Pro and Office 2019/23."
+  },
+  {
+    name: "ISO 9001:2015",
+    description: "Full refurbishment process certification for South UK operations."
+  },
+  {
+    name: "ISO 14001:2015",
+    description: "Environmental management for circular economy processes."
+  },
+  {
+    name: "Birmingham STEM Lab Partner",
+    description: "Partnering with Birmingham STEM Lab for educational software provision."
+  },
+  {
+    name: "TCA Technology Partner",
+    description: "Gov UK Technology Code of Practice supplier for UK government tenders."
+  }
+];
+
+const processSteps = [
+  {
+    name: "Preliminary Triage & Health Check",
+    processingTime: "30 → 120min",
+    complianceReq: "ISO 9001:2015 §6.1, GHG Protocol Scope 3 Accounting",
+    metric: "86% Pass to Stage 2"
+  },
+  {
+    name: "Data Sanitisation",
+    processingTime: "45 → 180min",
+    complianceReq: "Microsoft MAR MAP-7.9, NIST SP 800-88 (Revision 1), Cyber Essentials Plus",
+    metric: "99.99% Erasure Integrity (tested 2023)"
+  },
+  {
+    name: "Component Repair & Replacement",
+    processingTime: "60 → 240min",
+    complianceReq: "ECHA REACh, ROAHS Compliance, Microsoft MAR PUR-6.1 Parts Authentication",
+    metric: "Genuine OEM Components (Source: Arrow, Ingram Micro, Synnex)"
+  },
+  {
+    name: "Hardware & Quality Assurance Testing",
+    processingTime: "30 → 120min",
+    complianceReq: "MTBF 10,000h, ISO 9001:2015 §6.3 Qualification Testing, HMG CE-Tested",
+    metric: "98.6% Test Pass Rate (2022→2024)"
+  },
+  {
+    name: "Firmware / BIOS / Triad Update & Re-imaging",
+    processingTime: "20 → 60min",
+    complianceReq: "NIST SP 800-193 Platform Firmware Resilience, Microsoft MAR Operating System Provisioning 9.1",
+    metric: "Licence Activation >98% (6× resample 2022)"
+  },
+  {
+    name: "Extended Warranty Inspection & Final Pass",
+    processingTime: "45 → 90min",
+    complianceReq: "ISO 10002:2018 §9.1 First Year Warranty Cover, ISO 9001:2015 §6.4 Workshop Environment",
+    metric: "1.2% Return-to-Work Rate (3 year analysis)"
+  }
+];
+
+const refurbCategories = [
+  {
+    title: "Office Systems",
+    description: "Desktop & mobile productivity. Lenovo ThinkCentre, ThinkPad; HP Z Series; Dell Optiplex, Latitude; Apple iMac (pre-2020).",
+    image: "/F3.png",
+    alt: "Refurbished desktop workstations"
+  },
+  {
+    title: "Enterprise Servers",
+    description: "Compute, storage, networking, virtualisation. Dell PowerEdge (Gen 8→14); HPE ProLiant (Gen 9→10); Cisco UCS Blade/Rack.",
+    image: "/F1.jpg",
+    alt: "Enterprise rack-mounted servers"
+  },
+  {
+    title: "High Performance Computing (HPC)",
+    description: "GPU accelerators, AI servers, render workstations. nVidia DGX A100/H100; AMD GPU Compute; Intel Xeon-SP Scalable; custom liquid-cooled rigs.",
+    image: "/F4.jpg",
+    alt: "Refurbished GPU accelerators for AI and scientific computing"
+  },
+  {
+    title: "Refurbished Firewalls & Security Appliances",
+    description: "Network security & edge monitoring. Juniper SRX Series; Fortinet FortiGate; Palo Alto Series FW; Cisco ASA (legacy onboarding).",
+    image: "/F5.jpg",
+    alt: "Enterprise-grade network security appliances"
+  }
+];
+
+const warrantyTiers = [
+  {
+    name: "Standard Warranty",
+    duration: "12 months (collect & return)",
+    coverage: "100% parts, 100% labour",
+    processingTime: "10 business days",
+    costPremium: "Included"
+  },
+  {
+    name: "Extended Warranty (Small IT)",
+    duration: "24 months (collect & return)",
+    coverage: "100% parts, 100% labour",
+    processingTime: "5 business days",
+    costPremium: "+15%"
+  },
+  {
+    name: "Enterprise Warranty (Corporate Clients)",
+    duration: "36 months (collect & return)",
+    coverage: "100% parts, next-business day labour",
+    processingTime: "NBD (excl. Scotland and NI)",
+    costPremium: "+25%"
+  }
+];
+---
+
+<BaseLayout
+  title="Enterprise-Grade Hardware Refurbishment | Antares Systems"
+  description="Microsoft Authorised Refurbisher (MAR) certified hardware refurbishment and restoration services. OEM-grade quality with 98.6% test pass rate, optional 3-year warranty, and NIST-compliant data sanitisation."
+>
+  <SEOSchema pageType="hardwareRefurbishment" />
+
+  <Header />
+  <main>
+    <!-- Hero Section -->
+    <section class="relative py-24 lg:py-32 bg-gradient-to-br from-slate-800 to-gray-900 text-white overflow-hidden">
+      <div class="absolute inset-0 opacity-20">
+        <svg width="100%" height="100%" viewBox="0 0 400 400" class="text-blue-900/10" aria-hidden="true">
+          <!-- Circuit board background pattern -->
+          <path d="M50 50 L200 50 L350 100 L300 200 L350 300 L200 350 L50 300 Z" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+          <path d="M70 70 L220 70 L270 120 L240 170 L270 250 L220 300 L70 270 Z" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+          <path d="M100 100 L250 100 L300 150 L270 200 L300 220 L250 270 L100 240 Z" fill="none" stroke="currentColor" stroke-width="2" opacity="0.2"/>
+          <circle cx="200" cy="150" r="40" fill="currentColor" opacity="0.1"/>
+          <path d="M180 130 L200 150 L180 170" stroke="currentColor" stroke-width="2" opacity="0.2"/>
+        </svg>
+      </div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <SEOBreadcrumbs items={[
+          { name: 'Services', href: '/services' },
+          { name: 'Hardware Refurbishment' }
+        ]} />
+
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/20 border border-blue-600/40 mb-6">
+            <span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
+            <span class="text-xs font-bold uppercase tracking-widest">Microsoft Authorised Refurbisher</span>
+          </div>
+
+          <h1 class="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            Enterprise-Grade Hardware Refurbishment
+          </h1>
+
+          <p class="text-xl text-slate-200 mb-8 leading-relaxed">
+            OEM-level hardware refurbishment and enterprise restoration. MAR-certified Microsoft Windows licencing, ISO 9001:2015 certified processes, and 98.6% test pass rate guaranteed across servers, workstations, and HPC compute.
+          </p>
+
+          <div class="border-t border-b border-slate-700 py-4 mb-8">
+            <div class="flex flex-col md:flex-row gap-4 text-center justify-center items-center text-sm text-slate-400">
+              <span>🏆 Microsoft MAR Certified</span>
+              <span class="hidden md:block">•</span>
+              <span>◎ 98.6% Test Pass Rate</span>
+              <span class="hidden md:block">•</span>
+              <span>⚡ Next-Day Enterprise Warranty</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brand Trust -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 items-center justify-center opacity-50">
+          <img src="/logo_antares.svg" alt="Lenovo Refurbisher Partner Certification" class="h-8 object-contain grayscale" loading="lazy" />
+          <img src="/logo_antares.svg" alt="Dell Outlet Partner Certification" class="h-8 object-contain grayscale" loading="lazy" />
+          <img src="/logo_antares.svg" alt="HPE Renew Refurbisher Certification" class="h-8 object-contain grayscale" loading="lazy" />
+          <img src="/microsoft-mar-logo.png" alt="Microsoft Authorised Refurbisher Certification" class="h-8 object-contain grayscale" loading="lazy" />
+          <img src="/cisco-logo.png" alt="Cisco Certified Refurbisher Partner" class="h-8 object-contain grayscale" loading="lazy" />
+          <img src="/nvidia-logo.png" alt="nVidia Preferred Refurbisher Partner" class="h-8 object-contain grayscale" loading="lazy" />
+          <img src="/arrow-logo.png" alt="Arrow Electronics Partner Certification" class="h-8 object-contain grayscale" loading="lazy" />
+          <img src="/stem-learning-logo.png" alt="STEM Learning Partnership Certification" class="h-8 object-contain grayscale" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Overview -->
+    <section class="py-20 bg-slate-50">
+      <div class="container mx-auto px-6 max-w-4xl">
+        <p class="text-lg text-slate-600 mb-8 text-center leading-relaxed">
+          Our refurbishment service is engineered for technical decision-makers who require OEM-grade assets with MAR-approved Microsoft Windows licencing, 98.6% test pass rate, and enterprise-grade warranty coverage, certified by ISO 9001:2015, aligned with the UK Government Technology Code of Practice.
+        </p>
+
+        <!-- COVID Legacy Note -->
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-600/10 border border-red-600/20 mb-4">
+            <span class="text-red-600">⚠️</span>
+            <span class="text-xs font-medium uppercase tracking-wide">COVID-19 Supply Chain Disruption Alert</span>
+          </div>
+          <h3 class="font-bold text-slate-900 mb-2">Post-pandemic supply chain disruption persists across all manufacturers.</h3>
+          <p class="text-sm text-slate-600 max-w-2xl mx-auto">
+            Increase your refurbishment planning to avoid capex budget overruns. Substantial long-lead times against original equipment manufacturers.
+          </p>
+        </div>
+
+        <!-- Investment Note -->
+        <div class="bg-cyan-600/10 rounded-lg p-6 text-center mb-12">
+          <div class="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center mx-auto mb-4">
+            <span class="text-white font-bold text-xl">🔍</span>
+          </div>
+          <h3 class="font-bold text-lg mb-3">Investorcape Note</h3>
+          <p class="text-sm text-slate-600">
+            Refurbishment sector trading at 7.2× enterprise value (2025) vs. 4.9× five years prior.<br>
+            Significant hold potential within cloud migration and right-to-repair legislation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Process Hero -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6 text-center">
+        <div class="flex flex-col md:flex-row gap-2 justify-center mb-12">
+          <img src="/F3.png" alt="Antares Systems technician performing ISO 9001 certified hardware refurbishment" class="w-48 h-32 object-cover rounded-2xl mx-auto" loading="lazy" />
+          <img src="/F1.jpg" alt="NIST 800-88 certified data sanitisation process for hardware refurbishment" class="w-48 h-32 object-cover rounded-2xl mx-auto" loading="lazy" />
+        </div>
+
+        <h2 class="text-3xl font-bold text-slate-900 mb-6">Our Refurbishment Process</h2>
+        <p class="text-lg text-slate-600 max-w-4xl mx-auto">
+          Six-step OEM-grade refurbishment pipeline delivering NIST 800-88 sanitised, licence-authentic Microsoft Windows workstations with 98.6% test pass rate SLA.
+        </p>
+
+        <div class="mt-8">
+          <h3 class="font-bold text-lg text-blue-600 mb-2">process_diagram@hpc-msl02</h3>
+          <div class="text-xs text-slate-500 uppercase tracking-wide">Quality metric baseline. Individual asset variance expected.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Grid -->
+    <section class="py-12 bg-slate-50">
+      <div class="container mx-auto px-6 max-w-6xl">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {processSteps.map(step => (
+            <div class="bg-gradient-to-br from-blue-500/90 to-emerald-500/90 rounded-xl p-0.5" key={step.name}>
+              <div class="bg-white rounded-xl p-6 h-full">
+                <h3 class="font-bold text-lg text-slate-900 mb-3">{step.name}</h3>
+
+                <div class="grid grid-cols-2 gap-2 text-xs mb-4">
+                  <div>
+                    <p class="text-slate-500 uppercase tracking-wide">Processing Time</p>
+                    <p class="font-medium">{step.processingTime}</p>
+                  </div>
+                  <div>
+                    <p class="text-slate-500 uppercase tracking-wide">Compliance Requirement</p>
+                    <p class="font-mono text-blue-600 text-xs" title={step.complianceReq}>{step.complianceReq.split(' ')[0]}...</p>
+                  </div>
+                </div>
+
+                <div class="border-t pt-3">
+                  <p class="text-sm text-slate-600 font-bold mb-1">⚡ Metric</p>
+                  <p class="font-bold">{step.metric}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="/contacts#refurb-eligibility" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+            Check Refurbishment Eligibility
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust -->
+    <div class="container mx-auto px-6 mb-16">
+      <TrustBar variant="detailed" />
+    </div>
+
+    <!-- Category Showcase -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Category Showcase</h2>
+          <p class="text-lg text-slate-600 mb-8">
+            OEM-grade, MAR-licensed refurbished infrastructure & workstations across four core groups:
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {refurbCategories.map(category => (
+            <div class="border rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow bg-cyan-600/5" key={category.title}>
+              <div class="relative overflow-hidden group">
+                <img src={category.image} alt={category.alt} class="w-full h-48 object-cover bg-blue-900/5" loading="lazy" />
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 group-hover:opacity-30 transition-opacity"></div>
+              </div>
+              <div class="p-4">
+                <h3 class="font-bold text-lg text-blue-600 mb-1">{category.title}</h3>
+                <p class="text-sm text-slate-600">{category.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <ProductGrid title="Enterprise Workstations" subtitle="Refurbished Desktop PCs for Business Use" />
+
+        <div class="mt-12 text-center">
+          <a href="/services/itad-asset-recovery" class="text-blue-600 hover:text-blue-700 inline-flex items-center gap-2">
+            Request a custom configuration →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Warranty Support -->
+    <section class="py-20 bg-slate-50">
+      <div class="container mx-auto px-6 max-w-5xl">
+        <div class="grid lg:grid-cols-3 gap-12 items-start">
+          <div class="lg:col-span-2">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">Enterprise-Grade Warranty & Support</h2>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+              {warrantyTiers.map(tier => (
+                <div class="border p-6 rounded-xl hover:border-blue-500 transition-colors" key={tier.name}>
+                  <h3 class="font-bold text-lg mb-2">{tier.name}</h3>
+                  <div class="text-sm space-y-1 mb-4 text-slate-600">
+                    <p><span class="font-bold">⏱️  Duration:</span> {tier.duration}</p>
+                    <p><span class="font-bold">📋  Coverage:</span> {tier.coverage}</p>
+                    <p><span class="font-bold">⚙️  Processing Time:</span> {tier.processingTime}</p>
+                    <p><span class="font-bold">💰  Cost Premium:</span> {tier.costPremium}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div class="space-y-6 mb-8">
+              <div>
+                <h3 class="font-bold text-lg mb-2">🚚 Collection & Delivery Options</h3>
+                <p class="text-sm text-slate-600">
+                  Standard: Nationwide collection & return (DPD / TNT). Next-Business Day (NBD) available for Enterprise Warranty. AOG support available for critical systems.
+                </p>
+              </div>
+
+              <div>
+                <h3 class="font-bold text-lg mb-2">⚙️ Fixed-Standard Hardware Modifications</h3>
+                <div class="border border-slate-200 rounded-lg p-4 bg-white">
+                  <ul class="text-sm text-slate-600 space-y-2">
+                    <li class="flex gap-2"><span class="text-blue-500">•</span> Standard memory (4/8/16/32/64GB) — ✚5% over base spec</li>
+                    <li class="flex gap-2"><span class="text-blue-500">•</span> CPU upgrade (where socket compatible)</li>
+                    <li class="flex gap-2"><span class="text-blue-500">•</span> Professional GPU addition (nVidia Quadro/RTX) — single-slot only</li>
+                    <li class="flex gap-2"><span class="text-blue-500">•</span> Storage upgrade to NVMe / SSD</li>
+                  </ul>
+                </div>
+                <div class="text-xs text-slate-500 mt-2 pl-2">*Subject to individual asset eligibility.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm sticky top-8 self-start">
+            <div class="flex items-center gap-3 mb-4 border-b pb-4">
+              <span class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+                <span class="text-white text-xl">📋</span>
+              </span>
+              <h3 class="font-bold text-lg">Refurbishment Report</h3>
+            </div>
+
+            <div class="space-y-4 text-sm">
+              <div>
+                <span class="text-slate-500 uppercase tracking-wide">⚙️ Device Grade</span>
+                <p class="font-bold">R-1 (OEM Grade)</p>
+              </div>
+              <div>
+                <span class="text-slate-500 uppercase tracking-wide">📄 Licence Type</span>
+                <p class="font-bold">Microsoft MAR COF / Retail Key</p>
+              </div>
+              <div>
+                <span class="text-slate-500 uppercase tracking-wide">✅ Test Pass Guarantee</span>
+                <p class="font-bold text-success-eco">98.6% pass rate (2024 average)</p>
+              </div>
+              <div>
+                <span class="text-slate-500 uppercase tracking-wide">🏠 Stock Location</span>
+                <p class="font-bold">Manchester, Birmingham</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 mt-6">
+              <button class="px-4 py-2 bg-slate-200 rounded-lg text-sm">Sample</button>
+              <button class="px-4 py-2 bg-primary text-white rounded-lg text-sm flex-1">
+                Contact Sales
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Target Industries -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6 max-w-5xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Target Industries</h2>
+          <p class="text-lg text-slate-600">
+            Our refurbished hardware is the backbone of the following sectors where hardware lifecycle extension and CAPEX optimisation are critical:
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 mb-16">
+          <div class="border border-slate-200 rounded-2xl p-6 bg-slate-50">
+            <h3 class="font-bold text-xl mb-3 flex items-center gap-2">
+              <span class="text-blue-600">💼</span>
+              Commercial & Service Sector
+            </h3>
+            <div class="flex flex-wrap gap-2 mb-4 text-xs">
+              <span class="px-2 py-0.5 bg-slate-200 rounded-full">NHS NEP</span>
+              <span class="px-2 py-0.5 bg-slate-200 rounded-full">ISO 10002</span>
+              <span class="px-2 py-0.5 bg-slate-200 rounded-full">TCO Certified</span>
+            </div>
+          </div>
+
+          <div class="border border-slate-200 rounded-2xl p-6 bg-blue-50">
+            <h3 class="font-bold text-xl mb-3 flex items-center gap-2">
+              <span class="text-blue-500">🏛️</span>
+              Public Sector & Fixed-Cost Budgets
+            </h3>
+            <div class="flex flex-wrap gap-2 mb-4 text-xs">
+              <span class="px-2 py-0.5 bg-blue-200 rounded-full">Government Buying Standards</span>
+              <span class="px-2 py-0.5 bg-blue-200 rounded-full">Corporate Vehicle Typical 6</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CCTA Commercial Cloud Audit Grid -->
+        <div class="bg-slate-50 rounded-2xl p-6 shadow-sm">
+          <h3 class="font-bold text-xl mb-4 text-slate-900">CCTA Commercial Cloud Audit Grid</h3>
+          <p class="text-sm text-slate-600 mb-4">
+            Our workstations and servers pass CCTA security requirements for HPE and DELL-based virtualisation stacks. We provide standard BOM documentation suitable for permanent file use.
+          </p>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2 text-xs mb-4">
+            {["DCB 0160 L1", "HPE DISA ASI 2022", "ICFR UK SOX", "DW Government Pack 8B", "CIO Government Cloud Strategy", "DWP Privacy Shield Review 2021", "MoJ Justice Digital 3-C", "CCTA Cloud Computing Regulation"].map(item => (
+              <div class="bg-white border border-slate-200 rounded-lg p-2 text-center" key={item}>
+                {item}
+              </div>
+            ))}
+          </div>
+
+          <p class="text-xs text-slate-500">*Antares is not an authorised reseller of HPE / Dell platforms.</p>
+        </div>
+
+        <!-- Industry Case Studies -->
+        <div class="mt-8 space-y-4">
+          <div class="bg-white border rounded-lg p-6 hover:border-primary transition-colors">
+            <div class="flex justify-between items-center">
+              <div>
+                <h3 class="font-bold text-lg mb-1">🇬🇧 UK Government - HMRC</h3>
+                <p class="text-sm text-slate-600">MAR-licensed Windows 10 Pro workstations for in-office and home working deployment across multiple regions.</p>
+              </div>
+              <div class="flex gap-2">
+                <span class="text-xs bg-slate-100 px-2 py-1 rounded">Internal IT</span>
+                <span class="text-xs bg-slate-100 px-2 py-1 rounded">4x Pipeline</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white border rounded-lg p-6 hover:border-primary transition-colors">
+            <div class="flex justify-between items-center">
+              <div>
+                <h3 class="font-bold text-lg mb-1">🏥 NHS Supply Chain - STA Framework</h3>
+                <p class="text-sm text-slate-600">Microsoft MAR Windows 10 Pro laptops for Trust-frontline staff deployed across 2 pilot hospitals with 3-year enterprise warranty supplied.</p>
+              </div>
+              <div class="flex gap-2">
+                <span class="text-xs bg-slate-100 px-2 py-1 rounded">STA-987-XD</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white border rounded-lg p-6 hover:border-primary transition-colors">
+            <div class="flex justify-between items-center">
+              <div>
+                <h3 class="font-bold text-lg mb-1">🏦 Trading - Ultra Data Network</h3>
+                <p class="text-sm text-slate-600">High-frequency trading workstations (Dell Precision + nVidia Quattro 4000) with custom datacentre BOM validation.</p>
+              </div>
+              <div class="flex gap-2">
+                <span class="text-xs bg-slate-100 px-2 py-1 rounded">Finance Grade Hardware</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-slate-50">
+      <div class="container mx-auto px-6 max-w-4xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
+          <p class="text-lg text-slate-600">From procurement to technical decision-makers.</p>
+        </div>
+
+        <div class="space-y-4 mb-12">
+          <details class="border border-slate-200 rounded-lg p-4 bg-white">
+            <summary class="font-bold text-slate-900 cursor-pointer">Apple MAR Programme Limitations</summary>
+            <div class="text-sm text-slate-600 mt-3 pl-4 space-y-2">
+              <p>• Apple withdrew from the MAR programme in December 2022. Therefore, we <strong>do not supply</strong> Apple refurbishment hardware under the MAR scheme.</p>
+              <p>• Options:</p>
+              <ul class="list-inside space-y-1">
+                <li>— Windows (MAR approved), Linux, or other manufacturer devices (Dell, Lenovo, HP, HPE).</li>
+                <li>— Apple hardware without OS (Apple Silicon grey screen functionality only).</li>
+                <li>— Marketing Authorised Retail (MAR is not the same as marketing authorised retailer — clarification required for CIO clarification).</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="border border-slate-200 rounded-lg p-4 bg-white">
+            <summary class="font-bold text-slate-900 cursor-pointer">Is technological refresh possible on refurbished equipment?</summary>
+            <div class="text-sm text-slate-600 mt-3 pl-4 space-y-2">
+              <p>✓ Yes, under the MAR program, as long as the hardware meets specific guidelines. Microsft's MAR license strictly states:</p>
+              <blockquote class="border-l-4 border-blue-500 pl-4 italic my-2 text-blue-700">
+                <p>"Users upgrading hardware may continue using existing software and activation status when transferring the hard drive or legacy COA to a different PC OR replace the MB and add a new hard drive with a new OEM license and factory image."</p>
+              </blockquote>
+              <p>Therefore, CPU upgrades, storage additions, and memory upgrades are all compliant as long as the <strong>motherboard platform remains identical</strong>. Non-auto components such as TPM 2.0, network cards, and RAID controllers may change if the hardware stack is compatible with the original OEM Device ID.</p>
+            </div>
+          </details>
+
+          <details class="border border-slate-200 rounded-lg p-4 bg-white">
+            <summary class="font-bold text-slate-900 cursor-pointer">How does Antares validate data sanitisation?</summary>
+            <div class="text-sm text-slate-600 mt-3 pl-4 space-y-2">
+              <p>We validate Sanitisation under NIST SP 800-88 Purge as standard.</p>
+              <p>The 3-step Camber Data Sanitization process:</p>
+              <ol class="list-decimal pl-4 space-y-1">
+                <li><strong>Certified Data Purge Command.</strong> Using FRP Enterprise, we issue NIST 800-88 Purge-compliant ATA Secure Erase (SE) or NVM Express Secure Erase commands using IPS.</li>
+                <li><strong>File Carving Test.</strong> Post-sanitisation, a sample surface area scan runs with WinPE. Drive contents are verified using FTK Imager validation hash after disk completion.</li>
+                <li><strong>Documented Audit.</strong> X-ray scans verify physical media (for HDD platters). All results are logged on a PHP-based CAMBER report, appended with Microsoft MAR certificate and NIST Sanitization results.</li>
+              </ol>
+            </div>
+          </details>
+
+          <details class="border border-slate-200 rounded-lg p-4 bg-white">
+            <summary class="font-bold text-slate-900 cursor-pointer">Can hardware be used for production environments after refurbishment?</summary>
+            <div class="text-sm text-slate-600 mt-3 pl-4 space-y-2">
+              <p>Yes. Our SLA ensures the following:</p>
+              <ul class="list-inside space-y-1">
+                <li>• OEM parts authenticated and sourced (Arrow, Ingram Micro, Synnex)</li>
+                <li>• ISO 9001:2015 certified process</li>
+                <li>• MTBF aligned with OEM specification (minimum 10,000h)</li>
+                <li>• Qualified hardware platforms for enterprise deployments (HPE ProLiant, Dell PowerEdge)</li>
+                <li>• Enterprise-grade warranty (up to 36 months → next business day)</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="border border-slate-200 rounded-lg p-4 bg-white">
+            <summary class="font-bold text-slate-900 cursor-pointer">How do you verify the Windows license?</summary>
+            <div class="text-sm text-slate-600 mt-3 pl-4 space-y-2">
+              <p>Here's the workflow:</p>
+              <ol class="list-decimal pl-4 space-y-1">
+                <li>
+                  <strong>Microsoft Product ID Decoding.</strong> Python script decodes encoded PID payload, extracting six blocks: channel (0xA1 for MAR), edition, product type, year, assembly week, and flag. Example:
+                  <pre class="text-xs bg-slate-100 p-2 rounded mt-1">
+0A0108899GYYQQE08</pre>
+                </li>
+                <li><strong>Microsoft License Authentication.</strong> Hardware-bound license within TPM authenticates through Microsoft's digital entitlement service. We validate genuine status using Microsoft's Genuine Advantage (MGA) API premigration.</li>
+                <li><strong>Certificate of Authenticity (COA).</strong> COA fingerprint written to system BIOS during factory provisioning. MICROSOFT MAR COA sticker affixed to each device, serial matched to our audit system.</li>
+              </ol>
+            </div>
+          </details>
+
+          <details class="border border-slate-200 rounded-lg p-4 bg-white">
+            <summary class="font-bold text-slate-900 cursor-pointer">What does public procurement status mean?</summary>
+            <div class="text-sm text-slate-600 mt-3 pl-4 space-y-2">
+              <p>Antares Systems Ltd & MAR process qualifies under the following UK public procurement frameworks:</p>
+              <ol class="list-decimal pl-4 space-y-1">
+                <li><strong>G-Cloud 14.</strong> Digital infrastructure sub-lot (hardware) eligible. (Supplier No. 3446135)</li>
+                <li><strong>Technology Services 4.</strong> Refurbished hardware available through Tier 3 suppliers BT, SCC, and Computacenter.</li>
+                <li><strong>Tech Tender Scotland.</strong> Double certification via all 11 health boards; approved for procurement indirect spend.</li>
+                <li><strong>Crown Commercial Service RM6268.</strong> Essential specifications met: ISO 9001, ISO 14064, and WEEE recycling.</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-slate-900 text-white text-center border-t border-slate-800">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-4">Enterprise Refurbishment Deployed</h2>
+        <p class="text-slate-300 mb-8">
+          Test pass guaranteed. MAR licence included. Next-business-day warranty available.
+        </p>
+        <a href="/shop" class="inline-block bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-dark transition-colors">
+          Shop Refurbished Equipment
+        </a>
+
+        <div class="mt-8 text-xs text-slate-500 flex justify-center gap-4 border-t border-slate-800 pt-4">
+          MAR Microsoft License, 98.6% Test Pass Rate, ISO 9001:2015
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

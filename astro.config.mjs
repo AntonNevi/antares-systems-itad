@@ -5,10 +5,12 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://antaressystems.net',
+  site: 'https://www.antaressystems.net',
   output: 'static',
   vite: {
     plugins: [tailwindcss()]
   },
-  integrations: [sitemap()]
+  integrations: [
+    sitemap()
+  ]
 });

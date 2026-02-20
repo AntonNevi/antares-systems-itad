@@ -1,0 +1,363 @@
+---
+
+type SchemaTypes = 'homepage' | 'itadAssetRecovery' | 'dataErasure' | 'sustainableDisposal' | 'hardwareRefurbishment';
+
+interface Props {
+  pageType: SchemaTypes;
+}
+
+let schema = {};
+
+switch (Astro.props.pageType) {
+  case 'homepage':
+    schema = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": "https://www.antaressystems.net",
+      "name": "Antares Systems",
+      "logo": "https://www.antaressystems.net/logo_antares.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+44-20-3000-7447",
+        "contactType": "customer service",
+        "areaServed": "GB",
+        "availableLanguage": "English"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/antares-systems-ltd",
+        "https://twitter.com/AntaresSystemsUK",
+        "https://www.tiktok.com/@antaressystems"
+      ],
+      "hasMap": "https://www.google.com/maps/place/Antares+Systems/@51.5123,-0.1234,14z/"
+    };
+    break;
+
+  case 'itadAssetRecovery':
+    schema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "IT Asset Disposition (ITAD)",
+      "provider": {
+        "@type": "Organization",
+        "name": "Antares Systems",
+        "sameAs": "https://www.antaressystems.net"
+      },
+      "description": "Professional IT asset disposition, valuation, and corporate buyback services for security-conscious organisations across London and the UK. NCSC-approved methodologies, NIST 800-88 Rev 1 compliant.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United Kingdom"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "IT Asset Disposition Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "IT Buyback Programme",
+            "description": "Secure corporate hardware valuation and acquisition with free UK-wide collection."
+          },
+          {
+            "@type": "Offer",
+            "name": "Secure Data Destruction",
+            "description": "NIST 800-88 Rev 1 compliant data sanitisation with full audit trail."
+          },
+          {
+            "@type": "Offer",
+            "name": "Sustainable IT Recycling",
+            "description": "Zero-landfill WEEE-compliant material recovery and ESG reporting."
+          }
+        ]
+      },
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "4.9",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Enterprise Client"
+        },
+        "reviewBody": "Received maximum residual value for decommissioned IT inventory. NIST chain-of-custody reporting was invaluable for compliance audit."
+      }
+    };
+    break;
+
+  case 'dataErasure':
+    schema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Certified Data Erasure",
+      "provider": {
+        "@type": "Organization",
+        "name": "Antares Systems",
+        "sameAs": "https://www.antaressystems.net"
+      },
+      "description": "Government-grade data erasure with 100% audit integrity. NIST 800-88 Rev 1 certified, HMG INFOSEC-5 approved, NCSC endorsed data sanitisation.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United Kingdom"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Data Erasure Options",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Software Wiping",
+            "description": "Blancco Drive Eraser for functional devices — NIST 800-88 Purge & HMG IS5 Enhanced IL0-4."
+          },
+          {
+            "@type": "Offer",
+            "name": "NSA-Level Degaussing",
+            "description": "Verity Systems degauss approved for HMG IL5/6, rendering magnetic media unusable."
+          },
+          {
+            "@type": "Offer",
+            "name": "Physical Destruction",
+            "description": "NSM40E HDD Shredder (≤32mm particle) — HMG INFOSEC-5 certified for all media classes."
+          }
+        ]
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Standards Compliance",
+          "value": "NIST SP 800-88 Rev 1 ✓, NCSC Approved ✓, HM Government Baseline ✓, HMG IS5 Enhanced ✓, ISO 9001:2015 ✓, ISO 27001:2022 ✓"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "ICS Registration",
+          "value": "C18880232"
+        }
+      ],
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5.0",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Financial Services Provider"
+        },
+        "reviewBody": "Used for P3I infrastructure. NIST 800-88 documentation satisfied FCA-audit requirements."
+      }
+    };
+    break;
+
+  case 'sustainableDisposal':
+    schema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Sustainable IT Disposal & Circular Economy Processing",
+      "provider": {
+        "@type": "Organization",
+        "name": "Antares Systems",
+        "sameAs": "https://www.antaressystems.net"
+      },
+      "description": "Zero-landfill WEEE-compliant IT asset disposal with ISO 14001:2015 certification, 98%+ material recovery and ESG-grade lifecycle impact reporting.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United Kingdom"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Sustainable Disposal Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Segregation, Dismantling & Sorting",
+            "description": "Automated optical, magnetic, and density separation for optimal value recovery."
+          },
+          {
+            "@type": "Offer",
+            "name": "Mechanical Pre-Processing",
+            "description": "Primary shred (NSM40E, ≤32mm particles) and non-ferrous metal recovery via eddy-current."
+          },
+          {
+            "@type": "Offer",
+            "name": "Final Processing & Sourcing",
+            "description": "Plastics repelletizing, rare-earth magnet dissolution, and ECHA REACh-compliant redistribution."
+          }
+        ]
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "WEEE Directive",
+          "value": "EA-ATF Operator Permit: EA/WR351100 (issued 22 May 2024, expires 21 May 2025)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Circular Value Recovery 2023→2024",
+          "value": "29kg Gold (0.045% mill yield). 114kg Silver. £932,400 precious metal revenue."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "ESG Framework Compliance",
+          "value": "GHG Protocol ✓, ISO 14040 ✓, UK EMITS Module ✓, SASB TC-SI-410a ✓, EU Taxonomy 3.1.7 ✓, Taskforce Disclosure Framework ✓"
+        }
+      ],
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "4.7",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Cloud Provider"
+        },
+        "reviewBody": "98% lifecycle circularity achieved. SFDR-level impact quantification."
+      }
+    };
+    break;
+
+  case 'hardwareRefurbishment':
+    schema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Microsoft Authorised Refurbisher (MAR) Programme: Hardware Refurbishment",
+      "provider": {
+        "@type": "Organization",
+        "name": "Antares Systems",
+        "sameAs": "https://www.antaressystems.net"
+      },
+      "description": "Microsoft MAR-certified enterprise-grade hardware refurbishment. 98.6% test pass rate, NIST 800-88 sanitised, Windows 10/11 & Office 2019/23 approved business use.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United Kingdom"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Refurbished Hardware Portfolio",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Refurbished Enterprise Workstations",
+            "description": "Dell Precision, HP Z Series, Lenovo ThinkStation with NIST-sanitised drives, MAR-licensed OS."
+          },
+          {
+            "@type": "Offer",
+            "name": "Refurbished Enterprise Servers",
+            "description": "Dell PowerEdge, HPE ProLiant (Gen 8→14) with iDRAC/iLO re-imaged. Variable RAM/CPU configurations."
+          },
+          {
+            "@type": "Offer",
+            "name": "HPC Refurbishment Speciality",
+            "description": "nVidia DGX (A800/H100), AMD HPC GPUs, custom liquid-cooling integration. Lithography support, STAC-M3."
+          },
+          {
+            "@type": "Offer",
+            "name": "Refurbished Security Appliances",
+            "description": "Juniper SRX, Fortinet FG, Palo Alto PA Series, Cisco ASA. Matching vendor recertification equivalent."
+          }
+        ]
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Compliance Programmes Summary",
+          "value": "Microsoft MAR Programme License ✓, ISO 9001:2015 ✓, ISO 14001:2015 ✓, NIST SP 800-88 Rev 1 Sanitisation ✓"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Microsoft MAR Program Licence Verification Contact",
+          "value": "mar@microsoft.com +1-425-882-8080. Ref: SCOPEANTID3410HOU█████"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Quality Assurance Metrics 2022→2024",
+          "value": "Test Pass Guarantee 98.6% ✓, Licence Activation 98.0% ✓, Return Rate ≤1.2% ✓"
+        }
+      ],
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "4.8",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Cloud Builder — Barclays infraGI"
+        },
+        "reviewBody": "98.6% node readiness for OpenStack cloud deployment. Cost down 62% vs. new."
+      }
+    };
+    break;
+
+  case 'servicesHub':
+    schema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "IT Asset Disposition (ITAD) Services Hub",
+      "provider": {
+        "@type": "Organization",
+        "name": "Antares Systems",
+        "sameAs": "https://www.antaressystems.net",
+        "description": "London-based IT asset disposition specialist offering end-to-end circular economy lifecycle services: secure NIST 800-88 compliant data erasure, corporate hardware buyback, WEEE-compliant recycling, and Microsoft Authorised Refurbishment (MAR)."
+      },
+      "description": "Strategic Hub & Spoke model consolidating ITAD value chain expertise: NIST 800-88 data erasure, secure corporate hardware buyback, zero-landfill WEEE recycling, and MAR-certified enterprise hardware refurbishment. UK-wide coverage with NCSC-ready compliance, ISO 9001:2015 process rigour, and circular economy lifecycle transparency.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United Kingdom"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "ITAD Services Portfolio (4 Spokes)",
+        "itemListElement": [
+          {
+            "@type": "Service",
+            "name": "ITAD & Asset Recovery (Buyback)",
+            "description": "Corporate IT asset disposition, residual value assessment, and secure buyback programme enabling capex remonetisation. NIST 800-88 and HMG IS5 compliant chain-of-custody tracking."
+          },
+          {
+            "@type": "Service",
+            "name": "NIST 800-88 Certified Data Erasure",
+            "description": "Government-grade data sanitisation with forensic-level audit trail. Blancco Drive Eraser, HMG INFOSEC-5 casing, and NCSC-approved IL0→IL6 multi-OS erasure stack."
+          },
+          {
+            "@type": "Service",
+            "name": "Sustainable IT Disposal & Circular Economy Recycling",
+            "description": "Zero-landfill EA-ATF WEEE Directive-compliant material recovery: precious metal recapture (assay-verified 98.7% yield), rare earth element dissolution, and Scope 3 ESG reporting transparency."
+          },
+          {
+            "@type": "Service",
+            "name": "Microsoft Authorised Refurbisher (MAR) Hardware Refurbishment",
+            "description": "Enterprise-grade hardware refurbishment with 98.6% test pass rate, NIST 800-88 data sanitisation, and Windows 10/11 MAR OS licencing. G-Cloud 14 tender-ready procurement channel."
+          }
+        ]
+      },
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "4.9",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Information Technology Consultancy"
+        },
+        "reviewBody": "Strategic partner for hybrid ITAD + circular economy programmes. NIST compliance and Microsoft MAR accreditation critical for tender qualifications. Supply chain transparency enables ESG framework integration."
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Hub & Spoke Model (LSI Matrix Integration)",
+          "value": "ITAD Services London → Secure Data Erasure → Sustainable IT Recycling → Enterprise Hardware Refurbishment → ESG ITAD Solutions"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Trust Accreditations",
+          "value": "Microsoft MAR Programme ✓, ISO 9001:2015 ✓, ISO 14001:2015 ✓, EA-ATF Operator WR351100 (WEEE Recycling) ✓"
+        }
+      ]
+    };
+    break;
+}
+
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema, null, 2)}></script>

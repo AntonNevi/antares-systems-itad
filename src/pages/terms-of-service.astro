@@ -1,0 +1,315 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Terms of Service";
+const description = "Antares Systems terms and conditions for IT Asset Disposition services, covering liability, intellectual property, and service terms.";
+---
+
+<BaseLayout title={title} description={description}>
+	<head>
+		<meta name="robots" content="noindex" />
+	</head>
+
+	<main class="min-h-screen bg-white text-gray-800 font-['Inter']">
+		<div class="max-w-4xl mx-auto px-6 py-16 lg:py-24">
+			<article class="prose prose-lg max-w-none">
+				<h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-8">Terms & Conditions</h1>
+
+				<p class="text-gray-600 mb-12">Last updated: {new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+
+				{/* Acceptance of Terms */}
+				<section class="mb-16">
+					<h2 class="text-2xl font-bold text-gray-900 mb-6">1. Acceptance of Terms</h2>
+					<p class="text-gray-700 mb-6 leading-relaxed">
+						Welcome to Antares Systems Ltd. ("Antares Systems", "we", "our", or "us"). By accessing our website at <a href="https://antaressystems.net" class="text-blue-600 underline hover:text-blue-800">antaressystems.net</a> or using our IT Asset Disposition (ITAD) services, you ("you" or "Client") agree to be bound by these Terms of Service ("Terms").
+					</p>
+
+					<p class="text-gray-700 mb-6 leading-relaxed">
+						If you do not agree with these Terms, please do not access our website or use our services. These Terms constitute a legally binding agreement between you and Antares Systems, governed by the laws of England and Wales.
+					</p>
+				</section>
+
+				{/* Services */}
+				<section class="mb-16">
+					<h2 class="text-2xl font-bold text-gray-900 mb-6">2. Services</h2>
+					<p class="text-gray-700 mb-4 leading-relaxed">
+						Antares Systems specializes in comprehensive IT asset management solutions, including but not limited to:
+					</p>
+
+					<ul class="list-disc list-outside space-y-4 text-gray-700 pl-6 mb-8">
+						<li>
+							<strong class="text-gray-900">IT Asset Disposition (ITAD):</strong> Secure, compliant disposal and recycling of IT assets including computers, servers, storage devices, and networking equipment.
+						</li>
+						<li>
+							<strong class="text-gray-900">Logistics:</strong> Secure chain-of-custody transportation services for IT assets, ensuring physical security and compliance throughout the process.
+						</li>
+						<li>
+							<strong class="text-gray-900">Data Sanitization:</strong> Permanent data destruction services using NIST 800-88 and HMG IS5 compliant methods including secure erasure, degaussing, and physical destruction.
+						</li>
+						<li>
+							<strong class="text-gray-900">Environmental Compliance:</strong> Certified recycling and waste management services ensuring compliance with WEEE regulations and environmentally responsible disposal.
+						</li>
+					</ul>
+
+					<p class="text-gray-700 mb-6 leading-relaxed">
+						All services are provided in accordance with applicable UK laws and industry best practices for secure data destruction and environmental responsibility.
+					</p>
+				</section>
+
+				{/* Service Agreements */}
+				<section class="mb-16">
+					<h2 class="text-2xl font-bold text-gray-900 mb-6">3. Service Agreements</h2>
+					<p class="text-gray-700 mb-6 leading-relaxed">
+						The following terms govern all service agreements between Antares Systems and our clients:
+					</p>
+
+					<div class="space-y-6">
+						<div>
+							<h3 class="text-xl font-semibold text-gray-900 mb-3">3.1 Service Scope</h3>
+							<p class="text-gray-700 mb-4 leading-relaxed">Service details including specific ITAD procedures, data destruction methods, asset types, and compliance standards will be defined in separate service agreements or purchase orders.</p>
+						</div>
+
+						<div>
+							<h3 class="text-xl font-semibold text-gray-900 mb-3">3.2 Service Levels</h3>
+							<p class="text-gray-700 leading-relaxed">Service level commitments, including processing timelines and compliance deliverables, may be specified in individual service contracts.</p>
+						</div>
+
+						<div>
+							<h3 class="text-xl font-semibold text-gray-900 mb-3">3.3 Client Responsibilities</h3>
+							<p class="text-gray-700 mb-4 leading-relaxed">Clients are responsible for:</p>
+							<ul class="list-disc list-inside space-y-2 text-gray-700 pl-4">
+								<li>Providing accurate asset manifests and service requirements</li>
+								<li>Ensuring all assets are properly prepared for collection</li>
+								<li>Complying with all security protocols during asset handover</li>
+								<li>Providing necessary access permissions for secure facilities</li>
+								<li>Promptly reporting any issues or discrepancies related to the service</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				{/* Data Security and Compliance */}
+				<section class="mb-16">
+					<h2 class="text-2xl font-bold text-gray-900 mb-6">4. Data Security and Compliance</h2>
+					<p class="text-gray-700 mb-6 leading-relaxed">
+						Antares Systems maintains the highest standards of data security and regulatory compliance:
+					</p>
+
+					<ul class="list-disc list-outside space-y-4 text-gray-700 pl-6 mb-8">
+						<li>All data destruction services comply with <strong class="text-gray-900">NIST 800-88 and HMG IS5 standards</strong></li>
+						<li>Data sanitization methods are verified through independent auditing</li>
+						<li>Secure chain-of-custody documentation is provided for all assets</li>
+						<li>Data processing activities comply with <strong class="text-gray-900">UK GDPR and Data Protection Act 2018</strong></li>
+						<li>Environmental disposal practices adhere to <strong class="text-gray-900">WEEE regulations and ISO 14001 standards</strong></li>
+					</ul>
+
+					<p class="text-gray-700 mb-6 leading-relaxed">
+						Clients are responsible for ensuring all data on submitted assets has been properly identified and approved for destruction. Antares Systems assumes no liability for data remaining on client-prepared assets.
+					</p>
+				</section>
+
+				{/* Pricing and Payments */}
+				<section class="mb-16">
+					<h2 class="text-2xl font-bold text-gray-900 mb-6">5. Pricing and Payments</h2>
+					<p class="text-gray-700 mb-6 leading-relaxed">
+						Pricing for ITAD services is determined based on various factors including:
+					</p>
+
+					<ul class="list-disc list-outside space-y-2 text-gray-700 pl-6 mb-6">
+						<li>Quantity and type of IT assets</li>
+						<li>Selected data destruction methods</li>
+						<li>Logistical requirements and geographic location</li>
+						<li>Compliance documentation needs</li>
+						<li>Additional value-added services</li>
+					</ul>
+
+					<p class="text-gray-700 mb-6 leading-relaxed">
+						Payment terms (including due dates, accepted payment methods, and billing processes) will be specified in the service agreement or purchase order for each engagement.
+					</p>
+
+					<ul class="list-disc list-outside space-y-2 text-gray-700 pl-6 mb-4">
+						<li>Invoices are typically due within 30 days of receipt</li>
+						<li>Late payments may be subject to interest charges at the UK statutory rate</li>
+						<li>Antares Systems reserves the right to withhold services and final compliance documentation pending payment</li>
+					</ul>
+
+					<p class="text-gray-700 leading-relaxed">
+						All prices are exclusive of VAT, which will be added where applicable in accordance with UK tax regulations.
+					</p>
+				</section>
+
+				{/* Intellectual Property */}
+				<section class="mb-16">
+					<h2 class="text-2xl font-bold text-gray-900 mb-6">6. Intellectual Property</h2>
+					<p class="text-gray-700 mb-6 leading-relaxed">
+						Unless otherwise specified, all content and materials on the Antares Systems website, including but not limited to:
+					</p>
+
+					<div class="space-y-4 mb-6">
+						<div>
+							<h4 class="font-semibold text-gray-900 mb-2">Antares Systems Retains All Rights to:</h4>
+							<ul class="list-disc list-inside space-y-2 text-gray-700 pl-4">
+								<li>Website design, layout, graphics, and visual elements</li>
+								<li>Marketing materials, service descriptions, and business documentation</li>
+								<li>Process methodologies, workflows, and standard operating procedures</li>
+								<li>Compliance documentation templates and certificates</li>
+								<li>Trademarks, logos, and brand assets including the Antares Systems logo</li>
+							</ul>
+						</div>
+					</div>
+
+					<p class="text-gray-700 mb-4 leading-relaxed">
+						These materials are protected by copyright law and may not be reproduced, distributed, displayed, or transmitted for any commercial purpose without the express written permission of Antares Systems Ltd.
+					</p>
+
+					<p class="text-gray-700 mb-4 leading-relaxed">
+						Client agrees not to:
+					</p>
+
+					<ul class="list-disc list-inside space-y-2 text-gray-700 pl-4">
+						<li>Use our logos or trademarks without authorization</li>
+						<li>Reproduce, modify, or distribute our copyrighted materials</li>
+						<li>Create derivative works based on our intellectual property</li>
+						<li>Use our content in any way that implies endorsement or partnership without our explicit permission</li>
+					</ul>
+				</section>
+
+				{/* Limitation of Liability */}
+				<section class="mb-16">
+					<h2 class="text-2xl font-bold text-gray-900 mb-6">7. Limitation of Liability</h2>
+					<p class="text-gray-700 mb-6 leading-relaxed">
+						While Antares Systems maintains strict adherence to industry standards and regulatory requirements, the following limitations apply:
+					</p>
+
+					<div class="space-y-6">
+						<div>
+							<h3 class="text-xl font-semibold text-gray-900 mb-3">7.1 Service Liability</h3>
+							<p class="text-gray-700 leading-relaxed">
+								Antares Systems shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to:
+							</p>
+							<ul class="list-disc list-inside space-y-2 text-gray-700 pl-4 mt-4">
+								<li>Loss of revenue or profits</li>
+								<li>Business interruption</li>
+								<li>Loss of business opportunities</li>
+								<li>Data loss (except as required by law)</li>
+								<li>Damage to reputation</li>
+							</ul>
+						</div>
+
+						<div>
+							<h3 class="text-xl font-semibold text-gray-900 mb-3">7.2 Maximum Liability</h3>
+							<p class="text-gray-700 leading-relaxed">
+								Subject to statutory rights that cannot be excluded by law, Antares Systems' total aggregate liability under any service agreement shall not exceed the total amounts paid by the client for services provided in the 12 months preceding the claim.
+							</p>
+						</div>
+
+						<div>
+							<h3 class="text-xl font-semibold text-gray-900 mb-3">7.3 Client Data Responsibility</h3>
+							<p class="text-gray-700 leading-relaxed">
+								Client expressly agrees that:
+							</p>
+							<ul class="list-disc list-outside space-y-2 text-gray-700 pl-6 mt-4">
+								<li>They are solely responsible for identifying and protecting their confidential data on all IT assets submitted for processing</li>
+								<li>Antares Systems assumes no liability for client data after the issuance of certificates of data destruction</li>
+								<li>All assets are accepted "as is" unless specific asset inspection and data removal services are included in the service agreement</li>
+							</ul>
+						</div>
+
+						<div>
+							<h3 class="text-xl font-semibold text-gray-900 mb-3">7.4 Indemnification</h3>
+							<p class="text-gray-700 leading-relaxed">
+								Client agrees to indemnify, defend, and hold harmless Antares Systems and its affiliates, officers, directors, employees, agents, and contractors from and against any third party claims, suits, damages, expenses, or costs (including reasonable attorney fees) arising from or related to:
+							</p>
+							<ul class="list-disc list-outside space-y-2 text-gray-700 pl-6 mt-4">
+								<li>Client's violation of these Terms or any applicable law</li>
+								<li>Any improper use of our services by Client or their representatives</li>
+								<li>Client data provided or maintained on assets submitted for processing</li>
+								<li>Client's breach of any third-party contracts</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				{/* Termination */}
+				<section class="mb-16">
+					<h2 class="text-2xl font-bold text-gray-900 mb-6">8. Termination</h2>
+					<p class="text-gray-700 mb-6 leading-relaxed">
+						Antares Systems reserves the right to suspend or terminate access to our services or website at any time, without notice and at our sole discretion, if:
+					</p>
+
+					<ul class="list-disc list-outside space-y-2 text-gray-700 pl-6 mb-6">
+						<li>Client breaches these Terms or any service agreement</li>
+						<li>We suspect illegal, fraudulent, or unauthorized use of our services</li>
+						<li>Client's actions threaten the integrity, security, or reputation of our systems or services</li>
+						<li>Applicable laws require us to terminate access</li>
+					</ul>
+
+					<p class="text-gray-700 leading-relaxed">
+						Upon termination, outstanding obligations (including payment for completed services) shall remain enforceable.
+					</p>
+				</section>
+
+				{/* Applicable Law and Jurisdiction */}
+				<section class="mb-16">
+					<h2 class="text-2xl font-bold text-gray-900 mb-6">9. Applicable Law and Jurisdiction</h2>
+					<p class="text-gray-700 mb-6 leading-relaxed">
+						These Terms, and any dispute or claim arising from or relating to them or their subject matter, shall be governed by and construed in accordance with the laws of <strong class="text-gray-900">England and Wales</strong>.
+					</p>
+
+					<p class="text-gray-700 mb-6 leading-relaxed">
+						Each party irrevocably submits to the exclusive jurisdiction of the <strong class="text-gray-900">courts of England and Wales</strong> and any courts entitled to hear appeals from such courts in connection with any dispute or claim arising from or relating to these Terms or their subject matter.
+					</p>
+				</section>
+
+				{/* Miscellaneous */}
+				<section class="mb-16">
+					<h2 class="text-2xl font-bold text-gray-900 mb-6">10. Miscellaneous</h2>
+					<div class="space-y-4 text-gray-700 leading-relaxed">
+						<p>
+							<strong class="text-gray-900">Force Majeure:</strong> Antares Systems shall not be liable for any delay or failure to perform services if such delay or failure results from events or circumstances beyond our reasonable control, including without limitation, acts of God, war, terrorism, industrial action, governmental regulations, or utility failures.
+						</p>
+
+						<p>
+							<strong class="text-gray-900">Severability:</strong> If any provision of these Terms is found to be invalid, illegal, or unenforceable, that provision shall be limited to the extent necessary to make it valid and enforceable, with all other provisions remaining in full force and effect.
+						</p>
+
+						<p>
+							<strong class="text-gray-900">Waiver:</strong> No failure or delay by Antares Systems in exercising any right or remedy under these Terms shall constitute a waiver of that right or remedy, nor shall it operate to prevent or lessen any further exercise of such right or remedy.
+						</p>
+
+						<p>
+							<strong class="text-gray-900">Entire Agreement:</strong> These Terms, together with any applicable service agreements and our Privacy Policy, constitute the entire agreement between you and Antares Systems regarding the subject matter hereof and supersedes all prior agreements, understandings, negotiations, and discussions.
+						</p>
+
+						<p>
+							<strong class="text-gray-900">Updates:</strong> We may update these Terms from time to time as required by law or to reflect changes in our services. We will notify you of any changes by posting the new Terms on our website. If you continue to use our services after the updated Terms are posted, you will be deemed to have accepted the updated Terms.
+						</p>
+					</div>
+				</section>
+
+				{/* Company Information */}
+				<section class="bg-gray-50 rounded-lg p-6 border-l-4 border-blue-600">
+					<h2 class="text-xl font-bold text-gray-900 mb-4">Antares Systems Ltd.</h2>
+					<address class="not-italic text-gray-700 space-y-2">
+						<p>
+							Registered in England & Wales<br/>
+							Company Registration Number: 14557428<br/>
+							Registered Office: CR2 8PD, 4 Hawthorn Crescent
+						</p>
+
+						<p>
+							<strong class="text-gray-900">Email:</strong>
+							<a href="mailto:contact@antaressystems.net" class="text-blue-600 hover:text-blue-800">contact@antaressystems.net</a>
+						</p>
+
+						<p class="mt-4">
+							For any questions regarding these Terms of Service, please contact us.
+						</p>
+					</address>
+				</section>
+			</article>
+		</div>
+	</main>
+	<Footer />
+</BaseLayout>

@@ -3,6 +3,8 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SEOSchema from '../components/SEOSchema.astro';
+import TrustBar from '../components/TrustBar.astro';
 
 const services = [
   {
@@ -26,10 +28,11 @@ const services = [
 ];
 ---
 
-<BaseLayout 
-  title="Secure IT Asset Disposal & Data Erasure | Antares Systems" 
-  description="NCSC-approved data wiping, certified IT recycling, and sustainable hardware buyback for UK businesses."
+<BaseLayout
+  title="ITAD & Secure Data Destruction | Antares Systems, London"
+  description="Antares Systems provides NCSC-approved data erasure, certified IT asset disposal, and sustainable IT equipment buyback services for London businesses. NIST 800-88 and HMG IS5 compliant."
 >
+  <SEOSchema pageType="homepage" />
   <Header />
   <main>
     <!-- Hero Section -->
@@ -43,7 +46,7 @@ const services = [
             <span class="text-xs font-bold text-slate-300 uppercase tracking-widest">London's Trusted ITAD Partner</span>
           </div>
 
-        <h1 class="text-5xl lg:text-7xl font-bold text-white leading-tight mb-8 animate-fade-in-up delay-100">
+        <h1 class="text-4xl lg:text-6xl font-bold text-white leading-tight mb-8 animate-fade-in-up delay-100">
           Secure IT Asset Disposal & <br />
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Data Erasure</span> in London
         </h1>
@@ -52,35 +55,28 @@ const services = [
           NCSC-approved data wiping, certified IT recycling, and sustainable hardware buyback for UK businesses. Enterprise-grade security meets circular economy.
         </p>
         
-        <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
-          <a href="/contacts" class="btn-primary flex items-center justify-center gap-2 px-8 py-4 text-lg">
-            Get a Quote
-          </a>
-          <a href="/services" class="px-8 py-4 rounded-lg border border-slate-600 text-slate-300 hover:text-white hover:border-slate-500 hover:bg-white/5 font-semibold transition-all flex items-center justify-center gap-2">
-            Our Services
-          </a>
-        </div>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
+        <a href="/services" class="px-8 py-4 rounded-lg border border-slate-600 text-slate-300 hover:text-white hover:border-slate-500 hover:bg-white/5 font-semibold transition-all flex items-center justify-center gap-2">
+          Our Services
+        </a>
+      </div>
       </div>
     </section>
 
     <!-- Trust Indicators -->
     <section class="border-b border-slate-100 bg-white py-10 shadow-sm relative z-20">
       <div class="container mx-auto px-6">
-        <div class="grid md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-slate-100">
+        <TrustBar variant="default" />
+        <div class="grid md:grid-cols-2 gap-8 text-center mt-8">
           <div class="px-4">
-             <span class="block text-2xl mb-2">🛡️</span>
-             <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-1">ICO Registered</h3>
-             <p class="text-slate-500 text-sm">C18880232</p>
+            <span class="block text-2xl mb-2" title="Fully Insured Professional Services">📜</span>
+            <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-1">Fully Insured</h3>
+            <p class="text-slate-500 text-sm">Professional Indemnity & Public Liability</p>
           </div>
-          <div class="px-4 pt-8 md:pt-0">
-             <span class="block text-2xl mb-2">📜</span>
-             <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-1">Fully Insured</h3>
-             <p class="text-slate-500 text-sm">Professional Indemnity & Public Liability</p>
-          </div>
-          <div class="px-4 pt-8 md:pt-0">
-             <span class="block text-2xl mb-2">✅</span>
-             <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-1">Certified Standards</h3>
-             <p class="text-slate-500 text-sm">NIST 800-88, HMG IS5, NCSC Approved</p>
+          <div class="px-4">
+            <span class="block text-2xl mb-2" title="Microsoft MAR Licensed Refurbishment">🔧</span>
+            <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-1">MAR Programme License</h3>
+            <p class="text-slate-500 text-sm">Microsoft Authorised Refurbisher</p>
           </div>
         </div>
       </div>
@@ -122,9 +118,9 @@ const services = [
              International Operations
           </div>
           <h2 class="text-4xl font-bold mb-6">Bulk Refurbished Equipment for Global Markets</h2>
-          <p class="text-slate-300 text-lg mb-8 leading-relaxed">
-            We supply bulk refurbished IT equipment to African and Asian markets. Upholding UK-quality standards with full export documentation and logistics coordination.
-          </p>
+<p class="text-slate-300 text-lg mb-8 leading-relaxed">
+  UK-based ITAD provider exporting bulk refurbished enterprise equipment (HPE Proiant, Dell PowerEdge) to African and Asian markets. Full Basel & WEEE documentation with HM Revenue-ready income statements for international capex recovery projects.
+</p>
           <a href="/services#export" class="btn-primary inline-flex items-center gap-2">
             Export Capabilities <span aria-hidden="true">&rarr;</span>
           </a>
@@ -142,18 +138,18 @@ const services = [
            </div>
            <ul class="space-y-4 text-sm text-slate-300">
               <li class="flex items-start gap-3">
-                 <span class="text-primary mt-0.5">✓</span>
-                 <div>
-                    <strong class="text-white block">West & East Africa</strong>
-                    <span class="text-xs text-slate-500">Nigeria, Ghana, Kenya</span>
-                 </div>
+                <span class="text-primary mt-0.5">✓</span>
+                <div>
+                  <strong class="text-white block">Asia and Middle East</strong>
+                  <span class="text-xs text-slate-500">Dubai, India, Pakistan</span>
+                </div>
               </li>
               <li class="flex items-start gap-3">
-                 <span class="text-primary mt-0.5">✓</span>
-                 <div>
-                    <strong class="text-white block">UAE & South Asia</strong>
-                    <span class="text-xs text-slate-500">Dubai, India, Pakistan</span>
-                 </div>
+                <span class="text-primary mt-0.5">✓</span>
+                <div>
+                  <strong class="text-white block">Africa</strong>
+                  <span class="text-xs text-slate-500">Nigeria, Ghana, Kenya</span>
+                </div>
               </li>
               <li class="flex items-start gap-3">
                  <span class="text-primary mt-0.5">✓</span>

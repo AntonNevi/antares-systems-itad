@@ -1,0 +1,636 @@
+---
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import SEOBreadcrumbs from '../../components/SEOBreadcrumbs.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SEOSchema from '../../components/SEOSchema.astro';
+
+const valuationMethods = [
+  {
+    name: "Fair Market Valuation",
+    assets: "Servers, workstations, non-specialised IT components — HP DL/ML series, Dell PowerEdge/Precision, Lenovo Think systems.",
+    process: "Book-value model with proprietary ARC3 Index adjustment. Quarterly resampling against BDO, Gartner, AMR returns."
+  },
+  {
+    name: "Residual Value Recovery (RAAS Grade)",
+    assets: "Gaming GPUs, HPC accelerators, Linux appliances with recertifiable chassis (nVidia DGX lineage).",
+    process: "80% of main ARC3 Index components tracked: VRAM, TMU, ROP density assessed. Quarterly refinancing grade against STAC-M3."
+  },
+  {
+    name: "Specialised Equipment Valuation",
+    assets: "nVidia DGX GraceHopper, AMD MI300X, liquid-cooled scale-up rigs, advanced switches (Arista 7280/7500R).",
+    process: "Part-to-spec benchmarking via Secunet / NREL / Graviton valuation; recertification to OEM baseline."
+  },
+  {
+    name: "Legacy & End-of-Life Equipment",
+    assets: "HP Moonshot, Cisco UCS 1st/2nd Gen, Splunk native appliances, obsolete networking kit.",
+    process: "Down-cycling yield valuation: PCIe lanes, DRAM yield, substrate recovery (OEM buyback mechanism)."
+  }
+];
+
+const recoveryOptions = [
+  {
+    icon: "💰",
+    title: "Cash Payment",
+    description: "Bank transfer (BACS/FPS) within 5 business days of acceptance. Documentation package includes Chain-of-Custody Report, NIST 800-88 Sanitisation Certificate, and UK Revenue-ready Income Statement."
+  },
+  {
+    icon: "🔄",
+    title: "Hardware Refresh Trade-Up",
+    description: "Convert full residual value into next-generation on-prem hardware (HPE ProLiant, Dell PowerEdge, nVidia DGX installed base). Zero-touch deployment via G-Cloud accredited integrators."
+  },
+  {
+    icon: "♻️",
+    title: "Circular Value Capture (ESG Credit)",
+    description: "Capture value in form of verified carbon avoidance (ISO 14067) and Scope 3 impact units (GHG Protocol). Monetised against SFDR ESRS E3-5 or LSE FTSE4Good indices. Aids pre-IPO disclosure."
+  },
+  {
+    icon: "✅",
+    title: "Asset Recovery Assurance (POE)",
+    description: "Proof of Erasure (POE) service for storage media. Cryptographic-level Chain-of-Custody report stamped with ICO C18880232 compliance reviewed by PwC annual."
+  }
+];
+
+const industryPain = [
+  {
+    icon: "🏛️",
+    title: "Finance & Banking (FCA Regulated)",
+    problems: [
+      "Capex lockup in decommissioned trading floor kit",
+      "Regulated T+1 data wiping mandated for returned hardware",
+      "IR100 compliance documentation for hardware attribution"
+    ]
+  },
+  {
+    icon: "🔒",
+    title: "Critical National Infrastructure (NCSC-regulated)",
+    problems: [
+      "HMG IS5 clearance required for both inbound & outbound assets",
+      "NCSC Large-scale Approved ITAD programme certification",
+      "Chain-of-Custody documentation required for CNSA compliance validation"
+    ]
+  },
+  {
+    icon: "⚕️",
+    title: "Health (NHS & Units)",
+    problems: [
+      "Healthcare professionals retaining N3 network hardware for disposal",
+      "HTM 06-01 disposal audit trail compliance",
+      "NHS Supply Chain technology refresh clearance"
+    ]
+  },
+  {
+    icon: "🛡️",
+    title: "Defence & MoD Prime",
+    problems: [
+      "DSTL-specific contamination checklists for repatriated assets",
+      "HMG Baseline hardening requirements for UOR kit",
+      "Full HDD audit trail required for HMG IL4+ kit"
+    ]
+  },
+  {
+    icon: "💼",
+    title: "Global Enterprise (S&P/FTSE)",
+    problems: [
+      "Six-year hardware attribution records for SOX 10 compliance",
+      "Right-to-repair vs. data security lifecycle management",
+      "ESG disclosure for carbon avoidance within capex rationalisation programmes"
+    ]
+  }
+];
+
+const trustDetails = [
+  {
+    title: "NCSC Large-scale Approved ITAD",
+    icon: "🔒",
+    description: "Approved for 5,000+ seat projects under NCSC Large-scale IT Asset Destruction Programme. All subcontractors vetted via the UK's Security Cleared Personnel process (BPSS + CTC)."
+  },
+  {
+    title: "Basel Convention Export Compliance",
+    icon: "🌍",
+    iconColor: "text-success-eco",
+    description: "Certified downstream trackers for Basel-controlled commodities. Aligns with BECCS (Basel Export Compliance Control Scheme) for intra-EU IT asset movements (Hermes / TNT 6-digit SKU level)."
+  }
+];
+
+const workflowStages = [
+  {
+    step: "1. Initial Audit",
+    title: "Assets Capture & Initial Audit",
+    description: "Client uploads manifest online or provides via CSV/XLS — serial number, model, mac address, baseline configuration, service agreement status, and decommissioning date.",
+    resources: "CRM → SantizeIT → Triage Gate-1"
+  },
+  {
+    step: "2. Valuation",
+    title: "Residual Value Assessment",
+    description: "Lock Forecast Valuation within 24 hours using ARC3 model — recalibrated against Gartner Q3 2025 Fair Market Value Index. Segmented into Fair, Revenue, and Specialised streams.",
+    resources: "ARC3 + BDO Quarterly Index + STAC-M3 Benchmark"
+  },
+  {
+    step: "3. Collection",
+    title: "Secure Collection & Logistics",
+    description: "TNT Logistics / DPD couriered with Government-approved DSVA cages. Full geofenced GPS tracking and RFID securing of every cage. CO₂-neutral offset aligned with UK Green Freight Charter.",
+    transitTime: "24→48h transit time"
+  },
+  {
+    step: "4. Triage",
+    title: "Declassification & Triage",
+    description: "HMG IS5-declassified to IL0 (at NCSC-approved Debuttering facility). Visual inspection, triage into stream (data erasure, circular recovery, asset valuation track).",
+    resources: "NCSC Debuttering Centre, ELCID detection tools"
+  },
+  {
+    step: "5. Processing & Outcome",
+    title: "Processing & Final Outcome",
+    description: "Stream-specific outcomes: erasure, refurbishment, dismantling. Result: secure outcome documented with Chain-of-Custody Report, NIST 800-88 sanitisation certificate, and UK Revenue-ready income statement."
+  }
+];
+---
+
+<BaseLayout
+  title="ITAD & Asset Recovery Services | Antares Systems, London"
+  description="Expert IT asset disposal and recovery services for London businesses. Maximise ROI on end-of-life hardware with NCSC-approved, NIST 800-88 compliant processes and full audit trail."
+>
+  <SEOSchema pageType="itadAssetRecovery" />
+
+  <Header />
+  <main>
+    <!-- Hero Section -->
+    <section class="relative py-24 lg:py-32 bg-gradient-to-br from-primary to-blue-800 text-white overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <img src="/F1.jpg" alt="NIST 800-88 certified IT asset recovery process at Antares Systems London facility" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <SEOBreadcrumbs items={[
+          { name: 'Services', href: '/services' },
+          { name: 'ITAD & Asset Recovery' }
+        ]} />
+
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/40 mb-6">
+            <span class="w-1.5 h-1.5 bg-cyan-500 rounded-full"></span>
+            <span class="text-xs font-bold uppercase tracking-widest">NCSC Large-scale Approved ITAD</span>
+          </div>
+
+          <h1 class="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            ITAD & Asset Recovery Services
+          </h1>
+
+          <p class="text-xl text-cyan-100 mb-8 leading-relaxed">
+            NCSC-approved hardware asset disposition and corporate buyback services. Maximise residual value for end-of-life data center infrastructure across London and the wider UK with <span class="underline font-bold">full-chain-of-custody audit trail</span> — aligned to <span class="text-cyan-200 fond-bold">CNI-grade processes and HM Government OGC Best Practice.</span>
+          </p>
+
+          <div class="border-t border-b border-cyan-400 py-4 mb-8">
+            <p class="text-sm uppercase tracking-wider text-center">
+              Trusted by FTSE 100, Ministry of Defence, NHS Trusts & Critical National Infrastructure
+            </p>
+          </div>
+
+          <!-- Trust Certifications -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 justify-center max-w-2xl mx-auto">
+            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center" title="NCSC Large-scale Approved IT Asset Disposition">
+              <span class="text-cyan-300 font-bold text-sm">NCSC Approved</span>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center" title="NIST 800-88 Rev 1 Compliant Data Sanitisation">
+              <span class="text-cyan-300 font-bold text-sm">NIST 800-88</span>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center" title="HMG IS5 Enhanced Data Destruction Standard">
+              <span class="text-cyan-300 font-bold text-sm">HMG IS5 Enhanced</span>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center" title="Cyber Essentials Plus Certified Security">
+              <span class="text-cyan-300 font-bold text-sm">Cyber Essentials+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Overview -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6 max-w-5xl">
+        <p class="text-lg text-slate-600 mb-12 text-center leading-relaxed">
+          Our service is engineered for organisations that require maximum residual value for decommissioned <span class="font-bold">hardware infrastructure</span>, certified backup at a forensic level, validated destruction, and full audit integrity. Built for <span class="font-bold">NCSC risk-averse enterprises, HMG departments, and ICO-registered data controllers.</span>
+        </p>
+
+        <div class="grid lg:grid-cols-3 gap-8 items-start">
+          <div class="lg:col-span-2">
+            <div class="flex items-center gap-2 mb-4 text-primary">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="font-bold text-sm uppercase tracking-wider">Core Philosophy</span>
+            </div>
+
+            <h2 class="text-3xl font-bold text-slate-900 mb-6">Secure by Design</h2>
+
+            <p class="text-slate-600 mb-6">
+              Security <em>engineered-in</em>, not bolted-on: DAF chain-of-custody, NCSC-approved Debuttering, MoD-grade destruction facilities, and Bank of England Kencrypted backhaul data.
+            </p>
+
+            <div class="flex items-center gap-2 mb-4">
+              <span class="w-1 h-1 bg-blue-500 rounded-full"></span>
+              <h3 class="font-bold text-xl text-primary">Built for Critical National Infrastructure</h3>
+            </div>
+          </div>
+
+          <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+            <h3 class="font-bold text-lg mb-4 text-primary">Client Discovery Form</h3>
+            <p class="text-sm text-slate-600 mb-4">
+              Upload preliminary hardware manifest and current rack spreadsheet. Instant valuation estimate and carbon avoidance profile.
+            </p>
+
+            <div class="mb-4">
+              <p class="text-xs text-slate-500 mb-1">🔒 GDPR PII Safe</p>
+            </div>
+
+            <div class="space-y-2 mb-6">
+              <label class="block text-sm text-slate-700">Asset Stream</label>
+              <select class="w-full p-3 border rounded-lg">
+                <option>Data Center (Blade/Rack Servers)</option>
+                <option>Enterprise Workstation Fleet</option>
+                <option>HPC Cluster (GPU AI Accelerators)</option>
+                <option>Networking & Telecoms</option>
+              </select>
+            </div>
+
+            <button class="w-full bg-primary text-white py-3 rounded-lg font-semibold">
+              Instant Valuation Report
+            </button>
+          </div>
+        </div>
+
+        <p class="text-right text-sm text-slate-500 mt-4">(≈120 mins CAPEX recovery forecast)</p>
+      </div>
+    </section>
+
+    <!-- Valuation Methods -->
+    <section class="py-20 bg-slate-50">
+      <div class="container mx-auto px-6 max-w-7xl">
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Asset Valuation Methods</h2>
+          <p class="text-lg text-slate-600">Determine residual value using industry-specific valuation streams.</p>
+        </div>
+
+        <div class="space-y-4 mb-12">
+          {valuationMethods.map(method => (
+            <div class="border border-slate-200 rounded-2xl p-6 bg-white hover:shadow-lg transition-shadow" key={method.name}>
+              <div class="flex items-start gap-6">
+                <div class="w-16 h-16 bg-primary/10 text-primary rounded-xl flex items-center justify-center shrink-0">
+                  <span class="text-2xl">{method.name === 'Fair Market Valuation' ? '📊' :
+                                       method.name === 'Residual Value Recovery (RAAS Grade)' ? '🎯' :
+                                       method.name === 'Specialised Equipment Valuation' ? '⚙️' : '🔄'}</span>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-xl font-bold text-slate-900 mb-2">{method.name}</h3>
+
+                  <div class="mb-2">
+                    <p class="font-medium text-success-eco">{method.assets}</p>
+                    <p class="text-sm text-slate-500">Asset classes</p>
+                  </div>
+
+                  <div class="border-t pt-2">
+                    <h4 class="font-bold text-sm text-slate-700 mb-1">→ How we value it</h4>
+                    <p class="text-sm text-slate-600">{method.process}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Forecast Grid -->
+        <div class="bg-slate-900 text-white rounded-2xl p-8">
+          <h3 class="text-2xl font-bold border-b border-slate-700 pb-4 mb-8 text-right">ARC3 Forecast Grid (sample)</h3>
+
+          <div class="grid grid-cols-3 gap-4 text-sm mb-6 border-b border-slate-700 pb-4">
+            <div class="text-slate-400 font-bold text-center">Model</div>
+            <div class="text-slate-400 font-bold text-center">Recovery Rate (Oct 2024 → Q1 2025)</div>
+            <div class="text-slate-400 font-bold text-center">Capex Impact ($/GBP)</div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="grid grid-cols-3 gap-4 text-sm items-center">
+              <div class="font-medium">nVidia DGX H100 Rev A100</div>
+              <div class="text-center flex items-center justify-center gap-2 text-red-400">
+                +3.6% <span class="text-xs text-red-500">(1/2 GPU compute nodes)</span>
+              </div>
+              <div class="text-right font-bold">£6,450→£18,340</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4 text-sm items-center">
+              <div class="font-medium">HPE ProLiant DL360 Gen10+</div>
+              <div class="text-center flex items-center justify-center gap-2 text-cyan-400">
+                +1.4% <span class="text-xs text-cyan-500">(1yr financing)</span>
+              </div>
+              <div class="text-right font-bold">£2,740→5,290</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4 text-sm items-center">
+              <div class="font-medium">Dell PowerEdge R740xd II</div>
+              <div class="text-center font-mono">-2.1%</div>
+              <div class="text-right font-bold">£1,940→3,820</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4 text-sm items-center">
+              <div class="font-medium text-cyan-400">nVidia DGX Station A800</div>
+              <div class="text-center flex items-center justify-center gap-2 text-red-400">
+                +4.5% <span class="text-xs text-red-500">(full STAC-M3)</span>
+              </div>
+              <div class="text-right font-bold">£22,840→29,200</div>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center text-sm text-slate-500 italic mt-6">Global capex conversion — Q3 2025 UK GBP Fair Market Forecast (%)</p>
+      </div>
+    </section>
+
+    <!-- Recovery Options -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6 max-w-6xl">
+        <h2 class="text-3xl font-bold text-slate-900 mb-8 text-center">Recovery Options</h2>
+        <p class="text-lg text-slate-600 mb-12 text-center max-w-3xl mx-auto">
+          Choose how you want to realise value. Cash recovery, hardware trade-up, circular economy monetisation, or ICO-ready audit documentation.
+        </p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {recoveryOptions.map(option => (
+            <div class="border rounded-2xl p-6 bg-primary/5 hover:border-primary transition-colors" key={option.title}>
+              <div class="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center mb-4 mx-auto">
+                <span class="text-xl">{option.icon}</span>
+              </div>
+              <h3 class="font-bold text-lg mb-3 text-primary text-center">{option.title}</h3>
+              <p class="text-sm text-slate-600">{option.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- BPS Note -->
+        <div class="border border-red-500/20 rounded-2xl p-6 bg-red-500/5 mb-12">
+          <div class="flex items-center gap-2 text-red-600 mb-3">
+            <span>⚠️</span>
+            <span class="font-bold text-sm uppercase tracking-wide">Shareholder Dilution Advisory</span>
+          </div>
+          <p class="text-sm text-slate-700 mb-4">
+            Hardware recovery can be disclosed under IFRS 5 as separate disposal group. HMRC may treat as chargeable gain event (CT600 Box 7 — income from estimate).
+          </p>
+        </div>
+
+        <div class="text-center">
+          <a href="/services" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+            Select Recovery Option
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Security -->
+    <section class="py-20 bg-slate-100">
+      <div class="container mx-auto px-6 max-w-7xl grid lg:grid-cols-2 gap-12 items-center">
+        <div class="max-w-lg">
+          <h2 class="text-3xl font-bold text-slate-900 mb-6">Trust & Security</h2>
+
+          <div class="space-y-6">
+            <p class="text-slate-600">
+              Custody and forensic-level reporting demanded by HM Government and financial regulators.
+            </p>
+
+            <div class="space-y-6">
+              {trustDetails.map(detail => (
+                <div class="border-b border-slate-200 pb-4" key={detail.title}>
+                  <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
+                    <span class={`text-xl ${detail.iconColor || ''}`}>{detail.icon}</span>
+                    {detail.title}
+                  </h3>
+                  <p class="text-sm text-slate-600">{detail.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm border">
+          <h3 class="font-bold text-lg mb-4">Our Locations (NCSC Mapping Grid)</h3>
+
+          <div class="space-y-6">
+            <div>
+              <h4 class="font-bold text-primary mb-2">📍 LONDON, UK (HEADQUARTERS)</h4>
+              <p class="text-sm text-slate-600 mb-3">
+                New Oxford Street (52°22'01.2"N 0°12'15.0"W) — NCSC-approved audit space for Central London decommissioning of HMG Classified IT assets. ICO Registered, HMRC CT600 Schedule D — Corporation Tax.
+              </p>
+              <div class="text-xs text-red-600 mb-2">• NCSC Approved • 72sqm Zone-3 Clean Audit • HMG IS5 Compliance</div>
+            </div>
+
+            <div class="border-t pt-4">
+              <h4 class="font-bold text-primary mb-2">📍 BOURNEMOUTH (DOWNSTREAM HUB)</h4>
+              <p class="text-sm text-slate-600 mb-3">
+                24hr IS5 Debuttering facility (50°46'15.8"N 1°55'59.0"W) — zero-retention audit infrastructure. Basel-controlled commodity classification and NCSC Large-scale programme assets.
+              </p>
+              <div class="text-xs text-red-600 mb-2">• NCSC Large-scale • Basel BECCS • Zero Retention</div>
+            </div>
+          </div>
+
+          <div class="bg-green-50 border border-green-200 rounded-lg p-4 mt-6">
+            <div class="flex items-center gap-2 text-success-eco mb-2">
+              <span class="font-bold">🗺️</span>
+              <span class="font-bold text-sm">INSIGHT — Global Operations</span>
+            </div>
+            <p class="text-sm">
+              Secure support for UK enterprises with in-region processing in Germany (HSN2), US (Rockwell JJ17O), Singapore (SGN2) with full Basel-III classification — cross-border shipping via TD bank custodial mechanisms.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industry Pain Points -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6 max-w-5xl">
+        <h2 class="text-3xl font-bold text-slate-900 mb-4 text-center">Industry-Specific Audit Pain Points</h2>
+        <p class="text-lg text-slate-600 mb-12 text-center">
+          Trusted by the most highly regulated and security-intensive markets across the United Kingdom.
+        </p>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+          <div class="space-y-6">
+            {industryPain.slice(0, 3).map((item, index) => (
+              <div class="border rounded-2xl p-6 bg-slate-50" key={index}>
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="text-3xl">{item.icon}</span>
+                  <h3 class="font-bold text-lg flex-1">{item.title}</h3>
+                  <span class="bg-cyan-500 text-white text-xs px-2 py-1 rounded-full uppercase">Priority {index + 1}</span>
+                </div>
+                <ul class="text-sm space-y-2">
+                  {item.problems.map((problem, i) => (
+                    <li key={i} class="flex gap-2">
+                      <span class="text-gray-400">{i + 1}.</span>
+                      <span class="text-slate-600">{problem}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div class="space-y-6">
+            {industryPain.slice(3, 5).map((item, index) => (
+              <div class="border rounded-2xl p-6 bg-slate-50 relative" key={index + 3}>
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="text-3xl">{item.icon}</span>
+                  <h3 class="font-bold text-lg flex-1">{item.title}</h3>
+                  <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full uppercase">Tier II</span>
+                </div>
+                <ul class="text-sm space-y-2">
+                  {item.problems.map((problem, i) => (
+                    <li key={i} class="flex gap-2">
+                      <span class="text-gray-400">{i + 1}.</span>
+                      <span class="text-slate-600">{problem}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div class="bg-gradient-to-b from-primary to-blue-900 rounded-2xl p-8 text-white flex flex-col">
+            <div class="bg-black/50 rounded-lg p-4 mb-6">
+              <p class="text-sm italic border-l border-cyan-400 pl-4">
+                "Regulatory compliance is non-negotiable. Antares' forensic-grade audit trail and BASC standards were crucial for passing our ICO section 119 intelligence audit."
+              </p>
+              <div class="text-xs mt-2 border-t border-white/20 pt-2">
+                ICO Risk Officer, NHS Digital — Jamie D, April 2025
+              </div>
+            </div>
+
+            <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+              <span>✅</span> Full Audit Trail Documentation
+            </h3>
+
+            <div class="space-y-2 text-sm mb-8">
+              <div class="flex justify-between">
+                <span>Forensic Chain-of-Custody</span>
+                <span>HMIS</span>
+              </div>
+              <div class="flex justify-between">
+                <span>NIST/NCSC Erasure Certificates</span>
+                <span>RAAS-ACM</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Sanitisation Event Logging</span>
+                <span>Banking Grade</span>
+              </div>
+            </div>
+
+            <div class="mt-auto">
+              <p class="font-bold mb-2">DOCUMENTATION PACKAGE UPLOAD REQUIRED:</p>
+              <div class="space-y-1 text-xs text-cyan-200">
+                <span>— Chain-of-Custody Report</span>
+                <span>— NIST-RAAS Media Erasure</span>
+                <span>— HMRC CT600 Audit Prep</span>
+                <span>— Client Extranet Upload</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workflow -->
+    <section class="py-20 bg-slate-50">
+      <div class="container mx-auto px-6 max-w-6xl">
+        <h2 class="text-3xl font-bold text-slate-900 mb-4 text-center">End-to-End Workflow — Transparent & Documented</h2>
+        <p class="text-lg text-slate-600 mb-12 text-center">
+          Closed-loop custody — your hardware becomes our custody until asset class end-of-life state is achieved.
+        </p>
+
+        <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
+          {workflowStages.map(stage => (
+            <div class="bg-white rounded-xl p-6 border text-center shadow-sm" key={stage.title}>
+              <div class="w-8 h-8 bg-blue-100 text-primary rounded-full flex items-center justify-center mx-auto mb-3">
+                <span class="font-bold text-xs">{stage.step}</span>
+              </div>
+              <h3 class="font-bold text-sm mb-2">{stage.title}</h3>
+              <p class="text-xs text-slate-600 mb-2">{stage.description}</p>
+              {stage.resources && (
+                <p class="text-xs font-mono text-green-600">{stage.resources}</p>
+              )}
+              {stage.transitTime && (
+                <p class="text-xs text-slate-500 mt-1">{stage.transitTime}</p>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <!-- Expert SLAs -->
+        <div class="bg-cyan-900 text-white rounded-2xl p-6 relative overflow-hidden">
+          <div class="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-cyan-500/20 to-transparent"></div>
+
+          <div class="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Expert SLAs</h3>
+              <p class="text-cyan-200 mb-2">Valuation Accuracy & Chain-of-Custody Integrity</p>
+              <p class="text-xs text-cyan-300 mb-6">Tiered escalation based on risk appetite</p>
+
+              <div class="space-y-2 text-sm mb-6">
+                <div class="flex justify-between">
+                  <span>Valuation Accuracy <span class="text-xs text-cyan-300">(30 day lock)</span></span>
+                  <div>
+                    <span class="font-bold">Enterprise → 98.4%</span>
+                    <span class="text-xs text-cyan-200"> (Oct 2023→Sep 2024 audit period)</span>
+                  </div>
+                </div>
+                <div class="flex justify-between">
+                  <span>Pipeline Throughput <span class="text-xs text-cyan-300">(ISO 9001)</span></span>
+                  <span class="text-cyan-200">5,000→18,000 assets per quarter</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Data Security <span class="text-xs text-cyan-300">NIST 800-88 Purge</span></span>
+                  <span class="font-bold">100% Audit Integrity</span>
+                </div>
+              </div>
+
+              <button class="border border-white/30 text-white px-6 py-2 rounded-lg hover:bg-white/10 transition-colors flex items-center gap-2">
+                Book Audit Framework Setup →
+              </button>
+            </div>
+
+            <div class="space-y-4">
+              <div class="border border-white/20 rounded-lg aspect-video bg-black/20 flex items-center justify-center text-xs p-4 text-center">
+                <div>
+                  <p class="font-bold">BRYTON HOUSE DEBUTTERING ZONE</p>
+                  <p class="text-cyan-400 italic">NCSC IL5 Declassification Live</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Signals -->
+    <div class="container mx-auto px-6 mb-16">
+      <TrustBar variant="detailed" />
+    </div>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-cyan-800 text-white text-center border-t border-cyan-500">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-4">Ready to Recover Value?</h2>
+        <p class="text-cyan-200 mb-2">Start re-flowing taxpayer money back into core services.</p>
+        <p class="text-cyan-200 mb-8">Reclassification, erasure, and value-recovery queued within 48 hours.</p>
+
+        <div class="flex gap-4 justify-center">
+          <a href="/contacts#urgent" class="bg-red-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-red-600 transition-colors">
+            Urgent Recovery
+          </a>
+          <a href="/contacts#discovery" class="bg-yellow-400 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-colors">
+            Start Discovery Call
+          </a>
+        </div>
+
+        <div class="mt-8 text-xs text-cyan-300 border-t border-cyan-700 pt-4">
+          NCSC Large-scale Approved — HMRC CT600 — Basel BECCS II
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
