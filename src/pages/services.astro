@@ -65,8 +65,7 @@ const serviceSections = [
   title="ITAD & Secure Data Destruction Services Hub | Antares Systems, London"
   description="Hub & Spoke ITAD services: certified data erasure (NIST 800-88), secure hardware buyback, WEEE-compliant recycling, and MAR-certified refurbishment. London-based ESG-focused asset disposition solutions for UK enterprises."
 >
-  <!-- Hub Schema will use organization type since servicesHub isn't defined -->
-  <SEOSchema pageType="homepage" />
+  <SEOSchema pageType="servicesHub" />
   <Header />
   <main class="bg-slate-50">
     <div class="bg-slate-900 py-20 text-center text-white border-b border-slate-800">
@@ -113,15 +112,21 @@ const serviceSections = [
             <!-- Image Block -->
             <div class="flex-1 w-full rounded-3xl overflow-hidden group hover:shadow-2xl shadow-xl transition-all duration-300">
               <div class="w-full h-full flex items-center justify-center transform transition-transform duration-700 group-hover:scale-105">
-                <img 
-                  src={service.id === "certified-erasure" ? "/Secure_data.png" : 
-                       service.id === "itad-asset-recovery" ? "/IT_asset.png" : 
-                       service.id === "sustainable-disposal" ? "/ESG.png" : 
-                       service.id === "secure-logistics" ? "/International.png" : 
-                       "/Onsite.png"} 
-                  alt={service.title}
-                  class="w-full h-auto object-cover"
-                />
+              <img
+                src={service.id === "certified-erasure" ? "/Secure_data.png" :
+                     service.id === "itad-asset-recovery" ? "/IT_asset.png" :
+                     service.id === "sustainable-disposal" ? "/ESG.png" :
+                     service.id === "secure-logistics" ? "/International.png" :
+                     "/Onsite.png"}
+                alt={service.id === "certified-erasure" ? "Certified Data Erasure and Secure IT Asset Disposal with NIST 800-88 compliance and forensic verification" :
+                     service.id === "itad-asset-recovery" ? "IT Asset Buyback and Recovery for AI Servers, Edge Computing, and Enterprise Infrastructure" :
+                     service.id === "sustainable-disposal" ? "ESG and Sustainable IT Disposal with Zero Landfill and Carbon-Negative Processing" :
+                     service.id === "secure-logistics" ? "Secure Logistics and Chain-of-Custody Transport for IT Asset Disposition" :
+                     "On-Site Services for Witnessed Data Destruction and Emergency IT Asset Disposal"}
+                loading="lazy"
+                decoding="async"
+                class="w-full h-auto object-cover rounded-2xl"
+              />
               </div>
             </div>
           </section>

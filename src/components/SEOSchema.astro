@@ -1,6 +1,6 @@
 ---
 
-type SchemaTypes = 'homepage' | 'itadAssetRecovery' | 'dataErasure' | 'sustainableDisposal' | 'hardwareRefurbishment' | 'servicesHub';
+type SchemaTypes = 'homepage' | 'itadAssetRecovery' | 'dataErasure' | 'sustainableDisposal' | 'hardwareRefurbishment' | 'servicesHub' | 'secureLogistics' | 'onsiteServices';
 
 interface Props {
   pageType: SchemaTypes;
@@ -284,6 +284,147 @@ switch (Astro.props.pageType) {
           "@type": "Cloud Builder — Barclays infraGI"
         },
         "reviewBody": "98.6% node readiness for OpenStack cloud deployment. Cost down 62% vs. new."
+      }
+    };
+    break;
+
+  case 'secureLogistics':
+    schema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Secure Logistics & Chain-of-Custody Transport",
+      "provider": {
+        "@type": "Organization",
+        "name": "Antares Systems",
+        "sameAs": "https://www.antaressystems.net"
+      },
+      "description": "Secure, GPS-tracked IT asset transport with dedicated chain-of-custody protocol. Enterprise-grade logistics providing tamper-evident packaging, dual-custody handover, and photographic verification for compliance-focused organisations across London and the UK.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United Kingdom"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Secure Logistics Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "UK-Wide Secure Transport",
+            "description": "Guaranteed chain-of-custody service with GPS-tracked vehicles and trained security personnel."
+          },
+          {
+            "@type": "Offer",
+            "name": "Tamper-Evident Packaging",
+            "description": "Secure asset containment preventing unauthorized access during transit."
+          },
+          {
+            "@type": "Offer",
+            "name": "Cross-Border Coordination",
+            "description": "Efficient freight handling for international consignments with full documentation."
+          }
+        ]
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Security Certifications",
+          "value": "Enterprise Security Protocol ✓, Security-First Approach ✓"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Coverage",
+          "value": "Mainland UK next-day, 48h national for GP clients, international coordination"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Compliance Integration",
+          "value": "Chain of custody documentation integrates directly with NIST 800-88 processing"
+        }
+      ],
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "4.8",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Data Protection Officer"
+        },
+        "reviewBody": "Meticulous chain-of-custody documentation was crucial during our compliance audit. Enabled seamless accountability from request to data wipe."
+      }
+    };
+    break;
+
+  case 'onsiteServices':
+    schema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "On-Site IT Asset Destruction & Witnessed Data Erasure",
+      "provider": {
+        "@type": "Organization",
+        "name": "Antares Systems",
+        "sameAs": "https://www.antaressystems.net"
+      },
+      "description": "Emergency on-site data destruction and witnessed asset disposal service with 4-hour response capability. Witnessed data sanitisation using NIST 800-88 and HMG IS5 compliant methods, providing immediate certification for compliance audits across London and the UK.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United Kingdom"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "On-Site Destruction Options",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Emergency Deployment Response",
+            "description": "4-hour deployment for critical data destruction incidents requiring immediate action."
+          },
+          {
+            "@type": "Offer",
+            "name": "Witnessed Software-Based Destruction",
+            "description": "Live demonstration of NIST 800-88 compliant software wiping followed by forensic verification."
+          },
+          {
+            "@type": "Offer",
+            "name": "Witnessed Physical Destruction",
+            "description": "Secure asset shredding using cross-cut technology (≤19mm particles) with video documentation."
+          },
+          {
+            "@type": "Offer",
+            "name": "On-Site Certification",
+            "description": "Immediate issuance of Certificates of Destruction (CoD) signed by all present parties."
+          }
+        ]
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Compliance Standards",
+          "value": "Government-Grade Standards ✓, NIST SP 800-88 Rev 1 ✓, HMG IS5 Enhanced ✓, Certified Data Destruction ✓"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Response Times",
+          "value": "Standard: 48h // Emergency: 4h // Deployment Window: 4-hour blocks"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Target Industries",
+          "value": "Financial Services (FCA), Healthcare (NHS), Legal (GDPR), Datacentres, Defence"
+        }
+      ],
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5.0",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Chief Compliance Officer"
+        },
+        "reviewBody": "4-hour deployment for our Moore B2I situation was outstanding. Immediate CoD removed auditors' observation write-ups instantly."
       }
     };
     break;
