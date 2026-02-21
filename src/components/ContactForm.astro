@@ -1,6 +1,7 @@
 ---
-// Formspree endpoint specific to Antares Systems
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbjnqyjv"; // Using placeholder ID, user should replace
+// Web3Forms endpoint
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+const ACCESS_KEY = "8c5cf6d6-0684-4a43-8251-d385f1895dd5";
 ---
 
 <div class="w-full mx-auto bg-white p-8 rounded-2xl shadow-xl border border-slate-100">
@@ -8,19 +9,17 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbjnqyjv"; // Using placehold
   <p class="text-slate-500 mb-6 text-sm">Fast, secure, and compliant. We typically respond within 1 hour during business hours.</p>
   
   <form
-    action={FORMSPREE_ENDPOINT}
+    action={WEB3FORMS_ENDPOINT}
     method="POST"
     id="contact-form"
-    hx-post={FORMSPREE_ENDPOINT}
-    hx-trigger="submit"
-    hx-target="#form-response"
-    hx-swap="innerHTML"
     class="space-y-4"
   >
-    <!-- Hidden fields for Formspree integration -->
-    <input type="hidden" name="access_key" value="8c5cf6d6-0684-4a43-8251-d385f1895dd5" />
+    <!-- Hidden fields for Web3Forms integration -->
+    <input type="hidden" name="access_key" value={ACCESS_KEY} />
     <input type="hidden" name="subject" value="New Inquiry from Antares Systems Website" />
-    <input type="text" name="botcheck" style="display: none;" aria-hidden="true" />
+    <input type="hidden" name="from_name" value="Antares Systems Contact Form" />
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
     <div class="grid md:grid-cols-2 gap-4">
       <div>
         <label for="name" class="block text-xs font-semibold text-slate-700 uppercase mb-1">Full Name *</label>
@@ -60,22 +59,81 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbjnqyjv"; // Using placehold
       <textarea id="project_details" name="project_details" rows="4" placeholder="Equipment type, quantity, timeframe, location..." required class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all resize-none"></textarea>
     </div>
 
-    <button type="submit" class="w-full btn-primary mt-4 flex justify-center items-center gap-2 group py-3 rounded-lg font-bold text-white shadow-lg hover:shadow-xl transition-all">
-      <span>Submit Inquiry</span>
-      <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-      <div class="htmx-indicator hidden ml-2 animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
+    <button type="submit" id="submit-btn" class="w-full btn-primary mt-4 flex justify-center items-center gap-2 group py-3 rounded-lg font-bold text-white shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+      <span id="btn-text">Submit Inquiry</span>
+      <svg id="btn-icon" class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+      <div id="btn-loader" class="hidden animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
     </button>
   </form>
 
-  <div id="form-response" class="mt-4 text-center text-sm text-slate-600"></div>
+  <div id="form-response" class="mt-4 text-center text-sm font-medium"></div>
 </div>
 
-<style>
-  .htmx-request .htmx-indicator {
-    display: block;
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const result = document.getElementById('form-response');
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+  const btnText = document.getElementById('btn-text');
+  const btnIcon = document.getElementById('btn-icon');
+  const btnLoader = document.getElementById('btn-loader');
+
+  if (form && submitBtn && result && btnText && btnIcon && btnLoader) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // UI Loading state
+      submitBtn.disabled = true;
+      btnText.textContent = "Sending...";
+      btnIcon.classList.add('hidden');
+      btnLoader.classList.remove('hidden');
+      result.className = "mt-4 text-center text-sm font-medium text-slate-600";
+      result.innerHTML = "Submitting form, please wait...";
+
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      })
+      .then(async (response) => {
+        let json = await response.json();
+        if (response.status == 200) {
+          result.className = "mt-4 text-center text-sm font-medium text-emerald-600 bg-emerald-50 py-3 rounded-lg border border-emerald-100";
+          result.innerHTML = "Success! Your inquiry has been sent. We'll be in touch shortly.";
+          form.reset();
+        } else {
+          console.log(response);
+          result.className = "mt-4 text-center text-sm font-medium text-rose-600 bg-rose-50 py-3 rounded-lg border border-rose-100";
+          result.innerHTML = json.message || "Something went wrong. Please try again later.";
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        result.className = "mt-4 text-center text-sm font-medium text-rose-600 bg-rose-50 py-3 rounded-lg border border-rose-100";
+        result.innerHTML = "Something went wrong. Please try again later.";
+      })
+      .then(function() {
+        // Reset button state
+        if (submitBtn) submitBtn.disabled = false;
+        if (btnText) btnText.textContent = "Submit Inquiry";
+        if (btnIcon) btnIcon.classList.remove('hidden');
+        if (btnLoader) btnLoader.classList.add('hidden');
+        
+        // Clear success message after 5 seconds
+        setTimeout(() => {
+          if (result && result.classList.contains('text-emerald-600')) {
+            result.innerHTML = "";
+            result.className = "mt-4 text-center text-sm font-medium";
+          }
+        }, 5000);
+      });
+    });
   }
-  .htmx-request.btn-primary span, 
-  .htmx-request.btn-primary svg {
-    display: none;
-  }
-</style>
+</script>
+
