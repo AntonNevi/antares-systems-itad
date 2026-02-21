@@ -9,60 +9,59 @@ const serviceSections = [
   {
     id: "certified-erasure",
     title: "Certified Data Erasure",
-    subtitle: "Military-grade data destruction with forensic verification. Full compliance with NIST 800-88 Rev. 1 guidelines for Media Sanitization. Complete audit trail and certificates.",
-    content: "Forensic-grade security with certified data destruction. Full compliance with NIST 800-88 Rev. 1 guidelines for Media Sanitization. Complete audit trail and certificates.",
+    subtitle: "Secure hard drive destruction with forensic verification. Full compliance with NIST 800-88 Rev. 1 guidelines for media sanitization with on-site and off-site options for UK enterprises.",
+    content: "Forensic-grade security with secure data destruction and certified data erasure. NIST 800-88 compliant media sanitization for servers, laptops, and enterprise storage devices across London, Manchester, Birmingham, and UK-wide.",
     icon: "🛡️",
     link: "/services/data-erasure",
     cta: "Learn More",
-    features: ["Military-Grade Security", "NIST 800-88 Rev. 1", "Forensic Verification", "Complete Audit Trail", "Certificates Provided"]
+    features: ["Military-Grade Security", "NIST 800-88 Rev. 1", "Secure Media Sanitization", "Complete Audit Trail", "Certificate of Destruction"]
   },
   {
     id: "itad-asset-recovery",
     title: "IT Asset Buyback",
-    subtitle: "Maximum return on retired hardware. AI Server Clusters, Edge Computing Nodes, enterprise infrastructure. Fair-market valuation, secure collection, same-day payment.",
-    content: "Maximum return on retired hardware with fair-market valuation. Secure collection and same-day payment for AI Server Clusters, Edge Computing Nodes, and enterprise infrastructure.",
+    subtitle: "Maximize recovery value for corporate IT assets. Coverage for London area businesses expanding to Manchester, Birmingham. Fair-market valuation, secure collection, same-day payment.",
+    content: "Corporate IT buyback and bulk computer recycling programs. Fair market valuation for AI servers, GPU servers, HPC clusters, and edge computing nodes with UK-wide secure collection and same-day payment.",
     icon: "💻",
     link: "/services/itad-asset-recovery",
     cta: "Learn More",
-    features: ["AI Server Clusters", "Edge Computing Nodes", "Fair-Market Valuation", "Secure Collection", "Same-Day Payment"]
+    features: ["GPU Server Resale", "Enterprise Hardware Buyback", "Bulk Computer Recycling", "HPC Cluster Disposal", "Same-Day Payment"]
   },
   {
     id: "sustainable-disposal",
     title: "ESG & Sustainability",
-    subtitle: "Carbon-negative disposal with full environmental reporting. Zero landfill, circular economy certified. Verified via internal carbon impact methodology.",
-    content: "Carbon-negative disposal with full environmental reporting. Zero landfill commitment with circular economy certification. Verified via internal carbon impact methodology.",
+    subtitle: "Carbon-negative IT disposal with full environmental reporting. Zero landfill, circular economy certified ITAD solutions for UK enterprises and corporate sustainability initiatives.",
+    content: "Carbon-negative IT disposal and WEEE-compliant computer recycling. Circular economy ITAD services with carbon footprint reporting, zero landfill commitment, and comprehensive ESG reporting for enterprise sustainability programs.",
     icon: "♻️",
     link: "/services/sustainable-disposal",
     cta: "Learn More",
-    features: ["Carbon-Negative", "Zero Landfill", "Circular Economy", "Environmental Reporting", "Carbon Impact Verified"]
+    features: ["Carbon-Negative Disposal", "Zero Landfill IT Recycling", "ESG ITAD Solutions", "Carbon Footprint Reporting", "Circular Economy Certified"]
   },
   {
     id: "secure-logistics",
     title: "Secure Logistics",
-    subtitle: "GPS-tracked, sealed transport nationwide. Chain-of-custody documentation from collection to processing.",
-    content: "GPS-tracked, sealed transport with nationwide coverage. Complete chain-of-custody documentation from collection to processing.",
+    subtitle: "GPS-tracked, secure IT asset transport with international export capabilities. Refurbished laptop and server export from UK to Kazakhstan, Uzbekistan, CIS region, and Middle East.",
+    content: "Secure ITAD logistics for bulk laptop export, used servers export, and international IT equipment shipping. Chain-of-custody documentation for export IT equipment to emerging markets with UK nationwide collection.",
     icon: "🚚",
     link: "/services/secure-logistics",
     cta: "Learn More",
-    features: ["GPS-Tracked", "Sealed Transport", "Nationwide", "Chain-of-Custody", "Documentation"]
+    features: ["Bulk Laptop Export", "Used Servers Export", "International IT Shipping", "Export Documentation", "GPS-Tracked Transport"]
   },
   {
     id: "onsite-services",
     title: "On-Site Services",
-    subtitle: "Emergency response and witnessed destruction at your premises. 4-hour deployment available.",
-    content: "Emergency response and witnessed destruction at your premises. 4-hour deployment available for urgent requirements.",
+    subtitle: "Emergency on-site data destruction with 4-hour deployment. Witnessed IT asset disposal, secure shredding, and bulk computer recycling at your London, Manchester, or Birmingham premises.",
+    content: "On-site data destruction and emergency IT disposal services across the UK. 4-hour deployment for secure media sanitization, laptop disposal, and immediate IT asset destruction with certification and audit trail.",
     icon: "🏢",
     link: "/services/onsite-services",
     cta: "Learn More",
-    features: ["Emergency Response", "Witnessed Destruction", "4-Hour Deployment", "Premises Services", "Immediate Certification"]
+    features: ["4-Hour Deployment", "Emergency Data Wiping", "Witnessed Destruction", "On-Site Server Disposal", "Immediate Certification"]
   }
 ];
-
 ---
 
 <BaseLayout
-  title="ITAD & Secure Data Destruction Services Hub | Antares Systems, London"
-  description="Hub & Spoke ITAD services: certified data erasure (NIST 800-88), secure hardware buyback, WEEE-compliant recycling, and MAR-certified refurbishment. London-based ESG-focused asset disposition solutions for UK enterprises."
+  title="ITAD Services London | Secure Data Destruction & Certified IT Asset Disposal UK"
+  description="Antares Systems provides comprehensive ITAD services in London, Manchester, and Birmingham. Certified data destruction, secure IT asset disposal, bulk computer recycling, WEEE-compliant IT recycling, and IT equipment buyback with NIST 800-88 compliance and GDPR-compliant data erasure across the UK."
 >
   <SEOSchema pageType="servicesHub" />
   <Header />
@@ -71,7 +70,7 @@ const serviceSections = [
       <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
         <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">ITAD Cluster Services</h1>
         <p class="text-lg sm:text-xl text-slate-400">
-          Strategic Hub & Spoke model for London enterprises. Tailored asset disposition solutions aligned to regulatory stringency, circular economy principles, and operational risk posture.
+          Secure ITAD services in London, Manchester, Birmingham with IT asset disposal, certified data erasure, WEEE-compliant IT recycling, and corporate IT buyback programs for regulated industries.
         </p>
       </div>
     </div>
@@ -117,11 +116,11 @@ const serviceSections = [
                      service.id === "sustainable-disposal" ? "/ESG.png" :
                      service.id === "secure-logistics" ? "/International.png" :
                      "/Onsite.png"}
-                alt={service.id === "certified-erasure" ? "Certified Data Erasure and Secure IT Asset Disposal with NIST 800-88 compliance and forensic verification" :
-                     service.id === "itad-asset-recovery" ? "IT Asset Buyback and Recovery for AI Servers, Edge Computing, and Enterprise Infrastructure" :
-                     service.id === "sustainable-disposal" ? "ESG and Sustainable IT Disposal with Zero Landfill and Carbon-Negative Processing" :
-                     service.id === "secure-logistics" ? "Secure Logistics and Chain-of-Custody Transport for IT Asset Disposition" :
-                     "On-Site Services for Witnessed Data Destruction and Emergency IT Asset Disposal"}
+                alt={service.id === "certified-erasure" ? "Secure hard drive destruction and NIST 800-88 compliant data erasure services for IT asset disposal in London and across UK" :
+                     service.id === "itad-asset-recovery" ? "IT asset buyback and bulk computer recycling program - Corporate IT valuation and enterprise equipment buyback with fair market pricing" :
+                     service.id === "sustainable-disposal" ? "Carbon-negative IT disposal and ESG-focused WEEE-compliant computer recycling with zero landfill commitment and environmental reporting" :
+                     service.id === "secure-logistics" ? "Secure ITAD logistics and international IT equipment export to Kazakhstan, Uzbekistan, Middle East and CIS region with chain-of-custody documentation" :
+                     "On-site data destruction and emergency IT disposal services with 4-hour deployment for secure media sanitization and witnessed destruction at client premises"}
                 loading="lazy"
                 decoding="async"
                 class="w-full h-auto object-cover rounded-2xl"

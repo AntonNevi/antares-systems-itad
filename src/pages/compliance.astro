@@ -1,1 +1,71 @@
---- import Footer from '../components/Footer.astro'; import Header from '../components/Header.astro'; import BaseLayout from '../layouts/BaseLayout.astro'; --- <BaseLayout title="Compliance & Certifications | Antares Systems" description="ICO Registered (ZC094526), Professional & Cyber Insurance. Security-First Approach, Certified Data Destruction, Government-Grade Standards, Enterprise Security Protocol. WEEE Compliant, Zero Landfill." > <Header /> <main class="bg-slate-50 min-h-screen"> <!-- Hero Section - Unified height across all pages --> <div class="bg-slate-900 py-12 md:py-16 text-center text-white border-b border-slate-800 min-h-[240px] sm:min-h-[260px] md:min-h-[280px] flex items-center"> <div class="container mx-auto px-4 sm:px-6 max-w-4xl"> <span class="inline-block px-3 py-1 rounded-full bg-success-eco/20 text-success-eco text-xs font-bold uppercase tracking-widest mb-4">Verified Compliance</span> <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Your Data Protection is Our Business</h1> <p class="text-lg sm:text-xl text-slate-400"> Full regulatory adherence across data security, environmental standards, and liability coverage. </p> </div> </div> <!-- Content Section - Unified spacing --> <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12 mt-8 sm:mt-12 relative z-10 max-w-6xl"> <div class="grid lg:grid-cols-2 gap-6 sm:gap-8"> <!-- Regulatory & Insurance Block --> <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200"> <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 sm:w-10 sm:h-10 text-blue-600"> <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/> </svg> ACTIVE STATUS </h2> <div class="space-y-4 sm:space-y-6"> <div class="p-4 bg-slate-50 rounded-xl border border-slate-100"> <span class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">ICO Registered</span> <span class="text-lg font-mono font-bold text-slate-900">ZC094526</span> </div> <div class="p-4 bg-slate-50 rounded-xl border border-slate-100"> <span class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Insurance</span> <span class="text-lg font-bold text-slate-900">Professional Indemnity & Public Liability</span> <p class="text-sm text-slate-500 mt-2">Waste Carrier & WEEE T11 — Application in Progress</p> </div> </div> </section> <!-- Security & Environmental Block --> <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200"> <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 sm:w-10 sm:h-10 text-blue-600"> <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/> <path d="M7 11V7a5 5 0 0 1 10 0v4"/> </svg> COMPLIANCE FRAMEWORK </h2> <div class="space-y-4"> <div class="p-4 bg-slate-50 rounded-xl border border-slate-100"> <h3 class="font-bold text-slate-900 mb-2">Security</h3> <p class="text-sm text-slate-600">Security-First Approach | Certified Data Destruction | Government-Grade Standards | Enterprise Security Protocol</p> </div> <div class="p-4 bg-slate-50 rounded-xl border border-slate-100"> <h3 class="font-bold text-slate-900 mb-2">Environmental</h3> <p class="text-sm text-slate-600">WEEE Compliant | Zero Landfill</p> </div> </div> </section> </div> </div> </main> <Footer /> </BaseLayout>
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import SEOSchema from '../components/SEOSchema.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="NIST 800-88 & HMG IS5 Compliant ITAD Services | UK Data Destruction Compliance"
+  description="Antares Systems provides NIST 800-88 and HMG IS5 compliant data destruction services in London and across the UK. ICO registered (ZC094526), waste carrier certified, WEEE compliant ITAD provider with secure data erasure, NIST 800-88 audit trails, and IT asset disposal compliance documentation."
+>
+  <SEOSchema pageType="compliance" />
+  <Header />
+  <main class="bg-slate-50 min-h-screen">
+    <!-- Hero Section - Unified height across all pages -->
+    <div class="bg-slate-900 py-12 md:py-16 text-center text-white border-b border-slate-800 min-h-[240px] sm:min-h-[260px] md:min-h-[280px] flex items-center">
+      <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
+        <span class="inline-block px-3 py-1 rounded-full bg-success-eco/20 text-success-eco text-xs font-bold uppercase tracking-widest mb-4">Verified Compliance</span>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Your Data Protection is Our Business</h1>
+        <p class="text-lg sm:text-xl text-slate-400"> Full regulatory adherence across data security, environmental standards, and liability coverage. </p>
+      </div>
+    </div>
+
+    <!-- Content Section - Unified spacing -->
+    <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12 mt-8 sm:mt-12 relative z-10 max-w-6xl">
+      <div class="grid lg:grid-cols-2 gap-6 sm:gap-8">
+        <!-- Regulatory & Insurance Block -->
+        <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 sm:w-10 sm:h-10 text-blue-600">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            ACTIVE STATUS
+          </h2>
+          <div class="space-y-4 sm:space-y-6">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+              <span class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">ICO Registered</span>
+              <span class="text-lg font-mono font-bold text-slate-900">ZC094526</span>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+              <span class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Insurance</span>
+              <span class="text-lg font-bold text-slate-900">Professional Indemnity & Public Liability</span>
+              <p class="text-sm text-slate-500 mt-2">Waste Carrier & WEEE T11 — Application in Progress</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Security & Environmental Block -->
+        <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 sm:w-10 sm:h-10 text-blue-600">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            COMPLIANCE FRAMEWORK
+          </h2>
+          <div class="space-y-4">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+              <h3 class="font-bold text-slate-900 mb-2">Data Security Standards</h3>
+              <p class="text-sm text-slate-600">NIST 800-88 Rev 1 compliant data destruction | HMG IS5 certified secure media sanitization | NCSC-approved secure hard drive destruction | GDPR-compliant IT disposal audit trails | Certified data erasure with forensic verification for UK enterprises</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+              <h3 class="font-bold text-slate-900 mb-2">Environmental Compliance</h3>
+              <p class="text-sm text-slate-600">WEEE compliant IT asset disposal | Zero landfill commitment | ESG carbon reporting | Circular economy certified ITAD | Carbon-neutral IT disposal | Responsible IT recycling with environmental audit trails for Scope 3 emissions reporting</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

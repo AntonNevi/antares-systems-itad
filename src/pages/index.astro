@@ -1,36 +1,36 @@
 ---
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import ServiceCard from '../components/ServiceCard.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
 import SEOSchema from '../components/SEOSchema.astro';
+import ServiceCard from '../components/ServiceCard.astro';
 import TrustBar from '../components/TrustBar.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const services = [
   {
     title: "Data Destruction",
     description: "Certified erasure with audit trails and certificates.",
     icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>`,
-    link: "/services#data-destruction"
+    link: "/services/data-erasure"
   },
   {
     title: "IT Buyback",
     description: "Fair-market valuation with free UK-wide collection.",
     icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`,
-    link: "/services#it-buyback"
+    link: "/services/itad-asset-recovery"
   },
   {
     title: "Sustainable Recycling",
     description: "Zero-landfill WEEE-compliant processing.",
     icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>`,
-    link: "/services#recycling"
+    link: "/services/sustainable-disposal"
   }
 ];
 ---
 
 <BaseLayout
-  title="ITAD & Secure Data Destruction | Antares Systems, London"
-  description="Antares Systems provides certified data erasure, certified IT asset disposal, and sustainable IT equipment buyback services for London businesses. NIST 800-88 and HMG IS5 compliant."
+  title="ITAD London | Secure Data Destruction & IT Asset Disposal Services UK"
+  description="Antares Systems provides ITAD London, secure data destruction, certified IT asset disposal for UK businesses. NIST 800-88 and HMG IS5 compliant ITAD services across London, Manchester, Birmingham and Bristol with GDPR-compliant data erasure, certified data destruction, and sustainable IT recycling for enterprises."
 >
   <SEOSchema pageType="homepage" />
   <Header />
@@ -39,7 +39,7 @@ const services = [
     <section class="relative py-10 md:py-16 bg-slate-900 border-b border-slate-800 overflow-hidden">
       <!-- Background Grid -->
       <div class="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5 pointer-events-none"></div>
-      
+
       <div class="container mx-auto px-6 relative z-10 text-center max-w-5xl">
          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 backdrop-blur-sm shadow-sm mb-8 animate-fade-in-up">
             <span class="w-2 h-2 bg-success-eco rounded-full animate-ping"></span>
@@ -50,11 +50,11 @@ const services = [
           Secure IT Asset Disposal & <br />
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Data Erasure</span> in London
         </h1>
-        
+
         <p class="text-xl text-slate-400 leading-relaxed font-light mb-12 max-w-3xl mx-auto animate-fade-in-up delay-200">
           Certified Data Destruction data wiping, certified IT recycling, and sustainable hardware buyback for UK businesses. Enterprise-grade security meets circular economy.
         </p>
-        
+
       <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
         <a href="/services" class="px-8 py-4 rounded-lg border border-slate-600 text-slate-300 hover:text-white hover:border-slate-500 hover:bg-white/5 font-semibold transition-all flex items-center justify-center gap-2">
           Our Services
@@ -79,7 +79,7 @@ const services = [
         </p>
       </div>
     </section>
-    
+
     <!-- Core Services -->
     <section class="py-20 bg-white">
       <div class="container mx-auto px-6">
@@ -109,7 +109,7 @@ const services = [
           <p class="text-slate-300 text-lg mb-8 leading-relaxed">
             UK-based ITAD provider exporting bulk refurbished enterprise equipment to world markets. International compliance documentation for cross-border equipment transfers and asset recovery programs.
           </p>
-          <a href="/services#export" class="btn-primary inline-flex items-center gap-2">
+          <a href="/services/secure-logistics" class="btn-primary inline-flex items-center gap-2">
             Export Capabilities <span aria-hidden="true">&rarr;</span>
           </a>
         </div>

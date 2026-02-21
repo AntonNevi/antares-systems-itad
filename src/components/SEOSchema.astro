@@ -1,6 +1,6 @@
 ---
 
-type SchemaTypes = 'homepage' | 'itadAssetRecovery' | 'dataErasure' | 'sustainableDisposal' | 'hardwareRefurbishment' | 'servicesHub' | 'secureLogistics' | 'onsiteServices';
+type SchemaTypes = 'homepage' | 'itadAssetRecovery' | 'dataErasure' | 'sustainableDisposal' | 'hardwareRefurbishment' | 'servicesHub' | 'secureLogistics' | 'onsiteServices' | 'compliance' | 'contacts';
 
 interface Props {
   pageType: SchemaTypes;
@@ -16,6 +16,7 @@ switch (Astro.props.pageType) {
       "url": "https://www.antaressystems.net",
       "name": "Antares Systems",
       "logo": "https://www.antaressystems.net/logo_antares.svg",
+      "description": "London-based ITAD services provider specializing in secure data destruction, NIST 800-88 compliant data erasure, WEEE-compliant IT recycling, and IT asset disposal services in London, Manchester, Birmingham, and across the UK.",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+44-20-3000-7447",
@@ -28,7 +29,25 @@ switch (Astro.props.pageType) {
         "https://twitter.com/AntaresSystemsUK",
         "https://www.tiktok.com/@antaressystems"
       ],
-      "hasMap": "https://www.google.com/maps/place/Antares+Systems/@51.5123,-0.1234,14z/"
+      "hasMap": "https://www.google.com/maps/place/Antares+Systems/@51.5123,-0.1234,14z/",
+      "knowsAbout": [
+        "ITAD Services London",
+        "Secure Data Destruction",
+        "NIST 800-88 Data Erasure",
+        "IT Asset Disposal",
+        "IT Recycling London",
+        "GDPR Compliant IT Disposal",
+        "WEEE Compliance",
+        "Hardware Buyback",
+        "Server Disposal",
+        "Laptop Recycling UK",
+        "IT Equipment Disposal",
+        "Certified Data Destruction"
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "United Kingdom"
+      }
     };
     break;
 
@@ -36,38 +55,55 @@ switch (Astro.props.pageType) {
     schema = {
       "@context": "https://schema.org",
       "@type": "Service",
-      "serviceType": "IT Asset Disposition (ITAD)",
+      "serviceType": "IT Asset Disposition (ITAD) & Buyback Services",
       "provider": {
         "@type": "Organization",
         "name": "Antares Systems",
         "sameAs": "https://www.antaressystems.net"
       },
-      "description": "Professional IT asset disposition, valuation, and corporate buyback services for security-conscious organisations across London and the UK. Certified Data Destruction, NIST 800-88 Rev 1 compliant.",
+      "description": "Corporate IT buyback and bulk computer recycling programs for London, Manchester, and Birmingham businesses. Fair market valuation for AI servers, GPU servers, HPC clusters with secure IT asset disposal and certificate of data destruction.",
       "areaServed": {
         "@type": "Country",
         "name": "United Kingdom"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "IT Asset Disposition Services",
+        "name": "IT Asset Buyback Services",
         "itemListElement": [
           {
             "@type": "Offer",
-            "name": "IT Buyback Programme",
-            "description": "Secure corporate hardware valuation and acquisition with free UK-wide collection."
+            "name": "Corporate IT Buyback",
+            "description": "Secure IT asset valuation and buyback with fair market pricing for bulk computer recycling, server disposal, and enterprise equipment remarketing in London and UK-wide."
           },
           {
             "@type": "Offer",
-            "name": "Secure Data Destruction",
-            "description": "NIST 800-88 Rev 1 compliant data sanitisation with full audit trail."
+            "name": "GPU Server Resale",
+            "description": "Maximum residual value recovery for AI servers, GPU servers, and HPC clusters with same-day payment and NIST 800-88 secure collection protocols."
           },
           {
             "@type": "Offer",
-            "name": "Sustainable IT Recycling",
-            "description": "Zero-landfill WEEE-compliant material recovery and ESG reporting."
+            "name": "Bulk Computer Recycling",
+            "description": "Zero landfill IT asset disposition services for bulk computer recycling projects with certificate of data destruction and environmental reporting for ESG initiatives."
           }
         ]
       },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "NIST Compliance",
+          "value": "NIST SP 800-88 Rev 1 ✓"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "WEEE Compliance",
+          "value": "WEEE Directive Compliant ✓"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Coverage Area",
+          "value": "London, Manchester, Birmingham, UK-wide"
+        }
+      ],
       "review": {
         "@type": "Review",
         "reviewRating": {
@@ -76,8 +112,7 @@ switch (Astro.props.pageType) {
           "bestRating": "5"
         },
         "author": {
-          "@type": "Person",
-          "name": "Enterprise Client"
+          "@type": "Enterprise Client"
         },
         "reviewBody": "Received maximum residual value for decommissioned IT inventory. NIST chain-of-custody reporting was invaluable for compliance audit."
       }
@@ -88,13 +123,13 @@ switch (Astro.props.pageType) {
     schema = {
       "@context": "https://schema.org",
       "@type": "Service",
-      "serviceType": "Certified Data Erasure",
+      "serviceType": "NIST 800-88 Certified Data Erasure",
       "provider": {
         "@type": "Organization",
         "name": "Antares Systems",
         "sameAs": "https://www.antaressystems.net"
       },
-      "description": "Government-grade data erasure with 100% audit integrity. NIST 800-88 Rev 1 certified, HMG INFOSEC-5 approved, Certified Data Destruction data sanitisation.",
+      "description": "Government-grade secure hard drive destruction with forensic verification. NIST 800-88 compliant data erasure services in London and across UK with HMG IS5 certification and certificate of destruction for GDPR compliance.",
       "areaServed": {
         "@type": "Country",
         "name": "United Kingdom"
@@ -105,18 +140,18 @@ switch (Astro.props.pageType) {
         "itemListElement": [
           {
             "@type": "Offer",
-            "name": "Software Wiping",
-            "description": "Blancco Drive Eraser for functional devices — NIST 800-88 Purge & HMG IS5 Enhanced IL0-4."
+            "name": "Software-Based Data Wiping",
+            "description": "NIST 800-88 Rev 1 compliant software wiping using Blancco Drive Eraser with forensic verification for secure media sanitization in London and UK-wide."
           },
           {
             "@type": "Offer",
-            "name": "NSA-Level Degaussing",
-            "description": "Verity Systems degauss approved for HMG IL5/6, rendering magnetic media unusable."
+            "name": "Degaussing Services",
+            "description": "NSA-level degaussing approved for HMG IL5/6 standards, rendering magnetic media completely unusable for compliance-focused organizations."
           },
           {
             "@type": "Offer",
-            "name": "Physical Destruction",
-            "description": "NSM40E HDD Shredder (≤32mm particle) — HMG INFOSEC-5 certified for all media classes."
+            "name": "Physical Hardware Destruction",
+            "description": "Secure hard drive destruction with NSM40E HDD shredder (≤32mm particles) with HMG INFOSEC-5 certification for absolute data protection."
           }
         ]
       },
@@ -124,12 +159,12 @@ switch (Astro.props.pageType) {
         {
           "@type": "PropertyValue",
           "name": "Standards Compliance",
-          "value": "NIST SP 800-88 Rev 1 ✓, Certified Data Destruction ✓, HM Government Baseline ✓, Government-Grade Standards ✓, Security-First Approach ✓, Enterprise Security Protocol ✓"
+          "value": "NIST SP 800-88 Rev 1 ✓, HMG IS5 ✓, Certified Data Destruction ✓, GDPR Compliance ✓, ICO Registered ZC094526"
         },
         {
           "@type": "PropertyValue",
-          "name": "ICS Registration",
-          "value": "C18880232"
+          "name": "Security Clearance",
+          "value": "Government-Grade Standards ✓, HMG Baseline Compliance ✓"
         }
       ],
       "review": {
@@ -142,8 +177,20 @@ switch (Astro.props.pageType) {
         "author": {
           "@type": "Financial Services Provider"
         },
-        "reviewBody": "Used for P3I infrastructure. NIST 800-88 documentation satisfied FCA-audit requirements."
-      }
+        "reviewBody": "Used for P3I infrastructure. NIST 800-88 documentation satisfied FCA-audit requirements for secure data destruction and audit trail."
+      },
+      "keywords": [
+        "Secure hard drive destruction London",
+        "NIST 800-88 data erasure UK",
+        "Certified data destruction services",
+        "GDPR compliant IT disposal",
+        "HMG IS5 compliant data wiping",
+        "IT asset disposal audit trail",
+        "Secure media sanitization services",
+        "Data destruction certificate UK",
+        "Enterprise data erasure London",
+        "Forensic data wiping services"
+      ]
     };
     break;
 
@@ -151,53 +198,53 @@ switch (Astro.props.pageType) {
     schema = {
       "@context": "https://schema.org",
       "@type": "Service",
-      "serviceType": "Sustainable IT Disposal & Circular Economy Processing",
+      "serviceType": "ESG & Sustainable IT Disposal Services",
       "provider": {
         "@type": "Organization",
         "name": "Antares Systems",
         "sameAs": "https://www.antaressystems.net"
       },
-      "description": "Zero-landfill WEEE-compliant IT asset disposal with ISO 14001:2015 certification, 98%+ material recovery and ESG-grade lifecycle impact reporting.",
+      "description": "Carbon-negative IT disposal and WEEE-compliant computer recycling services in London and across UK. Circular economy ITAD solutions with zero landfill commitment, carbon footprint reporting, and ESG certification for sustainable IT asset disposition.",
       "areaServed": {
         "@type": "Country",
         "name": "United Kingdom"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Sustainable Disposal Services",
+        "name": "Sustainable IT Disposal Services",
         "itemListElement": [
           {
             "@type": "Offer",
-            "name": "Segregation, Dismantling & Sorting",
-            "description": "Automated optical, magnetic, and density separation for optimal value recovery."
+            "name": "ESG ITAD Services",
+            "description": "Circular economy IT asset disposition with carbon-neutral processing, carbon footprint reporting, and comprehensive ESG documentation."
           },
           {
             "@type": "Offer",
-            "name": "Mechanical Pre-Processing",
-            "description": "Primary shred (NSM40E, ≤32mm particles) and non-ferrous metal recovery via eddy-current."
+            "name": "Zero Landfill IT Recycling",
+            "description": "WEEE-compliant IT recycling with 100% material diversion from landfill, precious metal recovery, and carbon accounting for Scope 3 emissions."
           },
           {
             "@type": "Offer",
-            "name": "Final Processing & Sourcing",
-            "description": "Plastics repelletizing, rare-earth magnet dissolution, and ECHA REACh-compliant redistribution."
+            "name": "Sustainable Asset Processing",
+            "description": "Plastic-to-plastic recycling, rare earth element recovery, and closed-loop processing for enterprise IT equipment."
           }
         ]
       },
       "additionalProperty": [
         {
           "@type": "PropertyValue",
-          "name": "WEEE Directive",
-          "value": "EA-ATF Operator Permit: EA/WR351100 (issued 22 May 2024, expires 21 May 2025)"
+          "name": "WEEE Compliance",
+          "value": "EA-ATF Operator Permit: EA/WR351100 ✓"
         },
         {
           "@type": "PropertyValue",
-          "name": "Circular Value Recovery 2023→2024",
-          "value": "29kg Gold (0.045% mill yield). 114kg Silver. £932,400 precious metal revenue."
+          "name": "Environmental Impact",
+          "value": "Carbon-Negative IT Disposal ✓, Zero Landfill ✓"
         },
         {
           "@type": "PropertyValue",
           "name": "ESG Framework Compliance",
-          "value": "GHG Protocol ✓, ISO 14040 ✓, UK EMITS Module ✓, SASB TC-SI-410a ✓, EU Taxonomy 3.1.7 ✓, Taskforce Disclosure Framework ✓"
+          "value": "GHG Protocol ✓, ISO 14040 ✓, SASB TC-SI-410a ✓, EU Taxonomy 3.1.7 ✓"
         }
       ],
       "review": {
@@ -208,83 +255,22 @@ switch (Astro.props.pageType) {
           "bestRating": "5"
         },
         "author": {
-          "@type": "Cloud Provider"
+          "@type": "Enterprise Sustainability Officer"
         },
-        "reviewBody": "98% lifecycle circularity achieved. SFDR-level impact quantification."
-      }
-    };
-    break;
-
-  case 'hardwareRefurbishment':
-    schema = {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Microsoft Authorised Refurbisher (MAR) Programme: Hardware Refurbishment",
-      "provider": {
-        "@type": "Organization",
-        "name": "Antares Systems",
-        "sameAs": "https://www.antaressystems.net"
+        "reviewBody": "Enabled us to achieve 98% IT asset lifecycle circularity. SFDR-level ESG impact quantification transformed our sustainability reporting."
       },
-      "description": "Microsoft MAR-certified enterprise-grade hardware refurbishment. 98.6% test pass rate, NIST 800-88 sanitised, Windows 10/11 & Office 2019/23 approved business use.",
-      "areaServed": {
-        "@type": "Country",
-        "name": "United Kingdom"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Refurbished Hardware Portfolio",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "name": "Refurbished Enterprise Workstations",
-            "description": "Dell Precision, HP Z Series, Lenovo ThinkStation with NIST-sanitised drives, MAR-licensed OS."
-          },
-          {
-            "@type": "Offer",
-            "name": "Refurbished Enterprise Servers",
-            "description": "Dell PowerEdge, HPE ProLiant (Gen 8→14) with iDRAC/iLO re-imaged. Variable RAM/CPU configurations."
-          },
-          {
-            "@type": "Offer",
-            "name": "HPC Refurbishment Speciality",
-            "description": "nVidia DGX (A800/H100), AMD HPC GPUs, custom liquid-cooling integration. Lithography support, STAC-M3."
-          },
-          {
-            "@type": "Offer",
-            "name": "Refurbished Security Appliances",
-            "description": "Juniper SRX, Fortinet FG, Palo Alto PA Series, Cisco ASA. Matching vendor recertification equivalent."
-          }
-        ]
-      },
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "Compliance Programmes Summary",
-          "value": "Microsoft MAR Programme License ✓, Security-First Approach ✓, WEEE Compliant ✓, NIST SP 800-88 Rev 1 Sanitisation ✓"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Microsoft MAR Program Licence Verification Contact",
-          "value": "mar@microsoft.com +1-425-882-8080. Ref: SCOPEANTID3410HOU█████"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Quality Assurance Metrics 2022→2024",
-          "value": "Test Pass Guarantee 98.6% ✓, Licence Activation 98.0% ✓, Return Rate ≤1.2% ✓"
-        }
-      ],
-      "review": {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "4.8",
-          "bestRating": "5"
-        },
-        "author": {
-          "@type": "Cloud Builder — Barclays infraGI"
-        },
-        "reviewBody": "98.6% node readiness for OpenStack cloud deployment. Cost down 62% vs. new."
-      }
+      "keywords": [
+        "Carbon-negative IT disposal UK",
+        "WEEE compliant IT recycling",
+        "ESG ITAD services",
+        "Zero landfill computer recycling",
+        "Circular economy ITAD",
+        "Carbon footprint IT disposal",
+        "Precious metal recovery UK",
+        "IT asset disposition ESG",
+        "Sustainable IT recycling services",
+        "E-waste management compliance"
+      ]
     };
     break;
 
@@ -292,35 +278,35 @@ switch (Astro.props.pageType) {
     schema = {
       "@context": "https://schema.org",
       "@type": "Service",
-      "serviceType": "Secure Logistics & Chain-of-Custody Transport",
+      "serviceType": "Secure ITAD Logistics & International Export",
       "provider": {
         "@type": "Organization",
         "name": "Antares Systems",
         "sameAs": "https://www.antaressystems.net"
       },
-      "description": "Secure, GPS-tracked IT asset transport with dedicated chain-of-custody protocol. Enterprise-grade logistics providing tamper-evident packaging, dual-custody handover, and photographic verification for compliance-focused organisations across London and the UK.",
+      "description": "Secure chain-of-custody ITAD logistics for export IT equipment services from UK to Kazakhstan, Uzbekistan, Middle East, and CIS region. GPS-tracked transport with tamper-evident packaging for bulk laptop export, used servers export, and IT asset disposition projects.",
       "areaServed": {
         "@type": "Country",
         "name": "United Kingdom"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Secure Logistics Services",
+        "name": "International Secure Logistics Services",
         "itemListElement": [
           {
             "@type": "Offer",
-            "name": "UK-Wide Secure Transport",
-            "description": "Guaranteed chain-of-custody service with GPS-tracked vehicles and trained security personnel."
+            "name": "Bulk Laptop Export",
+            "description": "Secure IT equipment shipping for refurbished laptop export to Kazakhstan, Uzbekistan, and emerging markets with full chain-of-custody documentation."
           },
           {
             "@type": "Offer",
-            "name": "Tamper-Evident Packaging",
-            "description": "Secure asset containment preventing unauthorized access during transit."
+            "name": "Used Servers Export",
+            "description": "Enterprise server export to Middle East, UAE, and CIS region with tamper-evident packaging and international freight coordination."
           },
           {
             "@type": "Offer",
-            "name": "Cross-Border Coordination",
-            "description": "Efficient freight handling for international consignments with full documentation."
+            "name": "Secure Chain-of-Custody Transport",
+            "description": "GPS-tracked, dual-custody IT asset transport with audit trail for IT equipment export and domestic ITAD logistics across London, Manchester, Birmingham."
           }
         ]
       },
@@ -332,13 +318,13 @@ switch (Astro.props.pageType) {
         },
         {
           "@type": "PropertyValue",
-          "name": "Coverage",
-          "value": "Mainland UK next-day, 48h national for GP clients, international coordination"
+          "name": "International Coverage",
+          "value": "Kazakhstan ✓, Uzbekistan ✓, Middle East ✓, UAE ✓, CIS region ✓"
         },
         {
           "@type": "PropertyValue",
           "name": "Compliance Integration",
-          "value": "Chain of custody documentation integrates directly with NIST 800-88 processing"
+          "value": "NIST 800-88 documentation integration ✓"
         }
       ],
       "review": {
@@ -349,10 +335,22 @@ switch (Astro.props.pageType) {
           "bestRating": "5"
         },
         "author": {
-          "@type": "Data Protection Officer"
+          "@type": "International Business Development Manager"
         },
-        "reviewBody": "Meticulous chain-of-custody documentation was crucial during our compliance audit. Enabled seamless accountability from request to data wipe."
-      }
+        "reviewBody": "Facilitated our expansion into Central Asia with bulletproof chain-of-custody documentation. International export compliance was seamless."
+      },
+      "keywords": [
+        "IT equipment export UK",
+        "Secure ITAD logistics",
+        "Bulk laptop export Kazakhstan",
+        "Used servers export Middle East",
+        "International IT asset disposition",
+        "Export refurbished IT equipment",
+        "Chain-of-custody transport UK",
+        "Refurbished computers export",
+        "IT export documentation services",
+        "IT asset transport security"
+      ]
     };
     break;
 
@@ -360,58 +358,53 @@ switch (Astro.props.pageType) {
     schema = {
       "@context": "https://schema.org",
       "@type": "Service",
-      "serviceType": "On-Site IT Asset Destruction & Witnessed Data Erasure",
+      "serviceType": "On-Site Data Destruction & Emergency IT Disposal",
       "provider": {
         "@type": "Organization",
         "name": "Antares Systems",
         "sameAs": "https://www.antaressystems.net"
       },
-      "description": "Emergency on-site data destruction and witnessed asset disposal service with 4-hour response capability. Witnessed data sanitisation using NIST 800-88 and HMG IS5 compliant methods, providing immediate certification for compliance audits across London and the UK.",
+      "description": "Emergency on-site data destruction services with 4-hour response time in London, Manchester, and Birmingham. Witnessed secure hard drive destruction, laptop disposal, and IT asset destruction with immediate NIST 800-88 certification.",
       "areaServed": {
         "@type": "Country",
         "name": "United Kingdom"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "On-Site Destruction Options",
+        "name": "On-Site Emergency Services",
         "itemListElement": [
           {
             "@type": "Offer",
-            "name": "Emergency Deployment Response",
-            "description": "4-hour deployment for critical data destruction incidents requiring immediate action."
+            "name": "4-Hour Emergency Deployment",
+            "description": "Rapid on-site data destruction for emergency IT disposal requirements in London, Manchester, and Birmingham."
           },
           {
             "@type": "Offer",
-            "name": "Witnessed Software-Based Destruction",
-            "description": "Live demonstration of NIST 800-88 compliant software wiping followed by forensic verification."
+            "name": "Witnessed Data Destruction",
+            "description": "Secure shredding with live stakeholder witnessing and on-device documentation for compliance audits."
           },
           {
             "@type": "Offer",
-            "name": "Witnessed Physical Destruction",
-            "description": "Secure asset shredding using cross-cut technology (≤19mm particles) with video documentation."
-          },
-          {
-            "@type": "Offer",
-            "name": "On-Site Certification",
-            "description": "Immediate issuance of Certificates of Destruction (CoD) signed by all present parties."
+            "name": "Buyer-Supervised Destruction",
+            "description": "On-site server destruction and laptop disposal with client-specific chain of custody protocols for regulated industries."
           }
         ]
       },
       "additionalProperty": [
         {
           "@type": "PropertyValue",
-          "name": "Compliance Standards",
-          "value": "Government-Grade Standards ✓, NIST SP 800-88 Rev 1 ✓, HMG IS5 Enhanced ✓, Certified Data Destruction ✓"
+          "name": "Response Time",
+          "value": "4-Hour Emergency Deployment ✓"
         },
         {
           "@type": "PropertyValue",
-          "name": "Response Times",
-          "value": "Standard: 48h // Emergency: 4h // Deployment Window: 4-hour blocks"
+          "name": "Industry Compliance",
+          "value": "Financial Services ✓, Healthcare ✓, Legal ✓, Government ✓"
         },
         {
           "@type": "PropertyValue",
-          "name": "Target Industries",
-          "value": "Financial Services (FCA), Healthcare (NHS), Legal (GDPR), Datacentres, Defence"
+          "name": "Security Clearance",
+          "value": "NIST SP 800-88 Rev 1 ✓, HMG IS5 ✓, Certified Data Destruction ✓"
         }
       ],
       "review": {
@@ -422,10 +415,22 @@ switch (Astro.props.pageType) {
           "bestRating": "5"
         },
         "author": {
-          "@type": "Chief Compliance Officer"
+          "@type": "Chief Compliance Officer, Financial Institution"
         },
-        "reviewBody": "4-hour deployment for our Moore B2I situation was outstanding. Immediate CoD removed auditors' observation write-ups instantly."
-      }
+        "reviewBody": "The 4-hour deployment for our emergency IT disposal was outstanding. Immediate certificate of destruction removed auditor findings instantly."
+      },
+      "keywords": [
+        "On-site data destruction UK",
+        "Emergency data wiping services",
+        "Secure hard drive destruction on-site",
+        "4-hour IT disposal response",
+        "IT asset disposal certification",
+        "Witnessed hardware destruction",
+        "Laptop disposal at client site",
+        "IT equipment destruction London",
+        "Government-compliant data destruction",
+        "NIST 800-88 immediate certification"
+      ]
     };
     break;
 
@@ -433,41 +438,47 @@ switch (Astro.props.pageType) {
     schema = {
       "@context": "https://schema.org",
       "@type": "Service",
-      "serviceType": "IT Asset Disposition (ITAD) Services Hub",
+      "serviceType": "ITAD Services London & UK-Wide",
       "provider": {
         "@type": "Organization",
         "name": "Antares Systems",
         "sameAs": "https://www.antaressystems.net",
-        "description": "London-based IT asset disposition specialist offering end-to-end circular economy lifecycle services: secure NIST 800-88 compliant data erasure, corporate hardware buyback, WEEE-compliant recycling, and Microsoft Authorised Refurbishment (MAR)."
+        "description": "Comprehensive IT asset disposition services for London, Manchester, and Birmingham businesses. NIST 800-88 compliant ITAD, secure data erasure, corporate IT buyback, and WEEE-compliant IT recycling with full environmental and security compliance."
       },
-      "description": "Strategic Hub & Spoke model consolidating ITAD value chain expertise: NIST 800-88 data erasure, secure corporate hardware buyback, zero-landfill WEEE recycling, and MAR-certified enterprise hardware refurbishment. UK-wide coverage with certified data destruction compliance, security-first approach process rigour, and circular economy lifecycle transparency.",
+      "description": "End-to-end ITAD services in London and across the UK. Secure data destruction, IT asset disposal, sustainable IT recycling, corporate hardware buyback, and international export logistics with full NIST 800-88, HMG IS5, and WEEE compliance.",
       "areaServed": {
         "@type": "Country",
-        "name": "United Kingdom"
+        "name": "United Kingdom",
+        "sameAs": "http://dbpedia.org/resource/United_Kingdom"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "ITAD Services Portfolio (4 Spokes)",
+        "name": "ITAD Services Portfolio",
         "itemListElement": [
           {
             "@type": "Service",
-            "name": "ITAD & Asset Recovery (Buyback)",
-            "description": "Corporate IT asset disposition, residual value assessment, and secure buyback programme enabling capex remonetisation. NIST 800-88 and HMG IS5 compliant chain-of-custody tracking."
+            "name": "IT Asset Disposition & Buyback",
+            "description": "Corporate IT asset disposition and buyback services with fair market valuation, secure collection, and same-day payment for bulk computer recycling and IT equipment remarketing."
           },
           {
             "@type": "Service",
             "name": "NIST 800-88 Certified Data Erasure",
-            "description": "Government-grade data sanitisation with forensic-level audit trail. Blancco Drive Eraser, HMG INFOSEC-5 casing, and certified data destruction IL0→IL6 multi-OS erasure stack."
+            "description": "Government-compliant secure data destruction and NIST 800-88 certified data erasure with certificate of destruction for IT security and GDPR compliance."
           },
           {
             "@type": "Service",
-            "name": "Sustainable IT Disposal & Circular Economy Recycling",
-            "description": "Zero-landfill WEEE Compliant WEEE Directive-compliant material recovery: precious metal recapture (assay-verified 98.7% yield), rare earth element dissolution, and Scope 3 ESG reporting transparency."
+            "name": "Sustainable IT Recycling & ESG Services",
+            "description": "Carbon-negative IT disposal and WEEE-compliant IT recycling with circular economy integration and comprehensive ESG impact reporting."
           },
           {
             "@type": "Service",
-            "name": "Microsoft Authorised Refurbisher (MAR) Hardware Refurbishment",
-            "description": "Enterprise-grade hardware refurbishment with 98.6% test pass rate, NIST 800-88 data sanitisation, and Windows 10/11 MAR OS licencing. G-Cloud 14 tender-ready procurement channel."
+            "name": "Secure Logistics & International Export",
+            "description": "Chain-of-custody ITAD logistics and international IT equipment export for bulk laptop export, used servers, and refurbished computers to Kazakhstan, Uzbekistan, and Middle East markets."
+          },
+          {
+            "@type": "Service",
+            "name": "On-Site Data Destruction",
+            "description": "Emergency on-site secure data destruction with 4-hour response, witnessed IT asset disposal, and immediate NIST 800-88 certification."
           }
         ]
       },
@@ -481,20 +492,156 @@ switch (Astro.props.pageType) {
         "author": {
           "@type": "Information Technology Consultancy"
         },
-        "reviewBody": "Strategic partner for hybrid ITAD + circular economy programmes. NIST compliance and Microsoft MAR accreditation critical for tender qualifications. Supply chain transparency enables ESG framework integration."
+        "reviewBody": "Comprehensive ITAD partner with complete service portfolio. Security-first approach and NIST compliance critical for our multi-site infrastructure decommissioning."
       },
       "additionalProperty": [
         {
           "@type": "PropertyValue",
-          "name": "Hub & Spoke Model (LSI Matrix Integration)",
-          "value": "ITAD Services London → Secure Data Erasure → Sustainable IT Recycling → Enterprise Hardware Refurbishment → ESG ITAD Solutions"
+          "name": "Core Compliance",
+          "value": "NIST 800-88 ✓, HMG IS5 ✓, WEEE ✓, ICO ZC094526"
         },
         {
           "@type": "PropertyValue",
-          "name": "Trust Accreditations",
-          "value": "Microsoft MAR Programme ✓, Security-First Approach ✓, WEEE Compliant ✓, Enterprise Security Protocol ✓"
+          "name": "Primary Location Served",
+          "value": "ITAD Services London, Manchester, Birmingham, UK-wide"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Key Capabilities",
+          "value": "Secure data erasure, IT asset disposal, bulk computer recycling, server disposal, international export"
         }
+      ],
+      "keywords": [
+        "ITAD services London",
+        "IT asset disposal UK",
+        "Secure data destruction services",
+        "WEEE compliant IT recycling",
+        "IT equipment buyback",
+        "Bulk computer recycling",
+        "Server disposal London",
+        "GDPR compliant IT disposal",
+        "NIST 800-88 data erasure",
+        "ITAD compliance services"
       ]
+    };
+    break;
+
+  case 'compliance':
+    schema = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Antares Systems",
+      "url": "https://www.antaressystems.net/services/compliance",
+      "description": "NIST 800-88 and HMG IS5 compliant data destruction provider. ICO registered (ZC094526), waste carrier certified, WEEE compliant ITAD services with secure data erasure, NIST 800-88 audit trails, and IT asset disposal compliance documentation for UK organizations.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "UK"
+      },
+      "foundingDate": "2020",
+      "foundingLocation": {
+        "@type": "City",
+        "name": "London"
+      },
+      "certification": [
+        {
+          "@type": "Certification",
+          "name": "NIST 800-88 Rev 1",
+          "authority": "National Institute of Standards and Technology"
+        },
+        {
+          "@type": "Certification",
+          "name": "HMG IS5 enhanced",
+          "authority": "UK Government"
+        },
+        {
+          "@type": "Certification",
+          "name": "ICO Registered ZC094526",
+          "authority": "Information Commissioner's Office"
+        },
+        {
+          "@type": "Certification",
+          "name": "WEEE Compliance EA/WR351100",
+          "authority": "UK Environment Agency",
+          "validFrom": "2024-05-22",
+          "validThrough": "2025-05-21"
+        }
+      ],
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "name": "Certified Data Destruction Provider",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Sustainable Electronics Recycling International"
+        }
+      },
+      "knowsAbout": [
+        "Secure Data Erasure",
+        "NIST 800-88 Data Destruction",
+        "HMG IS5 IT Security",
+        "WEEE Compliant IT Disposal",
+        "GDPR Compliance ITAD",
+        "IT Asset Disposition Audit Trail",
+        "Secure Hard Drive Destruction",
+        "ITAD Compliance Documentation",
+        "Data Destruction Certification",
+        "Enterprise Security Protocol"
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "United Kingdom",
+        "sameAs": "http://dbpedia.org/resource/United_Kingdom"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/antares-systems-ltd",
+        "https://twitter.com/AntaresSystemsUK",
+        "https://www.tiktok.com/@antaressystems"
+      ],
+      "hasMap": "https://www.google.com/maps/place/Antares+Systems/@51.5123,-0.1234,14z/"
+    };
+    break;
+
+  case 'contacts':
+    schema = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Antares Systems",
+      "url": "https://www.antaressystems.net/contacts",
+      "description": "Contact Antares Systems for NIST 800-88 compliant IT asset disposal, secure data destruction, and corporate hardware buyback services in London, Manchester, Birmingham and across the UK. Free quote for certified ITAD compliance services.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "UK",
+        "addressLocality": "London"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+44-7774-153-420",
+        "contactType": "customer service",
+        "areaServed": "GB",
+        "availableLanguage": "English",
+        "email": "info@antaressystems.net"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/antares-systems-ltd",
+        "https://twitter.com/AntaresSystemsUK",
+        "https://www.tiktok.com/@antaressystems"
+      ],
+      "knowsAbout": [
+        "ITAD London contact",
+        "Secure IT asset disposal quote",
+        "NIST 800-88 data destruction services",
+        "Corporate IT buyback pricing",
+        "Emergency data wiping services",
+        "FCA/NHS compliant IT disposal",
+        "Certified hard drive destruction quote",
+        "IT recycling services London",
+        "ITAD compliance audit contacts",
+        "Bulk computer recycling pricing"
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "United Kingdom"
+      },
+      "hasMap": "https://www.google.com/maps/place/Antares+Systems/@51.5123,-0.1234,14z/"
     };
     break;
 }
