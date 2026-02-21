@@ -58,7 +58,6 @@ const serviceSections = [
   }
 ];
 
-
 ---
 
 <BaseLayout
@@ -68,20 +67,20 @@ const serviceSections = [
   <SEOSchema pageType="servicesHub" />
   <Header />
   <main class="bg-slate-50">
-    <div class="bg-slate-900 py-10 md:py-16 text-center text-white border-b border-slate-800">
-      <div class="container mx-auto px-6">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">ITAD Cluster Services</h1>
-        <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+    <div class="bg-slate-900 py-12 md:py-16 text-center text-white border-b border-slate-800 min-h-[240px] sm:min-h-[260px] md:min-h-[280px] flex items-center">
+      <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">ITAD Cluster Services</h1>
+        <p class="text-lg sm:text-xl text-slate-400">
           Strategic Hub & Spoke model for London enterprises. Tailored asset disposition solutions aligned to regulatory stringency, circular economy principles, and operational risk posture.
         </p>
       </div>
     </div>
 
-    <div class="container mx-auto px-6 py-12 mt-12">
-      <div class="space-y-24 py-12">
+    <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12 mt-8 sm:mt-12 relative z-10 max-w-6xl">
+      <div class="space-y-16 sm:space-y-24">
         {serviceSections.map((service, index) => (
-          <section id={service.id} class={`flex flex-col md:flex-row gap-12 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-            <div class="flex-1 bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow group">
+          <section id={service.id} class={`flex flex-col md:flex-row gap-8 sm:gap-12 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+            <div class="flex-1 bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow group w-full">
               <a href={service.link} class="block">
                 <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-3xl mb-6 text-primary group-hover:bg-primary/20 transition-colors">
                   {service.icon}
