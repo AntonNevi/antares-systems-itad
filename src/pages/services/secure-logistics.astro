@@ -1,0 +1,188 @@
+---
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import SEOSchema from '../../components/SEOSchema.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Secure Logistics — Chain of Custody Guaranteed | Antares Systems"
+  description="GPS-tracked, sealed transport nationwide. Chain-of-custody documentation from collection to processing."
+>
+  <SEOSchema pageType="itadAssetRecovery" />
+
+  <Header />
+  <main>
+    <!-- Hero Section -->
+    <section class="relative py-20 lg:py-28 bg-slate-900 text-white overflow-hidden border-b border-white/10">
+      <!-- Ambient Background -->
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_rgba(0,74,173,0.3),_transparent)] opacity-40"></div>
+      
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <div class="flex-1 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/80 mb-6">
+              <span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
+              <span class="text-xs font-bold uppercase tracking-widest text-white">CHAIN OF CUSTODY</span>
+            </div>
+            <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+              Secure Logistics
+            </h1>
+            <p class="text-xl text-cyan-100 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              Chain of Custody Guaranteed. GPS-tracked, sealed transport nationwide from collection point to secure processing facility.
+            </p>
+          </div>
+
+          <div class="flex-1 w-full max-w-xl">
+            <div class="relative group">
+              <div class="absolute -inset-1 bg-gradient-to-r from-blue-400 to-primary rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+              <div class="relative bg-slate-800 rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                <img src="/F4.jpg" alt="Secure Logistics" class="w-full h-auto object-cover transform transition duration-700 group-hover:scale-105" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collection Process Block -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6 max-w-6xl">
+        <div class="mb-12 text-center">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Collection Process</h2>
+        </div>
+
+        <div class="grid md:grid-cols-1 lg:grid-cols-5 gap-6">
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">1</div>
+            <h3 class="font-bold text-lg mb-3">Booking Confirmation</h3>
+            <p class="text-slate-600">Scheduled window, vehicle assignment</p>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">2</div>
+            <h3 class="font-bold text-lg mb-3">Tamper-Evident Packaging</h3>
+            <p class="text-slate-600">Sealed containers, unique security tags</p>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">3</div>
+            <h3 class="font-bold text-lg mb-3">GPS-Tracked Transport</h3>
+            <p class="text-slate-600">Real-time location, route optimization</p>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">4</div>
+            <h3 class="font-bold text-lg mb-3">Dual-Custody Handover</h3>
+            <p class="text-slate-600">Signed transfer, photographic evidence</p>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">5</div>
+            <h3 class="font-bold text-lg mb-3">Secure Facility Intake</h3>
+            <p class="text-slate-600">Immediate vault storage, inventory logging</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security Protocols Block -->
+    <section class="py-20 bg-slate-50">
+      <div class="container mx-auto px-6 max-w-6xl">
+        <div class="mb-12 text-center">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Security Protocols</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">🔒</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Enterprise Security Protocol</h3>
+            <p class="text-slate-600">Personnel vetted, vehicles alarmed, routes randomized</p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">🛡️</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Security-First Approach</h3>
+            <p class="text-slate-600">No unattended assets, ever</p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">✅</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Certified Data Destruction</h3>
+            <p class="text-slate-600">Logistics integrated with processing workflow</p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">📋</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Audit Trail</h3>
+            <p class="text-slate-600">Complete chain of custody documentation</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Environmental Efficiency Block -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6 max-w-6xl">
+        <div class="mb-12 text-center">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Environmental Efficiency</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-success-eco/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl text-success-eco">🚛</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Consolidated Collections</h3>
+            <p class="text-slate-600">Multi-client route optimization</p>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-success-eco/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl text-success-eco">⚡</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Electric Vehicle Transition</h3>
+            <p class="text-slate-600">50% fleet by 2025</p>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-success-eco/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl text-success-eco">📦</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Packaging Reuse</h3>
+            <p class="text-slate-600">Standardized returnable containers</p>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-success-eco/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl text-success-eco">🌍</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Coverage</h3>
+            <p class="text-slate-600">UK mainland, scheduled EU collection, international freight coordination for export</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-cyan-800 text-white text-center">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-4">Ready for Secure Logistics?</h2>
+        <p class="text-cyan-200 mb-8">Contact an expert for GPS-tracked, sealed transport with guaranteed chain of custody</p>
+        <a href="/contacts" class="bg-success-eco text-black px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition-opacity inline-block">
+          Contact an Expert
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

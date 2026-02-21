@@ -2,7 +2,6 @@
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import ProductGrid from '../../components/ProductGrid.astro';
-import SEOBreadcrumbs from '../../components/SEOBreadcrumbs.astro';
 import SEOSchema from '../../components/SEOSchema.astro';
 import TrustBar from '../../components/TrustBar.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -144,10 +143,6 @@ const warrantyTiers = [
       </div>
 
       <div class="container mx-auto px-6 relative z-10">
-        <SEOBreadcrumbs items={[
-          { name: 'Services', href: '/services' },
-          { name: 'Hardware Refurbishment' }
-        ]} />
 
         <div class="max-w-3xl">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/20 border border-blue-600/40 mb-6">

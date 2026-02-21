@@ -1,6 +1,6 @@
 ---
 
-type SchemaTypes = 'homepage' | 'itadAssetRecovery' | 'dataErasure' | 'sustainableDisposal' | 'hardwareRefurbishment';
+type SchemaTypes = 'homepage' | 'itadAssetRecovery' | 'dataErasure' | 'sustainableDisposal' | 'hardwareRefurbishment' | 'servicesHub';
 
 interface Props {
   pageType: SchemaTypes;
@@ -42,7 +42,7 @@ switch (Astro.props.pageType) {
         "name": "Antares Systems",
         "sameAs": "https://www.antaressystems.net"
       },
-      "description": "Professional IT asset disposition, valuation, and corporate buyback services for security-conscious organisations across London and the UK. NCSC-approved methodologies, NIST 800-88 Rev 1 compliant.",
+      "description": "Professional IT asset disposition, valuation, and corporate buyback services for security-conscious organisations across London and the UK. Certified Data Destruction, NIST 800-88 Rev 1 compliant.",
       "areaServed": {
         "@type": "Country",
         "name": "United Kingdom"
@@ -94,7 +94,7 @@ switch (Astro.props.pageType) {
         "name": "Antares Systems",
         "sameAs": "https://www.antaressystems.net"
       },
-      "description": "Government-grade data erasure with 100% audit integrity. NIST 800-88 Rev 1 certified, HMG INFOSEC-5 approved, NCSC endorsed data sanitisation.",
+      "description": "Government-grade data erasure with 100% audit integrity. NIST 800-88 Rev 1 certified, HMG INFOSEC-5 approved, Certified Data Destruction data sanitisation.",
       "areaServed": {
         "@type": "Country",
         "name": "United Kingdom"
@@ -124,7 +124,7 @@ switch (Astro.props.pageType) {
         {
           "@type": "PropertyValue",
           "name": "Standards Compliance",
-          "value": "NIST SP 800-88 Rev 1 ✓, NCSC Approved ✓, HM Government Baseline ✓, HMG IS5 Enhanced ✓, ISO 9001:2015 ✓, ISO 27001:2022 ✓"
+          "value": "NIST SP 800-88 Rev 1 ✓, Certified Data Destruction ✓, HM Government Baseline ✓, Government-Grade Standards ✓, Security-First Approach ✓, Enterprise Security Protocol ✓"
         },
         {
           "@type": "PropertyValue",
@@ -260,7 +260,7 @@ switch (Astro.props.pageType) {
         {
           "@type": "PropertyValue",
           "name": "Compliance Programmes Summary",
-          "value": "Microsoft MAR Programme License ✓, ISO 9001:2015 ✓, ISO 14001:2015 ✓, NIST SP 800-88 Rev 1 Sanitisation ✓"
+          "value": "Microsoft MAR Programme License ✓, Security-First Approach ✓, WEEE Compliant ✓, NIST SP 800-88 Rev 1 Sanitisation ✓"
         },
         {
           "@type": "PropertyValue",
@@ -299,7 +299,7 @@ switch (Astro.props.pageType) {
         "sameAs": "https://www.antaressystems.net",
         "description": "London-based IT asset disposition specialist offering end-to-end circular economy lifecycle services: secure NIST 800-88 compliant data erasure, corporate hardware buyback, WEEE-compliant recycling, and Microsoft Authorised Refurbishment (MAR)."
       },
-      "description": "Strategic Hub & Spoke model consolidating ITAD value chain expertise: NIST 800-88 data erasure, secure corporate hardware buyback, zero-landfill WEEE recycling, and MAR-certified enterprise hardware refurbishment. UK-wide coverage with NCSC-ready compliance, ISO 9001:2015 process rigour, and circular economy lifecycle transparency.",
+      "description": "Strategic Hub & Spoke model consolidating ITAD value chain expertise: NIST 800-88 data erasure, secure corporate hardware buyback, zero-landfill WEEE recycling, and MAR-certified enterprise hardware refurbishment. UK-wide coverage with certified data destruction compliance, security-first approach process rigour, and circular economy lifecycle transparency.",
       "areaServed": {
         "@type": "Country",
         "name": "United Kingdom"
@@ -316,12 +316,12 @@ switch (Astro.props.pageType) {
           {
             "@type": "Service",
             "name": "NIST 800-88 Certified Data Erasure",
-            "description": "Government-grade data sanitisation with forensic-level audit trail. Blancco Drive Eraser, HMG INFOSEC-5 casing, and NCSC-approved IL0→IL6 multi-OS erasure stack."
+            "description": "Government-grade data sanitisation with forensic-level audit trail. Blancco Drive Eraser, HMG INFOSEC-5 casing, and certified data destruction IL0→IL6 multi-OS erasure stack."
           },
           {
             "@type": "Service",
             "name": "Sustainable IT Disposal & Circular Economy Recycling",
-            "description": "Zero-landfill EA-ATF WEEE Directive-compliant material recovery: precious metal recapture (assay-verified 98.7% yield), rare earth element dissolution, and Scope 3 ESG reporting transparency."
+            "description": "Zero-landfill WEEE Compliant WEEE Directive-compliant material recovery: precious metal recapture (assay-verified 98.7% yield), rare earth element dissolution, and Scope 3 ESG reporting transparency."
           },
           {
             "@type": "Service",
@@ -351,7 +351,7 @@ switch (Astro.props.pageType) {
         {
           "@type": "PropertyValue",
           "name": "Trust Accreditations",
-          "value": "Microsoft MAR Programme ✓, ISO 9001:2015 ✓, ISO 14001:2015 ✓, EA-ATF Operator WR351100 (WEEE Recycling) ✓"
+          "value": "Microsoft MAR Programme ✓, Security-First Approach ✓, WEEE Compliant ✓, Enterprise Security Protocol ✓"
         }
       ]
     };

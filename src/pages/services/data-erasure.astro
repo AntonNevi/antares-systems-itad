@@ -1,480 +1,177 @@
 ---
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
-import SEOBreadcrumbs from '../../components/SEOBreadcrumbs.astro';
-import TrustBar from '../../components/TrustBar.astro';
-import BaseLayout from '../../layouts/BaseLayout.astro';
 import SEOSchema from '../../components/SEOSchema.astro';
-
-const erasureMethods = [
-  {
-    id: "software-wiping",
-    title: "Software Wiping",
-    icon: "💻",
-    standards: "NIST 800-88 Purge, HMG IS5 Enhanced (IL0 through IL4)",
-    devices: "Functional SSDs, NVMe drives, SAS controllers, spinning hard drives (all storage types < 22TB).",
-    software: "Blancco LUN Eraser, Infinite Data Sanitization Daemon + Full Audit Certificate (§ HMRC CT600 ready)."
-  },
-  {
-    id: "degaussing",
-    title: "NSA-Level Degaussing",
-    icon: "🧲",
-    standards: "HMG IS5 Enhanced (Level 5/6), NSMHC3 (NSA Medium), NSA EPL-approved short-wave degauss for IL5/6.",
-    devices: "Magnetic media only: ATA-interface HDDs, LTO ultrium backup tapes (≤4.5TBs), enterprise-class tape libraries storing classified data.",
-    equipment: "Verity Systems Degauss 360+ degausser unit — zero-remanence technology post-expose."
-  },
-  {
-    id: "physical-destruction",
-    title: "Physical Destruction",
-    icon: "🛠️",
-    standards: "HMG INFOSEC-5, HSMGovt IL6, NSA EPL Split & Shred methodology; ≤32mm particulate yield (NSM40E HDD shredder verified).",
-    devices: "All media including failed SSDs, NVMe storage, functional & non-functional HDDs, tapes, optical media, SAN devices, ZFS storage arrays.",
-    compliance: "Audit trail extends through entire physical destruction process. Witness destruction for HMG IL5 (classified assets)."
-  }
-];
-
-const standardsSummary = [
-  "NIST SP 800-88 Rev. 1 (2025)",
-  "HMG IS5 Enhanced (CNI)",
-  "BSI - HM Government Baseline Standard for IT Asset Disposal (V6.3.1)",
-  "IRA Regulations / UK Government's Security Policy Framework (SPF)",
-  "ISO/IEC 27001:2022",
-  "ISO 19011 - Forensic Audit Integrity",
-  "HMRC CT600 Schedule D (Capital Gains on Hardware Disposal)"
-];
-
-const deviceTable = [
-  {
-    device: "NVMe SSDs (Samsung, Micron)",
-    size: "≤ 30.72TB (JEDEC enterprise standard)",
-    capability: "Up to NIST 800-88 Purge (built-in NVMe sanitise command)",
-    method: "Blancco NVMe Secure Erase"
-  },
-  {
-    device: "SATA SSDs (Sandisk, Intel)",
-    size: "all consumer and enterprise sizes",
-    capability: "Up to NIST 800-88 Purge",
-    method: "Blancco SATA Secure Erase"
-  },
-  {
-    device: "SAS Enterprise SSDs",
-    size: "≤ 15.6TB (enterprise class)",
-    capability: "Up to NIST 800-88 Purge",
-    method: "Same as NVMe"
-  },
-  {
-    device: "ATA Hard Disks",
-    size: "≤22TB as validated by NR12 validation suite 3.2",
-    capability: "Up to HMG IS5 IL4 (software wipe). IL5/6 requires destruction or degauss.",
-    method: "Blancco Aero-Max algorithm (HMG verified adaptive pseudo-random byte replacement)"
-  }
-];
-
-const faqItems = [
-  {
-    question: "Can I maintain a chain-of-custody during degaussing?",
-    answer: "Yes. For HMG customers requiring hands-on HMIS custody, we operate an on-campus witness room adjacent to the degauss station. Every media device is uniquely ID’d and logged into our chain-of-custody system. Witnesses observe the full stack through glass-wall. Audit trail certified to GSE-C4 standard (same as MOD)."
-  },
-  {
-    question: "Is erasure court-admissible in civil claims?",
-    answer: "Fully. Our NIST certificates are generated within an ISO 19011:2018-compliant audit stack. We can also provide expert witness statements on technique, chain-of-custody safeguards, and compliance with legal precedents such as Lloyd v Google [2021] UKSC 50."
-  },
-  {
-    question: "Do you offer serial-number forensics post-erasure?",
-    answer: "Yes. Crypto-grade erasure is coupled with HMG-accredited digital forensics partners (Hydrogen Security, QCC) to verify that no readable data remanence exists. Reports typically include AFATDS stanza-by-stanza results for submission into HMG Assurance Model review."
-  }
-];
-
-const useCases = [
-  {
-    icon: "🏛️",
-    title: "UK Financial Sector",
-    description: "FCA-regulated I&T outsourcing firms (P3I Horizon, SWIFT, AES/Signum) seeking T+1 sanitisation certificates for Box 7 HMRC. Our forensic audit trail satisfies section 166 Skilled Person reports."
-  },
-  {
-    icon: "🔒",
-    title: "Critical National Infrastructure",
-    description: "HMG IS5 baseline compliant erasure slots for PowerGen, DfT Highways England, and Network Rail SCS (Safety Critical Systems) migrations. We also supply bank-grade CMS for permanent audit trails."
-  },
-  {
-    icon: "⚕️",
-    title: "NHS & Health",
-    description: "HTM 06-01 compliant risk-based sanitisation for N3-hosted data. All media is tagged with an anti-static RFID handle to permanently link the erasure certificate to the hardware inventory in NHS MDM systems."
-  },
-  {
-    icon: "🛡️",
-    title: "Defence Primes",
-    description: "Defence-grade sanitisation for decommissioned HMG IL5 infrastructure, including bespoke degauss rigs for HMG legacy kit (e.g., DSI-I2 operations). Full MOD disclosure handling process available."
-  }
-];
+import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="NIST 800-88 Certified Data Erasure Services | Antares Systems"
-  description="Government-grade data erasure with 100% audit trail and NCSC-approved security for London & UK businesses. NIST 800-88 Rev 1 & HMG IS5 compliant services — Blancco Gold Partner, ICO C18880232."
+  title="Certified Data Erasure — Forensic-Grade Security | Antares Systems"
+  description="Military-grade data destruction with forensic verification. Full compliance with NIST 800-88 Rev. 1 guidelines for Media Sanitization. Complete audit trail and certificates."
 >
   <SEOSchema pageType="dataErasure" />
 
   <Header />
   <main>
     <!-- Hero Section -->
-    <section class="relative py-24 lg:py-32 bg-gradient-to-br from-blue-600 to-cyan-900 text-white overflow-hidden border-b-2 border-cyan-500" style="background-image: url('/F1.jpg'); background-size: cover; background-position: center 70%;">
-      <div class="absolute inset-0 bg-black opacity-60"></div>
-
+    <section class="relative py-20 lg:py-28 bg-slate-900 text-white overflow-hidden border-b border-white/10">
+      <!-- Ambient Background -->
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_rgba(0,74,173,0.3),_transparent)] opacity-40"></div>
+      
       <div class="container mx-auto px-6 relative z-10">
-        <SEOBreadcrumbs items={[
-          { name: 'Services', href: '/services' },
-          { name: 'NIST 800-88 Certified Data Erasure' }
-        ]} />
-
-        <div class="max-w-3xl">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/20 border border-red-500/80 mb-6 animate-fade-in-up">
-            <span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span>
-            <span class="text-xs font-bold uppercase tracking-widest">NIST 800-88 Rev 1</span>
-          </div>
-
-          <h1 class="text-4xl lg:text-5xl font-bold mb-6 leading-tight animate-fade-in-up delay-100">
-            NIST 800-88 Certified Data Erasure Services
-          </h1>
-
-          <p class="text-xl text-cyan-100 mb-8 leading-relaxed animate-fade-in-up delay-200">
-            Government-grade erasure & sanitisation for UK enterprises — 100% audit trail documented for ONS Horizon, HMG disclosure, and court-admissible P3I compliance. NCSC, HMG IS5 Level 5, and ICO C18880232 certified.
-          </p>
-
-          <!-- Key Certifications -->
-          <div class="border-t border-cyan-500/30 pt-6 mb-8">
-            <p class="text-sm text-cyan-200 mb-3 font-medium border-b border-cyan-500/30 pb-2">CERTIFICATIONS GRID</p>
-            <div class="flex flex-wrap gap-3 text-xs uppercase font-semibold">
-              <span class="bg-primary/20 border border-primary/60 text-primary px-2 py-1 rounded">NIST 800-88 Rev 1 Certified</span>
-              <span class="bg-sky-500/20 border border-sky-500/60 text-sky-300 px-2 py-1 rounded">Blancco Gold Partner</span>
-              <span class="bg-yellow-500/20 border border-yellow-500/60 text-yellow-300 px-2 py-1 rounded">Electronic Warfare Centre</span>
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <div class="flex-1 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/20 border border-red-500/80 mb-6">
+              <span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span>
+              <span class="text-xs font-bold uppercase tracking-widest text-white">NIST 800-88 Rev 1</span>
             </div>
+            <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+              Certified Data Erasure
+            </h1>
+            <p class="text-xl text-cyan-100 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              Forensic-Grade Security. Military-grade data destruction with forensic verification and complete audit trail.
+            </p>
           </div>
 
-          <!-- Callout Card -->
-          <div class="bg-cyan-500/80 backdrop-blur-sm rounded-2xl p-6 animate-fade-in-up delay-300">
-            <p class="text-white text-lg mb-2">
-              Forensic-level erasure ready for <strong>Section 119</strong>, <strong>ONS Horizon</strong>, and long-tail disclosure — trusted by ICO audit specialists.
-            </p>
+          <div class="flex-1 w-full max-w-xl">
+            <div class="relative group">
+              <div class="absolute -inset-1 bg-gradient-to-r from-primary to-cyan-400 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+              <div class="relative bg-slate-800 rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                <img src="/F1.jpg" alt="Certified Data Erasure" class="w-full h-auto object-cover transform transition duration-700 group-hover:scale-105" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- Decoration -->
-      <div class="absolute bottom-0 left-0 right-0 h-24">
-        <svg viewBox="0 0 1200 120" class="w-full h-full" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,60 L200,90 L400,40 L600,80 L800,30 L1000,70 L1200,50 L1200,120 L0,120 Z" fill="rgba(15, 188, 148, 0.2)"></path>
-        </svg>
-      </div>
     </section>
 
-    <!-- Core Methodology -->
+    <!-- Process Flow Block -->
     <section class="py-20 bg-white">
       <div class="container mx-auto px-6 max-w-6xl">
-        <div class="mb-12">
-          <div class="inline-flex items-center gap-2 mb-4 text-success-eco">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            <span class="font-bold text-sm uppercase tracking-wider">Core Methodology</span>
-          </div>
-
-          <h2 class="text-3xl font-bold text-slate-900 mb-6">Erasure Methods Aligned to NCSC Risk Spectrum</h2>
-
-          <p class="text-lg text-slate-600 leading-relaxed max-w-3xl mb-6">
-            Methodology is triage-driven: device type, <strong>data criticality</strong>, and projected deployment dictate technique. P3I luminaries partner with us on forensic validation for HMG deployments.
-          </p>
+        <div class="mb-12 text-center">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Process Flow</h2>
         </div>
 
-        <!-- Triage Grid -->
-        <div class="grid md:grid-cols-3 gap-8 mb-16">
-          {erasureMethods.map(method => (
-            <div class="border rounded-2xl p-6 transition-all hover:shadow-lg" key={method.id}>
-              <div class="flex items-center gap-3 mb-3">
-                <div class="w-8 h-8 bg-primary text-white rounded-lg flex items-center justify-center">
-                  <span class="font-bold">{method.icon}</span>
-                </div>
-                <h3 class="font-bold text-xl">{method.title}</h3>
-              </div>
-
-              <div class="mb-3">
-                <p class="font-bold text-sm text-slate-500 uppercase mb-1">STANDARDS COVERED</p>
-                <p class="text-sm text-slate-700">{method.standards}</p>
-              </div>
-
-              <div class="mb-4">
-                <p class="font-bold text-sm text-slate-500 uppercase mb-1">SUPPORTED DEVICES</p>
-                <p class="text-sm text-slate-700">{method.devices}</p>
-              </div>
-
-              <div>
-                <p class="font-bold text-sm text-slate-500 uppercase mb-1">METHOD DETAILS</p>
-                <p class="text-sm text-slate-700">{method.software || method.equipment || method.compliance}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <!-- Landing Zone Table -->
-        <div class="border rounded-2xl overflow-hidden shadow-sm mb-12">
-          <div class="bg-primary text-white p-6">
-            <h3 class="text-xl font-bold">Rapid Triage — Landing Zone Erasure Support Grid</h3>
-            <p class="text-sm text-cyan-100">Same-day erasure slots available</p>
+        <div class="grid md:grid-cols-1 lg:grid-cols-5 gap-8">
+          <div class="bg-slate-50 rounded-2xl p-8 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">1</div>
+            <h3 class="font-bold text-lg mb-3">Asset Registration</h3>
+            <p class="text-slate-600">Unique ID, photograph, condition log</p>
           </div>
 
-          <div class="bg-white p-4 border-b">
-            <div class="grid grid-cols-4 font-bold text-sm text-primary">
-              <span>Device Class</span>
-              <span class="text-right">Max Capacity</span>
-              <span class="text-right">Capability</span>
-              <span class="text-right">Method</span>
-            </div>
+          <div class="bg-slate-50 rounded-2xl p-8 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">2</div>
+            <h3 class="font-bold text-lg mb-3">Secure Transport</h3>
+            <p class="text-slate-600">Sealed containers, GPS tracking, dual-custody</p>
           </div>
 
-          {deviceTable.map((row, index) => (
-            <div class={`p-4 grid grid-cols-4 items-center text-sm ${index % 2 === 0 ? 'bg-slate-50' : 'bg-white'}`} key={index}>
-              <div>
-                <p class="font-bold text-gray-700">{row.device}</p>
-                <p class="text-xs text-gray-500">{row.size}</p>
-              </div>
-              <div class="text-right text-gray-700">{row.size.split(' ')[0]}</div>
-              <div class="text-right text-gray-700">{row.capability}</div>
-              <div class="text-right text-xs font-mono text-gray-600">{row.method}</div>
-            </div>
-          ))}
-        </div>
-
-        <!-- Stats Grid -->
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-slate-50 rounded-2xl p-8">
-            <div class="flex items-center justify-between mb-6">
-              <h4 class="font-bold text-lg">100% Audit Integrity</h4>
-              <span class="text-4xl text-red-500">✅</span>
-            </div>
-
-            <div class="space-y-3">
-              <div class="flex justify-between items-center">
-                <span class="text-sm text-slate-600">Audit Certification Issued (2024→2025)</span>
-                <span class="font-bold">19,672</span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm text-slate-600">Failures Triage-to-Sanitise (12m)</span>
-                <span>1 → Secure Destruction Uplift</span>
-              </div>
-            </div>
-
-            <button class="mt-6 text-primary border border-primary px-4 py-2 rounded-lg hover:bg-primary/5 transition-colors flex items-center gap-2">
-              Access Certification Template →
-            </button>
+          <div class="bg-slate-50 rounded-2xl p-8 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">3</div>
+            <h3 class="font-bold text-lg mb-3">Certified Wiping</h3>
+            <p class="text-slate-600">NIST 800-88 Clear/Purge methods, overwrite verification</p>
           </div>
 
-          <div class="border border-gray-200 rounded-2xl p-8">
-            <div class="flex items-center justify-between mb-6">
-              <h4 class="font-bold text-lg">Data Risk Intelligence</h4>
-              <span class="text-2xl">🔍</span>
-            </div>
+          <div class="bg-slate-50 rounded-2xl p-8 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">4</div>
+            <h3 class="font-bold text-lg mb-3">Forensic Verification</h3>
+            <p class="text-slate-600">Boot-level scan, unrecoverable confirmation</p>
+          </div>
 
-            <ul class="space-y-3 text-sm">
-              <li class="flex items-start gap-2">
-                <span class="text-success-eco">✓</span>
-                <span>ONS Horizon compliance — 3 data controllers satisfied</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-success-eco">✓</span>
-                <span>AI clusters — no synthetic data retention found post-sanitisation</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-success-eco">✓</span>
-                <span>Forensic-level validation by Hydrogen Security + Avoidect</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-success-eco">✓</span>
-                <span>Full network daemon capture — no metasploit shells post-Blancco cycle</span>
-              </li>
-            </ul>
+          <div class="bg-slate-50 rounded-2xl p-8 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">5</div>
+            <h3 class="font-bold text-lg mb-3">Documentation</h3>
+            <p class="text-slate-600">Certificate of Destruction, audit trail, video log (optional)</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Diagrammatic Asset Flow -->
-    <section class="py-20 bg-slate-50">
-      <div class="container mx-auto px-6 max-w-5xl text-center">
-        <h2 class="text-3xl font-bold text-slate-900 mb-12">Diagrammatic Asset Flow</h2>
-
-        <div class="bg-white rounded-2xl shadow-sm p-6 border">
-          <div class="w-full aspect-[2/1] bg-green-50/50 rounded-xl flex items-center justify-center border-dashed border-green-400 border-2 relative overflow-hidden">
-            <img src="/F1.jpg" alt="Secure data erasure facility showing NIST 800-88 certified equipment and processes" class="absolute opacity-20 scale-110" loading="lazy" />
-            <div class="relative z-10 text-center">
-              <p class="text-primary font-bold flex items-center gap-2">
-                <span class="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center">✓</span>
-                SECURE FLOW DIAGRAM (DOWNLOAD SEQ 2.1)
-              </p>
-            </div>
-          </div>
-        </div>
-        <p class="text-xs text-slate-500 mt-4">NCSC IL5-compliant asset pathway. Full 3D disclosure schedule available on request.</p>
-      </div>
-    </section>
-
-    <!-- Trust Standards Section -->
-    <section class="py-20 bg-white border-t border-b border-slate-200">
-      <div class="container mx-auto px-6 max-w-5xl">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-slate-900 mb-6">Trust & Standards</h2>
-        </div>
-
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <p class="text-slate-600 leading-relaxed mb-8">
-              All erasure events logged within HM Government baseline — for compliance-averse clients such as banks, MoD primes, and NHS controllers. Your erasure certificates are bank-grade.
-            </p>
-
-            <div>
-              <div class="flex items-center gap-2 mb-3 text-primary">
-                <span>✓</span>
-                <h3 class="font-bold text-lg">Tailored to Your Disclosure Risk Profile</h3>
-              </div>
-
-              <div class="space-y-2 text-sm text-slate-600">
-                <div class="grid grid-cols-2 gap-2 mb-2 border-b pb-2 font-bold">
-                  <span>Tier</span>
-                  <span>Baseline Standard</span>
-                </div>
-                <div class="grid grid-cols-2 gap-2 border-b pb-1">
-                  <span class="font-medium">HMG IL3-4 (Data Controller/CNIC)</span>
-                  <span class="font-mono">HMG IS5 Baseline + NIST 800-88 Purge</span>
-                </div>
-                <div class="grid grid-cols-2 gap-2 border-b pb-1">
-                  <span class="font-medium">HMG IL5 (HMG Classified)</span>
-                  <span class="font-mono">HMG INFOSEC-5 Degauss + Shred</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-white rounded-2xl border p-8">
-            <div class="flex items-center gap-3 mb-6">
-              <span class="bg-primary/10 text-primary p-3 rounded-xl">⚡</span>
-              <h3 class="font-bold text-primary text-xl">Summary of Standards Compliance</h3>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              {standardsSummary.map((standard, index) => (
-                <div key={index} class="flex items-center gap-2 border-b border-dashed border-slate-200 pb-2 text-sm">
-                  <span class="w-5 h-5 bg-primary text-white rounded-full flex items-center justify-center text-xs">✓</span>
-                  <span>{standard}</span>
-                </div>
-              ))}
-            </div>
-
-            <a href="/privacy-policy#compliance" class="text-primary hover:text-primary/80 font-medium flex items-center gap-2">
-              Compliance Registry <span class="text-lg">→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Use Cases -->
+    <!-- Standards & Compliance Block -->
     <section class="py-20 bg-slate-50">
       <div class="container mx-auto px-6 max-w-6xl">
-        <h2 class="text-3xl font-bold text-slate-900 mb-4 text-center">Use Cases by Industry Risk Profile</h2>
-        <p class="text-lg text-slate-600 mb-12 text-center">Targeted solutions & disclosure packaging by UK industry sector.</p>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {useCases.map((useCase, index) => (
-            <div class={`rounded-2xl p-6 ${index % 3 === 0 ? 'bg-primary/90 text-white' :
-                                        index % 3 === 1 ? 'bg-teal-800/80 text-white' : 'bg-slate-200'}`} key={`${useCase.title}-${index}`}>
-              <div class="text-3xl mb-4">{useCase.icon}</div>
-              <h3 class="font-bold text-lg mb-2">{useCase.title}</h3>
-              <p class="text-sm">{useCase.description}</p>
-            </div>
-          ))}
+        <div class="mb-12 text-center">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Standards & Compliance</h2>
         </div>
 
-        <!-- CTA Grid -->
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="bg-slate-800 text-white rounded-2xl p-8">
-            <div class="text-center mb-6">
-              <p class="text-xs text-slate-400 mb-2">Disclosure-Prepared</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">🛡️</span>
             </div>
-            <h3 class="text-2xl font-bold mb-4 text-center">Section 119 Disclosure Audit Trail</h3>
-            <p class="text-center text-slate-300 mb-6">
-              Legal-approved erasure certificates and network daemon captures — immediate submission for 35-78 day ONS disclosure timeframe.
-            </p>
-            <button class="border border-white/30 px-6 py-3 rounded-lg hover:bg-white/10 transition-colors w-full flex items-center justify-center gap-2">
-              Start Disclosure Build
-            </button>
+            <h3 class="font-bold text-lg mb-3">Security-First Approach</h3>
+            <p class="text-slate-600">Multi-layered verification beyond industry baseline</p>
           </div>
 
-          <div class="border-2 border-primary rounded-2xl p-8">
-            <div class="text-center mb-6">
-              <div class="w-12 h-12 border-2 border-primary rounded-full flex items-center justify-center mx-auto mb-3 text-primary">
-                <span class="font-bold text-sm">15</span>
-              </div>
+          <div class="bg-white rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">🏛️</span>
             </div>
-            <h3 class="text-2xl font-bold mb-4 text-center text-primary">Book an Audit Discussion</h3>
-            <p class="text-center text-slate-600 mb-6">
-              Book an audit scoping discussion within 15 minutes — virtual facility tour included.
-            </p>
-            <button class="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary/5 transition-colors w-full flex items-center justify-center gap-2">
-              Book Audit Call →
-            </button>
+            <h3 class="font-bold text-lg mb-3">Government-Grade Standards</h3>
+            <p class="text-slate-600">Procedures aligned with national security protocols</p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">✅</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Certified Data Destruction</h3>
+            <p class="text-slate-600">Forensically unrecoverable, legally defensible</p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">📋</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">NIST 800-88 Rev. 1</h3>
+            <p class="text-slate-600">Full compliance with guidelines for Media Sanitization</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FAQ Accordion -->
+    <!-- Environmental Impact Block -->
     <section class="py-20 bg-white">
-      <div class="container mx-auto px-6 max-w-4xl">
-        <h2 class="text-3xl font-bold text-slate-900 mb-12 text-center">Frequently Asked Questions</h2>
+      <div class="container mx-auto px-6 max-w-6xl">
+        <div class="mb-12 text-center">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Environmental Impact</h2>
+        </div>
 
-        <div class="space-y-4" id="faq-accordion">
-          {faqItems.map((faq, index) => (
-            <div class="border rounded-lg group cursor-pointer" key={faq.question}>
-              <div class="flex items-center gap-4 p-6 border-b hover:border-primary transition-colors">
-                <span class="w-6 h-6 border border-primary rounded-full flex-shrink-0 flex items-center justify-center text-primary text-sm">
-                  {index + 1}
-                </span>
-                <h3 class="text-lg font-bold text-primary flex-grow">{faq.question}</h3>
-                <span class="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center">+</span>
-              </div>
-              <div class="hidden p-6 pt-0 text-slate-600">
-                {faq.answer}
-              </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-slate-50 rounded-2xl p-8 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-success-eco/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl text-success-eco">♻️</span>
             </div>
-          ))}
+            <h3 class="font-bold text-lg mb-3">100% Material Recovery</h3>
+            <p class="text-slate-600">From destroyed storage devices</p>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-8 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-success-eco/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl text-success-eco">💎</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Rare Earth Element Reclamation</h3>
+            <p class="text-slate-600">Neodymium, cobalt, lithium</p>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-8 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-success-eco/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl text-success-eco">🌳</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Zero Landfill</h3>
+            <p class="text-slate-600">Data-bearing waste to landfill</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <div class="container mx-auto px-6 mb-16">
-      <TrustBar variant="detailed" />
-    </div>
-
-    <!-- Final CTA -->
-    <section class="py-20 bg-gradient-to-r from-blue-600 to-cyan-800 text-white text-center rounded-b-2xl mx-4 lg:mx-6 -mb-4">
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-cyan-800 text-white text-center">
       <div class="container mx-auto px-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 bg-cyan-500/20 border border-cyan-500 rounded-full mb-4">
-          <span class="w-1.5 h-1.5 bg-cyan-500 rounded-full"></span>
-          <span class="text-xs uppercase">NCSC Large-scale Approved Programme</span>
-        </div>
-
         <h2 class="text-3xl font-bold mb-4">Ready for Secure Data Erasure?</h2>
-        <p class="text-cyan-200 mb-6">Book a slot for HMG IS5-compliant erasure — instant forensic audit documents.</p>
-
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="/contacts?type=erasure" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors flex items-center gap-2">
-            Book a Slot →
-          </a>
-          <a href="#sanitisation" class="bg-success-eco text-black px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity flex items-center gap-2">
-            Download Process →
-          </a>
-        </div>
-
-        <p class="text-xs text-cyan-300 mt-6">
-          NCSC Large-scale Approved — ICO C18880232 — Disclosure-Prepared Audit Documentation
-        </p>
+        <p class="text-cyan-200 mb-8">Contact an expert for your forensic-grade security needs</p>
+        <a href="/contacts" class="bg-success-eco text-black px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition-opacity inline-block">
+          Contact an Expert
+        </a>
       </div>
     </section>
   </main>

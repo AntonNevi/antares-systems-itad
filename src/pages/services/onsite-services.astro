@@ -1,0 +1,188 @@
+---
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import SEOSchema from '../../components/SEOSchema.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="On-Site Services — Witnessed Destruction, Immediate Certification | Antares Systems"
+  description="Emergency response and witnessed destruction at your premises. 4-hour deployment available."
+>
+  <SEOSchema pageType="dataErasure" />
+
+  <Header />
+  <main>
+    <!-- Hero Section -->
+    <section class="relative py-20 lg:py-28 bg-slate-900 text-white overflow-hidden border-b border-white/10">
+      <!-- Ambient Background -->
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_rgba(0,74,173,0.3),_transparent)] opacity-40"></div>
+      
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <div class="flex-1 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/20 border border-red-500/80 mb-6">
+              <span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span>
+              <span class="text-xs font-bold uppercase tracking-widest text-white">WITNESSED DESTRUCTION</span>
+            </div>
+            <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+              On-Site Services
+            </h1>
+            <p class="text-xl text-cyan-100 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              Witnessed Destruction, Immediate Certification. Emergency response and secure asset destruction at your premises with 4-hour deployment available.
+            </p>
+          </div>
+
+          <div class="flex-1 w-full max-w-xl">
+            <div class="relative group">
+              <div class="absolute -inset-1 bg-gradient-to-r from-red-400 to-primary rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+              <div class="relative bg-slate-800 rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                <img src="/F5.jpg" alt="On-Site Services" class="w-full h-auto object-cover transform transition duration-700 group-hover:scale-105" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deployment Process Block -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6 max-w-6xl">
+        <div class="mb-12 text-center">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Deployment Process</h2>
+        </div>
+
+        <div class="grid md:grid-cols-1 lg:grid-cols-5 gap-6">
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">1</div>
+            <h3 class="font-bold text-lg mb-3">Emergency Call</h3>
+            <p class="text-slate-600">4-hour response activation (standard: 48h)</p>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">2</div>
+            <h3 class="font-bold text-lg mb-3">Mobile Unit Dispatch</h3>
+            <p class="text-slate-600">Equipped vehicle, certified technician</p>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">3</div>
+            <h3 class="font-bold text-lg mb-3">On-Site Setup</h3>
+            <p class="text-slate-600">Secure workspace, witnessed environment</p>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">4</div>
+            <h3 class="font-bold text-lg mb-3">Live Destruction</h3>
+            <p class="text-slate-600">Client-observed wiping or physical destruction</p>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">5</div>
+            <h3 class="font-bold text-lg mb-3">Immediate Certification</h3>
+            <p class="text-slate-600">Signed CoD before technician departure</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security & Compliance Block -->
+    <section class="py-20 bg-slate-50">
+      <div class="container mx-auto px-6 max-w-6xl">
+        <div class="mb-12 text-center">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Security & Compliance</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">🏛️</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Government-Grade Standards</h3>
+            <p class="text-slate-600">Procedures suitable for sensitive environments</p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">🛡️</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Security-First Approach</h3>
+            <p class="text-slate-600">Client retains visual custody until verification</p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">✅</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Certified Data Destruction</h3>
+            <p class="text-slate-600">Same forensic standards as facility processing</p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">♻️</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">WEEE Compliant</h3>
+            <p class="text-slate-600">On-site material segregation, certified downstream handling</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Case Efficiency Block -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6 max-w-6xl">
+        <div class="mb-12 text-center">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Use Case Efficiency</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-success-eco/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl text-success-eco">🏢</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">High-Security Sites</h3>
+            <p class="text-slate-600">Data never leaves premises</p>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-success-eco/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl text-success-eco">⏱️</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Time-Critical</h3>
+            <p class="text-slate-600">Same-day compliance for audits or incidents</p>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-success-eco/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl text-success-eco">📊</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Large-Scale</h3>
+            <p class="text-slate-600">Mobile units handle up to 500 devices per day</p>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-success-eco/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl text-success-eco">📋</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Witness Requirements</h3>
+            <p class="text-slate-600">Legal, financial, government sectors</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-cyan-800 text-white text-center">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-4">Need On-Site Data Destruction?</h2>
+        <p class="text-cyan-200 mb-8">Contact an expert for emergency response and witnessed destruction</p>
+        <a href="/contacts" class="bg-success-eco text-black px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition-opacity inline-block">
+          Contact an Expert
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

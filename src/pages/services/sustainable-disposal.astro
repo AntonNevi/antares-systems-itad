@@ -1,437 +1,191 @@
 ---
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
-import SEOBreadcrumbs from '../../components/SEOBreadcrumbs.astro';
-import TrustBar from '../../components/TrustBar.astro';
-import BaseLayout from '../../layouts/BaseLayout.astro';
 import SEOSchema from '../../components/SEOSchema.astro';
-
-const services = [
-  {
-    icon: "🔄",
-    title: "High-Value Pre-Processing & Disassembly",
-    compliant: "WEEE EA-ATF, Basel Convention III, PN231S Waste Regulation",
-    method: "Automated mechano-optical sorting for plastics, BA metals recovery, and lithium-bearing cathode delamination at Bow London facility (EA Permit WR351100)."
-  },
-  {
-    icon: "⛰️",
-    title: "Final Commodity Class Sorting & Upcycling",
-    compliant: "ARCO Phase III (closed loop manufacturing), ISO 9001 Process Zones, ECHA REACH Speciality Metals Quota",
-    method: "Rare-Earth Element (REE) recovery from HPC GPU substrates. Independent assay-verified physical recovery contracts with Arcon (LSE) for gold, silver, platinum palladium."
-  }
-];
-
-const keyValues = [
-  {
-    value: "✝️ Zero-Landfill Policy",
-    description: "Ship-to-point diversion. Zero recyclates routed to landfill or incinerators. All mid-stage outputs dispatched to permitted closed-loop operators within the following stream: polymers, rare earths, glass, gold (Au)."
-  },
-  {
-    value: "♻️ Circular Value Recovery £1.2M+ core asset recovery in 2024 — metals, polymer up-cycling, module refreshment of decommissioned HPC GPUs.",
-    description: ""
-  },
-  {
-    title: "DfT Highways England",
-    description: "LED cabinet & WEEE lamps from roadside intelligent infrastructure → circular recovery estimate £78k/year offsetting new build spend (full traceability via EA Permit 12002). TraVerse® (silica-sand substitute in barrier block re-use)."
-  },
-  {
-    title: "NHS England Falsified Medicines Taskforce",
-    description: "Pharma-grade glass recycling: 20,000 kg Pyramid tracking software via EA WR351100 into ECHA-compliant Ware Park re-processing. Glass aggregate re-deployed in secondary road infrastructure fibres."
-  }
-];
-
-const processGrid = [
-  {
-    column: "Value Stream Output",
-    items: ["Precious Metals", "REEs (Nd, Pr, Dy, Ce)", "Polymer Regrind ABS+PS", "Cathode Copper"]
-  },
-  {
-    column: "Multipliers (Q2 2024 → Q1 2025)",
-    items: ["Au: +4.1%", "Critical Metals: +12.5%", "Polymer stocks: 0%", "Solder-grade Cu +0.5%"]
-  },
-  {
-    column: "Downstream Partners",
-    items: ["Arcon. LME member", "Walcott Greensands Group", "Eco-Polymers (ISO9001)", "HOAR Metals Group"]
-  }
-];
-
-const disassemblySteps = [
-  {
-    title: "1. Optical Infrastructure ID & Sorting",
-    description: "Automated teardown via cross-belt optical XRF scanners (D1200 Series), RFID tagging for full chain-of-materials-level traceability, and OEM-level BOM to downstream recycling profiles at permitted EA-ATF destination (Bow)."
-  },
-  {
-    title: "2. Manual Channel Disassembly (CNI-grade Bays)",
-    description: "Targeted disassembly of GPU & HPC interfacial boards (NVIDIA DGX 900 Series, AMD EPYC), opposite non-invasive (rBat 200) extractions of lithium polymer cells (HMG IS5 hard-zone blasting protocol compliant)."
-  },
-  {
-    title: "3. BA (Base Alloys) Magnetic / Eddy Current Handling",
-    description: "Magnetic sorting via proprietary rotor & drum systems (standard for ISRI Tin/Boron). Eddy current edge separator (EC130) upgraded downstream densimetric path (replacing Bateman spiral) SRT, extraction coatings minimised, Al metametal <0.5% oxide content."
-  },
-  {
-    title: "4. Final Gravity Air & Laser ABA Process",
-    description: "Exotic glass & silicon (GPU wafers) treated via Honeywell’s electrostatic separation (FES 48). Automated laser film (support/contextual adhesion) for plastic recovery >98% weight-off final torque."
-  }
-];
-
-const sectorGrid = [
-  {
-    title: "$MMs Citigroup Mastercard (STAC-M3 Lab)",
-    description: "79 ft container full of high-value GPU blades re-processed from decommissioned financial Cannon Labs infrastructure — NY-listed & ORM (risk-rated) liquid metals selling under £23.50/g Au Parity contract into the London Metal Exchange."
-  },
-  {
-    title: "DfT Highways England",
-    description: "LED cabinet & WEEE lamps from roadside intelligent infrastructure → circular recovery estimate £78k/year offsetting new build spend (full traceability via EA Permit 12002). TraVerse® (silica-sand substitute in barrier block re-use)."
-  },
-  {
-    title: "MoD Jhub Counter-Proliferation Cell",
-    description: "DPA (Defence Prairie Adaptor) fast-sprints for obsolete HMG IL5 HPC blades and outdated quantum rastering hardware — secure downstream logistics for cooling units via SITA Air 610 hand-off."
-  },
-  {
-    title: "NHS England Falsified Medicines Taskforce",
-    description: "Pharma-grade glass recycling: 20,000 kg Pyramid tracking software via EA WR351100 into ECHA-compliant Ware Park re-processing. Glass aggregate re-deployed in secondary road infrastructure fibres."
-  }
-];
-
-const proofMetrics = [
-  {
-    title: "Upcycled Polymers ABS-PS",
-    metric: "+0.03 MTCO₂e avoided/t"
-  },
-  {
-    title: "Gold recovery 98%→99.3% assay",
-    metric: "£ +9m/annum to capex conversion"
-  },
-  {
-    title: "Carbon Neutrality 2025",
-    metric: "Scope 3 intensity — 3rd party verified"
-  },
-  {
-    title: "Circular Intensity Index (CIP)",
-    metric: "0.97 → 2.0 (2022→2025 London hub)"
-  },
-  {
-    title: "Zero-landfill recovery Q2 2024",
-    metric: "8.7kt → 0kt landfill (EA £2.35m saved 2023→2024)"
-  }
-];
-
-const eecDirectives = [
-  "EU Waste Framework Directive & UK WEEE 2013",
-  "EU Packaging Directive 94/62/EC aligned to Circular Value & Reuse",
-  "UK Regulatory Reform (Waste) Order 2011 — MOT exemptions for all London streams",
-  "UK Taxonomy Article 8/9 and SFDR (European Parliament 2021/C 399/08) for disclosures"
-];
+import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="Sustainable IT Disposal & ESG-Compliant Recycling | Antares Systems"
-  description="Zero-landfill WEEE compliant IT asset disposal for UK businesses. ISO 14001:2015 certified, 98%+ material recovery, and full supply chain transparency for ESG reporting — EA-ATF Operator Permit WR351100."
+  title="ESG & Sustainability — Carbon-Negative IT Disposal | Antares Systems"
+  description="Carbon-negative disposal with full environmental reporting. Zero landfill, circular economy certified. Verified via internal carbon impact methodology."
 >
   <SEOSchema pageType="sustainableDisposal" />
 
   <Header />
   <main>
     <!-- Hero Section -->
-    <section class="relative py-24 lg:py-32 bg-gradient-to-br from-success-eco to-emerald-900 text-white overflow-hidden" style="background-image: url('/F3.png'); background-size: cover; background-position: center 20%;">
-      <div class="absolute inset-0 bg-black opacity-40"></div>
-
+    <section class="relative py-20 lg:py-28 bg-slate-900 text-white overflow-hidden border-b border-white/10">
+      <!-- Ambient Background -->
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_rgba(0,74,173,0.3),_transparent)] opacity-40"></div>
+      
       <div class="container mx-auto px-6 relative z-10">
-        <SEOBreadcrumbs items={[
-          { name: 'Services', href: '/services' },
-          { name: 'Sustainable IT Disposal' }
-        ]} />
-
-        <div class="max-w-3xl">
-          <div class="inline-flex items-center gap-2 px-3 py-1 bg-yellow-500/80 border border-yellow-400 rounded-full mb-6">
-            <span class="w-1.5 h-1.5 bg-yellow-500 rounded-full"></span>
-            <span class="text-xs font-bold uppercase tracking-widest">EA-ATF Permit WR351100</span>
-          </div>
-
-          <h1 class="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
-            Sustainable IT Disposal <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">ESG-Compliant WEEE Recycling</span>
-          </h1>
-
-          <p class="text-xl text-green-100 leading-relaxed mb-12 max-w-4xl">
-            Closing the loop for London's tech refresh cycles. Zero-landfill WEEE recycling (98%+ material recovery) with full traceability via EA Permit WR351100. Independent assay verification, Scope 3 offset for SFDR, and assayable commodity recovery — all packaged for UK corporate PR and ESG tenders.
-          </p>
-
-      <div class="grid md:grid-cols-2 gap-8 mb-12">
-            <img src="/logo_antares.svg" alt="Antares Systems EA-ATF Permit Holder WR351100 for WEEE Recycling" class="h-12 opacity-80" loading="lazy" />
-            <img src="/F3.png" alt="Antares Systems ISO 14001:2015 Environmental Management Certification" class="h-12 opacity-80" loading="lazy" />
-            <img src="/F5.jpg" alt="Antares Systems Basel Convention III Compliant Circular Economy Operations" class="h-12 opacity-80" loading="lazy" />
-          </div>
-
-            <div class="bg-blue-500/20 border border-blue-400 rounded-2xl p-6">
-              <h3 class="text-xl font-bold mb-2">SCOPE 3 LEADERSHIP.</h3>
-              <p class="text-sm mb-2"><strong>£88.70/tonne</strong> BAU carbon savings verified & assay-proof for PR purposes.</p>
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <div class="flex-1 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/80 mb-6">
+              <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+              <span class="text-xs font-bold uppercase tracking-widest text-white">CARBON NEGATIVE</span>
             </div>
+            <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+              ESG & Sustainability
+            </h1>
+            <p class="text-xl text-cyan-100 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              Carbon-Negative IT Disposal. Full environmental reporting, zero landfill commitment, and circular economy integration for UK enterprises.
+            </p>
           </div>
 
-          <div class="border-t border-green-400/30 pt-6">
-            <p class="text-sm text-green-200 font-semibold">Regulatory Bodies & Accreditations</p>
-            <div class="flex flex-wrap gap-4 mt-4">
-              <img src="/logo_antares.svg" alt="EA Permit Holder Logo" class="h-12 opacity-80" />
-              <img src="/F3.png" alt="ISO 14001 Accreditation" class="h-12 opacity-80" />
-              <img src="/F5.jpg" alt="Basel Convention Accreditation" class="h-12 opacity-80" />
+          <div class="flex-1 w-full max-w-xl">
+            <div class="relative group">
+              <div class="absolute -inset-1 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+              <div class="relative bg-slate-800 rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                <img src="/F3.png" alt="ESG & Sustainability" class="w-full h-auto object-cover transform transition duration-700 group-hover:scale-105" />
+              </div>
             </div>
-            <p class="text-xs text-green-200/60 mt-2">• Permitted EA ATF (12002) • ISO 14001:2015 • HMRC VAT Direct Refund Scheme</p>
           </div>
         </div>
       </div>
-    </div>
     </section>
 
-    <!-- Blueprint Section -->
+    <!-- Processing Flow Block -->
     <section class="py-20 bg-white">
       <div class="container mx-auto px-6 max-w-6xl">
-        <div class="text-center mb-12">
-          <div class="flex items-center justify-between mb-4">
-            <div class="bg-green-600/10 text-success-eco px-4 py-1 rounded-full border border-green-300 flex items-center gap-2">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0"></path></svg>
-              <span class="text-sm font-bold uppercase">Circular Value Terminology</span>
-            </div>
-            <a href="#" class="text-success-eco hover:underline text-sm flex items-center gap-2">
-              Standards Glossary <span class="text-lg">→</span>
-            </a>
+        <div class="mb-12 text-center">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Processing Flow</h2>
+        </div>
+
+        <div class="grid md:grid-cols-1 lg:grid-cols-5 gap-6">
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">1</div>
+            <h3 class="font-bold text-lg mb-3">Carbon Footprint Assessment</h3>
+            <p class="text-slate-600">Baseline measurement per asset</p>
           </div>
 
-          <h2 class="text-3xl font-bold text-slate-900 mb-8">The Antares Circular ITAD Blueprint</h2>
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">2</div>
+            <h3 class="font-bold text-lg mb-3">Maximum Lifecycle Extension</h3>
+            <p class="text-slate-600">Repair, upgrade, remarketing priority</p>
+          </div>
 
-          <div class="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <p class="text-slate-600 leading-relaxed mb-4">
-                UK-specific circular blueprint. Redeploy -> Recover -> Upcycle: UK permits, assay-verification, ESG-graded lifecycle reporting — all mapped for UK tax up-lift and WRAP circular accelerator cycles.
-              </p>
-              <p class="text-sm text-slate-500 mb-6">
-                Permitted downstream sorting partners span Bow (EA ATF permit holder), Fawley Down (REEs site recovery), and Sheffield (glass & metals treatment).
-              </p>
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">3</div>
+            <h3 class="font-bold text-lg mb-3">Responsible Recycling</h3>
+            <p class="text-slate-600">WEEE-compliant material recovery</p>
+          </div>
 
-              <button class="flex items-center gap-2 bg-success-eco/10 text-success-eco px-6 py-3 rounded-lg border border-success-eco/20 hover:bg-success-eco/20 transition-colors">
-                Read EA-WRAP Circular Accelerator Paper (Sept 2024)
-              </button>
-              </div>
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">4</div>
+            <h3 class="font-bold text-lg mb-3">Carbon Offset Calculation</h3>
+            <p class="text-slate-600">Verified environmental benefit</p>
+          </div>
 
-            <div class="grid grid-cols-2 gap-4">
-              {keyValues.map((kv, index) => (
-                <div class={`border p-4 rounded-xl ${index === 2 ? 'md:col-span-2 bg-slate-50' :
-                                                                   index === 1 ? 'bg-yellow-50 border-yellow-200 text-yellow-700' :
-                                                                   'border-green-200'}`} key={index}>
-                  <div class="text-xl mb-3">{(kv.value || kv.title)?.split('.')[0]}</div>
-                  {kv.description && <p class="text-sm">{kv.description}</p>}
-                  {kv.value?.includes('♻️') && <p class="text-xs text-slate-500 mt-2">{kv.value.split('♻️ ')[1]}</p>}
-                  {kv.value?.includes('📊') && <p class="text-xs text-slate-500 mt-2">{kv.value.split('📊 ')[1]}</p>}
-                </div>
-              ))}
-            </div>
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">5</div>
+            <h3 class="font-bold text-lg mb-3">ESG Report Generation</h3>
+            <p class="text-slate-600">Audit-ready documentation for stakeholders</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Services Grid -->
-    <section class="py-20 bg-slate-50 border-t-2 border-success-eco/20">
-      <div class="container mx-auto px-6 max-w-6xl">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-slate-900">Circular Value Core Streams</h2>
-        </div>
-
-        <div class="grid lg:grid-cols-2 gap-8 mb-12">
-          {services.map(service => (
-            <div class="bg-white border rounded-2xl p-8 hover:shadow-lg transition-shadow" key={service.title}>
-              <div class="flex items-center gap-4 mb-6">
-                <div class="w-12 h-12 bg-green-500 text-white rounded-xl flex items-center justify-center">
-                  <span class="text-xl">{service.icon}</span>
-                </div>
-                <div>
-                  <h3 class="text-xl font-bold text-slate-900">{service.title}</h3>
-                  <p class="text-xs text-slate-500 uppercase tracking-wider">{service.compliant}</p>
-                </div>
-              </div>
-              <p class="text-slate-600 text-sm border-t pt-4">{service.method}</p>
-            </div>
-          ))}
-        </div>
-
-        <!-- Table Grid -->
-        <div class="border rounded-2xl overflow-hidden shadow-sm">
-          <div class="grid grid-cols-3 text-sm font-bold border-b p-4 bg-success-eco text-white">
-            <span>Value Stream Output</span>
-            <span class="text-center">Multipliers (Q2 2024→Q1 2025)</span>
-            <span class="text-right">Downstream Partners</span>
-          </div>
-
-          <div class="grid grid-cols-3">
-            {processGrid[0].items.map((item, index) => (
-              <>
-                <div class="p-4 font-bold text-success-eco">{item}</div>
-                <div class="p-4 text-center font-mono">{processGrid[1].items[index]}</div>
-                <div class="p-4 text-right">{processGrid[2].items[index]}</div>
-              </>
-            ))}
-          </div>
-        </div>
-
-        <p class="text-center text-sm italic text-slate-500 mt-4">
-          Commodity multipliers from commodity trading desk revenues on open ≥3 LME warrants.
-        </p>
-      </div>
-    </section>
-
-    <!-- Process Steps -->
-    <section class="py-20 bg-white">
-      <div class="container mx-auto px-6 max-w-6xl">
-        <div class="grid lg:grid-cols-3 gap-8 mb-16">
-          <div class="lg:col-span-1">
-            <div class="border-l-2 border-success-eco pl-6">
-              <h2 class="text-3xl font-bold text-slate-900 mb-6">WEEE Downstream Disassembly</h2>
-              <p class="text-lg text-slate-600 leading-relaxed">
-                Manual & robotic disassembly lines enable recovery homogeneity within strict EA Permit operation rules. Handling ladder spans WEEE 1–10 weight codes per EA-ATF landfill exemption rules.
-              </p>
-            </div>
-          </div>
-
-          <div class="lg:col-span-2">
-            {disassemblySteps.map((step, index) => (
-              <div key={step.title} class={`mb-8 ${index % 2 === 0 ? 'bg-slate-50 p-6 rounded-xl' : 'p-0'} border-l-4 ${index % 2 === 0 ? 'border-cyan-500' : 'border-green-500'}`}>
-                <div class="flex items-start gap-4">
-                  <div class="w-8 h-8 bg-primary text-white rounded-full shrink-0 flex items-center justify-center text-xs font-bold">
-                    {index + 1}
-                  </div>
-                  <div>
-                    <h3 class="text-xl font-bold mb-2 text-primary">{step.title}</h3>
-                    <p class="text-sm">{step.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <!-- Process Diagram -->
-        <div class="text-center mb-12">
-          <div class="border border-green-200 rounded-2xl p-12 bg-green-50/50">
-            <img src="/F3.png" alt="EA-ATF certified WEEE disassembly and material recovery process flow showing 6-stage process" class="mx-auto opacity-50 max-w-md" loading="lazy" />
-            <p class="text-success-eco font-bold mt-4">WEEE BOLLARD TO RECYCLATE (SEQ 4.5)</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sector Grid -->
-    <section class="py-20 bg-slate-50 border-t-4 border-success-eco/50">
-      <div class="container mx-auto px-6 max-w-7xl">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-slate-900 mb-4">Sector GTM & Disclosure Packages</h2>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {sectorGrid.map((sector, index) => (
-            <div key={index} class="border rounded-2xl p-4 group hover:shadow-lg cursor-pointer">
-              <div class="w-full aspect-square rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 mb-4 flex items-center justify-center overflow-hidden">
-                <img src={`/F${index + 1}.jpg`} alt={`Circular economy recycling case study for ${sector.title}`} class="w-full h-full object-cover opacity-30" loading="lazy" />
-                <div class="absolute text-white font-bold text-center">
-                  <span class="block text-2xl">{sector.title.split(' ')[0].replace('$', '')}</span>
-                  <span class="block text-lg">{sector.title.split(' ').slice(1).join(' ')}</span>
-                </div>
-              </div>
-
-              <h3 class="font-bold text-blue-700 mb-2 text-sm uppercase tracking-wide border-b border-blue-200 pb-2">
-                {sector.title.slice(6)} ESG-Blind Case Study
-              </h3>
-              <p class="text-sm text-slate-600 line-clamp-4">{sector.description}</p>
-
-              <div class="text-right mt-4">
-                <span class="text-xs bg-success-eco text-white px-2 py-1 rounded-full uppercase animate-fade-in-up">
-                  PN-01/Class-1 {index <= 1 ? 'Gold' : 'BAS'} Facility
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <p class="text-center text-sm text-slate-500 mt-8">
-          Full case study PR packs are available for CIP PR tender use — protects exact client identity with EA ATF chain-of-custody masking.
-        </p>
-      </div>
-    </section>
-
-    <!-- PR-Worthy Vision -->
-    <section class="py-20 bg-white">
-      <div class="container mx-auto px-6 max-w-5xl">
-        <div class="text-center mb-12">
-          <div class="bg-slate-100 border border-slate-200 rounded-full py-2 px-4 inline-flex items-center gap-2">
-            <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-            <span class="text-sm font-bold uppercase">PR-WORTHY VISION</span>
-          </div>
-        </div>
-
-        <!-- Features Grid -->
-        <div class="grid lg:grid-cols-4 gap-6 mb-16">
-          {proofMetrics.map((metric, index) => (
-            <>
-              <div class="text-right font-bold text-slate-800 border-r-2 border-success-eco/50 pr-4">
-                {metric.title}
-              </div>
-              <div class={`text-left pr-4 border-r-2 border-success-eco/50 ${index % 4 === 2 ? 'opacity-0' : ''}`}>
-                {metric.metric.includes('£') && <span class="text-red-500 font-bold">£</span>}
-                {metric.metric}
-              </div>
-            </>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- Compliance Table -->
+    <!-- Compliance & Standards Block -->
     <section class="py-20 bg-slate-50">
-      <div class="container mx-auto px-6 max-w-4xl">
-        <div class="text-center mb-8">
-          <h3 class="text-lg text-slate-600 uppercase tracking-wide">ESG REGULATORY COMPLIANCE TABLE</h3>
+      <div class="container mx-auto px-6 max-w-6xl">
+        <div class="mb-12 text-center">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Compliance & Standards</h2>
         </div>
 
-        <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-          {eecDirectives.map((directive, index) => (
-            <div key={directive} class={`p-4 border-b ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}>
-              <p class="text-sm">{directive}</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">♻️</span>
             </div>
-          ))}
-        </div>
+            <h3 class="font-bold text-lg mb-3">WEEE Compliant</h3>
+            <p class="text-slate-600">Full regulatory adherence, documentation provided</p>
+          </div>
 
-        <p class="text-center text-sm italic text-slate-500 mt-6">
-          Auditable disclosure papers available for submission to UK HMRC sustainability reliefs team (CT600 Schedule E).
-        </p>
+          <div class="bg-white rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">🛡️</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Security-First Approach</h3>
+            <p class="text-slate-600">Data security integrated into sustainability workflow</p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">✅</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Certified Data Destruction</h3>
+            <p class="text-slate-600">No trade-off between security and environmental goals</p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">📋</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Audit Trail</h3>
+            <p class="text-slate-600">Complete chain of custody documentation</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <div class="container mx-auto px-6 mb-16">
-      <TrustBar variant="detailed" />
-    </div>
+    <!-- Environmental Metrics Block -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6 max-w-6xl">
+        <div class="mb-12 text-center">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Environmental Metrics</h2>
+        </div>
 
-    <!-- CTA Final -->
-    <section class="py-24 bg-gradient-to-r from-blue-600 to-cyan-800 text-white text-center -mb-6 mx-6 lg:mx-12 rounded-3xl">
-      <div class="container mx-auto px-6">
-        <div class="flex justify-center mb-8">
-          <div class="w-16 h-16 border-4 border-success-eco rounded-full flex items-center justify-center">
-            <svg class="w-8 h-8 text-success-eco" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-success-eco/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl text-success-eco">🌳</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Zero Landfill Commitment</h3>
+            <p class="text-slate-600">100% material diversion</p>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-success-eco/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl text-success-eco">💎</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Precious Metal Recovery</h3>
+            <p class="text-slate-600">Gold, silver, palladium from circuit boards</p>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-success-eco/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl text-success-eco">🔄</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Plastic-to-Plastic Recycling</h3>
+            <p class="text-slate-600">Closed-loop processing where possible</p>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <div class="w-16 h-16 bg-success-eco/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl text-success-eco">📊</span>
+            </div>
+            <h3 class="font-bold text-lg mb-3">Carbon Reporting</h3>
+            <p class="text-slate-600">Scope 3 emissions reduction documentation</p>
           </div>
         </div>
 
-        <h2 class="text-3xl font-bold mb-4">Ready for ESG-Grade Recycling?</h2>
-        <p class="text-cyan-100 mb-8">Monetize obsolete capex. Lock in Scope 3 metrics. Get UK permit-ready disclosure packs in hours.</p>
-
-        <div class="flex gap-4 justify-center">
-          <a href="/contacts?source=circular" class="bg-cyan-500 text-black px-8 py-4 rounded-lg font-semibold hover:bg-cyan-400 transition-colors flex items-center gap-2">
-            Schedule Pickup →
-          </a>
-          <a href="#pr-tender" class="bg-transparent text-white border-2 border-cyan-400 px-8 py-4 rounded-lg font-semibold hover:bg-cyan-500 hover:text-black transition-colors flex items-center gap-2">
-            Get PR Tender Pack
-          </a>
+        <div class="mt-12 bg-primary/5 rounded-2xl p-8 text-center border border-primary/20">
+          <h3 class="font-bold text-lg mb-3">Verification</h3>
+          <p class="text-slate-600">Verified via internal carbon impact methodology.</p>
+          <p class="text-slate-600 mt-2">Deliverables: Annual ESG summary, asset-level carbon impact, sustainability certificates for board reporting.</p>
         </div>
+      </div>
+    </section>
 
-        <p class="text-xs text-cyan-200 mt-8">
-          WRAP Cymru Platinum ✸ CarbonBAU +88/tonne ✸ Permitted EA ATF 12002
-        </p>
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-cyan-800 text-white text-center">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-4">Ready for Sustainable IT Disposal?</h2>
+        <p class="text-cyan-200 mb-8">Contact an expert for carbon-negative disposal and ESG reporting</p>
+        <a href="/contacts" class="bg-success-eco text-black px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition-opacity inline-block">
+          Contact an Expert
+        </a>
       </div>
     </section>
   </main>

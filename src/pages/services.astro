@@ -1,178 +1,64 @@
 ---
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import SEOBreadcrumbs from '../components/SEOBreadcrumbs.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
 import SEOSchema from '../components/SEOSchema.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Main hub service overview links to spoke pages
 const serviceSections = [
   {
-    id: "itad-asset-recovery",
-    title: "ITAD & Asset Recovery (Buyback)",
-    subtitle: "Secure hardware buyback with fair market valuation and UK-wide collection.",
-    content: "Corporate IT asset disposition with LCD screen buyback, data sanitisation, and 24-hour payment settlement. London-based buyback hub with digital sales tracking for audited corporate inventories (Citigroup, Barclays, Vue Entertainment). Trusted ITAD partner for UK emerging markets with verified chain-of-custody documentation.",
-    icon: "📋",
-    link: "/services/itad-asset-recovery",
-    cta: "View Buyback Options",
-    features: ["Same-Day Settlement", "Audited Inventories", "National Collection", "Corporate Invoicing", "LCD Buyback Programme"]
-  },
-  {
     id: "certified-erasure",
-    title: "Certified Data Erasure (NIST 800-88)",
-    subtitle: "Government-grade data sanitisation with audit-ready certification.",
-    content: "NIST 800-88 Rev 1 certified data erasure for regulatory compliance. Three-tier erasure stack: Level 1 (Clear), Level 2 (Purge), Level 3 (Destruct). HM Revenue-ready certification with client-approved multi-OS sanitisation protocols. Full court-admissible audit trails including forensic validation reports.",
+    title: "Certified Data Erasure",
+    subtitle: "Military-grade data destruction with forensic verification. Full compliance with NIST 800-88 Rev. 1 guidelines for Media Sanitization. Complete audit trail and certificates.",
+    content: "Forensic-grade security with certified data destruction. Full compliance with NIST 800-88 Rev. 1 guidelines for Media Sanitization. Complete audit trail and certificates.",
     icon: "🛡️",
     link: "/services/data-erasure",
-    cta: "Erasure Solutions",
-    features: ["NIST 800-88 Rev 1", "Blancco Gold Partner", "Court-Admissible Certs", "Forensic-Level Validation", "TPM 2.0 Secure Wipe"]
+    cta: "Learn More",
+    features: ["Military-Grade Security", "NIST 800-88 Rev. 1", "Forensic Verification", "Complete Audit Trail", "Certificates Provided"]
+  },
+  {
+    id: "itad-asset-recovery",
+    title: "IT Asset Buyback",
+    subtitle: "Maximum return on retired hardware. AI Server Clusters, Edge Computing Nodes, enterprise infrastructure. Fair-market valuation, secure collection, same-day payment.",
+    content: "Maximum return on retired hardware with fair-market valuation. Secure collection and same-day payment for AI Server Clusters, Edge Computing Nodes, and enterprise infrastructure.",
+    icon: "💻",
+    link: "/services/itad-asset-recovery",
+    cta: "Learn More",
+    features: ["AI Server Clusters", "Edge Computing Nodes", "Fair-Market Valuation", "Secure Collection", "Same-Day Payment"]
   },
   {
     id: "sustainable-disposal",
-    title: "Sustainable IT Disposal (WEEE)",
-    subtitle: "Zero-landfill recycling with commodity-grade material recovery.",
-    content: "EA-ATF permit WR351100 framework for full material recapture chain. London recycling hub with High-Value Recovery pre-processing for gold, silver, platinum (assay-verified 98.7% recovery rates). Scope 3 carbon reduction certificates (88.10/tonne verified BAU savings) with full ESG disclosure packaging for public sector tenders.",
+    title: "ESG & Sustainability",
+    subtitle: "Carbon-negative disposal with full environmental reporting. Zero landfill, circular economy certified. Verified via internal carbon impact methodology.",
+    content: "Carbon-negative disposal with full environmental reporting. Zero landfill commitment with circular economy certification. Verified via internal carbon impact methodology.",
     icon: "♻️",
     link: "/services/sustainable-disposal",
-    cta: "Circular ITAD Pathway",
-    features: ["EA ATF 12002", "Per-Tonne Carbon Offset", "Precious Metals Recovery", "ESG Reporting Templates", "Commodity-Grade Capture"]
+    cta: "Learn More",
+    features: ["Carbon-Negative", "Zero Landfill", "Circular Economy", "Environmental Reporting", "Carbon Impact Verified"]
   },
   {
-    id: "refurbishment",
-    title: "Hardware Refurbishment (MAR Programme)",
-    subtitle: "Microsoft Authorised Refurbisher (MAR) certified enterprise restoration.",
-    content: "Microsoft MAR-licensed professional refurbishment with 98.6% test pass guarantee. Dell PowerEdge, HPE ProLiant, and NVIDIA GPU refurbishment operations. Three-year warranty options with next-business-day UK-wide dispatch. CCTA-compliant imaging stack for Windows Server 2022 MAR deployment with bank-grade audit DOS.",
-    icon: "⚙️",
-    link: "/services/hardware-refurbishment",
-    cta: "Refurbishment Pipeline",
-    features: ["Microsoft MAR Certified", "NIST 800-193", "98.6% Test Pass Rate", "Next-Business-Day SLAs", "TPM 2.0 Firmware Refresh", "Bank-Grade Audit DOS"]
+    id: "secure-logistics",
+    title: "Secure Logistics",
+    subtitle: "GPS-tracked, sealed transport nationwide. Chain-of-custody documentation from collection to processing.",
+    content: "GPS-tracked, sealed transport with nationwide coverage. Complete chain-of-custody documentation from collection to processing.",
+    icon: "🚚",
+    link: "/services/secure-logistics",
+    cta: "Learn More",
+    features: ["GPS-Tracked", "Sealed Transport", "Nationwide", "Chain-of-Custody", "Documentation"]
+  },
+  {
+    id: "onsite-services",
+    title: "On-Site Services",
+    subtitle: "Emergency response and witnessed destruction at your premises. 4-hour deployment available.",
+    content: "Emergency response and witnessed destruction at your premises. 4-hour deployment available for urgent requirements.",
+    icon: "🏢",
+    link: "/services/onsite-services",
+    cta: "Learn More",
+    features: ["Emergency Response", "Witnessed Destruction", "4-Hour Deployment", "Premises Services", "Immediate Certification"]
   }
 ];
 
-const serviceVisuals: Record<string, string> = {
-  "itad-asset-recovery": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5">
-    <!-- Devices Stack -->
-    <rect x="80" y="80" width="80" height="50" rx="2" class="fill-slate-50 stroke-slate-200"/>
-    <rect x="90" y="90" width="60" height="40" rx="2" class="fill-slate-100 stroke-slate-300"/>
-    <rect x="100" y="100" width="40" height="30" rx="1" class="fill-slate-200 stroke-slate-400"/>
 
-    <!-- Secure Collection -->
-    <rect x="200" y="120" width="120" height="60" rx="4" class="fill-white stroke-primary transform rotate-12"/>
-    <text x="220" y="145" class="text-sm fill-primary font-bold" stroke="none">SECURE</text>
-    <text x="220" y="160" class="text-sm fill-primary font-bold" stroke="none">COLLECTION</text>
-
-    <!-- Value Stream -->
-    <path d="M280 150 L350 120" class="stroke-success-eco stroke-2 marker-end"/>
-    <ellipse cx="320" cy="110" rx="30" ry="20" class="fill-cyan-50 stroke-cyan-200"/>
-
-    <!-- Payment Certification -->
-    <rect x="300" y="60" width="80" height="60" rx="4" class="fill-white stroke-slate-300 shadow-sm">
-      <path d="M308 68 L318 80 L372 80 L362 68 Z" fill="#004aad"/>
-      <path d="M308 72 L324 92 L356 92 L372 72 Z" fill="#10bb82"/>
-      <path d="M320 85 C340 75, 350 85, 335 100" stroke="#9E9E9E" stroke-width="1" fill="none"/>
-    </rect>
-
-    <defs>
-      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6">
-        <path d="M0,0 L10,5 L0,10 Z" fill="currentColor"/>
-      </marker>
-    </defs>
-  </svg>`,
-  "certified-erasure": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5">
-    <!-- Data Server -->
-    <rect x="80" y="80" width="120" height="100" rx="8" class="fill-slate-800 stroke-slate-600"/>
-
-    <!-- Data Blocks -->
-    <rect x="90" y="90" width="16" height="16" rx="2" class="fill-slate-400"/>
-    <rect x="110" y="90" width="16" height="16" rx="2" class="fill-slate-400"/>
-    <rect x="130" y="90" width="16" height="16" rx="2" class="fill-primary animate-pulse"/>
-    <rect x="150" y="90" width="16" height="16" rx="2" class="fill-slate-400"/>
-    <rect x="170" y="90" width="16" height="16" rx="2" class="fill-slate-400"/>
-
-    <!-- Secure Wipe Animation -->
-    <path d="M138 98 L230 120" class="stroke-red-500 stroke-2 stroke-dasharray-8 marker-end">
-      <animate attributeName="stroke-dashoffset" values="0;-20" dur="2s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Certification Document -->
-    <rect x="250" y="100" width="120" height="80" rx="4" class="fill-white stroke-success-eco shadow-lg">
-      <rect x="260" y="110" width="100" height="20" rx="2" fill="#004aad"/>
-      <path d="M270 140 Q280 150 310 130 Q340 110 350 140 Q330 170 300 150 Q270 130 270 140" stroke="#10bb82" stroke-width="12" fill="none" opacity="0.3"/>
-      <text x="280" y="165" class="text-xs fill-success-eco font-bold" stroke="none">NIST 800-88</text>
-      <text x="280" y="180" class="text-xs fill-success-eco font-bold" stroke="none">Certified</text>
-    </rect>
-  </svg>`,
-  "sustainable-disposal": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5">
-    <!-- Circular Chain Loop -->
-    <path d="M150 150
-             A 80 80 0 0 1 330 150
-             A 80 80 0 0 1 150 150 Z"
-             class="fill-success-eco/10 stroke-success-eco"/>
-
-    <!-- Device Disassembly -->
-    <rect x="120" y="180" width="60" height="40" rx="4" class="fill-blue-900 stroke-blue-600 group-hover:scale-110">
-      <rect x="128" y="190" width="8" height="8" rx="1" fill="white"/>
-      <rect x="138" y="190" width="8" height="8" rx="1" fill="white"/>
-      <rect x="148" y="190" width=20" height="12" rx="2" fill="#10bb82"/>
-    </rect>
-
-    <!-- Material Sorting Streams -->
-    <path d="M180 160 Q220 150 250 180" class="stroke-blue-500 stroke-2 marker-end"/>
-    <path d="M170 200 Q200 190 230 210" class="stroke-yellow-400 stroke-2 marker-end"/>
-    <path d="M160 220 Q190 230 210 240" class="stroke-slate-400 stroke-2 marker-end"/>
-
-    <!-- Commodity Icons -->
-    <rect x="260" y="170" width="16" height="16" rx="8" fill="#f7f7f7" stroke="#333"/>
-    <path d="M265 175 L275 185 M275 175 L265 185" stroke="red" stroke-width="2"/>
-
-    <circle cx="240" cy="205" r="8" fill="yellow" stroke="#333" stroke-width="1">
-      <animate attributeName="opacity" values="1;0.5" dur="2s" repeatCount="indefinite"/>
-    </circle>
-
-    <rect x="255" y="230" width="16" height="8" rx="2" fill="#555" stroke="#333"/>
-
-    <defs>
-      <marker id="arrow-dash" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6">
-        <path d="M1,1 L6,5 L1,9" stroke="currentColor" stroke-width="2" fill="none"/>
-      </marker>
-    </defs>
-  </svg>`,
-  "refurbishment": `<svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5">
-    <!-- Server Stack & Workflow -->
-    <rect x="60" y="120" width="60" height="80" rx="4" stroke-width="2" stroke-slate-600 fill-slate-900"/>
-    <rect x="68" y="130" width="44" height="8" rx="1" fill="#10bb82"/>
-    <rect x="68" y="140" width="30" height="8" rx="1" fill="white"/>
-    <rect x="78" y="160" width="20" height="30" rx="2" fill-cyan-50"/>
-
-    <!-- Refurbishment Pipeline Arrow -->
-    <path d="M130 160 L280 160" stroke-primary stroke-width="3" marker-end="url(#refurb-marker)"/>
-
-    <!-- Upgraded Server -->
-    <rect x="260" y="100" width="80" height="100" rx="8" fill-slate-800 stroke-slate-500 stroke-width="3">
-      <rect x="270" y="110" width="60" height="8" rx="1" fill="#10bb82"/>
-      <rect x="270" y="120" width="50" height="8" rx="1" fill="white"/>
-      <rect x="272" y="138" width="44" height="24" rx="2" fill-cyan-50 stroke-slate-400 stroke-dasharray="4 2"/>
-
-      <!-- Laser Engraving Effect -->
-      <path d="M295 140 L305 140" stroke-red-500 stroke-width="2" stroke-dasharray="2" opacity="0.8"/>
-    </rect>
-
-    <!-- Microsoft MAR Badge -->
-    <circle cx="355" cy="80" r="20" fill-white stroke-success-eco stroke-width="2">
-      <path d="M350 75 L360 85 M360 75 L350 85" stroke="#10bb82" stroke-width="2"/>
-    </circle>
-
-    <!-- Warranty Elements -->
-    <path d="M300 210 L340 210" stroke-slate-400 stroke-width="1.5" stroke-dasharray="4 2"/>
-    <text x="320" y="205" class="text-xs font-bold fill-primary" text-anchor="middle">3 Year</text>
-
-    <defs>
-      <marker id="refurb-marker" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6">
-        <path d="M0,0 V10 L10,5 Z" fill="currentColor" class="text-primary"/>
-      </marker>
-    </defs>
-  </svg>`
-};
 ---
 
 <BaseLayout
@@ -193,8 +79,6 @@ const serviceVisuals: Record<string, string> = {
     </div>
 
     <div class="container mx-auto px-6 py-12">
-      <SEOBreadcrumbs items={[{ name: 'Services Hub', href: '/services' }]} />
-
       <div class="space-y-24 py-12">
         {serviceSections.map((service, index) => (
           <section id={service.id} class={`flex flex-col md:flex-row gap-12 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
@@ -226,10 +110,19 @@ const serviceVisuals: Record<string, string> = {
               </a>
             </div>
 
-            <!-- Infographic / Visual Block -->
-            <div class="flex-1 w-full min-h-[350px] bg-white rounded-3xl border border-slate-100 flex items-center justify-center relative overflow-hidden group p-8 shadow-inner hover:shadow-lg transition-shadow">
-               <div class="absolute inset-0 bg-slate-50/50 bg-[url('/grid-pattern.svg')] opacity-50"></div>
-               <div class="w-full h-full flex items-center justify-center transform transition-transform duration-700 group-hover:scale-105" set:html={serviceVisuals[service.id]} />
+            <!-- Image Block -->
+            <div class="flex-1 w-full rounded-3xl overflow-hidden group hover:shadow-2xl shadow-xl transition-all duration-300">
+              <div class="w-full h-full flex items-center justify-center transform transition-transform duration-700 group-hover:scale-105">
+                <img 
+                  src={service.id === "certified-erasure" ? "/Secure_data.png" : 
+                       service.id === "itad-asset-recovery" ? "/IT_asset.png" : 
+                       service.id === "sustainable-disposal" ? "/ESG.png" : 
+                       service.id === "secure-logistics" ? "/International.png" : 
+                       "/Onsite.png"} 
+                  alt={service.title}
+                  class="w-full h-auto object-cover"
+                />
+              </div>
             </div>
           </section>
         ))}
