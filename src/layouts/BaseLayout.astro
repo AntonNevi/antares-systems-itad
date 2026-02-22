@@ -27,6 +27,7 @@ const defaultSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Antares Systems",
+  "alternateName": ["Antares", "Antares Systems ITAD"],
   "image": "https://antaressystems.net/logo_antares.webp",
   "telephone": "+44 20 7123 4567", // Placeholder
   "email": "info@antaressystems.net",
@@ -65,10 +66,14 @@ const pageSchema = schema || defaultSchema;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/webp" href="/favicon_antares.webp" />
-    <link rel="apple-touch-icon" href="/favicon_antares.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon_antares.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_antares.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_antares.png" />
+    <link rel="mask-icon" href="/favicon_antares.svg" color="#004AAD" />
+    <meta name="theme-color" content="#004AAD" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Antares Systems" />
     
     <!-- SEO -->
     <title>{title} | Antares Systems ITAD</title>

@@ -5,8 +5,8 @@ Disallow: /admin/
 Disallow: /kontakt # legacy duplicate redirect
 
 Allow: /sitemap.xml
-Sitemap: https://www.antaressystems.net/sitemap.xml
-Sitemap: https://www.antaressystems.net/rss.xml
+Sitemap: https://antaressystems.net/sitemap.xml
+Sitemap: https://antaressystems.net/rss.xml
 
 # Bingbot-Api checksum certificate integration
 BINGBOT-Checksum: 86a365d918f5c3e7632c2a9f92c0a111
