@@ -65,6 +65,7 @@ switch (Astro.props.pageType) {
     schema = {
       "@context": "https://schema.org",
       "@type": "Service",
+      "name": "IT Asset Disposition (ITAD) & Buyback Services",
       "serviceType": "IT Asset Disposition (ITAD) & Buyback Services",
       "provider": {
         "@type": "Organization",
@@ -86,19 +87,31 @@ switch (Astro.props.pageType) {
         "name": "IT Asset Buyback Services",
         "itemListElement": [
           {
-            "@type": "Service",
-            "name": "Corporate IT Buyback",
-            "description": "Secure IT asset valuation and buyback with fair market pricing for bulk computer recycling, server disposal, and enterprise equipment remarketing in London and UK-wide."
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Service",
+              "name": "Corporate IT Buyback",
+              "description": "Secure IT asset valuation and buyback with fair market pricing for bulk computer recycling, server disposal, and enterprise equipment remarketing in London and UK-wide."
+            }
           },
           {
-            "@type": "Service",
-            "name": "GPU Server Resale",
-            "description": "Maximum residual value recovery for AI servers, GPU servers, and HPC clusters with same-day payment and NIST 800-88 secure collection protocols."
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Service",
+              "name": "GPU Server Resale",
+              "description": "Maximum residual value recovery for AI servers, GPU servers, and HPC clusters with same-day payment and NIST 800-88 secure collection protocols."
+            }
           },
           {
-            "@type": "Service",
-            "name": "Bulk Computer Recycling",
-            "description": "Zero landfill IT asset disposition services for bulk computer recycling projects with certificate of data destruction and environmental reporting for ESG initiatives."
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Service",
+              "name": "Bulk Computer Recycling",
+              "description": "Zero landfill IT asset disposition services for bulk computer recycling projects with certificate of data destruction and environmental reporting for ESG initiatives."
+            }
           }
         ]
       },
@@ -126,6 +139,7 @@ switch (Astro.props.pageType) {
     schema = {
       "@context": "https://schema.org",
       "@type": "Service",
+      "name": "NIST 800-88 Certified Data Erasure",
       "serviceType": "NIST 800-88 Certified Data Erasure",
       "provider": {
         "@type": "Organization",
@@ -147,19 +161,31 @@ switch (Astro.props.pageType) {
         "name": "Data Erasure Options",
         "itemListElement": [
           {
-            "@type": "Service",
-            "name": "Software-Based Data Wiping",
-            "description": "NIST 800-88 Rev 1 compliant software wiping using Blancco Drive Eraser with forensic verification for secure media sanitization in London and UK-wide."
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Service",
+              "name": "Software-Based Data Wiping",
+              "description": "NIST 800-88 Rev 1 compliant software wiping using Blancco Drive Eraser with forensic verification for secure media sanitization in London and UK-wide."
+            }
           },
           {
-            "@type": "Service",
-            "name": "Degaussing Services",
-            "description": "NSA-level degaussing approved for HMG IL5/6 standards, rendering magnetic media completely unusable for compliance-focused organizations."
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Service",
+              "name": "Degaussing Services",
+              "description": "NSA-level degaussing approved for HMG IL5/6 standards, rendering magnetic media completely unusable for compliance-focused organizations."
+            }
           },
           {
-            "@type": "Service",
-            "name": "Physical Hardware Destruction",
-            "description": "Secure hard drive destruction with NSM40E HDD shredder (≤32mm particles) with HMG INFOSEC-5 certification for absolute data protection."
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Service",
+              "name": "Physical Hardware Destruction",
+              "description": "Secure hard drive destruction with NSM40E HDD shredder (≤32mm particles) with HMG INFOSEC-5 certification for absolute data protection."
+            }
           }
         ]
       },
@@ -194,6 +220,7 @@ switch (Astro.props.pageType) {
     schema = {
       "@context": "https://schema.org",
       "@type": "Service",
+      "name": "ESG & Sustainable IT Disposal Services",
       "serviceType": "ESG & Sustainable IT Disposal Services",
       "provider": {
         "@type": "Organization",
@@ -215,19 +242,31 @@ switch (Astro.props.pageType) {
         "name": "Sustainable IT Disposal Services",
         "itemListElement": [
           {
-            "@type": "Service",
-            "name": "ESG ITAD Services",
-            "description": "Circular economy IT asset disposition with carbon-neutral processing, carbon footprint reporting, and comprehensive ESG documentation."
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Service",
+              "name": "ESG ITAD Services",
+              "description": "Circular economy IT asset disposition with carbon-neutral processing, carbon footprint reporting, and comprehensive ESG documentation."
+            }
           },
           {
-            "@type": "Service",
-            "name": "Zero Landfill IT Recycling",
-            "description": "WEEE-compliant IT recycling with 100% material diversion from landfill, precious metal recovery, and carbon accounting for Scope 3 emissions."
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Service",
+              "name": "Zero Landfill IT Recycling",
+              "description": "WEEE-compliant IT recycling with 100% material diversion from landfill, precious metal recovery, and carbon accounting for Scope 3 emissions."
+            }
           },
           {
-            "@type": "Service",
-            "name": "Sustainable Asset Processing",
-            "description": "Plastic-to-plastic recycling, rare earth element recovery, and closed-loop processing for enterprise IT equipment."
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Service",
+              "name": "Sustainable Asset Processing",
+              "description": "Plastic-to-plastic recycling, rare earth element recovery, and closed-loop processing for enterprise IT equipment."
+            }
           }
         ]
       },
@@ -267,6 +306,7 @@ switch (Astro.props.pageType) {
     schema = {
       "@context": "https://schema.org",
       "@type": "Service",
+      "name": "Secure ITAD Logistics & International Export",
       "serviceType": "Secure ITAD Logistics & International Export",
       "provider": {
         "@type": "Organization",
@@ -288,19 +328,31 @@ switch (Astro.props.pageType) {
         "name": "International Secure Logistics Services",
         "itemListElement": [
           {
-            "@type": "Service",
-            "name": "Bulk Laptop Export",
-            "description": "Secure IT equipment shipping for refurbished laptop export to Kazakhstan, Uzbekistan, and emerging markets with full chain-of-custody documentation."
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Service",
+              "name": "Bulk Laptop Export",
+              "description": "Secure IT equipment shipping for refurbished laptop export to Kazakhstan, Uzbekistan, and emerging markets with full chain-of-custody documentation."
+            }
           },
           {
-            "@type": "Service",
-            "name": "Used Servers Export",
-            "description": "Enterprise server export to Middle East, UAE, and CIS region with tamper-evident packaging and international freight coordination."
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Service",
+              "name": "Used Servers Export",
+              "description": "Enterprise server export to Middle East, UAE, and CIS region with tamper-evident packaging and international freight coordination."
+            }
           },
           {
-            "@type": "Service",
-            "name": "Secure Chain-of-Custody Transport",
-            "description": "GPS-tracked, dual-custody IT asset transport with audit trail for IT equipment export and domestic ITAD logistics across London, Manchester, Bristol."
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Service",
+              "name": "Secure Chain-of-Custody Transport",
+              "description": "GPS-tracked, dual-custody IT asset transport with audit trail for IT equipment export and domestic ITAD logistics across London, Manchester, Bristol."
+            }
           }
         ]
       },
@@ -340,6 +392,7 @@ switch (Astro.props.pageType) {
     schema = {
       "@context": "https://schema.org",
       "@type": "Service",
+      "name": "On-Site Data Destruction & Emergency IT Disposal",
       "serviceType": "On-Site Data Destruction & Emergency IT Disposal",
       "provider": {
         "@type": "Organization",
@@ -361,19 +414,31 @@ switch (Astro.props.pageType) {
         "name": "On-Site Emergency Services",
         "itemListElement": [
           {
-            "@type": "Service",
-            "name": "4-Hour Emergency Deployment",
-            "description": "Rapid on-site data destruction for emergency IT disposal requirements in London, Manchester, and Bristol."
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Service",
+              "name": "4-Hour Emergency Deployment",
+              "description": "Rapid on-site data destruction for emergency IT disposal requirements in London, Manchester, and Bristol."
+            }
           },
           {
-            "@type": "Service",
-            "name": "Witnessed Data Destruction",
-            "description": "Secure shredding with live stakeholder witnessing and on-device documentation for compliance audits."
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Service",
+              "name": "Witnessed Data Destruction",
+              "description": "Secure shredding with live stakeholder witnessing and on-device documentation for compliance audits."
+            }
           },
           {
-            "@type": "Service",
-            "name": "Buyer-Supervised Destruction",
-            "description": "On-site server destruction and laptop disposal with client-specific chain of custody protocols for regulated industries."
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Service",
+              "name": "Buyer-Supervised Destruction",
+              "description": "On-site server destruction and laptop disposal with client-specific chain of custody protocols for regulated industries."
+            }
           }
         ]
       },
@@ -413,6 +478,7 @@ switch (Astro.props.pageType) {
     schema = {
       "@context": "https://schema.org",
       "@type": "Service",
+      "name": "ITAD Services London & UK-Wide",
       "serviceType": "ITAD Services London & UK-Wide",
       "provider": {
         "@type": "Organization",
@@ -436,29 +502,49 @@ switch (Astro.props.pageType) {
         "name": "ITAD Services Portfolio",
         "itemListElement": [
           {
-            "@type": "Service",
-            "name": "IT Asset Disposition & Buyback",
-            "description": "Corporate IT asset disposition and buyback services with fair market valuation, secure collection, and same-day payment for bulk computer recycling and IT equipment remarketing."
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Service",
+              "name": "IT Asset Disposition & Buyback",
+              "description": "Corporate IT asset disposition and buyback services with fair market valuation, secure collection, and same-day payment for bulk computer recycling and IT equipment remarketing."
+            }
           },
           {
-            "@type": "Service",
-            "name": "NIST 800-88 Certified Data Erasure",
-            "description": "Government-compliant secure data destruction and NIST 800-88 certified data erasure with certificate of destruction for IT security and GDPR compliance."
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Service",
+              "name": "NIST 800-88 Certified Data Erasure",
+              "description": "Government-compliant secure data destruction and NIST 800-88 certified data erasure with certificate of destruction for IT security and GDPR compliance."
+            }
           },
           {
-            "@type": "Service",
-            "name": "Sustainable IT Recycling & ESG Services",
-            "description": "Carbon-negative IT disposal and WEEE-compliant IT recycling with circular economy integration and comprehensive ESG impact reporting."
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Service",
+              "name": "Sustainable IT Recycling & ESG Services",
+              "description": "Carbon-negative IT disposal and WEEE-compliant IT recycling with circular economy integration and comprehensive ESG impact reporting."
+            }
           },
           {
-            "@type": "Service",
-            "name": "Secure Logistics & International Export",
-            "description": "Chain-of-custody ITAD logistics and international IT equipment export for bulk laptop export, used servers, and refurbished computers to Kazakhstan, Uzbekistan, and Middle East markets."
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "Service",
+              "name": "Secure Logistics & International Export",
+              "description": "Chain-of-custody ITAD logistics and international IT equipment export for bulk laptop export, used servers, and refurbished computers to Kazakhstan, Uzbekistan, and Middle East markets."
+            }
           },
           {
-            "@type": "Service",
-            "name": "On-Site Data Destruction",
-            "description": "Emergency on-site secure data destruction with 4-hour response, witnessed IT asset disposal, and immediate NIST 800-88 certification."
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@type": "Service",
+              "name": "On-Site Data Destruction",
+              "description": "Emergency on-site secure data destruction with 4-hour response, witnessed IT asset disposal, and immediate NIST 800-88 certification."
+            }
           }
         ]
       },
