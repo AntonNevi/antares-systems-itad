@@ -13,7 +13,7 @@ interface Props {
 const { 
   title, 
   description, 
-  image = '/logo_antares.png', 
+  image = '/logo_antares.webp', 
   canonical, 
   type = 'website',
   schema
@@ -27,7 +27,7 @@ const defaultSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Antares Systems",
-  "image": "https://antaressystems.net/logo_antares.png",
+  "image": "https://antaressystems.net/logo_antares.webp",
   "telephone": "+44 20 7123 4567", // Placeholder
   "email": "info@antaressystems.net",
   "address": {
@@ -64,8 +64,11 @@ const pageSchema = schema || defaultSchema;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon_antares.svg" />
-    <link rel="apple-touch-icon" href="/favicon_antares.svg" />
+    <link rel="icon" type="image/webp" href="/favicon_antares.webp" />
+    <link rel="apple-touch-icon" href="/favicon_antares.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_antares.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     
     <!-- SEO -->
     <title>{title} | Antares Systems ITAD</title>
