@@ -1,12 +1,12 @@
 Antares Systems — Project Truth Source (PRODUCTION READY)
 1. Compliance (Corrected Assets)
-ACTIVE: ICO Registered (C18880232), Professional & Cyber Insurance
+ACTIVE: ICO Registered (ZC094526), Professional & Cyber Insurance
 MAR LICENSE: Microsoft Authorised Refurbisher
 STATUS: Waste Carrier & WEEE T11 — Application in Progress
 SECURITY: Security-First Approach | Certified Data Destruction | Government-Grade Standards | Enterprise Security Protocol
 ENVIRONMENTAL: WEEE Compliant | Zero Landfill
 BAN: No ISO 27001, NCSC, HMG IS5, Cyber Essentials+ claims until verified
-Icon Policy: Shield (security), Lock (data protection), Check (verification) — green (#10bb82) or blue (#0081CC). No certification badges.
+
 2. Main Services Page (/services)
 Layout: Chessboard Z-pattern. Images object-contain, no cropping.
 Table
