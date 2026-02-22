@@ -135,7 +135,7 @@ Large-scale: mobile units handle up to 500 devices per day
 Witness requirements: legal, financial, government sectors
 CTA: Contact an Expert → /contacts
 ## 4. Global Elements & Compliance
-- **Legal:** ICO Registered (C18880232)
+- **Legal:** ICO Registered (ZC094526)
 - **Environment:** Waste Carrier & WEEE T11 — in Progress.
 - **Terminology (Strict):** Use ONLY "Security-First Approach", "Certified Data Destruction", and "Government-Grade Standards".
 - **Zero Landfill Policy:** Active.
