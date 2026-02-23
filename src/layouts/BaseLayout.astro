@@ -22,12 +22,13 @@ const {
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).href;
 const socialImageURL = new URL(image, Astro.site).href;
 
-// Default LocalBusiness Schema
+// Default Organization Schema
 const defaultSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "Organization",
   "name": "Antares Systems",
-  "alternateName": ["Antares", "Antares Systems ITAD"],
+  "alternateName": "Antares Systems ITAD",
+  "description": "London's trusted ITAD partner. Secure data destruction, certified IT asset disposal, and sustainable recycling.",
   "image": "https://antaressystems.net/logo_antares.webp",
   "telephone": "+44 7774 153420",
   "email": "info@antaressystems.net",
@@ -101,6 +102,7 @@ const pageSchema = schema || defaultSchema;
     <link rel="canonical" href={canonicalURL} />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Antares Systems Ltd" />
+    <meta name="generator" content="Antares Systems" />
     
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
