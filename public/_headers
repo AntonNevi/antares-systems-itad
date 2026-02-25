@@ -18,11 +18,42 @@
 /*.js
   Cache-Control: public, max-age=31536000, immutable
 
-/*.webp
-  Cache-Control: public, max-age=31536000, immutable
+# Favicon files - Google and all clients
+/favicon*.ico
+  Cache-Control: public, max-age=86400, must-revalidate
+  X-Content-Type-Options: nosniff
+  Content-Type: image/x-icon
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
-/*.png
-  Cache-Control: public, max-age=31536000, immutable
+/favicon*.png
+  Cache-Control: public, max-age=86400, must-revalidate
+  X-Content-Type-Options: nosniff
+  Content-Type: image/png
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
-/*.svg
-  Cache-Control: public, max-age=31536000, immutable
+/favicon*.webp
+  Cache-Control: public, max-age=86400, must-revalidate
+  X-Content-Type-Options: nosniff
+  Content-Type: image/webp
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+/favicon_antares.svg
+  Cache-Control: public, max-age=86400, must-revalidate
+  X-Content-Type-Options: nosniff
+  Content-Type: image/svg+xml
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+/apple-touch-icon*.png
+  Cache-Control: public, max-age=86400, must-revalidate
+  X-Content-Type-Options: nosniff
+  Content-Type: image/png
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+/mstile*.png
+  Cache-Control: public, max-age=86400, must-revalidate
+  X-Content-Type-Options: nosniff
+  Content-Type: image/png
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+/site.webmanifest
+  Cache-Control: public, max-age=0, must-revalidate, no-cache, no-store, proxy-revalidate

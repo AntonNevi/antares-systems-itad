@@ -22,3 +22,16 @@ Allow: /*.svg$
 
 User-Agent: Bingbot
 Allow: /
+
+# Google Favicon Discovery
+User-Agent: Googlebot
+Allow: /favicon*
+Allow: /logo_antares.*
+Allow: /site.webmanifest
+Sitemap: https://antaressystems.net/sitemap.xml
+
+User-Agent: Googlebot-Image
+Allow: /*.ico
+Allow: /*.png
+Allow: /*.webp
+Allow: /*.svg

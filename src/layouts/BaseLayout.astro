@@ -133,10 +133,24 @@ const pageSchema = schema || defaultSchema;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImageURL} />
 
+    <!-- Favicon Fix for Google Search (SVG preferred format) -->
+    <link rel="icon" href="https://antaressystems.net/favicon_antares.svg" type="image/svg+xml" sizes="any" />
+
+    <!-- Modern Google Favicon - Google's preferred format -->
+    <link rel="mask-icon" href="https://antaressystems.net/favicon_antares.svg" color="#004AAD">
+
+    <!-- Google Tumblr Channels (Fallback compatibility) -->
+    <link rel="fluid-icon" href="https://antaressystems.net/favicon_antares.svg" title="Antares Systems ITAD" />
+
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE" />
 
-    <!-- Google Analytics 4 -->
+    <!-- Special Google Favicon Robot Tag -->
+    <meta name="robots" content="index,follow,archive,snippet,imageindex,translate,odp">
+    <meta name="googlebot" content="index,follow,archive,imageindex,odp">
+    <link rel="shortcut icon" type="image/x-icon" href="https://antaressystems.net/favicon.ico" sizes="any" />
+
+    <!-- Google Analytics 4 with Enhanced Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];

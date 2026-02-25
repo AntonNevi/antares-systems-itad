@@ -1,0 +1,19 @@
+Googlebot Verification File for Favicon
+======================================
+
+This file verifies that the Antares Systems favicon is properly accessible
+via HTTPS and is eligible for indexing by Google Search.
+
+Favicon Files:
+- https://antaressystems.net/favicon.ico (76x76, 48x48, 32x32, 16x16)
+- https://antaressystems.net/favicon_antares.png (512x512, 192x192)
+- https://antaressystems.net/favicon_antares.webp (512x512, 192x192)
+- https://antaressystems.net/favicon_antares.svg (vector format)
+
+Proper HTML Headers:
+<link rel="icon" href="https://antaressystems.net/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="https://antaressystems.net/favicon_antares.png" type="image/png" />
+<link rel="icon" href="https://antaressystems.net/favicon_antares.webp" type="image/webp" />
+<link rel="icon" href="https://antaressystems.net/favicon_antares.svg" type="image/svg+xml" />
+
+Site favicon verification completed at: 2026-02-25
