@@ -1,0 +1,22 @@
+{
+  "http": "http://antaressystems.net/*",
+  "https": "https://antaressystems.net/*",
+  "upgrade_scheme": true,
+  "googlebot_priority": "HIGH",
+  "change_log": [
+    {
+      "date": "2026-02-25",
+      "action": "HTTPS Schema Enforcement",
+      "files_affected": ["favicon_antares.svg", "favicon_antares.webp", "/", "site.webmanifest"]
+    },
+    {
+      "date": "2026-02-25",
+      "action": "HSTS Preload Submission (https://hstspreload.org/?domain=antaressystems.net)",
+      "completion": "SUBMITTED"
+    }
+  ],
+  "api_channel": {
+    "request_site_verification": true,
+    "googlebot_telscan_priority": 10
+  }
+}
