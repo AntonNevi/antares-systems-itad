@@ -10,14 +10,7 @@ interface Props {
   schema?: object;
 }
 
-const { 
-  title, 
-  description, 
-  image = '/logo_antares.webp', 
-  canonical, 
-  type = 'website',
-  schema
-} = Astro.props;
+const { title, description, image = '/logo_antares.webp', canonical, type = 'website', schema } = Astro.props;
 
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).href;
 const socialImageURL = new URL(image, Astro.site).href;
@@ -66,41 +59,17 @@ const pageSchema = schema || defaultSchema;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <!-- Favicon - Multi-format for maximum compatibility with absolute URLs for search engines -->
-    <link rel="icon" type="image/x-icon" href="https://antaressystems.net/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="16x16" href="https://antaressystems.net/favicon-16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="https://antaressystems.net/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="48x48" href="https://antaressystems.net/favicon_antares.png" />
-    <link rel="icon" type="image/webp" sizes="48x48" href="https://antaressystems.net/favicon_antares.webp" />
-    <link rel="icon" type="image/png" sizes="192x192" href="https://antaressystems.net/favicon_antares.png" />
-    <link rel="icon" type="image/webp" sizes="512x512" href="https://antaressystems.net/favicon_antares.webp" />
-    <link rel="apple-touch-icon" sizes="57x57" href="https://antaressystems.net/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="https://antaressystems.net/apple-touch-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="https://antaressystems.net/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="https://antaressystems.net/apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="https://antaressystems.net/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="https://antaressystems.net/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="https://antaressystems.net/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="https://antaressystems.net/apple-touch-icon-152x152.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="https://antaressystems.net/apple-touch-icon-180x180.png" />
-    <link rel="mask-icon" href="https://antaressystems.net/favicon_antares.svg" color="#004AAD" />
-    <link rel="shortcut icon" href="https://antaressystems.net/favicon.ico" />
-    <!-- Favicon for modern browsers -->
-    <link rel="icon" href="https://antaressystems.net/favicon_antares.webp" type="image/webp" />
-    <link rel="icon" href="https://antaressystems.net/favicon_antares.png" type="image/png" />
-    <!-- Favicon for Google Search Console and major search engines -->
-    <link rel="icon" href="https://antaressystems.net/favicon.ico" type="image/x-icon" />
-    <link rel="alternate icon" href="https://antaressystems.net/favicon_antares.webp" type="image/webp" />
-    <link rel="alternate icon" href="https://antaressystems.net/favicon_antares.png" type="image/png" />
-    <!-- Specific favicon for Google to fix empty circle issue -->
-    <link rel="icon" href="https://antaressystems.net/favicon_antares.webp" type="image/webp" title="Antares Systems" />
-    <link rel="icon" href="https://antaressystems.net/favicon_antares.png" type="image/png" title="Antares Systems" />
-    <!-- PWA Manifest with absolute URL -->
-    <link rel="manifest" href="https://antaressystems.net/site.webmanifest" />
-    
+
+    <!-- Favicon - WebP only for browser tab (no background) -->
+    <link rel="icon" type="image/webp" href="/favicon_antares.webp" />
+    <link rel="shortcut icon" href="/favicon_antares.webp" />
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+
     <!-- PWA Manifest -->
     <link rel="manifest" href="/site.webmanifest" />
-    
+
     <!-- Theme and App Settings -->
     <meta name="theme-color" content="#004AAD" />
     <meta name="msapplication-TileColor" content="#004AAD" />
@@ -109,7 +78,7 @@ const pageSchema = schema || defaultSchema;
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Antares Systems" />
-    
+
     <!-- SEO -->
     <title>{title} | Antares Systems ITAD</title>
     <meta name="description" content={description} />
@@ -117,7 +86,7 @@ const pageSchema = schema || defaultSchema;
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Antares Systems Ltd" />
     <meta name="generator" content="Antares Systems" />
-    
+
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -133,50 +102,22 @@ const pageSchema = schema || defaultSchema;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImageURL} />
 
-    <!-- Favicon Fix for Google Search (SVG preferred format) -->
-    <link rel="icon" href="https://antaressystems.net/favicon_antares.svg" type="image/svg+xml" sizes="any" />
-
-    <!-- Modern Google Favicon - Google's preferred format -->
-    <link rel="mask-icon" href="https://antaressystems.net/favicon_antares.svg" color="#004AAD">
-
-    <!-- Google Tumblr Channels (Fallback compatibility) -->
-    <link rel="fluid-icon" href="https://antaressystems.net/favicon_antares.svg" title="Antares Systems ITAD" />
-
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE" />
 
-    <!-- Special Google Favicon Robot Tag -->
-    <meta name="robots" content="index,follow,archive,snippet,imageindex,translate,odp">
-    <meta name="googlebot" content="index,follow,archive,imageindex,odp">
-    <link rel="shortcut icon" type="image/x-icon" href="https://antaressystems.net/favicon.ico" sizes="any" />
-
-    <!-- Google Analytics 4 with Enhanced Tracking -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
-
-    <!-- Specific Google Favicon Fix -->
-    <link rel="icon" href="https://antaressystems.net/favicon_antares.webp" type="image/webp" sizes="any" />
-    <link rel="icon" href="https://antaressystems.net/favicon_antares.png" type="image/png" sizes="any" />
-    <link rel="icon" href="https://antaressystems.net/favicon.ico" type="image/x-icon" sizes="any" />
-    
     <!-- HTMX -->
     <script src="https://unpkg.com/htmx.org@2.0.0"></script>
 
     <!-- Schema.org -->
     <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body class="bg-white text-slate-800 antialiased flex flex-col min-h-screen font-sans">
     <slot />
-    
+
     <!-- Cookie Consent -->
     <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-slate-900 border-t border-slate-800 p-4 transform translate-y-full transition-transform duration-300 z-50 text-sm hidden">
       <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
@@ -194,7 +135,7 @@ const pageSchema = schema || defaultSchema;
       document.addEventListener('DOMContentLoaded', () => {
         const banner = document.getElementById('cookie-banner');
         const accepted = localStorage.getItem('cookieconfig');
-        
+
         if (!accepted) {
           banner.classList.remove('hidden');
           setTimeout(() => banner.classList.remove('translate-y-full'), 100);
