@@ -9,12 +9,12 @@ const serviceSections = [
   {
     id: "certified-erasure",
     title: "Certified Data Erasure",
-    subtitle: "Secure hard drive destruction with forensic verification. Full compliance with NIST 800-88 Rev. 1 guidelines for media sanitization with on-site and off-site options for UK enterprises.",
-    content: "Forensic-grade security with secure data destruction and certified data erasure. NIST 800-88 compliant media sanitization for servers, laptops, and enterprise storage devices across London, Manchester, Bristol, and UK-wide.",
+    subtitle: "Forensically verified data erasure. Certified to ADISA L2 and Common Criteria EAL3+ standards. Full NIST 800-88 and IEEE 2883-2022 compliance.",
+    content: "Enterprise-grade data security, built on certified assurance. From single drives to full data centres, we erase to the standard that defence and government trust. ADISA L2. Common Criteria EAL3+. NCSC recognised. Across London, Manchester, Bristol — wherever your assets are.",
     icon: "🛡️",
     link: "/services/data-erasure",
     cta: "Learn More",
-    features: ["Military-Grade Security", "NIST 800-88 Rev. 1", "Secure Media Sanitization", "Complete Audit Trail", "Certificate of Destruction"]
+    features: ["ADISA L2", "Common Criteria EAL3+", "NIST 800-88", "Chain-of-Custody Guaranteed", "Forensic Audit Trail"]
   },
   {
     id: "itad-asset-recovery",
@@ -27,14 +27,14 @@ const serviceSections = [
     features: ["GPU Server Resale", "Enterprise Hardware Buyback", "Bulk Computer Recycling", "HPC Cluster Disposal", "Same-Day Payment"]
   },
   {
-    id: "sustainable-disposal",
-    title: "ESG & Sustainability",
-    subtitle: "Carbon-negative IT disposal with full environmental reporting. Zero landfill, circular economy certified ITAD solutions for UK enterprises and corporate sustainability initiatives.",
-    content: "Carbon-negative IT disposal and WEEE-compliant computer recycling. Circular economy ITAD services with carbon footprint reporting, zero landfill commitment, and comprehensive ESG reporting for enterprise sustainability programs.",
-    icon: "♻️",
-    link: "/services/sustainable-disposal",
+    id: "office-it-solutions",
+    title: "Office IT Solutions",
+    subtitle: "End-to-end workplace technology deployment. Hardware procurement, software licensing, professional installation, ongoing support — delivered as a service.",
+    content: "Comprehensive workplace technology solutions for modern businesses. From initial hardware procurement and software licensing to professional installation and ongoing technical support, we deliver complete IT infrastructure as a managed service.",
+    icon: "💼",
+    link: "/services/office-it-solutions",
     cta: "Learn More",
-    features: ["Carbon-Negative Disposal", "Zero Landfill IT Recycling", "ESG ITAD Solutions", "Carbon Footprint Reporting", "Circular Economy Certified"]
+    features: ["Hardware Procurement", "Software Licensing", "Professional Installation", "Ongoing Support", "Managed Service"]
   },
   {
     id: "secure-logistics",
@@ -113,12 +113,12 @@ const serviceSections = [
               <img
                 src={service.id === "certified-erasure" ? "/Secure_data.png" :
                      service.id === "itad-asset-recovery" ? "/IT_asset.png" :
-                     service.id === "sustainable-disposal" ? "/ESG.png" :
+                     service.id === "office-it-solutions" ? "/IT_solutions.png" :
                      service.id === "secure-logistics" ? "/International.png" :
                      "/Onsite.png"}
                 alt={service.id === "certified-erasure" ? "Secure hard drive destruction and NIST 800-88 compliant data erasure services for IT asset disposal in London and across UK" :
                      service.id === "itad-asset-recovery" ? "IT asset buyback and bulk computer recycling program - Corporate IT valuation and enterprise equipment buyback with fair market pricing" :
-                     service.id === "sustainable-disposal" ? "Carbon-negative IT disposal and ESG-focused WEEE-compliant computer recycling with zero landfill commitment and environmental reporting" :
+                     service.id === "office-it-solutions" ? "Office IT solutions - End-to-end workplace technology deployment, hardware procurement, software licensing, professional installation and ongoing support" :
                      service.id === "secure-logistics" ? "Secure ITAD logistics and international IT equipment export to Kazakhstan, Uzbekistan, Middle East and CIS region with chain-of-custody documentation" :
                      "On-site data destruction and emergency IT disposal services with 4-hour deployment for secure media sanitization and witnessed destruction at client premises"}
                 loading="lazy"
