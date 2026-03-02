@@ -1,6 +1,6 @@
 ---
 
-type SchemaTypes = 'homepage' | 'itadAssetRecovery' | 'dataErasure' | 'sustainableDisposal' | 'hardwareRefurbishment' | 'servicesHub' | 'secureLogistics' | 'onsiteServices' | 'compliance' | 'contacts' | 'officeITSolutions';
+type SchemaTypes = 'homepage' | 'itadAssetRecovery' | 'dataErasure' | 'sustainableDisposal' | 'hardwareRefurbishment' | 'servicesHub' | 'secureLogistics' | 'onsiteServices' | 'compliance' | 'contacts' | 'officeITSolutions' | 'dataErasureFAQ' | 'complianceFAQ' | 'contactsFAQ';
 
 interface Props {
   pageType: SchemaTypes;
@@ -691,6 +691,153 @@ switch (Astro.props.pageType) {
         "name": "United Kingdom"
       },
       "hasMap": "https://www.google.com/maps/place/Antares+Systems/@51.5123,-0.1234,14z/"
+    };
+    break;
+
+  case 'dataErasureFAQ':
+    schema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is ADISA L2 certification?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ADISA L2 (Asset Disposition & ITAD Standards Association) is the industry's leading certification for data erasure providers. L2 level indicates advanced forensic verification and audit capabilities, ensuring data is irretrievably destroyed with legally-defensible documentation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is NIST 800-88 compliant data erasure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NIST SP 800-88 is the US National Institute of Standards and Technology guideline for media sanitization. Compliance ensures data is rendered unrecoverable through approved methods (clear, purge, destroy) with full documentation for regulatory compliance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does certified data erasure take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Data erasure typically takes 1-3 days for standard volumes. Enterprise data centres with hundreds of drives may take 5-7 days. Emergency on-site destruction available with 4-hour deployment for urgent requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What certificate do I receive after data destruction?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You receive a Certificate of Destruction (COD) with serial numbers, destruction method, timestamp, and technician signature. This document is legally defensible for GDPR compliance, ISO audits, and regulatory inspections."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you destroy data on-site at our premises?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we offer on-site data destruction with 4-hour emergency deployment. Our technicians bring mobile erasure equipment to your London, Manchester, or Bristol location. You witness the entire process for maximum compliance assurance."
+          }
+        }
+      ]
+    };
+    break;
+
+  case 'complianceFAQ':
+    schema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What certifications does Antares Systems hold?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Antares Systems holds ADISA L2, Common Criteria EAL3+, NIST 800-88 Rev 1, IEEE 2883-2022, and is ICO registered (ZC094526). We are WEEE compliant and maintain professional indemnity and public liability insurance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Antares Systems ICO registered?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we are ICO registered under ZC094526, confirming compliance with UK data protection requirements for handling personal data during IT asset disposition."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between ADISA and Common Criteria?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ADISA L2 is an ITAD industry certification focused on data erasure processes and audit trails. Common Criteria EAL3+ is an international security evaluation (NIAP) for data sanitization products, required by government and defence sectors."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide insurance for ITAD services?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we maintain professional indemnity and public liability insurance, providing coverage for data handling, transport, and processing activities throughout the IT asset disposition lifecycle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What environmental compliance do you follow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We are WEEE compliant (Waste Electrical and Electronic Equipment) with EA-ATF Operator Permit. We maintain zero landfill commitment, with 100% material recovery and recycling through certified downstream partners."
+          }
+        }
+      ]
+    };
+    break;
+
+  case 'contactsFAQ':
+    schema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I get a quote for ITAD services?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Contact us via info@antaressystems.net or call +44 7774 153420. Provide asset details (quantity, type, condition) and we respond same-day with a no-obligation quote. For urgent requirements, we offer 4-hour on-site response."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What areas do you cover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We operate UK-wide from our London base, with regular coverage in Manchester, Bristol, Birmingham, Leeds, Edinburgh, and Glasgow. International export available to Kazakhstan, Uzbekistan, Middle East, and CIS regions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How quickly can you collect IT assets?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Standard collection scheduled within 3-5 business days. Emergency on-site destruction available within 4 hours for urgent requirements in London, Manchester, and Bristol areas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What information do you need for IT asset buyback?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Provide device specifications (model, CPU, RAM, storage), quantity, condition, and whether drives are included. We also need to know if data erasure is required and any ROI requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer same-day payment for IT buyback?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we offer same-day BACS payment once assets are verified at our facility. Payment terms can be arranged to match your finance department's requirements."
+          }
+        }
+      ]
     };
     break;
 }
