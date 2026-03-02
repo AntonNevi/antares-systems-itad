@@ -11,22 +11,22 @@
   "lang": "en-GB",
   "icons": [
     {
-      "src": "/favicon_antares.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "/favicon_antares.webp",
+      "sizes": "48x48",
+      "type": "image/webp",
       "purpose": "any"
     },
     {
-      "src": "/favicon_antares.svg",
+      "src": "/favicon_antares.webp",
       "sizes": "192x192",
-      "type": "image/svg+xml",
-      "purpose": "maskable"
+      "type": "image/webp",
+      "purpose": "any maskable"
     },
     {
-      "src": "/favicon_antares.svg",
+      "src": "/favicon_antares.webp",
       "sizes": "512x512",
-      "type": "image/svg+xml",
-      "purpose": "maskable"
+      "type": "image/webp",
+      "purpose": "any maskable"
     }
   ],
   "categories": ["business", "productivity"],
