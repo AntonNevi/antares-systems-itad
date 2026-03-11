@@ -12,45 +12,44 @@ interface Props {
 
 const { title, description, image = '/logo_antares.webp', canonical, type = 'website', schema } = Astro.props;
 
-const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).href;
+const pathname = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const canonicalURL = canonical || new URL(pathname, Astro.site).href;
 const socialImageURL = new URL(image, Astro.site).href;
 
-// Default Organization Schema
-const defaultSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Antares Systems",
-  "alternateName": "Antares Systems ITAD",
-  "description": "London-based ITAD technology partner. Certified to ADISA L2 and Common Criteria EAL3+ standards. End-to-end IT lifecycle management.",
-  "image": "https://antaressystems.net/logo_antares.webp",
-  "telephone": "+44 7774 153420",
-  "email": "info@antaressystems.net",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "CR2 8PD",
-    "addressLocality": "London",
-    "postalCode": "CR2 8PD",
-    "addressCountry": "UK"
+// Default Schema Setup
+const siteName = "Antares Systems";
+const siteUrl = "https://antaressystems.net/";
+
+const defaultSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": siteName,
+    "alternateName": ["Antares Systems ITAD", "Antares"],
+    "url": siteUrl
   },
-  "url": "https://antaressystems.net",
-  "priceRange": "££",
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday"
-    ],
-    "opens": "09:00",
-    "closes": "17:30"
-  },
-  "sameAs": [
-    "https://linkedin.com/company/antares-systems",
-    "https://twitter.com/AntaresSystemsUK"
-  ]
-};
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": siteName,
+    "url": siteUrl,
+    "logo": `${siteUrl}logo_antares.webp`,
+    "image": `${siteUrl}logo_antares.webp`,
+    "description": "London-based ITAD technology partner. Certified to ADISA L2 and Common Criteria EAL3+ standards.",
+    "telephone": "+44 7774 153420",
+    "email": "info@antaressystems.net",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "CR2 8PD",
+      "addressLocality": "London",
+      "addressCountry": "UK"
+    },
+    "sameAs": [
+      "https://linkedin.com/company/antares-systems",
+      "https://twitter.com/AntaresSystemsUK"
+    ]
+  }
+];
 
 const pageSchema = schema || defaultSchema;
 ---
@@ -62,9 +61,11 @@ const pageSchema = schema || defaultSchema;
     <meta name="viewport" content="width=device-width" />
 
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" sizes="192x192" />
-    <link rel="icon" type="image/webp" href="/favicon_antares.webp" />
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="icon" type="image/webp" href="/favicon_antares.webp" sizes="150x150" />
+    <link rel="icon" type="image/svg+xml" href="/favicon_antares.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+    <link rel="shortcut icon" href="/favicon_antares.webp" />
+    <meta name="msapplication-TileImage" content="/favicon_antares.webp" />
     
     <!-- Apple Touch Icon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />

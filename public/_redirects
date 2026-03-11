@@ -2,3 +2,10 @@
 http://antaressystems.net/* https://antaressystems.net/:splat 301!
 http://www.antaressystems.net/* https://antaressystems.net/:splat 301!
 https://www.antaressystems.net/* https://antaressystems.net/:splat 301!
+
+# Enforce Trailing Slash
+/services https://antaressystems.net/services/ 301!
+/compliance https://antaressystems.net/compliance/ 301!
+/contacts https://antaressystems.net/contacts/ 301!
+/privacy-policy https://antaressystems.net/privacy-policy/ 301!
+/terms-of-service https://antaressystems.net/terms-of-service/ 301!

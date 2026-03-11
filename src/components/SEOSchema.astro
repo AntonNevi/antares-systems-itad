@@ -6,52 +6,12 @@ interface Props {
   pageType: SchemaTypes;
 }
 
-let schema = {};
+let schema: any = {};
 
 switch (Astro.props.pageType) {
   case 'homepage':
-    schema = [
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "url": "https://antaressystems.net/",
-        "name": "Antares Systems",
-        "alternateName": "Antares Systems ITAD",
-        "publisher": {
-          "@type": "Organization",
-          "name": "Antares Systems",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://antaressystems.net/logo_antares.webp"
-          }
-        }
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "url": "https://antaressystems.net",
-        "name": "Antares Systems",
-        "alternateName": "Antares Systems ITAD",
-        "logo": "https://antaressystems.net/logo_antares.webp",
-        "description": "London-based ITAD technology partner. Certified to ADISA L2 and Common Criteria EAL3+ standards. End-to-end IT lifecycle management.",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+44-7774-153420",
-          "contactType": "customer service",
-          "areaServed": "GB",
-          "availableLanguage": "English"
-        },
-        "sameAs": [
-          "https://www.linkedin.com/company/antares-systems-ltd",
-          "https://twitter.com/AntaresSystemsUK"
-        ],
-        "hasMap": "https://www.google.com/maps/place/Antares+Systems/@51.5123,-0.1234,14z/",
-        "areaServed": {
-          "@type": "Country",
-          "name": "United Kingdom"
-        }
-      }
-    ];
+    // WebSite and Organization are now handled by BaseLayout defaults
+    schema = null;
     break;
 
   case 'itadAssetRecovery':
@@ -64,7 +24,7 @@ switch (Astro.props.pageType) {
         "@type": "Organization",
         "name": "Antares Systems",
         "alternateName": ["Antares", "Antares Systems ITAD"],
-        "sameAs": "https://antaressystems.net"
+        "sameAs": "https://antaressystems.net/"
       },
       "description": "Corporate IT buyback and bulk computer recycling programs for London, Manchester, and Bristol businesses. Fair market valuation for AI servers, GPU servers, HPC clusters with secure IT asset disposal and certificate of data destruction.",
       "areaServed": {
@@ -138,7 +98,7 @@ switch (Astro.props.pageType) {
         "@type": "Organization",
         "name": "Antares Systems",
         "alternateName": ["Antares", "Antares Systems ITAD"],
-        "sameAs": "https://antaressystems.net"
+        "sameAs": "https://antaressystems.net/"
       },
       "description": "Government-grade secure hard drive destruction with forensic verification. NIST 800-88 compliant data erasure services in London and across UK with HMG IS5 certification and certificate of destruction for GDPR compliance.",
       "areaServed": {
@@ -219,7 +179,7 @@ switch (Astro.props.pageType) {
         "@type": "Organization",
         "name": "Antares Systems",
         "alternateName": ["Antares", "Antares Systems ITAD"],
-        "sameAs": "https://antaressystems.net"
+        "sameAs": "https://antaressystems.net/"
       },
       "description": "Carbon-negative IT disposal and WEEE-compliant computer recycling services in London and across UK. Circular economy ITAD solutions with zero landfill commitment, carbon footprint reporting, and ESG certification for sustainable IT asset disposition.",
       "areaServed": {
@@ -305,7 +265,7 @@ switch (Astro.props.pageType) {
         "@type": "Organization",
         "name": "Antares Systems",
         "alternateName": ["Antares", "Antares Systems ITAD"],
-        "sameAs": "https://antaressystems.net"
+        "sameAs": "https://antaressystems.net/"
       },
       "description": "Secure chain-of-custody ITAD logistics for export IT equipment services from UK to Kazakhstan, Uzbekistan, Middle East, and CIS region. GPS-tracked transport with tamper-evident packaging for bulk laptop export, used servers export, and IT asset disposition projects.",
       "areaServed": {
@@ -391,7 +351,7 @@ switch (Astro.props.pageType) {
         "@type": "Organization",
         "name": "Antares Systems",
         "alternateName": ["Antares", "Antares Systems ITAD"],
-        "sameAs": "https://antaressystems.net"
+        "sameAs": "https://antaressystems.net/"
       },
       "description": "Emergency on-site data destruction services with 4-hour response time in London, Manchester, and Bristol. Witnessed secure hard drive destruction, laptop disposal, and IT asset destruction with immediate NIST 800-88 certification.",
       "areaServed": {
@@ -477,7 +437,7 @@ switch (Astro.props.pageType) {
         "@type": "Organization",
         "name": "Antares Systems",
         "alternateName": ["Antares", "Antares Systems ITAD"],
-        "sameAs": "https://antaressystems.net",
+        "sameAs": "https://antaressystems.net/",
         "description": "Comprehensive IT asset disposition services for London, Manchester, and Bristol businesses. NIST 800-88 compliant ITAD, secure data erasure, corporate IT buyback, and WEEE-compliant IT recycling with full environmental and security compliance."
       },
       "description": "End-to-end ITAD services in London and across the UK. Secure data destruction, IT asset disposal, sustainable IT recycling, corporate hardware buyback, and international export logistics with full NIST 800-88, HMG IS5, and WEEE compliance.",
@@ -579,7 +539,7 @@ switch (Astro.props.pageType) {
       "@type": "Organization",
       "name": "Antares Systems",
       "alternateName": ["Antares", "Antares Systems ITAD"],
-      "url": "https://antaressystems.net/services/compliance",
+      "url": "https://antaressystems.net/services/compliance/",
       "description": "NIST 800-88 and HMG IS5 compliant data destruction provider. ICO registered (ZC094526), waste carrier certified, WEEE compliant ITAD services with secure data erasure, NIST 800-88 audit trails, and IT asset disposal compliance documentation for UK organizations.",
       "address": {
         "@type": "PostalAddress",
@@ -668,7 +628,7 @@ switch (Astro.props.pageType) {
         "addressLocality": "London",
         "addressCountry": "UK"
       },
-      "url": "https://antaressystems.net/contacts",
+      "url": "https://antaressystems.net/contacts/",
       "sameAs": [
         "https://www.linkedin.com/company/antares-systems-ltd",
         "https://twitter.com/AntaresSystemsUK",
@@ -844,4 +804,4 @@ switch (Astro.props.pageType) {
 
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(schema, null, 2)}></script>
+{schema && <script type="application/ld+json" set:html={JSON.stringify(schema, null, 2)}></script>}

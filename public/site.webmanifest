@@ -11,6 +11,12 @@
   "lang": "en-GB",
   "icons": [
     {
+      "src": "/favicon_antares.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
       "src": "/favicon_antares.webp",
       "sizes": "48x48",
       "type": "image/webp",
