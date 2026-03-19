@@ -7,6 +7,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://antaressystems.net',
   trailingSlash: 'always',
+  build: { format: 'directory' },
   output: 'static',
   vite: {
     plugins: [tailwindcss()]
