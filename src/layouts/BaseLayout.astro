@@ -78,7 +78,7 @@ const pageSchema = schema || defaultSchema;
     <meta name="apple-mobile-web-app-title" content="Antares Systems" />
 
     <!-- SEO -->
-    <title>{title} | Antares Systems</title>
+    <title>{title.includes('Antares Systems') ? title : `${title} | Antares Systems`}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
     <link rel="alternate" hreflang="en-GB" href={canonicalURL} />
