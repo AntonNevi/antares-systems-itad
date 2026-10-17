@@ -1,120 +1,117 @@
 ---
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import SEOSchema from '../components/SEOSchema.astro';
-import ServiceCard from '../components/ServiceCard.astro';
-import TrustBar from '../components/TrustBar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Visual from '../components/Visual.astro';
+import { services } from '../data/services';
+import { SITE } from '../data/site';
 
-const services = [
-  {
-    title: "Data Destruction",
-    description: "Certified erasure with audit trails and certificates.",
-    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>`,
-    link: "/services/data-erasure/"
-  },
-  {
-    title: "IT Buyback",
-    description: "Fair-market valuation with free UK-wide collection.",
-    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`,
-    link: "/services/itad-asset-recovery/"
-  },
-  {
-    title: "IT Solutions",
-    description: "End-to-end workplace technology deployment.",
-    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>`,
-    link: "/services/office-it-solutions/"
-  }
+const steps = [
+  { t: 'First conversation', d: 'We discuss what you need: how much, what for and by when. There is no charge for this conversation.' },
+  { t: 'Case summary', d: 'We help you gather what lenders ask for: accounts, property or asset details, and how the finance will be repaid.' },
+  { t: 'Introduction', d: 'With your agreement, we introduce your case to our regulated partner, who advises on and arranges the finance.' },
+  { t: 'Follow-through', d: 'We keep in touch while your case progresses.' },
 ];
 ---
 
 <BaseLayout
-  title="Antares Systems - Secure Data Erasure London & ADISA Certified ITAD"
-  description="ADISA L2 and Common Criteria EAL3+ certified data erasure. NIST 800-88 compliant ITAD services for London, Manchester, Bristol. Get forensic verification and legal-grade certificates."
+  title="Business Finance Solutions & IT Buyback | Antares Systems"
+  description="Business finance introductions for UK limited companies, SPVs and property investors: property, buy-to-let, CAPEX and working capital. Plus IT buyback."
 >
-  <SEOSchema pageType="homepage" />
-  <Header />
-  <main>
-    <!-- Hero Section -->
-    <section class="relative py-10 md:py-16 bg-slate-900 border-b border-slate-800 overflow-hidden">
-      <!-- Background Grid -->
-      <div class="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5 pointer-events-none"></div>
-
-      <div class="container mx-auto px-6 relative z-10 text-center max-w-5xl">
-         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 backdrop-blur-sm shadow-sm mb-8 animate-fade-in-up">
-            <span class="w-2 h-2 bg-success-eco rounded-full animate-ping"></span>
-            <span class="text-xs font-bold text-slate-300 uppercase tracking-widest">London's Trusted ITAD Partner</span>
-          </div>
-
-        <h1 class="text-4xl lg:text-6xl font-bold text-white leading-tight mb-8 animate-fade-in-up delay-100">
-          Secure IT Asset Buyback & <br />
-          Certified <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Data Erasure</span> in London
-        </h1>
-
-        <p class="text-xl text-slate-400 leading-relaxed font-light mb-12 max-w-3xl mx-auto animate-fade-in-up delay-200">
-          Certified Data Destruction, data wiping, certified IT recycling, and sustainable hardware buyback for UK businesses. Enterprise-grade security meets circular economy.
-        </p>
-
-      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
-        <a href="/services/" class="px-8 py-4 rounded-lg border border-slate-600 text-slate-300 hover:text-white hover:border-slate-500 hover:bg-white/5 font-semibold transition-all flex items-center justify-center gap-2">
-          Our Services
-        </a>
-      </div>
-      </div>
-    </section>
-
-    <!-- Trust Indicators -->
-    <section class="border-b border-slate-100 bg-white py-10 shadow-sm relative z-20">
-      <div class="container mx-auto px-6">
-        <TrustBar variant="default" />
-      </div>
-    </section>
-
-    <!-- Company Overview -->
-    <section class="py-20 bg-slate-50">
-      <div class="container mx-auto px-6 max-w-4xl text-center">
-        <h2 class="text-3xl font-bold text-slate-900 mb-6">Company Overview</h2>
-        <p class="text-xl text-slate-600 leading-relaxed">
-          London-based ITAD and workplace technology partner. Certified data erasure to ADISA L2 and Common Criteria EAL3+ standards. End-to-end IT lifecycle management — from secure asset recovery and forensic wiping to complete office technology deployment. We protect your data, maximise your returns, and build the infrastructure your teams need to perform.
-        </p>
-      </div>
-    </section>
-
-    <!-- Core Services -->
-    <section class="py-20 bg-white">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-slate-900">Core Services</h2>
-        </div>
-        <div class="grid md:grid-cols-3 gap-8">
-          {services.map(service => (
-            <ServiceCard {...service} linkText="View Details" />
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- International Operations -->
-    <section class="py-20 bg-slate-900 text-white relative overflow-hidden">
-      <!-- Decorator -->
-      <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-white/5 skew-x-12 transform translate-x-20"></div>
-
-      <div class="container mx-auto px-6 relative z-10">
-        <div class="max-w-4xl mx-auto text-center">
-          <div class="flex items-center justify-center gap-3 mb-4 text-primary font-bold tracking-wide uppercase text-sm">
-             <span class="w-8 h-0.5 bg-primary"></span>
-             International Operations
-          </div>
-          <h2 class="text-4xl font-bold mb-6">Global Reach: Export & Logistics</h2>
-          <p class="text-slate-300 text-lg mb-8 leading-relaxed">
-            UK-based ITAD provider exporting bulk refurbished enterprise equipment to world markets. International compliance documentation for cross-border equipment transfers and asset recovery programs.
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Business Finance Solutions</span>
+          <h1>Business Finance Solutions &amp; IT Asset Buyback</h1>
+          <p class="lead">
+            We help UK limited companies and property investors present their funding needs clearly, and introduce them to specialist lenders through our regulated partner. We also buy surplus business IT equipment.
           </p>
-          <a href="/services/secure-logistics/" class="btn-primary inline-flex items-center gap-2">
-            Export Capabilities <span aria-hidden="true">&rarr;</span>
-          </a>
+          <div class="actions">
+            <a class="btn btn-primary" href="/contacts/">Discuss your funding</a>
+            <a class="btn btn-secondary" href="/services/">Explore our services</a>
+          </div>
+        </div>
+        <div class="art-box"><Visual name="hero" eager /></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="strip">
+      <div><strong>ICO registered</strong>Registration {SITE.ico}</div>
+      <div><strong>Insured</strong>Public liability and professional indemnity</div>
+      <div><strong>UK company</strong>Registered in England and Wales, no. {SITE.companyNo}</div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What we do</span>
+        <h2>Four areas of business finance and one IT service</h2>
+      </div>
+      <div class="tiles">
+        {services.map((s) => (
+          <article class="tile">
+            <span class="label">{s.label}</span>
+            <h3><a href={`/services/#${s.id}`}>{s.title}</a></h3>
+            <p>{s.tile}</p>
+            <span class="more" aria-hidden="true">Read more &rarr;</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How an introduction works</span>
+        <h2>From first conversation to lender</h2>
+      </div>
+      <div class="steps">
+        {steps.map((s, i) => (
+          <div class="step">
+            <span class="n">{i + 1}</span>
+            <h3>{s.t}</h3>
+            <p>{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Why work with us</span>
+        <h2>Prepared on the borrower's side first</h2>
+      </div>
+      <div class="why">
+        <div>
+          <h3>Borrower-side experience</h3>
+          <p>Our director spent more than ten years raising and managing debt inside a large group of companies. We know what lenders look for because we have sat on your side of the table.</p>
+        </div>
+        <div>
+          <h3>Well-prepared cases</h3>
+          <p>A clear summary of your business and your request saves time and avoids surprises later.</p>
+        </div>
+        <div>
+          <h3>Transparency</h3>
+          <p>We tell you how we are paid before you proceed.</p>
         </div>
       </div>
-    </section>
-  </main>
-  <Footer />
+    </div>
+  </section>
+
+  <section class="section section--ink">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Planning a purchase, refinance or expansion?</h2>
+          <p>Tell us what you need and we will come back to you with next steps.</p>
+        </div>
+        <a class="btn btn-inverse" href="/contacts/">Contact us</a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

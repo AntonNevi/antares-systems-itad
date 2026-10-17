@@ -1,100 +1,43 @@
 ---
-import ContactForm from '../components/ContactForm.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import SEOSchema from '../components/SEOSchema.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { SITE } from '../data/site';
 ---
+
 <BaseLayout
-  title="Contact ITAD London | Get Quote for Data Erasure & IT Asset Disposal"
-  description="Contact Antares Systems for certified ITAD services. Same-day response for data erasure quotes, IT asset buyback, office IT solutions. London, Manchester, Bristol. Call +44 7774 153420 or email info@antaressystems.net"
+  title="Contact Antares Systems | Business Finance & IT Buyback"
+  description="Contact Antares Systems in London about finance for your company or SPV, or about selling surplus business IT equipment. We respond promptly."
+  type="ContactPage"
+  crumb="Contact"
 >
-  <SEOSchema pageType="contacts" />
-  <SEOSchema pageType="contactsFAQ" />
-  <Header />
-  <main class="bg-slate-50 min-h-screen w-full max-w-full overflow-x-hidden">
-    <!-- Hero Section - Unified height and spacing with compliance page -->
-    <div class="bg-slate-900 py-12 md:py-16 text-center text-white border-b border-slate-800 min-h-[240px] sm:min-h-[260px] md:min-h-[280px] flex items-center">
-      <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
-        <span class="inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-4">Start Your Project</span>
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Ready to Secure Your Data?</h1>
-        <p class="text-lg sm:text-xl text-slate-400">Professional secure IT lifecycle management, UK-wide. Certified data erasure with government-grade assurance. Secure chain-of-custody from collection to certified asset recovery.</p>
-      </div>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Contact</span>
+      <h1>Contact us</h1>
+      <p class="lead">Tell us briefly what you need and we will respond promptly.</p>
     </div>
+  </section>
 
-    <!-- Content Section - Unified spacing with compliance page -->
-    <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12 mt-8 sm:mt-12 relative z-10 max-w-6xl">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-        <!-- Contact Info & Commitments -->
-        <div class="space-y-6 sm:space-y-8">
-          <!-- Operating Base -->
-          <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
-            <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-              <span class="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center text-lg">📍</span>
-              ITAD Services London & UK Coverage
-            </h2>
-            <p class="text-slate-600 leading-relaxed">
-              London-based secure IT lifecycle management. ADISA L2 and Common Criteria EAL3+ certified data erasure. NIST 800-88 and IEEE 2883-2022 compliant processing. Serving UK enterprises and international markets with verified chain-of-custody, from secure collection to certified asset recovery.
-            </p>
-          </div>
-
-          <!-- Direct Contact -->
-          <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
-            <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-              <span class="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center text-lg">📞</span>
-              Secure ITAD Contact Details
-            </h2>
-            <ul class="space-y-4 text-left">
-              <li class="flex items-start gap-4">
-                <span class="text-slate-400 w-6 flex-shrink-0">✉️</span>
-                <a href="mailto:info@antaressystems.net" class="text-base sm:text-lg font-medium text-primary hover:underline break-all">info@antaressystems.net</a>
-              </li>
-              <li class="flex items-center gap-4">
-                <span class="text-slate-400 w-6 flex-shrink-0">📱</span>
-                <span class="text-base sm:text-lg font-medium text-slate-700">+44 7774 153 420</span>
-              </li>
-              <li class="flex items-center gap-4">
-                <span class="text-slate-400 w-6 flex-shrink-0">💼</span>
-                <a href="https://www.linkedin.com/in/anton-nevinnykh-2a668a105/" class="text-slate-600 hover:text-primary transition-colors text-sm sm:text-base" target="_blank" rel="noopener noreferrer">LinkedIn for private discussions</a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Service Commitments -->
-          <div class="bg-slate-900 text-white p-6 sm:p-8 rounded-2xl shadow-md border border-slate-800">
-            <h2 class="text-xl font-bold mb-6 text-white border-b border-slate-800 pb-4">Our Services</h2>
-            <ul class="space-y-4">
-              <li class="flex items-start gap-4">
-                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold">🛡️</div>
-                <div>
-                  <strong class="block text-white">Data Erasure</strong>
-                  <span class="text-sm text-slate-400">ADISA L2 and Common Criteria EAL3+ certified wiping. Forensic verification with legal-grade certificates and complete chain-of-custody documentation.</span>
-                </div>
-              </li>
-              <li class="flex items-start gap-4">
-                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold">💻</div>
-                <div>
-                  <strong class="block text-white">IT Buyback</strong>
-                  <span class="text-sm text-slate-400">Maximum recovery value for enterprise hardware. AI servers, edge nodes, workstations — fair-market valuation with secure UK-wide collection.</span>
-                </div>
-              </li>
-              <li class="flex items-start gap-4 pt-2">
-                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold">💼</div>
-                <div>
-                  <strong class="block text-white">IT Solutions</strong>
-                  <span class="text-sm text-slate-400">End-to-end workplace technology deployment. Hardware procurement, software licensing, professional installation — delivered as a service.</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Inquiry Form -->
+  <section class="section">
+    <div class="wrap">
+      <div class="contact-grid">
         <div>
-          <ContactForm />
+          <h2>Direct details</h2>
+          <dl class="details" style="margin-top: 24px">
+            <div><dt>Email</dt><dd><a href={`mailto:${SITE.email}`}>{SITE.email}</a></dd></div>
+            <div><dt>Telephone</dt><dd><a href={`tel:${SITE.phone}`}>{SITE.phoneDisplay}</a></dd></div>
+            <div><dt>LinkedIn</dt><dd><a href={SITE.linkedin} target="_blank" rel="noopener noreferrer">Anton Nevinnykh</a></dd></div>
+            <div><dt>Based in</dt><dd>London, United Kingdom</dd></div>
+          </dl>
+          <p class="small" style="margin-top: 32px; color: var(--color-muted)">
+            We work with UK limited companies, LLPs and special purpose vehicles. For finance, we introduce you to our regulated partner and do not give advice.
+          </p>
+        </div>
+        <div>
+          <h2>Send an enquiry</h2>
+          <div style="margin-top: 24px"><ContactForm /></div>
         </div>
       </div>
     </div>
-  </main>
-  <Footer />
+  </section>
 </BaseLayout>

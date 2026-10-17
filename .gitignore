@@ -95,3 +95,10 @@ out/
 
 # For documentation
 /docs/
+# Local agent/MCP config containing API keys - never commit
+.kilocode/mcp.json
+.env
+.env.*
+
+# macOS
+.DS_Store

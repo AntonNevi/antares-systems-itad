@@ -1,136 +1,75 @@
 ---
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import SEOSchema from '../components/SEOSchema.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-// Main hub service overview links to spoke pages
-const serviceSections = [
-  {
-    id: "certified-erasure",
-    title: "Certified Data Erasure",
-    subtitle: "Forensically verified data erasure. Certified to ADISA L2 and Common Criteria EAL3+ standards. Full NIST 800-88 and IEEE 2883-2022 compliance.",
-    content: "Enterprise-grade data security, built on certified assurance. From single drives to full data centres, we erase to the standard that defence and government trust. ADISA L2. Common Criteria EAL3+. NCSC recognised. Across London, Manchester, Bristol — wherever your assets are.",
-    icon: "🛡️",
-    link: "/services/data-erasure/",
-    cta: "Learn More",
-    features: ["ADISA L2", "Common Criteria EAL3+", "NIST 800-88", "Chain-of-Custody Guaranteed", "Forensic Audit Trail"]
-  },
-  {
-    id: "itad-asset-recovery",
-    title: "IT Asset Buyback",
-    subtitle: "Maximize recovery value for corporate IT assets. Coverage for London area businesses expanding to Manchester, Bristol. Fair-market valuation, secure collection, same-day payment.",
-    content: "Corporate IT buyback and bulk computer recycling programs. Fair market valuation for AI servers, GPU servers, HPC clusters, and edge computing nodes with UK-wide secure collection and same-day payment.",
-    icon: "💻",
-    link: "/services/itad-asset-recovery/",
-    cta: "Learn More",
-    features: ["GPU Server Resale", "Enterprise Hardware Buyback", "Bulk Computer Recycling", "HPC Cluster Disposal", "Same-Day Payment"]
-  },
-  {
-    id: "office-it-solutions",
-    title: "Office IT Solutions",
-    subtitle: "End-to-end workplace technology deployment. Hardware procurement, software licensing, professional installation, ongoing support — delivered as a service.",
-    content: "Comprehensive workplace technology solutions for modern businesses. From initial hardware procurement and software licensing to professional installation and ongoing technical support, we deliver complete IT infrastructure as a managed service.",
-    icon: "💼",
-    link: "/services/office-it-solutions/",
-    cta: "Learn More",
-    features: ["Hardware Procurement", "Software Licensing", "Professional Installation", "Ongoing Support", "Managed Service"]
-  },
-  {
-    id: "secure-logistics",
-    title: "Secure Logistics",
-    subtitle: "GPS-tracked, secure IT asset transport with international export capabilities. Refurbished laptop and server export from UK to Kazakhstan, Uzbekistan, CIS region, and Middle East.",
-    content: "Secure ITAD logistics for bulk laptop export, used servers export, and international IT equipment shipping. Chain-of-custody documentation for export IT equipment to emerging markets with UK nationwide collection.",
-    icon: "🚚",
-    link: "/services/secure-logistics/",
-    cta: "Learn More",
-    features: ["Bulk Laptop Export", "Used Servers Export", "International IT Shipping", "Export Documentation", "GPS-Tracked Transport"]
-  },
-  {
-    id: "onsite-services",
-    title: "On-Site Services",
-    subtitle: "Emergency on-site data destruction with 4-hour deployment. Witnessed IT asset disposal, secure shredding, and bulk computer recycling at your London, Manchester, or Bristol premises.",
-    content: "On-site data destruction and emergency IT disposal services across the UK. 4-hour deployment for secure media sanitization, laptop disposal, and immediate IT asset destruction with certification and audit trail.",
-    icon: "🏢",
-    link: "/services/onsite-services/",
-    cta: "Learn More",
-    features: ["4-Hour Deployment", "Emergency Data Wiping", "Witnessed Destruction", "On-Site Server Disposal", "Immediate Certification"]
-  }
-];
+import Visual from '../components/Visual.astro';
+import { serviceNodes } from '../data/seo';
+import { services } from '../data/services';
+import { RISK_NOTICE } from '../data/site';
 ---
 
 <BaseLayout
-  title="ITAD Services London | Certified Data Destruction & IT Asset Disposal UK"
-  description="Comprehensive ITAD services in London, Manchester, Bristol. ADISA L2 certified data erasure, secure IT asset disposal, corporate buyback, office IT solutions. NIST 800-88 compliant with full chain-of-custody."
+  title="Business Finance and IT Buyback Services | Antares Systems"
+  description="Property finance, SPV buy-to-let, CAPEX and working capital for UK businesses, introduced through a regulated partner. Plus IT buyback with data erasure."
+  crumb="Services"
+  schema={serviceNodes()}
 >
-  <SEOSchema pageType="servicesHub" />
-  <Header />
-  <main class="bg-slate-50">
-    <div class="bg-slate-900 py-12 md:py-16 text-center text-white border-b border-slate-800 min-h-[240px] sm:min-h-[260px] md:min-h-[280px] flex items-center">
-      <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">ITAD Cluster Services</h1>
-        <p class="text-lg sm:text-xl text-slate-400">
-          Secure ITAD services in London, Manchester, Bristol with IT asset disposal, certified data erasure, WEEE-compliant IT recycling, and corporate IT buyback programs for regulated industries.
-        </p>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Services</span>
+      <h1>Business finance and IT asset buyback</h1>
+      <p class="lead">
+        Business finance for UK limited companies, LLPs and property investors, and IT asset buyback for businesses. For finance, we introduce you to our regulated partner. We do not give advice or arrange finance ourselves.
+      </p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    {services.map((s, i) => (
+      <section class="service" id={s.id} aria-labelledby={`${s.id}-title`}>
+        <div class:list={['service-grid', { flip: i % 2 === 1 }]}>
+          <div>
+            <span class="eyebrow">{s.label}</span>
+            <h2 id={`${s.id}-title`}>{s.title}</h2>
+            <p class="summary">{s.summary}</p>
+
+            {s.uses.length > 0 && (
+              <>
+                <span class="label">{s.usesTitle}</span>
+                <ul class="uses">{s.uses.map((u) => <li>{u}</li>)}</ul>
+              </>
+            )}
+            {s.steps && (
+              <>
+                <span class="label">{s.usesTitle}</span>
+                <ol class="numbered">{s.steps.map((u) => <li>{u}</li>)}</ol>
+              </>
+            )}
+
+            <dl class="facts">
+              {s.rows.map((r) => (
+                <div>
+                  <dt>{r.k}</dt>
+                  <dd>{r.v}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+          <div class="art-box"><Visual name={s.art} eager={i === 0} /></div>
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="measure">
+        <div class="notice">
+          <strong>Important information</strong>
+          {RISK_NOTICE}
+        </div>
+        <div class="actions" style="margin-top: 32px">
+          <a class="btn btn-primary" href="/contacts/">Discuss your funding</a>
+        </div>
       </div>
     </div>
-
-    <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12 mt-8 sm:mt-12 relative z-10 max-w-6xl">
-      <div class="space-y-16 sm:space-y-24">
-        {serviceSections.map((service, index) => (
-          <section id={service.id} class={`flex flex-col md:flex-row gap-8 sm:gap-12 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-            <div class="flex-1 bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow group w-full">
-              <a href={service.link} class="block">
-                <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-3xl mb-6 text-primary group-hover:bg-primary/20 transition-colors">
-                  {service.icon}
-                </div>
-                <h2 class="text-3xl font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">{service.title}</h2>
-                <h3 class="text-lg font-semibold text-primary mb-4">{service.subtitle}</h3>
-                <p class="text-slate-600 leading-relaxed mb-8">
-                  {service.content}
-                </p>
-
-                <div class="grid grid-cols-2 gap-4 mb-6">
-                  {service.features.map(feature => (
-                    <div class="flex items-center gap-2 text-sm font-medium text-slate-700">
-                      <span class="w-1.5 h-1.5 bg-success-eco rounded-full"></span>
-                      {feature}
-                    </div>
-                  ))}
-                </div>
-
-                <div class="text-right">
-                  <span class="inline-block px-4 py-2 border border-primary text-primary rounded-lg group-hover:bg-primary group-hover:text-white transition-colors">
-                    {service.cta} &rarr;
-                  </span>
-                </div>
-              </a>
-            </div>
-
-            <!-- Image Block -->
-            <div class="flex-1 w-full rounded-3xl overflow-hidden group hover:shadow-2xl shadow-xl transition-all duration-300">
-              <div class="w-full h-full flex items-center justify-center transform transition-transform duration-700 group-hover:scale-105">
-              <img
-                src={service.id === "certified-erasure" ? "/Secure_data.png" :
-                     service.id === "itad-asset-recovery" ? "/IT_asset.png" :
-                     service.id === "office-it-solutions" ? "/IT_solutions.png" :
-                     service.id === "secure-logistics" ? "/International.png" :
-                     "/Onsite.png"}
-                alt={service.id === "certified-erasure" ? "Secure hard drive destruction and NIST 800-88 compliant data erasure services for IT asset disposal in London and across UK" :
-                     service.id === "itad-asset-recovery" ? "IT asset buyback and bulk computer recycling program - Corporate IT valuation and enterprise equipment buyback with fair market pricing" :
-                     service.id === "office-it-solutions" ? "Office IT solutions - End-to-end workplace technology deployment, hardware procurement, software licensing, professional installation and ongoing support" :
-                     service.id === "secure-logistics" ? "Secure ITAD logistics and international IT equipment export to Kazakhstan, Uzbekistan, Middle East and CIS region with chain-of-custody documentation" :
-                     "On-site data destruction and emergency IT disposal services with 4-hour deployment for secure media sanitization and witnessed destruction at client premises"}
-                loading="lazy"
-                decoding="async"
-                class="w-full h-auto object-cover rounded-2xl"
-              />
-              </div>
-            </div>
-          </section>
-        ))}
-      </div>
-    </div>
-  </main>
-  <Footer />
+  </section>
 </BaseLayout>

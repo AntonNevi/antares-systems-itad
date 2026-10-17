@@ -1,0 +1,28 @@
+---
+// One picture slot: public/img/<name>.webp (1200x900) with <name>-800.webp for small screens.
+// See SITE_STANDARDS.md 5.5.
+type Name = 'property' | 'btl' | 'capex' | 'working-capital' | 'it' | 'hero';
+interface Props { name: Name; eager?: boolean }
+const { name, eager = false } = Astro.props;
+
+const ALT: Record<Name, string> = {
+  hero: 'City office buildings at dusk with warm light in the windows',
+  property: 'Commercial office building at dusk',
+  btl: 'Terrace of townhouses on a quiet residential street',
+  capex: 'Business equipment and a commercial vehicle in a clean workshop',
+  'working-capital': 'Ledger, pen and invoices on a desk under a lamp',
+  it: 'Business laptops and a server rack in a clean room',
+};
+---
+
+<img
+  src={`/img/${name}.webp`}
+  srcset={`/img/${name}-800.webp 800w, /img/${name}.webp 1200w`}
+  sizes="(min-width: 1024px) 560px, 100vw"
+  width="1200"
+  height="900"
+  alt={ALT[name]}
+  loading={eager ? 'eager' : 'lazy'}
+  decoding="async"
+  fetchpriority={eager ? 'high' : undefined}
+/>

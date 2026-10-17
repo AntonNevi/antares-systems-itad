@@ -1,1 +1,2 @@
 lways execute terminal commands for project setup without asking for confirmation
+Read SITE_STANDARDS.md before any change. It is the only source for facts, wording, design tokens and technology. Never add claims that are not listed there.

@@ -1,54 +1,49 @@
 ---
-const currentYear = new Date().getFullYear();
+import { SITE, STATUS_SHORT } from '../data/site';
+const year = new Date().getFullYear();
 ---
 
-<footer class="bg-slate-900 text-slate-300 pt-12 pb-8 border-t border-slate-800">
-  <div class="container mx-auto px-6 grid md:grid-cols-4 gap-12 mb-12">
-    <div class="space-y-4">
-      <p class="text-sm text-slate-400 leading-relaxed">
-        London-based ITAD provider delivering compliant asset disposal, secure data destruction, and international remarketing.
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/logo_antares_light.svg" alt="Antares Systems" width="166" height="46" />
+        <p>Business finance solutions for UK limited companies and property investors, and IT asset buyback.</p>
+      </div>
+      <div>
+        <p class="f-title">Services</p>
+        <ul>
+          <li><a href="/services/#property-finance">Property finance</a></li>
+          <li><a href="/services/#buy-to-let-spv">Buy-to-let for SPVs</a></li>
+          <li><a href="/services/#capex-finance">CAPEX finance</a></li>
+          <li><a href="/services/#working-capital">OPEX and working capital</a></li>
+          <li><a href="/services/#it-asset-buyback">IT asset buyback</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="f-title">Company</p>
+        <ul>
+          <li><a href="/history/">History</a></li>
+          <li><a href="/contacts/">Contact</a></li>
+          <li><a href="/privacy-policy/">Privacy policy</a></li>
+          <li><a href="/terms-of-service/">Terms of use</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="f-title">Contact</p>
+        <ul>
+          <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+          <li><a href={`tel:${SITE.phone}`}>{SITE.phoneDisplay}</a></li>
+          <li>London, United Kingdom</li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p>{STATUS_SHORT}</p>
+      <p>
+        &copy; {year} {SITE.legalName}. Registered in England and Wales, company no. {SITE.companyNo}. Registered office: {SITE.address.join(', ')}.
+        VAT no. {SITE.vat.replace('GB', 'GB ')}. ICO registration {SITE.ico}.
       </p>
-    </div>
-
-    <!-- Quick Links -->
-    <div>
-      <h3 class="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Services</h3>
-      <ul class="space-y-2 text-sm">
-        <li><a href="/services/data-erasure/" class="hover:text-primary transition-colors" title="NIST 800-88 Certified Data Erasure Services">Data Destruction</a></li>
-        <li><a href="/services/itad-asset-recovery/" class="hover:text-primary transition-colors" title="IT Asset Disposition and Corporate Buyback Program">IT Asset Buyback</a></li>
-        <li><a href="/services/office-it-solutions/" class="hover:text-primary transition-colors" title="Office IT Solutions - Workplace Technology Deployment">Office IT Solutions</a></li>
-        <li><a href="/services/secure-logistics/" class="hover:text-primary transition-colors" title="GPS-Tracked Secure Logistics and Nationwide Transport">Secure Logistics</a></li>
-        <li><a href="/services/onsite-services/" class="hover:text-primary transition-colors" title="On-Site Data Destruction and Witnessed Asset Disposal">On-Site Services</a></li>
-      </ul>
-    </div>
-
-    <!-- Compliance -->
-    <div>
-      <h3 class="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Compliance</h3>
-      <ul class="space-y-2 text-sm">
-        <li><a href="/compliance/" class="hover:text-primary transition-colors" title="Government-Grade ITAD Compliance Standards - NIST, HMG IS5, GDPR, WEEE">Compliance Overview</a></li>
-        <li><span class="text-slate-500 block">Data Protection Registration Certificate: ZC094526</span></li>
-        <li><span class="text-slate-500 block">ADISA L2 Certified/Common Criteria/NIST 800-88</span></li>
-        <li><span class="text-slate-500 block">WEEE Compliant</span></li>
-      </ul>
-    </div>
-
-    <!-- Contact -->
-    <div>
-      <h3 class="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Contact</h3>
-      <ul class="space-y-2 text-sm">
-        <li><a href="/contacts/" class="hover:text-primary transition-colors" title="Contact Antares Systems for Secure IT Asset Disposition Services">Contact Us</a></li>
-        <li><a href="mailto:info@antaressystems.net" class="hover:text-primary transition-colors" title="Email Antares Systems for ITAD Consultations">info@antaressystems.net</a></li>
-        <li class="text-slate-500">London, United Kingdom</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="container mx-auto px-6 pt-8 border-t border-slate-800 text-xs text-slate-500 flex flex-col md:flex-row justify-between items-center gap-4">
-    <p>&copy; {currentYear} Antares Systems Ltd. All rights reserved. Registered in England & Wales.</p>
-    <div class="flex gap-6">
-      <a href="/privacy-policy/" class="hover:text-white" title="Antares Systems Privacy Policy - Data Protection and GDPR Compliance">Privacy Policy</a>
-      <a href="/terms-of-service/" class="hover:text-white" title="Antares Systems Terms of Service - IT Asset Disposition Agreement">Terms of Service</a>
     </div>
   </div>
 </footer>
