@@ -30,3 +30,6 @@ https://:version.:project.pages.dev/*
 
 /og-image.jpg
   Cache-Control: public, max-age=86400
+
+/og/*
+  Cache-Control: public, max-age=86400

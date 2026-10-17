@@ -75,7 +75,7 @@ Fill the placeholders only from the signed agreement. The principal must approve
 > Antares Systems Ltd is not authorised or regulated by the Financial Conduct Authority. We introduce business
 > customers to [Principal], which is authorised and regulated by the FCA (FRN [number]).
 
-**Always add (services page, footer short form):**
+**Always add (every finance page, footer short form):**
 > We do not give advice or arrange finance. Some buy-to-let and commercial finance is not regulated by the FCA.
 > All finance is subject to status and lender criteria. Any property or asset used as security may be at risk if
 > repayments are not made. We may receive a fee or commission from our partner or a lender, and we will tell you
@@ -90,19 +90,20 @@ registered office address, ICO number.
 
 | Page | URL | Purpose |
 |---|---|---|
-| Home | `/` | Position, five services, how an introduction works, why us |
-| Services | `/services/` | Five services with anchors: `#property-finance`, `#buy-to-let-spv`, `#capex-finance`, `#working-capital`, `#it-asset-buyback` |
+| Home | `/` | Position, four service tiles, how an introduction works, why us |
+| Property finance | `/property-finance/` | Commercial mortgages, bridging, refurbishment, refinancing. Target: commercial property finance searches |
+| Buy-to-let | `/buy-to-let/` | Limited-company and SPV buy-to-let only. Target: limited company / SPV buy-to-let searches |
+| CAPEX & OPEX | `/capex-opex-finance/` | Asset finance (CAPEX); OPEX limited to three types: invoice finance, revolving credit facilities, business loans (secured and unsecured) |
+| IT asset buyback | `/it-asset-buyback/` | IT buyback with data erasure. Lowest commercial priority |
 | History | `/history/` | One short block, "Our history" |
 | Contact | `/contacts/` | Form and direct details |
 | Privacy policy | `/privacy-policy/` | UK GDPR notice |
 | Terms of use | `/terms-of-service/` | Website terms |
 
-Header navigation: Services · History · Contact, plus button "Discuss your funding".
+Header navigation: Property finance · Buy-to-let · CAPEX & OPEX · IT asset buyback · History · Contact, plus button "Discuss your funding" (button shown from 1200px wide). There is no Services page or tab. The four service pages share one template (`src/pages/[slug].astro`) fed by `src/data/services.ts`; add or change page copy there.
 
-**Redirects (301):** `/services/data-erasure/` and `/services/itad-asset-recovery/` → `/services/#it-asset-buyback`;
-`/services/office-it-solutions/`, `/services/secure-logistics/`, `/services/onsite-services/` → `/services/`;
-`/compliance/` and `/regulatory/` → `/services/` (the Regulatory page was removed on 17 Oct 2026).
-The FCA status line stays in the footer of every page and the "Important information" box stays on the Services page.
+**Redirects (301):** `/services/` → `/it-asset-buyback/` (Google indexed it as "ITAD Services London"); every old IT disposal URL (`/services/data-erasure/`, `/services/itad-asset-recovery/`, `/services/buyback/`, `/services/data-destruction/`, `/services/hardware-refurbishment/`, `/services/it-recycling/` and the other old `/services/*` pages, `/products*`) → `/it-asset-buyback/`; `/compliance/` and `/regulatory/` → `/property-finance/`. Full list in `public/_redirects`.
+The FCA status line stays in the footer of every page and the "Important information" box appears on each of the three finance pages (not on the IT page).
 
 ---
 
@@ -166,8 +167,8 @@ Retired: `#10bb82` green, `#9E9E9E` grey, `#0081CC`, `#004AAD` blue (too bright)
 - **Header:** white, 80px high, 1px bottom rule; logo left; nav right in Source Sans 3 600 16px; primary button at far right. Sticky with the safe-area rule. Mobile: menu button opens a full-width panel.
 - **Buttons:** primary = `--blue` fill, white text, 48px high, 24px side padding, 2px radius; hover `--blue-deep`. Secondary = 1px `--ink` outline, ink text. Text in sentence case. One primary button per view.
 - **Links:** `--blue`, underline offset 3px, always underlined in body text.
-- **Service panel:** two columns of equal width (text 6 cols, picture 6 cols), alternating sides; picture box fixed at 4:3; text block vertically centred. Same padding (48px) on every panel.
-- **Service tile (home):** equal-height tiles in a 3 + 2 grid, hairline border, label, title (H3), one sentence, "Read more" link. No icons.
+- **Service page:** hero with H1, lead and a 4:3 picture; then one band per topic (heading in the left third, content in the right two thirds, bands alternate white and porcelain), FAQ as visible text (no FAQ markup), how an introduction works with the risk box (finance pages), related-service tiles, ink CTA band. Each page has exactly one H1 and its own title and description.
+- **Service tile (home):** equal-height tiles in a 2 × 2 grid (three across on the related-services row of each service page), hairline border, label, title (H3), one sentence, "Read more" link. No icons.
 - **Steps:** numbered 1–4 in Newsreader 500 at 34px, gold hairline above each step. Only for real sequences.
 - **History:** one prose block under the heading "Our history", no stages.
 - **Trust strip:** one line of three facts separated by thin vertical rules, `--muted` text, no badges.
@@ -231,8 +232,9 @@ text contrast 4.5:1 minimum; forms with labels and error messages; links that ma
 - **Titles:** `Page topic | Antares Systems`, 60 characters or fewer, unique per page. Home: "Business Finance Solutions & IT Buyback | Antares Systems".
 - **Descriptions:** 120 to 155 characters, unique per page, "introduce" wording only, no promises of approval, rates or speed.
 - **Head (BaseLayout):** canonical URL with trailing slash on every indexable page; `robots` meta (`index, follow, max-image-preview:large`); `noindex` and no canonical on 404; Open Graph and Twitter tags with `public/og-image.jpg` (1200×630); preload of the two Latin font files; icons and manifest.
-- **Structured data:** every indexable page carries `Organization` (name, legal name, logo `public/logo_antares.png`, contact details, registered office, Companies House number and link), `Person` (the director, with LinkedIn), `WebSite` (site name "Antares Systems"), the page itself (`WebPage`, `AboutPage` or `ContactPage`) and a `BreadcrumbList` (except the home page). The services page adds one `Service` per service. Never add ratings, reviews, FAQ markup, certifications, prices or anything implying Antares Systems Ltd is FCA-regulated. Leave out the VAT number until it is confirmed.
+- **Structured data:** every indexable page carries `Organization` (name, legal name, logo `public/logo_antares.png`, contact details, registered office, Companies House number and link), `Person` (the director, with LinkedIn), `WebSite` (site name "Antares Systems"), the page itself (`WebPage`, `AboutPage` or `ContactPage`) and a `BreadcrumbList` (except the home page). Each service page adds one `Service` node for its own service. The service page's `WebPage` points to that node with `about` and `mainEntity`. Never add ratings, reviews, FAQ markup, certifications, prices or anything implying Antares Systems Ltd is FCA-regulated. Leave out the VAT number until it is confirmed.
 - **Headings:** one H1 per page; H2 and H3 in order; service names in H2.
+- **Service pages:** one target search phrase per page, used in the title, H1, first paragraph and at least one H2. Titles stay under about 580px wide (60 characters); descriptions 120–160 characters. A visible breadcrumb (Home / page) matches the `BreadcrumbList`. Each page links to the related pages in its body text with descriptive anchor text (written `[anchor text](/path/)` in `src/data/services.ts`) and in the related-services tiles. Each page has its own share image in `public/og/<slug>.jpg` (1200×630, cropped from its picture); other pages use `og-image.jpg`.
 - **Sitemap:** generated by `@astrojs/sitemap` at `/sitemap-index.xml` (404 excluded). Update `LASTMOD` in `astro.config.mjs` when page content changes. `/sitemap.xml` redirects to it.
 - **robots.txt:** allow everything, point to the sitemap. Nothing else.
 - **Redirects:** every retired URL from the old site has a 301 in `public/_redirects` to the closest current page. Cloudflare adds trailing slashes itself (308); do not add rules for that.

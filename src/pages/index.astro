@@ -1,20 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Visual from '../components/Visual.astro';
-import { services } from '../data/services';
+import { pages, INTRO_STEPS } from '../data/services';
 import { SITE } from '../data/site';
 
-const steps = [
-  { t: 'First conversation', d: 'We discuss what you need: how much, what for and by when. There is no charge for this conversation.' },
-  { t: 'Case summary', d: 'We help you gather what lenders ask for: accounts, property or asset details, and how the finance will be repaid.' },
-  { t: 'Introduction', d: 'With your agreement, we introduce your case to our regulated partner, who advises on and arranges the finance.' },
-  { t: 'Follow-through', d: 'We keep in touch while your case progresses.' },
-];
+const steps = INTRO_STEPS;
 ---
 
 <BaseLayout
   title="Business Finance Solutions & IT Buyback | Antares Systems"
-  description="Business finance introductions for UK limited companies, SPVs and property investors: property, buy-to-let, CAPEX and working capital. Plus IT buyback."
+  description="Business finance introductions for UK limited companies, SPVs and property investors: property, buy-to-let, CAPEX and OPEX finance. Plus IT buyback."
 >
   <section class="hero">
     <div class="wrap">
@@ -27,7 +22,7 @@ const steps = [
           </p>
           <div class="actions">
             <a class="btn btn-primary" href="/contacts/">Discuss your funding</a>
-            <a class="btn btn-secondary" href="/services/">Explore our services</a>
+            <a class="btn btn-secondary" href="/property-finance/">Explore property finance</a>
           </div>
         </div>
         <div class="art-box"><Visual name="hero" eager /></div>
@@ -47,13 +42,13 @@ const steps = [
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow">What we do</span>
-        <h2>Four areas of business finance and one IT service</h2>
+        <h2>Business finance and IT asset buyback</h2>
       </div>
       <div class="tiles">
-        {services.map((s) => (
+        {pages.map((s) => (
           <article class="tile">
             <span class="label">{s.label}</span>
-            <h3><a href={`/services/#${s.id}`}>{s.title}</a></h3>
+            <h3><a href={s.path}>{s.tileTitle}</a></h3>
             <p>{s.tile}</p>
             <span class="more" aria-hidden="true">Read more &rarr;</span>
           </article>

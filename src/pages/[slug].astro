@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Visual from '../components/Visual.astro';
+import { pages, bySlug, INTRO_STEPS } from '../data/services';
+import { servicePage } from '../data/seo';
+import { RISK_NOTICE, SITE } from '../data/site';
+import { ALT } from '../data/images';
+
+export function getStaticPaths() {
+  return pages.map((p) => ({ params: { slug: p.slug }, props: { slug: p.slug } }));
+}
+const { slug } = Astro.props;
+const p = bySlug(slug);
+const related = p.related.map(bySlug);
+const finance = p.kind === 'finance';
+// Internal links in copy: [anchor text](/path/). Everything else is escaped.
+const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const md = (t: string) => esc(t).replace(/\[([^\]]+)\]\((\/[^)\s]*)\)/g, '<a href="$2">$1</a>');
+const image = { url: `${SITE.url}/og/${p.slug}.jpg`, alt: ALT[p.art] };
+---
+
+<BaseLayout
+  title={p.metaTitle}
+  description={p.metaDescription}
+  crumb={p.navLabel}
+  schema={servicePage(p)}
+  image={image}
+  about={`${SITE.url}${p.path}#service`}
+>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">{p.navLabel}</span>
+          </nav>
+          <span class="eyebrow">{p.label}</span>
+          <h1>{p.h1}</h1>
+          <p class="lead">{p.lead}</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="/contacts/">{finance ? 'Discuss your funding' : 'Send an equipment list'}</a>
+          </div>
+        </div>
+        <div class="art-box"><Visual name={p.art} eager /></div>
+      </div>
+    </div>
+  </section>
+
+  {p.sections.map((s, i) => (
+    <section class:list={['section', { 'section--alt': i % 2 === 0 }]}>
+      <div class="wrap">
+        <div class="page-sec">
+          <h2>{s.h2}</h2>
+          <div class="page-body">
+            {s.paras?.map((t) => <p set:html={md(t)} />)}
+            {s.items && (
+              s.ordered ? (
+                <ol class="numbered">{s.items.map((it) => <li>{it.t && <strong>{it.t}. </strong>}<Fragment set:html={md(it.d)} /></li>)}</ol>
+              ) : (
+                <ul class="uses">{s.items.map((it) => <li>{it.t && <strong>{it.t}. </strong>}<Fragment set:html={md(it.d)} /></li>)}</ul>
+              )
+            )}
+            {s.after?.map((t) => <p set:html={md(t)} />)}
+            {s.art && <div class="art-box page-art"><Visual name={s.art} /></div>}
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class:list={['section', { 'section--alt': p.sections.length % 2 === 0 }]}>
+    <div class="wrap">
+      <div class="page-sec">
+        <h2>Questions we are often asked</h2>
+        <div class="page-body faq">
+          {p.faqs.map((f) => (
+            <div>
+              <h3>{f.q}</h3>
+              <p set:html={md(f.a)} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {finance && (
+    <section class:list={['section', { 'section--alt': p.sections.length % 2 === 1 }]}>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">How an introduction works</span>
+          <h2>From first conversation to lender</h2>
+        </div>
+        <div class="steps">
+          {INTRO_STEPS.map((s, i) => (
+            <div class="step">
+              <span class="n">{i + 1}</span>
+              <h3>{s.t}</h3>
+              <p>{s.d}</p>
+            </div>
+          ))}
+        </div>
+        <div class="measure" style="margin-top: 48px">
+          <p class="who">
+            Antares Systems is run by its director, {SITE.director}, who spent more than ten years raising and managing debt inside a large group of companies. <a href="/history/">Read our history</a>.
+          </p>
+          <div class="notice" style="margin-top: 32px">
+            <strong>Important information</strong>
+            {RISK_NOTICE}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class:list={['section', { 'section--alt': !finance && p.sections.length % 2 === 1 }]}>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Also from Antares Systems</span>
+        <h2>Other services</h2>
+      </div>
+      <div class="tiles tiles-3">
+        {related.map((r) => (
+          <article class="tile">
+            <span class="label">{r.label}</span>
+            <h3><a href={r.path}>{r.tileTitle}</a></h3>
+            <p>{r.tile}</p>
+            <span class="more" aria-hidden="true">Read more &rarr;</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ink">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>{finance ? 'Tell us what you need' : 'Have equipment to sell?'}</h2>
+          <p>{finance ? 'Send a short description of your plans and we will come back to you with next steps.' : 'Send us an equipment list and we will respond promptly with next steps.'}</p>
+        </div>
+        <a class="btn btn-inverse" href="/contacts/">Contact us</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

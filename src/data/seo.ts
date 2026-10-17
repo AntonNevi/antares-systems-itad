@@ -1,7 +1,7 @@
 // Structured data (schema.org JSON-LD). Facts only from SITE_STANDARDS.md section 1.
 // No ratings, reviews, certifications or regulated status for Antares Systems Ltd.
 import { SITE } from './site';
-import { services } from './services';
+import type { Page } from './services';
 
 export const HOME = `${SITE.url}/`;
 export const ORG_ID = `${SITE.url}/#organization`;
@@ -42,10 +42,13 @@ export const organization = {
     availableLanguage: ['English'],
   },
   knowsAbout: [
-    'Commercial property finance',
-    'Buy-to-let mortgages for limited companies',
+    'Commercial mortgages',
+    'Bridging finance',
+    'Buy-to-let mortgages for limited companies and SPVs',
     'Asset finance',
-    'Working capital finance',
+    'Invoice finance',
+    'Revolving credit facilities',
+    'Business loans',
     'IT asset buyback',
     'Data erasure',
   ],
@@ -71,15 +74,17 @@ export const website = {
   publisher: { '@id': ORG_ID },
 };
 
-export const serviceNodes = () =>
-  services.map((s) => ({
+export const servicePage = (p: Page) => [
+  {
     '@type': 'Service',
-    '@id': `${SITE.url}/services/#${s.id}`,
-    name: s.title,
-    serviceType: s.id === 'it-asset-buyback' ? 'IT asset buyback and data erasure' : 'Business finance introduction',
-    description: s.summary,
-    url: `${SITE.url}/services/#${s.id}`,
-    image: `${SITE.url}/img/${s.art}.webp`,
+    '@id': `${SITE.url}${p.path}#service`,
+    name: p.tileTitle,
+    serviceType: p.serviceType,
+    description: p.summary,
+    url: `${SITE.url}${p.path}`,
+    image: `${SITE.url}/img/${p.art}.webp`,
     provider: { '@id': ORG_ID },
     areaServed: UK,
-  }));
+    audience: { '@type': 'BusinessAudience', audienceType: p.kind === 'finance' ? 'UK limited companies, LLPs, SPVs and property investors' : 'UK businesses with surplus IT equipment' },
+  },
+];

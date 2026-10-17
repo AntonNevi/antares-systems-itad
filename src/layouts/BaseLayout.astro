@@ -15,9 +15,12 @@ interface Props {
   crumb?: string;
   schema?: object[];
   noindex?: boolean;
+  image?: { url: string; alt: string };
+  about?: string;
 }
 
-const { title, description, type = 'WebPage', crumb, schema = [], noindex = false } = Astro.props;
+const { title, description, type = 'WebPage', crumb, schema = [], noindex = false, image, about } = Astro.props;
+const og = image ? { url: image.url, width: 1200, height: 630, alt: image.alt } : OG_IMAGE;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const isHome = canonical === HOME;
 
@@ -30,6 +33,8 @@ const page = {
   inLanguage: 'en-GB',
   isPartOf: { '@id': WEBSITE_ID },
   ...(isHome ? { about: { '@id': ORG_ID }, primaryImageOfPage: { '@type': 'ImageObject', url: `${SITE.url}/img/hero.webp` } } : {}),
+  ...(about ? { about: { '@id': about }, mainEntity: { '@id': about } } : {}),
+  ...(image ? { primaryImageOfPage: { '@type': 'ImageObject', url: image.url, width: 1200, height: 630 } } : {}),
   ...(crumb ? { breadcrumb: { '@id': `${canonical}#breadcrumb` } } : {}),
 };
 const breadcrumb = crumb
@@ -68,16 +73,16 @@ const graph = { '@context': 'https://schema.org', '@graph': [organization, direc
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={OG_IMAGE.url} />
+    <meta property="og:image" content={og.url} />
     <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content={String(OG_IMAGE.width)} />
-    <meta property="og:image:height" content={String(OG_IMAGE.height)} />
-    <meta property="og:image:alt" content={OG_IMAGE.alt} />
+    <meta property="og:image:width" content={String(og.width)} />
+    <meta property="og:image:height" content={String(og.height)} />
+    <meta property="og:image:alt" content={og.alt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={OG_IMAGE.url} />
-    <meta name="twitter:image:alt" content={OG_IMAGE.alt} />
+    <meta name="twitter:image" content={og.url} />
+    <meta name="twitter:image:alt" content={og.alt} />
     {!noindex && <script type="application/ld+json" set:html={JSON.stringify(graph)} />}
   </head>
   <body>

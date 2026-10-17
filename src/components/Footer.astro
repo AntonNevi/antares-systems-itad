@@ -1,5 +1,5 @@
 ---
-import { SITE, STATUS_SHORT } from '../data/site';
+import { SITE, STATUS_SHORT, NAV } from '../data/site';
 const year = new Date().getFullYear();
 ---
 
@@ -13,11 +13,7 @@ const year = new Date().getFullYear();
       <div>
         <p class="f-title">Services</p>
         <ul>
-          <li><a href="/services/#property-finance">Property finance</a></li>
-          <li><a href="/services/#buy-to-let-spv">Buy-to-let for SPVs</a></li>
-          <li><a href="/services/#capex-finance">CAPEX finance</a></li>
-          <li><a href="/services/#working-capital">OPEX and working capital</a></li>
-          <li><a href="/services/#it-asset-buyback">IT asset buyback</a></li>
+          {NAV.slice(0, 4).map((l) => <li><a href={l.href}>{l.text}</a></li>)}
         </ul>
       </div>
       <div>

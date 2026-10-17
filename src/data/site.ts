@@ -16,7 +16,10 @@ export const SITE = {
 };
 
 export const NAV = [
-  { text: 'Services', href: '/services/' },
+  { text: 'Property finance', href: '/property-finance/' },
+  { text: 'Buy-to-let', href: '/buy-to-let/' },
+  { text: 'CAPEX & OPEX', href: '/capex-opex-finance/' },
+  { text: 'IT asset buyback', href: '/it-asset-buyback/' },
   { text: 'History', href: '/history/' },
   { text: 'Contact', href: '/contacts/' },
 ];
