@@ -24,8 +24,12 @@ export const NAV = [
   { text: 'Contact', href: '/contacts/' },
 ];
 
-// Standard wording from SITE_STANDARDS.md section 3 (status variant B).
-export const STATUS_SHORT =
-  'Antares Systems Ltd is not authorised or regulated by the Financial Conduct Authority. We introduce business customers to our regulated partner, which is authorised and regulated by the FCA.';
-export const RISK_NOTICE =
-  'We do not give advice or arrange finance. Some buy-to-let and commercial finance is not regulated by the FCA. All finance is subject to status and lender criteria. Any property or asset used as security may be at risk if repayments are not made. We may receive a fee or commission from our partner or a lender, and we will tell you about it before you proceed.';
+// Footer note and the closing "Our approach" box on the finance pages (SITE_STANDARDS.md section 3).
+// The "200+" figure is the partner network's own; keep it in step with what the partner confirms in writing.
+export const NETWORK = 'partner network of 200+ lenders, creditors and banks';
+export const FOOTER_NOTE =
+  'Antares Systems Ltd works with a partner network of 200+ lenders, creditors and banks. All finance is subject to status and lender criteria.';
+export const APPROACH = {
+  title: 'Our approach',
+  text: 'Through our partner network of 200+ lenders, creditors and banks, we source the funding option that fits your business and your plans. Our full terms, including any fee or commission, are set out in the agreement you sign before we proceed. All finance is subject to status and lender criteria.',
+};

@@ -34,8 +34,8 @@ If something is not covered here, ask before inventing it. Last updated: 17 Octo
 ADISA certification of the company · NCSC · HMG IS5 · ISO 27001 / 9001 / 14001 ·
 Cyber Essentials (Plus) · Microsoft Authorised Refurbisher (MAR) · G-Cloud · Environment Agency permits ·
 waste carrier or WEEE registration · "carbon-negative", "zero landfill" · response times, capacities, percentages,
-customer counts or sector names we cannot evidence · FCA authorisation of Antares · lender panel sizes, rates or
-approval odds · names or logos of principals or lenders before written permission.
+customer counts or sector names we cannot evidence · FCA authorisation of Antares · rates or approval odds ·
+any lender-network size other than the figure the partner has confirmed in writing (currently 200+) · names or logos of principals or lenders before written permission.
 
 ---
 
@@ -56,33 +56,29 @@ approval odds · names or logos of principals or lenders before written permissi
 
 | Use | Avoid |
 |---|---|
-| introduce, introduction, present your case | advise, recommend, arrange, broker, best deal |
-| our regulated partner | our lender panel, whole of market |
+| source, prepare, present your case, take it to lenders, support through to completion | advise, recommend, arrange, broker, best deal, better than everyone |
+| our partner network of 200+ lenders, creditors and banks (figure confirmed by the partner) | our regulated partner, whole of market |
 | subject to status and lender criteria | guaranteed, approved, fast approval |
 | we may receive a fee | free, no cost (unless verified in writing) |
 
 ---
 
-## 3. Regulatory wording (mandatory blocks)
+## 3. Status and partner wording
 
-Fill the placeholders only from the signed agreement. The principal must approve finance wording before it goes live.
+Decision of 18 Oct 2026 (director): the site speaks positively about what Antares does and does not list what it cannot do. No "regulated partner", no "we do not give advice or arrange finance", no FCA disclaimer text. The partner network is described as **200+ lenders, creditors and banks**; keep that figure in step with what the partner confirms in writing (`NETWORK` in `src/data/site.ts`).
 
-**Variant A — Introducer Appointed Representative**
-> Antares Systems Ltd is an introducer appointed representative of [Principal], which is authorised and regulated by
-> the Financial Conduct Authority (FRN [number]). You can check this on the Financial Services Register.
+Open items before relying on this wording long term:
+- When the introducer / appointed representative agreement is signed, the principal supplies the status line it requires (for example "Antares Systems Ltd is an introducer appointed representative of [Principal], authorised and regulated by the FCA, FRN [number]") and approves every finance promotion. Add that line to `FOOTER_NOTE` in `src/data/site.ts` and keep the principal's approval on file.
+- Avoid the regulated verbs "advise" and "arrange", and unprovable superlatives ("best", "better than everyone"). Use "source", "prepare", "present", "take to lenders", "support through to completion".
 
-**Variant B — introducer for commercial finance only (not on the FCA register)**
-> Antares Systems Ltd is not authorised or regulated by the Financial Conduct Authority. We introduce business
-> customers to [Principal], which is authorised and regulated by the FCA (FRN [number]).
-
-**Always add (every finance page, footer short form):**
-> We do not give advice or arrange finance. Some buy-to-let and commercial finance is not regulated by the FCA.
-> All finance is subject to status and lender criteria. Any property or asset used as security may be at risk if
-> repayments are not made. We may receive a fee or commission from our partner or a lender, and we will tell you
-> about it before you proceed.
+**Standard texts (single source: `src/data/site.ts` and `src/data/services.ts`)**
+- Footer note: "Antares Systems Ltd works with a partner network of 200+ lenders, creditors and banks. All finance is subject to status and lender criteria."
+- "Our approach" box (every finance page): sourcing through the partner network, full terms and any fee or commission in the agreement signed before proceeding, finance subject to status and lender criteria.
+- Fee question (every finance page): no charge for the first conversation; commission may be received through the partner network; any fee or commission confirmed in writing before proceeding.
+- Property pages keep the factual note that lenders usually take a legal charge over the property.
 
 **Trading disclosure (footer, every page):** company name, "Registered in England and Wales", company number,
-registered office address, ICO number.
+registered office address, ICO number, VAT number.
 
 ---
 
@@ -103,7 +99,7 @@ registered office address, ICO number.
 Header navigation: Property finance · Buy-to-let · CAPEX & OPEX · IT asset buyback · History · Contact, plus button "Discuss your funding" (button shown from 1200px wide). There is no Services page or tab. The four service pages share one template (`src/pages/[slug].astro`) fed by `src/data/services.ts`; add or change page copy there.
 
 **Redirects (301):** `/services/` → `/it-asset-buyback/` (Google indexed it as "ITAD Services London"); every old IT disposal URL (`/services/data-erasure/`, `/services/itad-asset-recovery/`, `/services/buyback/`, `/services/data-destruction/`, `/services/hardware-refurbishment/`, `/services/it-recycling/` and the other old `/services/*` pages, `/products*`) → `/it-asset-buyback/`; `/compliance/` and `/regulatory/` → `/property-finance/`. Full list in `public/_redirects`.
-The FCA status line stays in the footer of every page and the "Important information" box appears on each of the three finance pages (not on the IT page).
+The footer carries the status note in section 3 and the "Our approach" box appears on each of the three finance pages (not on the IT page).
 
 ---
 
@@ -172,7 +168,7 @@ Retired: `#10bb82` green, `#9E9E9E` grey, `#0081CC`, `#004AAD` blue (too bright)
 - **Steps:** numbered 1–4 in Newsreader 500 at 34px, gold hairline above each step. Only for real sequences.
 - **History:** one prose block under the heading "Our history", no stages.
 - **Trust strip:** one line of three facts separated by thin vertical rules, `--muted` text, no badges.
-- **Notice box ("Important information"):** `--porcelain` background, 2px `--blue` rule on the left, small text.
+- **Notice box ("Our approach"):** `--porcelain` background, 2px `--blue` rule on the left, small text.
 - **Forms:** labels above fields, 48px inputs, 1px `--line` border, 2px focus ring `--blue` (`--gold` on dark bands); inline error text in `--error`; never rely on placeholder text alone.
 - **Footer:** `--ink` background, white and `#C9D2DE` text; four columns; legal line at the bottom in 14px.
 

@@ -1,5 +1,5 @@
 ---
-import { SITE, STATUS_SHORT, NAV } from '../data/site';
+import { SITE, FOOTER_NOTE, NAV } from '../data/site';
 const year = new Date().getFullYear();
 ---
 
@@ -8,7 +8,7 @@ const year = new Date().getFullYear();
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="/logo_antares_light.svg" alt="Antares Systems" width="166" height="46" />
-        <p>Business finance solutions for UK limited companies and property investors, and IT asset buyback.</p>
+        <p>Business finance solutions for UK companies and property investors.</p>
       </div>
       <div>
         <p class="f-title">Services</p>
@@ -35,7 +35,7 @@ const year = new Date().getFullYear();
       </div>
     </div>
     <div class="legal">
-      <p>{STATUS_SHORT}</p>
+      <p>{FOOTER_NOTE}</p>
       <p>
         &copy; {year} {SITE.legalName}. Registered in England and Wales, company no. {SITE.companyNo}. Registered office: {SITE.address.join(', ')}.
         VAT no. {SITE.vat.replace('GB', 'GB ')}. ICO registration {SITE.ico}.

@@ -1,5 +1,5 @@
 // Structured data (schema.org JSON-LD). Facts only from SITE_STANDARDS.md section 1.
-// No ratings, reviews, certifications or regulated status for Antares Systems Ltd.
+// No ratings, reviews or certifications for Antares Systems Ltd.
 import { SITE } from './site';
 import type { Page } from './services';
 
@@ -20,7 +20,7 @@ export const organization = {
   logo: { '@type': 'ImageObject', '@id': `${SITE.url}/#logo`, url: `${SITE.url}/logo_antares.png`, width: 952, height: 264, caption: SITE.name },
   image: OG_IMAGE.url,
   description:
-    'Antares Systems introduces UK limited companies, SPVs and property investors to lenders through a regulated partner, and buys surplus business IT equipment with data erasure.',
+    'Antares Systems provides business finance solutions for UK companies, SPVs and property investors through a partner network of 200+ lenders, creditors and banks, and buys surplus business IT equipment with data erasure.',
   email: SITE.email,
   telephone: SITE.phone,
   address: {
@@ -85,6 +85,6 @@ export const servicePage = (p: Page) => [
     image: `${SITE.url}/img/${p.art}.webp`,
     provider: { '@id': ORG_ID },
     areaServed: UK,
-    audience: { '@type': 'BusinessAudience', audienceType: p.kind === 'finance' ? 'UK limited companies, LLPs, SPVs and property investors' : 'UK businesses with surplus IT equipment' },
+    audience: { '@type': 'BusinessAudience', audienceType: p.kind === 'finance' ? 'UK companies, LLPs, SPVs and property investors' : 'UK businesses with surplus IT equipment' },
   },
 ];

@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Visual from '../components/Visual.astro';
 import { pages, bySlug, INTRO_STEPS } from '../data/services';
 import { servicePage } from '../data/seo';
-import { RISK_NOTICE, SITE } from '../data/site';
+import { APPROACH, SITE } from '../data/site';
 import { ALT } from '../data/images';
 
 export function getStaticPaths() {
@@ -49,7 +49,7 @@ const image = { url: `${SITE.url}/og/${p.slug}.jpg`, alt: ALT[p.art] };
   {p.sections.map((s, i) => (
     <section class:list={['section', { 'section--alt': i % 2 === 0 }]}>
       <div class="wrap">
-        <div class="page-sec">
+        <div class:list={['page-sec', { 'has-art': !!s.art }]}>
           <h2>{s.h2}</h2>
           <div class="page-body">
             {s.paras?.map((t) => <p set:html={md(t)} />)}
@@ -61,13 +61,14 @@ const image = { url: `${SITE.url}/og/${p.slug}.jpg`, alt: ALT[p.art] };
               )
             )}
             {s.after?.map((t) => <p set:html={md(t)} />)}
-            {s.art && <div class="art-box page-art"><Visual name={s.art} /></div>}
           </div>
+          {s.art && <div class="art-box page-art"><Visual name={s.art} /></div>}
         </div>
       </div>
     </section>
   ))}
 
+  {p.faqs.length > 0 && (
   <section class:list={['section', { 'section--alt': p.sections.length % 2 === 0 }]}>
     <div class="wrap">
       <div class="page-sec">
@@ -83,13 +84,14 @@ const image = { url: `${SITE.url}/og/${p.slug}.jpg`, alt: ALT[p.art] };
       </div>
     </div>
   </section>
+  )}
 
   {finance && (
     <section class:list={['section', { 'section--alt': p.sections.length % 2 === 1 }]}>
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">How an introduction works</span>
-          <h2>From first conversation to lender</h2>
+          <span class="eyebrow">How it works</span>
+          <h2>From first conversation to funding</h2>
         </div>
         <div class="steps">
           {INTRO_STEPS.map((s, i) => (
@@ -105,15 +107,15 @@ const image = { url: `${SITE.url}/og/${p.slug}.jpg`, alt: ALT[p.art] };
             Antares Systems is run by its director, {SITE.director}, who spent more than ten years raising and managing debt inside a large group of companies. <a href="/history/">Read our history</a>.
           </p>
           <div class="notice" style="margin-top: 32px">
-            <strong>Important information</strong>
-            {RISK_NOTICE}
+            <strong>{APPROACH.title}</strong>
+            {APPROACH.text}
           </div>
         </div>
       </div>
     </section>
   )}
 
-  <section class:list={['section', { 'section--alt': !finance && p.sections.length % 2 === 1 }]}>
+  <section class:list={['section', { 'section--alt': !finance && (p.sections.length + (p.faqs.length ? 1 : 0)) % 2 === 0 }]}>
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow">Also from Antares Systems</span>

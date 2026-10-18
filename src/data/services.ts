@@ -1,4 +1,4 @@
-// The four service pages. Wording follows SITE_STANDARDS.md: finance is "introduced", never advised or arranged.
+// The four service pages. Wording follows SITE_STANDARDS.md: positive, confident, no rates, fees or approval odds.
 // No rates, fees or approval odds. Keep every claim inside the approved wording.
 // Text fields accept internal links written as [anchor text](/path/).
 export type Art = 'property' | 'btl' | 'capex' | 'working-capital' | 'it';
@@ -36,18 +36,14 @@ export interface Page {
 
 export const INTRO_STEPS = [
   { t: 'First conversation', d: 'We discuss what you need: how much, what for and by when. There is no charge for this conversation.' },
-  { t: 'Case summary', d: 'We help you gather what lenders ask for: accounts, property or asset details, and how the finance will be repaid.' },
-  { t: 'Introduction', d: 'With your agreement, we introduce your case to our regulated partner, who advises on and arranges the finance.' },
-  { t: 'Follow-through', d: 'We keep in touch while your case progresses.' },
+  { t: 'Case summary', d: 'We prepare what lenders ask for: accounts, property or asset details, and how the finance will be repaid.' },
+  { t: 'Lender matching', d: 'We take your case to the lenders in our partner network that fit it, and bring you the options available.' },
+  { t: 'Completion', d: 'We stay in touch and support you through to completion.' },
 ];
 
 const FEE_FAQ: Faq = {
   q: 'Do you charge a fee?',
-  a: 'There is no charge for the first conversation. We may receive a fee or commission from our regulated partner or a lender, and we will tell you about it before you proceed.',
-};
-const NOT_LENDER: Faq = {
-  q: 'Are you a lender?',
-  a: 'No. We are not a lender, and we do not give advice or arrange finance. We help you prepare your case and introduce you to our regulated partner, which is authorised and regulated by the FCA.',
+  a: 'There is no charge for the first conversation. We may receive a commission through our partner network, and any fee or commission is confirmed in writing before you proceed.',
 };
 
 export const pages: Page[] = [
@@ -62,13 +58,13 @@ export const pages: Page[] = [
     tile: 'Commercial mortgages, bridging and refurbishment finance for companies and property investors.',
     metaTitle: 'Commercial Mortgages & Property Finance UK | Antares Systems',
     metaDescription:
-      'Commercial mortgages, bridging and refurbishment finance for UK companies and property investors, introduced to lenders through a regulated partner.',
+      'Commercial mortgages, bridging and refurbishment finance for UK companies and property investors, through a partner network of 200+ lenders, creditors and banks.',
     h1: 'Commercial property finance for UK companies and investors',
     lead:
-      'Commercial mortgages, bridging loans and refurbishment finance for limited companies, SPVs and property investors. We prepare your case and introduce you to lenders through our regulated partner. We do not give advice or arrange finance ourselves.',
-    serviceType: 'Commercial property finance introduction',
+      'Commercial mortgages, bridging loans and refurbishment finance for companies, SPVs and property investors. We prepare your case and take it to lenders across our partner network of 200+ lenders, creditors and banks.',
+    serviceType: 'Commercial property finance',
     summary:
-      'Introductions to lenders for commercial mortgages, bridging finance, refurbishment finance and refinancing, for UK limited companies and property investors.',
+      'Commercial mortgages, bridging finance, refurbishment finance and refinancing for UK companies and property investors, through a partner network of 200+ lenders, creditors and banks.',
     sections: [
       {
         h2: 'Commercial mortgages, bridging and other property finance',
@@ -101,19 +97,17 @@ export const pages: Page[] = [
         ],
       },
       {
-        h2: 'Costs and risks to understand',
+        h2: 'Costs and security',
         paras: [
           'Lenders usually take a legal charge over the property, which may be at risk if repayments are not made. Costs commonly include a valuation fee, legal fees and an arrangement fee, and some loans carry early repayment charges.',
-          'Some commercial finance is not regulated by the FCA, so you may have fewer protections than with regulated lending.',
         ],
       },
     ],
     faqs: [
-      NOT_LENDER,
       { q: 'Can a limited company borrow to buy property?', a: 'Yes. Many lenders lend to limited companies, SPVs and LLPs. If the property will be let as residential accommodation, see our [buy-to-let finance page](/buy-to-let/).' },
-      { q: 'How much can I borrow against a commercial property?', a: 'It depends on the lender, the type of property, its income and your circumstances. Lenders normally lend a proportion of the property’s value, and you fund the rest. We cannot tell you what you would be offered before lenders have reviewed your case.' },
+      { q: 'How much can I borrow against a commercial property?', a: 'It depends on the lender, the type of property, its income and your circumstances. Lenders normally lend a proportion of the property’s value, and you fund the rest. Once we have your details, we take your case to lenders in our network and come back to you with the options available.' },
       { q: 'What is the difference between a commercial mortgage and bridging finance?', a: 'A commercial mortgage is longer-term borrowing, repaid over a number of years from rent or trading income. Bridging finance is short-term borrowing for a purchase that has to complete quickly or a property that a mortgage lender will not yet accept, and it is repaid by a sale or a refinance.' },
-      { q: 'How quickly can bridging finance complete?', a: 'Timescales depend on the lender, the valuation and the legal work, and we cannot promise a date. Tell us your deadline at the start so that it can be considered.' },
+      { q: 'How quickly can bridging finance complete?', a: 'Timescales depend on the lender, the valuation and the legal work. Tell us your deadline at the start and we will factor it into which lenders we approach.' },
       { q: 'Which properties do you cover?', a: 'We work with UK property. Tell us where the property is when you get in touch, as lender appetite varies by location and type.' },
       FEE_FAQ,
     ],
@@ -130,13 +124,13 @@ export const pages: Page[] = [
     tile: 'Mortgages for limited-company landlords and SPVs, from a first property to a portfolio.',
     metaTitle: 'Limited Company Buy-to-Let Mortgages (SPV) | Antares Systems',
     metaDescription:
-      'Buy-to-let mortgages for limited companies and SPVs: purchases, remortgages, HMOs and portfolios, introduced to lenders through a regulated partner.',
+      'Buy-to-let mortgages for limited companies and SPVs: purchases, remortgages, HMOs and portfolios, through a partner network of 200+ lenders.',
     h1: 'Buy-to-let finance for limited companies and SPVs',
     lead:
-      'Buy-to-let mortgages for property held in a limited company or special purpose vehicle (SPV). Lenders assess company lending differently from personal buy-to-let, so we help you prepare your case and introduce you to our regulated partner. This page covers lending to companies only.',
-    serviceType: 'Limited company buy-to-let finance introduction',
+      'Buy-to-let mortgages for property held in a limited company or special purpose vehicle (SPV). Lenders assess company lending differently from personal buy-to-let, so we prepare your case and take it to our partner network of 200+ lenders, creditors and banks. This page is for limited companies and SPVs.',
+    serviceType: 'Limited company buy-to-let finance',
     summary:
-      'Introductions to lenders for buy-to-let mortgages on property held in a limited company or SPV, including purchases, remortgages, HMOs and portfolios.',
+      'Buy-to-let mortgages on property held in a limited company or SPV, including purchases, remortgages, HMOs and portfolios, through a partner network of 200+ lenders.',
     sections: [
       {
         h2: 'What is an SPV?',
@@ -146,7 +140,7 @@ export const pages: Page[] = [
         ],
       },
       {
-        h2: 'Limited company buy-to-let finance we can introduce',
+        h2: 'Limited company buy-to-let finance we can source',
         items: [
           { t: 'Purchases through an SPV', d: 'Buying a first or additional property in a limited company.' },
           { t: 'Remortgages', d: 'Refinancing a property or a portfolio that is already held in a company.' },
@@ -179,19 +173,18 @@ export const pages: Page[] = [
       {
         h2: 'Tax and costs',
         paras: [
-          'Company-owned property is taxed differently from property held personally. Stamp Duty Land Tax, corporation tax and the treatment of mortgage interest all depend on your circumstances, and moving an existing property into a company can trigger charges. We do not give tax advice, so speak to your accountant before you proceed.',
+          'Company-owned property is taxed differently from property held personally. Stamp Duty Land Tax, corporation tax and the treatment of mortgage interest all depend on your circumstances, and moving an existing property into a company can trigger charges. Confirm the details with your accountant before you proceed.',
           'Lenders usually take a legal charge over the property, which may be at risk if repayments are not made. Costs commonly include a valuation fee, legal fees and an arrangement fee, and some loans carry early repayment charges.',
         ],
       },
     ],
     faqs: [
       { q: 'Can I get a buy-to-let mortgage through a limited company?', a: 'Yes. A number of lenders offer buy-to-let mortgages to limited companies and SPVs. Their criteria differ, so a well-prepared case matters.' },
-      { q: 'How much deposit do I need?', a: 'It depends on the lender, the property and the rent. Lenders lend a proportion of the property’s value and you fund the rest, and they will ask where the deposit is coming from. We cannot tell you what you would be offered before lenders have reviewed your case.' },
+      { q: 'How much deposit do I need?', a: 'It depends on the lender, the property and the rent. Lenders lend a proportion of the property’s value and you fund the rest, and they will ask where the deposit is coming from. We take your case to lenders in our network and come back to you with the options available.' },
       { q: 'Will I need to give a personal guarantee?', a: 'Many lenders ask for one. Requirements vary, and we will tell you what a lender asks for as your case progresses.' },
-      { q: 'Can I move a property I already own into a company?', a: 'It can be done, but it may trigger tax charges and usually needs the existing lender’s consent or a new mortgage. Take advice from an accountant first.' },
-      { q: 'Do you cover buy-to-let for individuals?', a: 'No. This service covers lending to limited companies and SPVs only.' },
-      { q: 'Do I need a separate company for each property?', a: 'Not necessarily. Some landlords hold several properties in one company and others use one company per property. Your accountant can advise on the structure, and lenders have their own views.' },
-      NOT_LENDER,
+      { q: 'Can I move a property I already own into a company?', a: 'It can be done, but it may trigger tax charges and usually needs the existing lender’s consent or a new mortgage. Speak to your accountant first.' },
+      { q: 'Do you cover buy-to-let for individuals?', a: 'This service is for limited companies and SPVs.' },
+      { q: 'Do I need a separate company for each property?', a: 'Not necessarily. Some landlords hold several properties in one company and others use one company per property. Your accountant can confirm the best structure for you, and lenders have their own views.' },
       FEE_FAQ,
     ],
     related: ['property-finance', 'capex-opex-finance', 'it-asset-buyback'],
@@ -207,13 +200,13 @@ export const pages: Page[] = [
     tile: 'Asset finance for equipment and vehicles, and funding for running costs and growth.',
     metaTitle: 'CAPEX and OPEX Finance for UK Businesses | Antares Systems',
     metaDescription:
-      'Asset finance for capital expenditure, and invoice finance, revolving credit and business loans for running costs, introduced through a regulated partner.',
+      'Asset finance for capital expenditure, and invoice finance, revolving credit and business loans for running costs, through a partner network of 200+ lenders.',
     h1: 'CAPEX and OPEX finance for UK businesses',
     lead:
-      'Finance for the assets your business buys (CAPEX) and the costs it pays to keep running (OPEX): asset finance, invoice finance, revolving credit and business loans. We explain the main options in plain terms, prepare your case and introduce you to our regulated partner. We do not give advice or arrange finance ourselves.',
-    serviceType: 'Asset finance and working capital introduction',
+      'Finance for the assets your business buys (CAPEX) and the costs it pays to keep running (OPEX): asset finance, invoice finance, revolving credit and business loans. We explain the main options in plain terms, prepare your case and take it to lenders across our partner network of 200+ lenders, creditors and banks.',
+    serviceType: 'Asset finance and working capital',
     summary:
-      'Introductions to lenders for asset finance (hire purchase and leasing) and for operating finance: invoice finance, revolving credit facilities and business loans.',
+      'Asset finance (hire purchase and leasing) and operating finance: invoice finance, revolving credit facilities and business loans, through a partner network of 200+ lenders.',
     sections: [
       {
         h2: 'CAPEX and OPEX in plain English',
@@ -259,9 +252,7 @@ export const pages: Page[] = [
     faqs: [
       { q: 'What is the difference between hire purchase and a finance lease?', a: 'With hire purchase you usually end up owning the asset. With a finance lease the lender keeps ownership and you pay to use it. The tax treatment differs, so check with your accountant.' },
       { q: 'Can I finance used equipment?', a: 'Often yes, although lenders consider the age and resale value of the asset. Tell us what you plan to buy.' },
-      { q: 'Is invoice finance right for my business?', a: 'We do not give advice on whether a product is right for you. We can explain how it works and introduce you to our regulated partner.' },
       { q: 'Can a newer company get finance?', a: 'Lenders usually prefer a trading history, but some consider newer companies, sometimes with personal guarantees or a deposit.' },
-      NOT_LENDER,
       FEE_FAQ,
     ],
     related: ['property-finance', 'buy-to-let', 'it-asset-buyback'],
@@ -330,15 +321,7 @@ export const pages: Page[] = [
         paras: ['Offers are itemised and in writing. They depend on the model, age, specification and condition of each device, the quantity, and current demand for resale. Please list known faults on your equipment list. You are free to decline an offer.'],
       },
     ],
-    faqs: [
-      { q: 'How and when do you pay?', a: 'By bank transfer, as agreed in the written offer.' },
-      { q: 'Do you collect the equipment?', a: 'Yes. We collect at an agreed time, with a signed handover.' },
-      { q: 'Do I get a record that the data was erased?', a: 'Yes. You receive a report for each device. Erasure certified to ADISA L2 and Common Criteria EAL3+ is available on request.' },
-      { q: 'Do you recycle or dispose of old equipment?', a: 'No. We buy equipment for reuse. We do not provide waste collection or recycling.' },
-      { q: 'Is IT asset buyback the same as IT asset disposal (ITAD)?', a: 'Buyback is one part of ITAD. We buy working equipment for reuse and erase the data before resale. We do not collect waste or recycle equipment that has no resale value.' },
-      { q: 'Where are you based?', a: 'We are based in London. Tell us where the equipment is when you [send your list](/contacts/).' },
-      { q: 'What is the minimum quantity?', a: 'Send us your list, whatever its size, and we will tell you whether we can make an offer.' },
-    ],
+    faqs: [],
     related: ['property-finance', 'buy-to-let', 'capex-opex-finance'],
   },
 ];
