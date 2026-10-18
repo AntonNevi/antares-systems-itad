@@ -127,6 +127,9 @@
   .hero-grid { display: grid; gap: 48px; align-items: center; }
   .hero h1 { font-size: 38px; line-height: 1.12; }
   .hero .lead { margin-top: 24px; }
+  .hero .lead-mission { color: var(--color-ink); font-size: 21px; line-height: 1.5; }
+  .hero .lead-more { margin-top: 16px; font-size: 18px; max-width: 36em; }
+  @media (min-width: 1024px) { .hero .lead-mission { font-size: 24px; } .hero .lead-more { font-size: 19px; } }
   .hero .actions { margin-top: 40px; }
   @media (min-width: 1024px) {
     .hero { padding-block: 96px; }

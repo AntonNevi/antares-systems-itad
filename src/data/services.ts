@@ -236,7 +236,6 @@ export const pages: Page[] = [
           { t: 'Business loan, secured or unsecured', d: 'A fixed sum repaid over an agreed term. A secured loan is backed by an asset or property. An unsecured loan is not, but may need personal guarantees.' },
         ],
         after: ['Some facilities need personal guarantees or a debenture over the company’s assets, which gives the lender a claim over them if the loan is not repaid.'],
-        art: 'working-capital',
       },
       {
         h2: 'Information to have ready',

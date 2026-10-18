@@ -182,8 +182,9 @@ Retired: `#10bb82` green, `#9E9E9E` grey, `#0081CC`, `#004AAD` blue (too bright)
   `src/components/Visual.astro`.
   Names: `hero` (City street at blue hour) · `property` (modern stone-and-glass office building, wet road) · `btl`
   (Victorian terrace with a gas-style lamp) · `capex` (workshop with a milling machine and a plain white van) · `working-capital`
-  (ledger, fountain pen, papers and a brass banker's lamp) · `it` (stacked laptops beside server racks).
+  (ledger, fountain pen, papers and a brass banker's lamp; shown on the Contact page) · `it` (stacked laptops beside server racks).
   Box ratio 4:3, `--ink` background, 2px radius, `object-fit: cover`.
+  One picture per page: home `hero`, Property finance `property`, Buy-to-let `btl`, CAPEX & OPEX `capex`, IT asset buyback `it`, Contact `working-capital`.
 - **Prompt pattern (keep identical for new images):** "Fine-art [subject] at blue hour, deep navy sky, warm golden
   window light, wet surfaces reflecting the light. Calm, premium and understated, 35mm lens, shallow depth of field,
   subtle film grain, muted colour grade of navy, steel blue and warm gold, editorial magazine quality. No people, no

@@ -5,6 +5,6 @@ export const ALT: Record<ImageName, string> = {
   property: 'Commercial office building at dusk',
   btl: 'Terrace of townhouses on a quiet residential street',
   capex: 'Business equipment and a commercial vehicle in a clean workshop',
-  'working-capital': 'Ledger, pen and invoices on a desk under a lamp',
+  'working-capital': 'Ledger, pen and papers on a desk under a brass lamp',
   it: 'Business laptops and a server rack in a clean room',
 };
