@@ -11,11 +11,15 @@ import { SITE } from '../data/site';
   type="ContactPage"
   crumb="Contact"
 >
-  <section class="page-hero">
+  <section class="hero">
     <div class="wrap">
-      <span class="eyebrow">Contact</span>
-      <h1>Contact us</h1>
-      <p class="lead">Tell us briefly what you need and we will respond promptly.</p>
+      <div class="hero-grid">
+        <div>
+          <h1>Contact us</h1>
+          <p class="lead">Tell us briefly what you need and we will respond promptly.</p>
+        </div>
+        <div class="art-box"><Visual name="working-capital" eager /></div>
+      </div>
     </div>
   </section>
 
@@ -30,10 +34,6 @@ import { SITE } from '../data/site';
             <div><dt>LinkedIn</dt><dd><a href={SITE.linkedin} target="_blank" rel="noopener noreferrer">Anton Nevinnykh</a></dd></div>
             <div><dt>Based in</dt><dd>London, United Kingdom</dd></div>
           </dl>
-          <p class="small" style="margin-top: 32px; color: var(--color-muted)">
-            We work with UK companies, LLPs and special purpose vehicles. Through our partner network of 200+ lenders, creditors and banks, we help you find the right finance.
-          </p>
-          <div class="art-box" style="margin-top: 32px; max-width: 380px"><Visual name="working-capital" /></div>
         </div>
         <div>
           <h2>Send an enquiry</h2>
