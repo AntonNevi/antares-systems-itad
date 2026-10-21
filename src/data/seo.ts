@@ -48,7 +48,7 @@ export const organization = {
     'Asset finance',
     'Invoice finance',
     'Revolving credit facilities',
-    'Debt and refinancing review',
+    'Business debt review and refinancing',
     'Business loans',
     'IT asset buyback',
     'Data erasure',

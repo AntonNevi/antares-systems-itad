@@ -21,6 +21,8 @@ export interface Page {
   art: Art;
   // true: the page carries its own "how it works" and fee wording, so the shared steps band and approach box are not shown
   bespoke?: boolean;
+  // button text for the hero and the closing band (defaults apply when not set)
+  cta?: string;
   navLabel: string;
   label: string;
   tileTitle: string;
@@ -259,47 +261,55 @@ export const pages: Page[] = [
     related: ['property-finance', 'buy-to-let', 'it-asset-buyback'],
   },
   {
-    slug: 'debt-refinancing-review',
-    path: '/debt-refinancing-review/',
+    slug: 'debt-review',
+    path: '/debt-review/',
     kind: 'finance',
     art: 'debt-review',
     bespoke: true,
-    navLabel: 'Debt review',
+    cta: 'Book a debt review',
+    navLabel: 'Debt Review',
     label: 'Business finance',
-    tileTitle: 'Debt and refinancing review',
-    tile: 'A clear review of your company’s borrowing, with a plan to refinance or renegotiate.',
-    metaTitle: 'Debt and Refinancing Review for Companies | Antares Systems',
+    tileTitle: 'Debt review and refinancing',
+    tile: 'A review of your company’s loans, rates and maturities, with a plan to refinance, consolidate or renegotiate.',
+    metaTitle: 'Business Debt Review & Refinancing | Antares Systems',
     metaDescription:
-      'A clear review of your company’s borrowing, covering rates, maturities and covenants, with a plan to refinance or renegotiate before terms expire.',
-    h1: 'Debt and Refinancing Review',
+      'Review your company’s loans, rates and maturities in one place, with a clear plan to refinance, consolidate or renegotiate before terms expire.',
+    h1: 'Business Debt Review and Refinancing',
     lead:
-      'For limited companies, LLPs and property SPVs carrying more than one loan. We review your borrowing as a whole and show where it can cost less, run longer or carry fewer restrictions.',
-    serviceType: 'Debt and refinancing review',
+      'For limited companies and LLPs with more than one facility. We review your borrowing as a whole and show where it can cost less, run longer or give you more room to grow.',
+    serviceType: 'Business debt review and refinancing',
     summary:
-      'A review of a company’s borrowing covering rates, maturities and covenants, with a written report and a plan to refinance or renegotiate before terms expire.',
+      'A review of a company’s loans, rates and maturities in one place, with a written report and a plan to refinance, consolidate or renegotiate before terms expire.',
     sections: [
       {
         h2: 'Who it is for',
         items: [
-          { d: 'Property companies and SPVs with fixed rates ending in the next 12 to 24 months.' },
-          { d: 'Companies with several lenders, facilities or asset finance agreements.' },
-          { d: 'Businesses planning growth that needs new or larger facilities.' },
+          { d: 'Trading companies in manufacturing, wholesale, logistics, construction, healthcare, hospitality and professional services.' },
+          { d: 'Property companies and SPVs with fixed rates coming to an end.' },
+          { d: 'Companies with several lenders, or with asset, invoice or trade finance alongside bank loans.' },
+          { d: 'Businesses with government-backed or short-term loans to replace.' },
+          { d: 'Owners planning growth, an acquisition or a sale who want their debt in order first.' },
         ],
       },
       {
-        h2: 'What we review',
+        h2: 'Facilities we review',
+        paras: ['Term loans, revolving credit and overdrafts; commercial mortgages; asset and vehicle finance; invoice and trade finance; government-backed loans; bridging and development finance; merchant cash advances.'],
+      },
+      {
+        h2: 'What we do',
         items: [
-          { d: 'Every facility: lender, balance, rate, fees and maturity.' },
-          { d: 'Covenants, security and personal guarantees.' },
-          { d: 'Repayments against your cash flow.' },
-          { d: 'Options to refinance, consolidate or renegotiate.' },
+          { d: 'Debt review: one schedule of every facility, covenant and guarantee.' },
+          { d: 'Refinancing: replacing expensive or expiring facilities.' },
+          { d: 'Consolidation: fewer lenders and simpler repayments.' },
+          { d: 'Renegotiation: new terms agreed with existing lenders.' },
+          { d: 'Ongoing support: maturity tracking, covenant checks and lender reporting.' },
         ],
       },
       {
         h2: 'How it works',
         ordered: true,
         items: [
-          { d: 'You share your loan documents and latest accounts.' },
+          { d: 'You share your loan agreements, statements and latest accounts.' },
           { d: 'We build one debt schedule and test it against your cash flow.' },
           { d: 'You receive a short written report with your options and next steps. When you are ready, we take the case to lenders.' },
         ],
@@ -308,13 +318,13 @@ export const pages: Page[] = [
         h2: 'Experience',
         paras: ['Led by Anton Nevinnykh, with more than ten years raising and servicing corporate debt across 50+ companies in a large industrial group.'],
       },
-      {
-        h2: 'Fees',
-        paras: ['The review fee is agreed in writing before work begins. If a lender or partner pays us a commission on a new facility, we tell you in writing.'],
-      },
     ],
-    faqs: [],
-    related: ['property-finance', 'buy-to-let', 'capex-opex-finance'],
+    faqs: [
+      { q: 'When should we start?', a: 'We suggest reviewing any facility at least 12 months before it ends.' },
+      { q: 'What do you need from us?', a: 'Loan agreements, recent statements, the last two years’ accounts and current management accounts.' },
+      { q: 'What does it cost?', a: 'The review fee is agreed in writing before work begins. If a lender or partner pays us a commission on a new facility, we tell you in writing.' },
+    ],
+    related: ['capex-opex-finance', 'property-finance', 'buy-to-let'],
   },
   {
     slug: 'it-asset-buyback',

@@ -34,7 +34,7 @@ const image = { url: `${SITE.url}/og/${p.slug}.jpg`, alt: ALT[p.art] };
           <h1>{p.h1}</h1>
           <p class="lead">{p.lead}</p>
           <div class="actions">
-            <a class="btn btn-primary" href="/contacts/">{finance ? 'Discuss your funding' : 'Send an equipment list'}</a>
+            <a class="btn btn-primary" href="/contacts/">{p.cta ?? (finance ? 'Discuss your funding' : 'Send an equipment list')}</a>
           </div>
         </div>
         <div class="art-box"><Visual name={p.art} eager /></div>
@@ -137,7 +137,7 @@ const image = { url: `${SITE.url}/og/${p.slug}.jpg`, alt: ALT[p.art] };
           <h2>{finance ? 'Tell us what you need' : 'Have equipment to sell?'}</h2>
           <p>{finance ? 'Send a short description of your plans and we will come back to you with next steps.' : 'Send us an equipment list and we will respond promptly with next steps.'}</p>
         </div>
-        <a class="btn btn-inverse" href="/contacts/">Contact us</a>
+        <a class="btn btn-inverse" href="/contacts/">{p.cta ?? 'Contact us'}</a>
       </div>
     </div>
   </section>
