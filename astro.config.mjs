@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 
 // Date the site content last changed. Update it when page content changes (SITE_STANDARDS.md section 6).
-const LASTMOD = '2026-10-18';
+const LASTMOD = '2026-10-21';
 
 // https://astro.build/config
 export default defineConfig({

@@ -1,7 +1,7 @@
-// The four service pages. Wording follows SITE_STANDARDS.md: positive, confident, no rates, fees or approval odds.
+// The five service pages. Wording follows SITE_STANDARDS.md: positive, confident, no rates, fees or approval odds.
 // No rates, fees or approval odds. Keep every claim inside the approved wording.
 // Text fields accept internal links written as [anchor text](/path/).
-export type Art = 'property' | 'btl' | 'capex' | 'working-capital' | 'it';
+export type Art = 'property' | 'btl' | 'capex' | 'working-capital' | 'debt-review' | 'it';
 
 export interface Item { t?: string; d: string }
 export interface Section {
@@ -19,6 +19,8 @@ export interface Page {
   path: string;
   kind: 'finance' | 'it';
   art: Art;
+  // true: the page carries its own "how it works" and fee wording, so the shared steps band and approach box are not shown
+  bespoke?: boolean;
   navLabel: string;
   label: string;
   tileTitle: string;
@@ -255,6 +257,64 @@ export const pages: Page[] = [
       FEE_FAQ,
     ],
     related: ['property-finance', 'buy-to-let', 'it-asset-buyback'],
+  },
+  {
+    slug: 'debt-refinancing-review',
+    path: '/debt-refinancing-review/',
+    kind: 'finance',
+    art: 'debt-review',
+    bespoke: true,
+    navLabel: 'Debt review',
+    label: 'Business finance',
+    tileTitle: 'Debt and refinancing review',
+    tile: 'A clear review of your company’s borrowing, with a plan to refinance or renegotiate.',
+    metaTitle: 'Debt and Refinancing Review for Companies | Antares Systems',
+    metaDescription:
+      'A clear review of your company’s borrowing, covering rates, maturities and covenants, with a plan to refinance or renegotiate before terms expire.',
+    h1: 'Debt and Refinancing Review',
+    lead:
+      'For limited companies, LLPs and property SPVs carrying more than one loan. We review your borrowing as a whole and show where it can cost less, run longer or carry fewer restrictions.',
+    serviceType: 'Debt and refinancing review',
+    summary:
+      'A review of a company’s borrowing covering rates, maturities and covenants, with a written report and a plan to refinance or renegotiate before terms expire.',
+    sections: [
+      {
+        h2: 'Who it is for',
+        items: [
+          { d: 'Property companies and SPVs with fixed rates ending in the next 12 to 24 months.' },
+          { d: 'Companies with several lenders, facilities or asset finance agreements.' },
+          { d: 'Businesses planning growth that needs new or larger facilities.' },
+        ],
+      },
+      {
+        h2: 'What we review',
+        items: [
+          { d: 'Every facility: lender, balance, rate, fees and maturity.' },
+          { d: 'Covenants, security and personal guarantees.' },
+          { d: 'Repayments against your cash flow.' },
+          { d: 'Options to refinance, consolidate or renegotiate.' },
+        ],
+      },
+      {
+        h2: 'How it works',
+        ordered: true,
+        items: [
+          { d: 'You share your loan documents and latest accounts.' },
+          { d: 'We build one debt schedule and test it against your cash flow.' },
+          { d: 'You receive a short written report with your options and next steps. When you are ready, we take the case to lenders.' },
+        ],
+      },
+      {
+        h2: 'Experience',
+        paras: ['Led by Anton Nevinnykh, with more than ten years raising and servicing corporate debt across 50+ companies in a large industrial group.'],
+      },
+      {
+        h2: 'Fees',
+        paras: ['The review fee is agreed in writing before work begins. If a lender or partner pays us a commission on a new facility, we tell you in writing.'],
+      },
+    ],
+    faqs: [],
+    related: ['property-finance', 'buy-to-let', 'capex-opex-finance'],
   },
   {
     slug: 'it-asset-buyback',

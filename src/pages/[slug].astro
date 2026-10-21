@@ -82,7 +82,7 @@ const image = { url: `${SITE.url}/og/${p.slug}.jpg`, alt: ALT[p.art] };
   </section>
   )}
 
-  {finance && (
+  {finance && !p.bespoke && (
     <section class:list={['section', { 'section--alt': p.sections.length % 2 === 1 }]}>
       <div class="wrap">
         <div class="section-head">
@@ -111,7 +111,7 @@ const image = { url: `${SITE.url}/og/${p.slug}.jpg`, alt: ALT[p.art] };
     </section>
   )}
 
-  <section class:list={['section', { 'section--alt': !finance && (p.sections.length + (p.faqs.length ? 1 : 0)) % 2 === 0 }]}>
+  <section class:list={['section', { 'section--alt': (!finance || p.bespoke) && (p.sections.length + (p.faqs.length ? 1 : 0)) % 2 === 0 }]}>
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow">Also from Antares Systems</span>

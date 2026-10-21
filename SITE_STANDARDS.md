@@ -2,7 +2,7 @@
 
 The single source of truth for antaressystems.net: facts we may state, how we write, how the site looks,
 and how it is built. Every person and every AI agent working on the site reads this file first.
-If something is not covered here, ask before inventing it. Last updated: 17 October 2026.
+If something is not covered here, ask before inventing it. Last updated: 21 October 2026.
 
 ---
 
@@ -86,20 +86,21 @@ registered office address, ICO number, VAT number.
 
 | Page | URL | Purpose |
 |---|---|---|
-| Home | `/` | Position, four service tiles, how an introduction works, why us |
+| Home | `/` | Position, five service tiles, how an introduction works, why us |
 | Property finance | `/property-finance/` | Commercial mortgages, bridging, refurbishment, refinancing. Target: commercial property finance searches |
 | Buy-to-let | `/buy-to-let/` | Limited-company and SPV buy-to-let only. Target: limited company / SPV buy-to-let searches |
 | CAPEX & OPEX | `/capex-opex-finance/` | Asset finance (CAPEX); OPEX limited to three types: invoice finance, revolving credit facilities, business loans (secured and unsecured) |
+| Debt and refinancing review | `/debt-refinancing-review/` | Review of a company's borrowing (rates, maturities, covenants) with a written report and a plan to refinance or renegotiate. Clients: limited companies, LLPs and property SPVs. Own "how it works" and fee wording (page flag `bespoke`), so no shared steps band or approach box |
 | IT asset buyback | `/it-asset-buyback/` | IT buyback with data erasure. Lowest commercial priority |
 | History | `/history/` | One short block, "Our history" |
 | Contact | `/contacts/` | Form and direct details |
 | Privacy policy | `/privacy-policy/` | UK GDPR notice |
 | Terms of use | `/terms-of-service/` | Website terms |
 
-Header navigation: Property finance · Buy-to-let · CAPEX & OPEX · IT asset buyback · History · Contact, plus button "Discuss your funding" (button shown from 1200px wide). There is no Services page or tab. The four service pages share one template (`src/pages/[slug].astro`) fed by `src/data/services.ts`; add or change page copy there.
+Header navigation: Property finance · Buy-to-let · CAPEX & OPEX · Debt review · IT asset buyback · History · Contact, plus button "Discuss your funding" (button shown from 1200px wide). There is no Services page or tab. The five service pages share one template (`src/pages/[slug].astro`) fed by `src/data/services.ts`; add or change page copy there.
 
 **Redirects (301):** `/services/` → `/it-asset-buyback/` (Google indexed it as "ITAD Services London"); every old IT disposal URL (`/services/data-erasure/`, `/services/itad-asset-recovery/`, `/services/buyback/`, `/services/data-destruction/`, `/services/hardware-refurbishment/`, `/services/it-recycling/` and the other old `/services/*` pages, `/products*`) → `/it-asset-buyback/`; `/compliance/` and `/regulatory/` → `/property-finance/`. Full list in `public/_redirects`.
-The footer carries the status note in section 3 and the "Our approach" box appears on each of the three finance pages (not on the IT page).
+The footer carries the status note in section 3 and the "Our approach" box appears on the Property, Buy-to-let and CAPEX & OPEX pages (not on the IT or Debt review pages).
 
 ---
 
@@ -174,7 +175,7 @@ Retired: `#10bb82` green, `#9E9E9E` grey, `#0081CC`, `#004AAD` blue (too bright)
 
 ### 5.5 Imagery
 
-- **Current set (17 Oct 2026):** six pictures in one "blue hour" art direction, generated with Nano Banana (Google
+- **Current set (17 Oct 2026):** seven pictures in one "blue hour" art direction, generated with Nano Banana (Google
   Gemini image model) from the prompts below, then retouched (small brand marks removed) and exported by us. Deep navy
   sky and shadow, warm gold window light, wet-ground reflections, calm and premium. They are AI-generated images,
   not documentary photographs: do not describe them as photographs of real client property or real premises.
@@ -182,9 +183,9 @@ Retired: `#10bb82` green, `#9E9E9E` grey, `#0081CC`, `#004AAD` blue (too bright)
   `src/components/Visual.astro`.
   Names: `hero` (City street at blue hour) · `property` (modern stone-and-glass office building, wet road) · `btl`
   (Victorian terrace with a gas-style lamp) · `capex` (workshop with a milling machine and a plain white van) · `working-capital`
-  (ledger, fountain pen, papers and a brass banker's lamp; shown on the Contact page) · `it` (stacked laptops beside server racks).
+  (ledger, fountain pen, papers and a brass banker's lamp; shown on the Contact page) · `it` (stacked laptops beside server racks) · `debt-review` (desk with loan papers, laptop and brass lamp above a city view; supplied by the director on 21 Oct 2026, readable title and laptop label removed).
   Box ratio 4:3, `--ink` background, 2px radius, `object-fit: cover`.
-  One picture per page: home `hero`, Property finance `property`, Buy-to-let `btl`, CAPEX & OPEX `capex`, IT asset buyback `it`, Contact `working-capital`.
+  One picture per page: home `hero`, Property finance `property`, Buy-to-let `btl`, CAPEX & OPEX `capex`, IT asset buyback `it`, Debt review `debt-review`, Contact `working-capital`.
 - **Prompt pattern (keep identical for new images):** "Fine-art [subject] at blue hour, deep navy sky, warm golden
   window light, wet surfaces reflecting the light. Calm, premium and understated, 35mm lens, shallow depth of field,
   subtle film grain, muted colour grade of navy, steel blue and warm gold, editorial magazine quality. No people, no

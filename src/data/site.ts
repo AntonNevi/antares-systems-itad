@@ -19,6 +19,7 @@ export const NAV = [
   { text: 'Property finance', href: '/property-finance/' },
   { text: 'Buy-to-let', href: '/buy-to-let/' },
   { text: 'CAPEX & OPEX', href: '/capex-opex-finance/' },
+  { text: 'Debt review', href: '/debt-refinancing-review/' },
   { text: 'IT asset buyback', href: '/it-asset-buyback/' },
   { text: 'History', href: '/history/' },
   { text: 'Contact', href: '/contacts/' },
