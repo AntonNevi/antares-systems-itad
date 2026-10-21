@@ -1,7 +1,7 @@
 // Structured data (schema.org JSON-LD). Facts only from SITE_STANDARDS.md section 1.
 // No ratings, reviews or certifications for Antares Systems Ltd.
 import { SITE } from './site';
-import type { Page } from './services';
+import { pages, type Page } from './services';
 
 export const HOME = `${SITE.url}/`;
 export const ORG_ID = `${SITE.url}/#organization`;
@@ -20,7 +20,7 @@ export const organization = {
   logo: { '@type': 'ImageObject', '@id': `${SITE.url}/#logo`, url: `${SITE.url}/logo_antares.png`, width: 952, height: 264, caption: SITE.name },
   image: OG_IMAGE.url,
   description:
-    'Antares Systems provides business finance solutions for UK companies, SPVs and property investors through a partner network of 200+ lenders, creditors and banks, and buys surplus business IT equipment with data erasure.',
+    'Antares Systems provides business finance solutions for UK companies, LLPs, SPVs and property investors through a partner network of 200+ lenders, creditors and banks, including property, buy-to-let, asset and working capital finance and business debt review, and buys surplus business IT equipment with data erasure.',
   email: SITE.email,
   telephone: SITE.phone,
   address: {
@@ -46,6 +46,8 @@ export const organization = {
     'Bridging finance',
     'Buy-to-let mortgages for limited companies and SPVs',
     'Asset finance',
+    'Hire purchase and leasing',
+    'Working capital finance',
     'Invoice finance',
     'Revolving credit facilities',
     'Business debt review and refinancing',
@@ -54,6 +56,14 @@ export const organization = {
     'Data erasure',
   ],
   sameAs: [SITE.companiesHouse],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Services',
+    itemListElement: pages.map((p) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', '@id': `${SITE.url}${p.path}#service`, name: p.tileTitle, url: `${SITE.url}${p.path}` },
+    })),
+  },
 };
 
 export const director = {
@@ -61,6 +71,9 @@ export const director = {
   '@id': DIRECTOR_ID,
   name: SITE.director,
   jobTitle: 'Director',
+  description:
+    'Director of Antares Systems Ltd. More than ten years in corporate finance within a large industrial holding group, raising and servicing corporate debt across more than 50 companies.',
+  knowsAbout: ['Corporate finance', 'Corporate debt', 'Refinancing', 'Commercial lending'],
   worksFor: { '@id': ORG_ID },
   sameAs: [SITE.linkedin],
 };

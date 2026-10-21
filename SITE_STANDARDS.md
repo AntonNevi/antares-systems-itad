@@ -2,7 +2,7 @@
 
 The single source of truth for antaressystems.net: facts we may state, how we write, how the site looks,
 and how it is built. Every person and every AI agent working on the site reads this file first.
-If something is not covered here, ask before inventing it. Last updated: 21 October 2026.
+If something is not covered here, ask before inventing it. Last updated: 22 October 2026.
 
 ---
 
@@ -89,7 +89,7 @@ registered office address, ICO number, VAT number.
 | Home | `/` | Position, five service tiles, how an introduction works, why us |
 | Property finance | `/property-finance/` | Commercial mortgages, bridging, refurbishment, refinancing. Target: commercial property finance searches |
 | Buy-to-let | `/buy-to-let/` | Limited-company and SPV buy-to-let only. Target: limited company / SPV buy-to-let searches |
-| CAPEX & OPEX | `/capex-opex-finance/` | Asset finance (CAPEX); OPEX limited to three types: invoice finance, revolving credit facilities, business loans (secured and unsecured) |
+| Asset & working capital | `/asset-finance-working-capital/` | Asset finance for CAPEX (hire purchase, finance lease, operating lease and contract hire, asset refinance); working capital finance for OPEX limited to three types: invoice finance (factoring and invoice discounting), revolving credit facilities, business loans (secured and unsecured). Renamed from CAPEX & OPEX and `/capex-opex-finance/` on 22 Oct 2026 (301 in `_redirects`); CAPEX and OPEX stay in the copy as explanatory terms |
 | Debt review | `/debt-review/` | Business debt review and refinancing: review of a company's loans, rates and maturities, written report, plan to refinance, consolidate or renegotiate. Clients: limited companies, LLPs and property SPVs. Own "how it works", FAQ and fee wording (page flag `bespoke`, own button text `cta`), so no shared steps band or approach box. Renamed from `/debt-refinancing-review/` on 21 Oct 2026; avoid "advisory" and "recommend" in the page copy (301 in `_redirects`) |
 | IT asset buyback | `/it-asset-buyback/` | IT buyback with data erasure. Lowest commercial priority |
 | History | `/history/` | One short block, "Our history" |
@@ -97,10 +97,10 @@ registered office address, ICO number, VAT number.
 | Privacy policy | `/privacy-policy/` | UK GDPR notice |
 | Terms of use | `/terms-of-service/` | Website terms |
 
-Header navigation: Property finance · Buy-to-let · CAPEX & OPEX · Debt Review · IT asset buyback · History · Contact, plus button "Discuss your funding" (button shown from 1200px wide). There is no Services page or tab. The five service pages share one template (`src/pages/[slug].astro`) fed by `src/data/services.ts`; add or change page copy there.
+Header navigation: Property finance · Buy-to-let · Asset & working capital · Debt review · IT asset buyback · History · Contact, plus button "Discuss your funding" (button shown from 1200px wide). Nav labels stay in sentence case and never wrap; check the header at 1024, 1200 and 1440px after any label change. There is no Services page or tab. The five service pages share one template (`src/pages/[slug].astro`) fed by `src/data/services.ts`; add or change page copy there.
 
 **Redirects (301):** `/services/` → `/it-asset-buyback/` (Google indexed it as "ITAD Services London"); every old IT disposal URL (`/services/data-erasure/`, `/services/itad-asset-recovery/`, `/services/buyback/`, `/services/data-destruction/`, `/services/hardware-refurbishment/`, `/services/it-recycling/` and the other old `/services/*` pages, `/products*`) → `/it-asset-buyback/`; `/compliance/` and `/regulatory/` → `/property-finance/`. Full list in `public/_redirects`.
-The footer carries the status note in section 3 and the "Our approach" box appears on the Property, Buy-to-let and CAPEX & OPEX pages (not on the IT or Debt Review pages).
+The footer carries the status note in section 3 and the "Our approach" box appears on the Property, Buy-to-let and Asset & working capital pages (not on the IT or Debt review pages).
 
 ---
 
@@ -185,7 +185,7 @@ Retired: `#10bb82` green, `#9E9E9E` grey, `#0081CC`, `#004AAD` blue (too bright)
   (Victorian terrace with a gas-style lamp) · `capex` (workshop with a milling machine and a plain white van) · `working-capital`
   (ledger, fountain pen, papers and a brass banker's lamp; shown on the Contact page) · `it` (stacked laptops beside server racks) · `debt-review` (desk with loan papers, laptop and brass lamp above a city view; supplied by the director on 21 Oct 2026, readable title and laptop label removed).
   Box ratio 4:3, `--ink` background, 2px radius, `object-fit: cover`.
-  One picture per page: home `hero`, Property finance `property`, Buy-to-let `btl`, CAPEX & OPEX `capex`, IT asset buyback `it`, Debt Review `debt-review`, Contact `working-capital`.
+  One picture per page: home `hero`, Property finance `property`, Buy-to-let `btl`, Asset & working capital `capex`, IT asset buyback `it`, Debt review `debt-review`, Contact `working-capital`.
 - **Prompt pattern (keep identical for new images):** "Fine-art [subject] at blue hour, deep navy sky, warm golden
   window light, wet surfaces reflecting the light. Calm, premium and understated, 35mm lens, shallow depth of field,
   subtle film grain, muted colour grade of navy, steel blue and warm gold, editorial magazine quality. No people, no
@@ -233,10 +233,10 @@ text contrast 4.5:1 minimum; forms with labels and error messages; links that ma
 - **Structured data:** every indexable page carries `Organization` (name, legal name, logo `public/logo_antares.png`, contact details, registered office, Companies House number and link), `Person` (the director, with LinkedIn), `WebSite` (site name "Antares Systems"), the page itself (`WebPage`, `AboutPage` or `ContactPage`) and a `BreadcrumbList` (except the home page). Each service page adds one `Service` node for its own service. The service page's `WebPage` points to that node with `about` and `mainEntity`. Never add ratings, reviews, FAQ markup, certifications, prices or anything implying Antares Systems Ltd is FCA-regulated. Leave out the VAT number until it is confirmed.
 - **Headings:** one H1 per page; H2 and H3 in order; service names in H2.
 - **Service pages:** one target search phrase per page, used in the title, H1, first paragraph and at least one H2. Titles stay under about 580px wide (60 characters); descriptions 120–160 characters. The `BreadcrumbList` is structured data only; no visible breadcrumb or label above the H1 (director's decision, 18 Oct 2026). Each page links to the related pages in its body text with descriptive anchor text (written `[anchor text](/path/)` in `src/data/services.ts`) and in the related-services tiles. Each page has its own share image in `public/og/<slug>.jpg` (1200×630, cropped from its picture); other pages use `og-image.jpg`.
-- **Sitemap:** generated by `@astrojs/sitemap` at `/sitemap-index.xml` (404 excluded). Update `LASTMOD` in `astro.config.mjs` when page content changes. `/sitemap.xml` redirects to it.
+- **Sitemap:** generated by `@astrojs/sitemap` at `/sitemap-index.xml` (404 excluded). `LASTMOD` in `astro.config.mjs` holds one date per page: update only the pages whose main content changed (not for navigation or footer changes). `/sitemap.xml` redirects to it.
 - **robots.txt:** allow everything, point to the sitemap. Nothing else.
 - **Redirects:** every retired URL from the old site has a 301 in `public/_redirects` to the closest current page. Cloudflare adds trailing slashes itself (308); do not add rules for that.
-- **Cloudflare dashboard (not in the code):** "Always Use HTTPS" on; a redirect rule from `www.antaressystems.net` to `https://antaressystems.net` (301). `*.pages.dev` copies send `X-Robots-Tag: noindex` from `public/_headers`.
+- **Cloudflare dashboard (not in the code):** "Always Use HTTPS" on; a Single Redirect rule "Redirect from WWW to root" (`https://www.*` to `https://${1}`, 301, query string kept; added 21 Oct 2026 after www returned error 522). Crawler Hints on (Caching, Configuration). `*.pages.dev` copies send `X-Robots-Tag: noindex` from `public/_headers`.
 - **Benchmarks (local Lighthouse, 17 Oct 2026):** SEO 100, accessibility 100, best practices 100 and performance 99 to 100 on every page, mobile and desktop. Re-run before each release.
 - **After publishing:** verify the domain in Google Search Console (DNS record in Cloudflare) and Bing Webmaster Tools, submit `/sitemap-index.xml`, request indexing of the home page, and check the Pages and Enhancements reports after two weeks. Create a Google Business Profile as a service-area business (address hidden) with the same name, phone and website as the site.
 

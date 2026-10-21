@@ -43,6 +43,10 @@
 /products /it-asset-buyback/ 301
 /products/* /it-asset-buyback/ 301
 
+# CAPEX & OPEX page renamed to asset finance and working capital (22 Oct 2026)
+/capex-opex-finance /asset-finance-working-capital/ 301
+/capex-opex-finance/ /asset-finance-working-capital/ 301
+
 # First name of the debt review page (live 21 Oct 2026)
 /debt-refinancing-review /debt-review/ 301
 /debt-refinancing-review/ /debt-review/ 301

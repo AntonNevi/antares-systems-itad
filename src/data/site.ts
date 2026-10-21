@@ -18,8 +18,8 @@ export const SITE = {
 export const NAV = [
   { text: 'Property finance', href: '/property-finance/' },
   { text: 'Buy-to-let', href: '/buy-to-let/' },
-  { text: 'CAPEX & OPEX', href: '/capex-opex-finance/' },
-  { text: 'Debt Review', href: '/debt-review/' },
+  { text: 'Asset & working capital', href: '/asset-finance-working-capital/' },
+  { text: 'Debt review', href: '/debt-review/' },
   { text: 'IT asset buyback', href: '/it-asset-buyback/' },
   { text: 'History', href: '/history/' },
   { text: 'Contact', href: '/contacts/' },
